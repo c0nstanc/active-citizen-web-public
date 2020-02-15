@@ -14,8 +14,8 @@ export class NavComponent implements OnInit {
   public isDarkTheme$: Observable<boolean>;
 
   navItems = [
-    { link: '/dashboard/home', title: 'Home' },
-    { link: '/dashboard/home', title: 'Register Item' },
+    { link: '/incidents/my-incidents', title: 'My Incidents' },
+    { link: '/incidents/my-incidents', title: 'Register Item' },
     { link: '/contact', title: 'Contact' },
     { link: '/about', title: 'About' }
   ];

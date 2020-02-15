@@ -7,10 +7,10 @@ import { MaterialModule } from './material.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxMasonryModule } from 'ngx-masonry';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import {
+  faImages,
   faCodeBranch,
   faAsterisk,
   faBars,
@@ -41,6 +41,7 @@ import {
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 library.add(
+  faImages,
   faGithub,
   faCodeBranch,
   faAsterisk,
@@ -92,7 +93,6 @@ import { ControlMessagesComponent } from './component/control-messages/control-m
 
     NgbModule,
     FontAwesomeModule,
-    NgxMasonryModule,
 
     ControlMessagesComponent,
   ]

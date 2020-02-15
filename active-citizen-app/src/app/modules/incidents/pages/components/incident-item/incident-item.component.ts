@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {Incident} from '../../../../data/schema/incident.model';
+import {Incident} from '../../../../../data/schema/incident.model';
 
 @Component({
   selector: 'app-incident-item',
@@ -8,7 +8,7 @@ import {Incident} from '../../../../data/schema/incident.model';
 })
 export class IncidentItemComponent {
   @Input() incident: Incident;
-  flipped = false;
+  // flipped = false;
 
   constructor() {
   }
