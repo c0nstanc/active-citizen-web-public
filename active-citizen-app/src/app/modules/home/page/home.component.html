@@ -1,0 +1,15 @@
+<div id="content">
+  <div>
+    <!-- <button style="float: right" class="btn btn-primary" (click)="openMyModal()">
+      Open Modal
+    </button>       -->
+
+    <h1>Incidents</h1>
+  </div>
+
+  <ngx-masonry [useImagesLoaded]="true" [options]="{ transitionDuration: '0.8s' }">
+    <ngxMasonryItem class="masonry-item" *ngFor="let incident of incidents$ | async">
+      <app-incident-item [incident]="incident"></app-incident-item>
+    </ngxMasonryItem>
+  </ngx-masonry>
+</div>

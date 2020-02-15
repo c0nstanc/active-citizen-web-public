@@ -1,0 +1,38 @@
+<div class='card-container'>
+  <div class='flippable-card' [ngClass]="{'flipped':flipped}">
+    <mat-card class="custom-card front" *ngIf="!flipped">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ incident.name }}</mat-card-title>
+        <mat-card-subtitle>{{ incident.status}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="incident.imageUrl" alt="Photo incident">
+      <mat-card-content>
+        <p>
+          {{ incident.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="active" mat-button (click)='flipped = !flipped'>READ MORE</button>
+        <button class="active" mat-button
+          [routerLink]="['/dashboard/incidents/' + incident.id]">{{ incident.id }}</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class="custom-card back" *ngIf="flipped">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ incident.name }}</mat-card-title>
+        <mat-card-subtitle>{{ incident.status}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          {{ incident.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="active" mat-button (click)='flipped = !flipped'>READ MORE</button>
+        <button class="active" mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

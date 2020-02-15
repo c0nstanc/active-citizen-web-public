@@ -1,0 +1,17 @@
+<mat-card class="custom-card front">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ incident.name }}</mat-card-title>
+    <mat-card-subtitle>{{ incident.status }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="incident.imageUrl" alt="Incident photo">
+  <mat-card-content>
+    <p>
+      {{ incident.description }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="active" mat-button>READ MORE</button>
+    <button class="active" mat-button>{{ incident.id }}</button>
+  </mat-card-actions>
+</mat-card>
