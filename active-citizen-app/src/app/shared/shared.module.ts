@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule, FaConfig } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import {
@@ -35,7 +35,8 @@ import {
   faLightbulb,
   faWindowMaximize,
   faStream,
-  faBook
+  faBook,
+  faBan
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -67,7 +68,8 @@ library.add(
   faLightbulb,
   faWindowMaximize,
   faStream,
-  faBook
+  faBook,
+  faBan
 );
 
 import { ControlMessagesComponent } from './component/control-messages/control-messages.component';
@@ -97,4 +99,8 @@ import { ControlMessagesComponent } from './component/control-messages/control-m
     ControlMessagesComponent,
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+  constructor(config: FaConfig) {
+    config.fallbackIcon = faBan;
+  }
+}

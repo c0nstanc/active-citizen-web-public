@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { tap, delay, finalize, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { tap, delay, finalize, catchError, startWith } from 'rxjs/operators';
+import { of, Observable } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faAsterisk } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -13,6 +15,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  asterisk$: Observable<IconDefinition>;
   error: string;
   isLoading: boolean;
   loginForm: FormGroup;
@@ -23,6 +26,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService
   ) {
     this.buildForm();
+    this.initializeIcons();
   }
 
   ngOnInit() { }
@@ -50,6 +54,15 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+  }
+
+
+  private initializeIcons(): void {
+    this.asterisk$ = this.loadUserCircle().pipe(startWith(faAsterisk));
+  }
+
+  private loadUserCircle(): Observable<IconDefinition> {
+    return of(faAsterisk);
   }
 
 }

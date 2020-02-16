@@ -47,7 +47,8 @@
     <img *ngIf="incident.imageUrl; else noImage" [src]="incident.imageUrl" alt="Photo incident">
 
     <ng-template #noImage>
-      <fa-icon icon="images" size="6x"></fa-icon>
+      <!-- <fa-icon icon="images" size="6x"></fa-icon> -->
+      <fa-icon *ngIf="images$ | async as images" [icon]="images" size="6x"></fa-icon>
     </ng-template>
   </div>
 

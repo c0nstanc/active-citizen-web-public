@@ -1,10 +1,16 @@
 <div id="content">
-  <div>
-    <h1>My Incidents</h1>
+
+  <div class="title-container">
+    <div>
+      <h1>My Incidents</h1>
+    </div>
+
+    <button class="btn btn-primary" (click)="createIncident()">
+      Create new incident
+    </button>
   </div>
 
-    <button style="float: right" class="btn btn-primary" (click)="createIncident()">
-    </button>
+
 
   <div *ngFor="let incident of incidents$ | async">
     <app-incident-item [incident]="incident"></app-incident-item>

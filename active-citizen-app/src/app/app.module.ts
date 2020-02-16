@@ -15,6 +15,7 @@ import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './modules/auth/auth.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,4 +42,5 @@ import { AuthModule } from './modules/auth/auth.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }
