@@ -8,6 +8,15 @@ Run `npm install` to install dependencies locally
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## NOTE: Fetch without commiting 
+
+Run `git stash` in project location (cmd)
+Then fetch from Github
+Then Run `git stash pop` to brings your changes back 
+
+If conflicts -> Resolve manually
+
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
