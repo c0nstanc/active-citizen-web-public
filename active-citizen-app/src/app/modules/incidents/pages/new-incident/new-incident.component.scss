@@ -1,15 +1,24 @@
+@import '../../../../../styles/scss/variables.scss';
 .title-divider {
   margin-bottom: 1em;
 }
 
 .form-group {
-  width: 50%;
+  width: 100%;
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    width: 50%;
+  }
+
+  // @media screen and (min-width: $breakpoint-desktop) {
+  //   width: 50%;
+  // }
 }
 
 .ng-invalid.ng-touched {
   border-color: red;
 }
 
-mat-form-field{
+mat-form-field {
   width: 100%;
 }

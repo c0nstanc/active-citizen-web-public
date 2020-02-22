@@ -43,11 +43,28 @@
 
     </div>
 
+        <div class="form-group">
+      <div class="input-group">
+        <!-- <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        </div> -->
+        <div class="custom-file">
+          <input type="file" name="file" id="inputGroupFile01" accept='image/*'
+            (change)="onImageSelected($event.target.files)">
+          <label class="custom-file-label" for="inputGroupFile01" #labelFileUpload>Choose file</label>
+        </div>
+      </div>
+    </div>
 
-    <button type="submit" class="btn btn-primary btn-block btn-raised" type="submit"
-      [disabled]="newIncidentForm.invalid">
-      <span>Submit</span>
-    </button>
+    <img [src]="imgURL" height="200" *ngIf="imgURL">
+
+
+    <div class="form-group">
+
+      <button mat-raised-button type="submit"  color="primary" class="btn btn-primary btn-block btn-raised" type="submit"
+        [disabled]="newIncidentForm.invalid"> <span> Submit</span>
+      </button>
+    </div>
 
   </form>
 

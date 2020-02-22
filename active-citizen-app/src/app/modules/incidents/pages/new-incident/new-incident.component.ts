@@ -67,9 +67,6 @@ export class NewIncidentComponent implements OnInit {
 
   onImageSelected(files: FileList): void {
 
-
-
-
     if (files.item(0).type.match(/image\/*/) != null) {
       this.selectedFile = files.item(0);
       const reader: FileReader = new FileReader();
