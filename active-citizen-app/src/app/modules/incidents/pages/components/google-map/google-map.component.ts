@@ -42,7 +42,7 @@ export class GoogleMapComponent implements AfterViewInit {
 
 
 
-  @ViewChild('googleMapContainer', { static: false })
+  @ViewChild('googleMapContainer')
   gmap: ElementRef;
 
   constructor() {

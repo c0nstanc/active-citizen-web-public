@@ -24,7 +24,7 @@ export class NewIncidentComponent implements OnInit {
   incident: Incident;
 
 
-  @ViewChild('labelFileUpload', { static: false })
+  @ViewChild('labelFileUpload')
   labelFileUpload: ElementRef;
 
   selectedValue: string;
