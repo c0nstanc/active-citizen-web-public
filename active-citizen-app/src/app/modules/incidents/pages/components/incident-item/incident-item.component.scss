@@ -32,17 +32,17 @@
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
     0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
   display: flex;
-  padding: 0.5rem;
+  padding: 0.5em;
 
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  border-radius: 0.5rem;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border-radius: 0.5em;
 
   .incident-image-wrapper {
-    margin: 0.25rem;
+    margin: 0.25em;
 
-    width: 9rem;
-    height: 9rem;
+    width: 9em;
+    height: 9em;
     display: flex;
     align-items: stretch;
     justify-content: center;
@@ -59,8 +59,8 @@
   }
 
   .incident-info {
-    margin-left: 1rem;
-    padding: 0.25rem;
+    margin-left: 1em;
+    padding: 0.25em;
     width: 100%;
 
     background-color: #f5f5f5;
@@ -71,12 +71,12 @@
       justify-content: space-between;
     }
     .title {
-      font-size: 2rem;
+      font-size: 2em;
       font-weight: 700;
       display: flex;
     }
     .id {
-      font-size: 1rem;
+      font-size: 1em;
       color: grey;
     }
   }
@@ -90,10 +90,10 @@
   }
 
   .status.resolved {
-    color: green;
+    color: lightgreen;
   }
 
   .description{
-    margin-top: 1rem;
+    margin-top: 1em;
   }
 }

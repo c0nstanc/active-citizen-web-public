@@ -1,0 +1,58 @@
+@mixin header-padding-left {
+  padding-left: 20px;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding-left: 40px;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    padding-left: 60px;
+  }
+
+}
+
+@mixin header-height($size) {
+  height: $size;
+  max-height: $size;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    height: $size+10px;
+    max-height: $size+10px;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    height: $size+20px;
+    max-height: $size+20px;
+  }
+
+}
+
+@mixin header-padding-top($size) {
+  padding-top: $size+1px;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding-top: $size+1px+20px;
+
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    padding-top: $size+1px+20px;
+
+  }
+
+}
+
+
+@mixin header-logo-size($size) {
+  @include header-height($size);
+  width: $size;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    width: 156px;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    width: 182px;
+  }
+
+}

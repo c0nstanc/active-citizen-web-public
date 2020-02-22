@@ -1,0 +1,52 @@
+@import '~@angular/material/theming';
+@import 'mat-typography';
+
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core($active-citizens-typography);
+
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+@import 'mat-styles-variables';
+
+@import 'mat-style-reset';
+@import 'mat-styles-reset.scss-theme';
+@import 'themes/black-theme';
+@import 'themes/light-theme';
+@import 'themes/my-custom-theme';
+
+
+// import custom component themes here
+// @import 'app/modules/home/page/incident-item/incident-container.component.scss-theme.scss';
+
+
+@mixin custom-components-theme($theme) {
+  @include my-styles-reset-theme($theme);
+  //@include my-incident-container-component-theme($theme);
+  @include angular-material-typography($active-citizens-typography);
+}
+
+
+.my-light-theme {
+  @include angular-material-theme($my-light-theme);
+  @include custom-components-theme($my-light-theme);
+}
+
+.my-dark-theme {
+  @include angular-material-theme($my-black-theme);
+  @include custom-components-theme($my-black-theme);
+
+}
+
+.my-custom-theme {
+  @include angular-material-theme($my-custom-theme);
+  @include custom-components-theme($my-custom-theme);
+}
+
+
+

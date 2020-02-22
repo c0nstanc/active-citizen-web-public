@@ -73,6 +73,7 @@ library.add(
 );
 
 import { ControlMessagesComponent } from './component/control-messages/control-messages.component';
+import { PageTitleComponent } from './component/page-title/page-title.component';
 
 @NgModule({
   imports: [
@@ -84,7 +85,8 @@ import { ControlMessagesComponent } from './component/control-messages/control-m
     NgbModule,
     FontAwesomeModule
   ],
-  declarations: [ControlMessagesComponent],
+  declarations: [ControlMessagesComponent,
+    PageTitleComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -97,6 +99,7 @@ import { ControlMessagesComponent } from './component/control-messages/control-m
     FontAwesomeModule,
 
     ControlMessagesComponent,
+    PageTitleComponent
   ]
 })
 export class SharedModule {

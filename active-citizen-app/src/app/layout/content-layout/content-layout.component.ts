@@ -13,7 +13,7 @@ export class ContentLayoutComponent implements OnInit {
 
   constructor(
     private themeService: ThemeService
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (this.overlayContainer) {
@@ -32,5 +32,19 @@ export class ContentLayoutComponent implements OnInit {
         overlayContainerClasses.add(this.theme);
       }
     });
+
+    this.themeService.getLightTheme().subscribe(theme => {
+      this.theme = (theme) ? 'my-light-theme' : 'my-dark-theme';
+
+      if (this.overlayContainer) {
+        const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
+        const themeClassesToRemove = Array.from(overlayContainerClasses).filter((item: string) => item.includes('-theme'));
+        if (themeClassesToRemove.length) {
+          overlayContainerClasses.remove(...themeClassesToRemove);
+        }
+        overlayContainerClasses.add(this.theme);
+      }
+    });
+
   }
 }

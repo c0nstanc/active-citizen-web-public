@@ -4,6 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "serve:local": "ng serve --watch --source-map --common-chunk --vendor-chunk --disable-host-check",
+    "build:prod": "ng build --source-map --prod --aot --common-chunk --vendor-chunk",
+    "serve:prod": "ng build --source-map --prod --aot --common-chunk --vendor-chunk",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
