@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { FontAwesomeModule, FaConfig } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule, FaConfig } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import {
@@ -83,7 +83,7 @@ import { PageTitleComponent } from './component/page-title/page-title.component'
     RouterModule,
 
     NgbModule,
-    // FontAwesomeModule
+    FontAwesomeModule
   ],
   declarations: [ControlMessagesComponent,
     PageTitleComponent],
@@ -96,14 +96,14 @@ import { PageTitleComponent } from './component/page-title/page-title.component'
     MaterialModule,
 
     NgbModule,
-    // FontAwesomeModule,
+    FontAwesomeModule,
 
     ControlMessagesComponent,
     PageTitleComponent
   ]
 })
 export class SharedModule {
-  // constructor(config: FaConfig) {
-  //   config.fallbackIcon = faBan;
-  // }
+  constructor(config: FaConfig) {
+    config.fallbackIcon = faBan;
+  }
 }
