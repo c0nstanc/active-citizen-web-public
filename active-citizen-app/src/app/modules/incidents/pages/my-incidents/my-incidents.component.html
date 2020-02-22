@@ -4,12 +4,12 @@
     <app-page-title>My Incidents</app-page-title>
 
 
-    <button  mat-raised-button color="primary" (click)="createIncident()">
+    <button mat-raised-button color="primary" (click)="createIncident()">
       Create new incident
     </button>
   </div>
 
-
+  <h1>{{'atouken' | translate}}</h1>
 
   <div *ngFor="let incident of incidents$ | async">
     <app-incident-item [incident]="incident"></app-incident-item>

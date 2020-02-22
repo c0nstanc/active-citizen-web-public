@@ -74,6 +74,7 @@ library.add(
 
 import { ControlMessagesComponent } from './component/control-messages/control-messages.component';
 import { PageTitleComponent } from './component/page-title/page-title.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -81,6 +82,7 @@ import { PageTitleComponent } from './component/page-title/page-title.component'
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    TranslateModule,
 
     NgbModule,
     FontAwesomeModule
@@ -92,6 +94,7 @@ import { PageTitleComponent } from './component/page-title/page-title.component'
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    TranslateModule,
 
     MaterialModule,
 
