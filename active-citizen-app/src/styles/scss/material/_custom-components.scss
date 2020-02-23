@@ -1,0 +1,14 @@
+@import "mat-style-reset";
+@import "mat-styles-reset.scss-theme";
+
+// import custom component themes here
+@import "app/modules/incidents/pages/components/incident-item/incident-container.component-theme";
+@import "app/modules/incidents/pages/new-incident/new-incident.component-theme";
+
+
+@mixin custom-components-theme($selected-theme) {
+  @include my-styles-reset-theme($selected-theme);
+  @include my-incident-container-component-theme($selected-theme);
+  @include my-incident-component-theme($selected-theme);
+  @include angular-material-typography($active-citizens-typography);
+}

@@ -1,20 +1,19 @@
-@import '~@angular/material/theming';
+@import "mat-theme-colors";
 
-@mixin my-styles-reset-theme($theme) {
-  $primary: map-get($theme, primary);
-  $accent: map-get($theme, accent);
-  $foreground: map-get($theme, foreground);
-
+@mixin my-styles-reset-theme($selected-theme) {
   a {
-    color: mat-color($foreground, text);
+    color: mat-color(mat-theme-foreground-color($selected-theme), text);
 
     &:hover {
-      color: mat-color($accent);
+      color: mat-color(mat-theme-accent-color($selected-theme));
     }
   }
 
   code {
-    color: mat-color($accent, lighter-contrast);
-    background-color: mat-color($accent, lighter);
+    color: mat-color(mat-theme-accent-color($selected-theme), lighter-contrast);
+    background-color: mat-color(
+      mat-theme-accent-color($selected-theme),
+      lighter
+    );
   }
 }

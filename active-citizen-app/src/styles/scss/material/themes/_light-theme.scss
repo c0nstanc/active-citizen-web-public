@@ -1,9 +1,48 @@
-$my-light-primary: mat-palette($mat-deep-purple, 100, 500, 300);
-$my-light-accent: mat-palette($mat-brown, 200);
-$my-light-warn: mat-palette($mat-deep-orange, 200);
+// A primary palette: colors most widely used across all screens and components.
+// An accent palette: colors used for the floating action button and interactive elements.
+// A warn palette: colors used to convey error state.
+// A foreground palette: colors for text and icons.
+// A background palette: colors used for element backgrounds.
+
+// mat-palette($base-palette, $default: 500, $lighter: 100, $darker: 700, $text: $default)
+
+$my-light-primary: mat-palette($mat-deep-purple, 500, 200, 700);
+$my-light-accent: mat-palette($mat-amber, 300, 200, 500);
+$my-light-warn: mat-palette($mat-red);
 
 $my-light-theme: mat-light-theme(
   $my-light-primary,
   $my-light-accent,
   $my-light-warn
+);
+
+$my-light-theme-background-color: map-get($my-light-primary, 50);
+$my-light-theme-foreground-color: black;
+
+$background: map-get($my-light-theme, background);
+$background: map_merge(
+  $background,
+  (
+    background: $my-light-theme-background-color
+  )
+);
+$my-light-theme: map_merge(
+  $my-light-theme,
+  (
+    background: $background
+  )
+);
+
+$foreground: map-get($my-light-theme, foreground);
+$foreground: map_merge(
+  $foreground,
+  (
+    foreground: $my-light-theme-foreground-color
+  )
+);
+$my-light-theme: map_merge(
+  $my-light-theme,
+  (
+    foreground: $foreground
+  )
 );

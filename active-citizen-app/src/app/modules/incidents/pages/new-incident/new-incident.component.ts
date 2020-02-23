@@ -84,4 +84,8 @@ export class NewIncidentComponent implements OnInit {
 
 
   }
+
+  onFileComplete(data: any) {
+    console.log(data); // We just print out data bubbled up from event emitter.
+  }
 }

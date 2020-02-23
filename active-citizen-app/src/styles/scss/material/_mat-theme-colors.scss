@@ -1,0 +1,31 @@
+@import "~@angular/material/theming";
+
+@function mat-theme-colors($selected-theme) {
+  @return (
+    primary-color: map-get($selected-theme, primary),
+    accent-color: map-get($selected-theme, accent),
+    warn-color: map-get($selected-theme, warn),
+    foreground-color: map-get($selected-theme, foreground),
+    background-color: map-get($selected-theme, background)
+  );
+}
+
+@function mat-theme-primary-color($selected-theme) {
+  @return map-get(mat-theme-colors($selected-theme), primary-color);
+}
+
+@function mat-theme-accent-color($selected-theme) {
+  @return map-get(mat-theme-colors($selected-theme), accent-color);
+}
+
+@function mat-theme-warn-color($selected-theme) {
+  @return map-get(mat-theme-colors($selected-theme), warn-color);
+}
+
+@function mat-theme-foreground-color($selected-theme) {
+  @return map-get(mat-theme-colors($selected-theme), foreground-color);
+}
+
+@function mat-theme-background-color($selected-theme) {
+  @return map-get(mat-theme-colors($selected-theme), background-color);
+}

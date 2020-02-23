@@ -9,10 +9,11 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Incident Title</mat-label>
-        <input matInput placeholder="Enter here" formControlName="incidentTitle">
+        <input matInput placeholder="Enter here" formControlName="incidentTitle" autocomplete="off">
         <mat-error>
           <app-control-messages [control]="f['incidentTitle']"></app-control-messages>
         </mat-error>
+
       </mat-form-field>
 
     </div>
@@ -35,7 +36,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Incident Description</mat-label>
-        <textarea matInput placeholder="Enter here" formControlName="incidentDesc"></textarea>
+        <textarea matInput placeholder="Enter here" formControlName="incidentDesc" autocomplete="off"></textarea>
         <mat-error>
           <app-control-messages [control]="f['incidentDesc']"></app-control-messages>
         </mat-error>
@@ -43,16 +44,16 @@
 
     </div>
 
-        <div class="form-group">
+    <div class="form-group">
       <div class="input-group">
-        <!-- <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-        </div> -->
-        <div class="custom-file">
-          <input type="file" name="file" id="inputGroupFile01" accept='image/*'
-            (change)="onImageSelected($event.target.files)">
-          <label class="custom-file-label" for="inputGroupFile01" #labelFileUpload>Choose file</label>
-        </div>
+
+        <!-- <input #imageInput hidden="true" name="file" type="file" onclick="this.value=null" id="inputGroupFile01"
+          (change)="onImageSelected($event.target.files)" accept="image/*" />
+        <button mat-flat-button color="primary" (click)="imageInput.click()">Add Image</button>
+        <label  for="inputGroupFile01" #labelFileUpload>Choose file</label>
+       -->
+
+        <app-mat-file-upload (imageSelected)="onFileComplete($event)"></app-mat-file-upload>
       </div>
     </div>
 
@@ -61,7 +62,7 @@
 
     <div class="form-group">
 
-      <button mat-raised-button type="submit"  color="primary" class="btn btn-primary btn-block btn-raised" type="submit"
+      <button mat-raised-button type="submit" color="primary" class="btn btn-primary btn-block btn-raised" type="submit"
         [disabled]="newIncidentForm.invalid"> <span> Submit</span>
       </button>
     </div>

@@ -75,6 +75,7 @@ library.add(
 import { ControlMessagesComponent } from './component/control-messages/control-messages.component';
 import { PageTitleComponent } from './component/page-title/page-title.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatFileUploadComponent } from './component/mat-file-upload/mat-file-upload.component';
 
 @NgModule({
   imports: [
@@ -85,10 +86,12 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule,
 
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MaterialModule,
   ],
   declarations: [ControlMessagesComponent,
-    PageTitleComponent],
+    PageTitleComponent,
+    MatFileUploadComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -102,7 +105,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FontAwesomeModule,
 
     ControlMessagesComponent,
-    PageTitleComponent
+    PageTitleComponent,
+    MatFileUploadComponent
   ]
 })
 export class SharedModule {

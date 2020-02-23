@@ -1,0 +1,24 @@
+
+@mixin my-incident-container-component-theme($selected-theme) {
+  $mat-theme-colors: mat-theme-colors($selected-theme);
+
+  .incident-item {
+    border-color: mat-color(mat-theme-primary-color($selected-theme), 900);
+
+    .incident-info {
+      background-color: mat-color(
+        mat-theme-background-color($selected-theme),
+        300
+      );
+    }
+    // .active {
+    //   color: mat-color($accent-color, default-contrast);
+    //   background-color: mat-color($accent);
+
+    //   &:hover {
+    //     color: mat-color($accent-color, default-contrast);
+    //     background-color: mat-color($accent-color);
+    //   }
+    // }
+  }
+}
