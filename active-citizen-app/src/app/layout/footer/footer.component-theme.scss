@@ -1,6 +1,10 @@
 @mixin footer-component-theme($selected-theme) {
   .footer {
-    color: mat-theme-background-color($selected-theme);
+    @if mat-theme-is-dark($selected-theme) {
+      color: white;
+    } @else {
+      color: mat-theme-background-color($selected-theme);
+    }
     background-color: mat-color(
       mat-theme-primary-color($selected-theme),
       default

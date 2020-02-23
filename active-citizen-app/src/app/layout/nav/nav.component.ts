@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-nav',
@@ -21,14 +22,14 @@ export class NavComponent implements OnInit {
   ];
 
   constructor(
-    // private themeService: ThemeService
+    private themeService: ThemeService
   ) { }
 
   ngOnInit() {
-    // this.isDarkTheme$ = this.themeService.getDarkTheme();
+    this.isDarkTheme$ = this.themeService.getDarkTheme();
   }
 
-  // toggleTheme(checked: boolean) {
-  //   this.themeService.setDarkTheme(checked);
-  // }
+  toggleTheme(checked: boolean) {
+    this.themeService.setDarkTheme(checked);
+  }
 }
