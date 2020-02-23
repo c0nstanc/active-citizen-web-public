@@ -1,9 +1,13 @@
-
 @mixin my-incident-component-theme($selected-theme) {
-  // .form-group {
-  //   background-color: mat-color(
-  //     mat-theme-background-color($selected-theme),
-  //     900
-  //   );
-  // }
+  .form-container {
+    @if mat-theme-is-dark($selected-theme) {
+      background-color: rgba(mat-theme-background-color($selected-theme), 0.9);
+    } @else {
+      background-color: white;
+    }
+  }
+
+  .ng-invalid.ng-touched {
+    border-color: mat-color(mat-theme-warn-color($selected-theme), 500);
+  }
 }

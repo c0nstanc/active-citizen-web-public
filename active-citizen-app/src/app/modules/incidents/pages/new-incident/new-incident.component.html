@@ -3,71 +3,71 @@
   <app-page-title>Submit a new Incident Request</app-page-title>
   <mat-divider class="title-divider"></mat-divider>
 
-  <form (ngSubmit)="onSubmit()" [formGroup]="newIncidentForm">
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="newIncidentForm">
 
-    <div class="form-group">
+      <div class="form-group">
 
-      <mat-form-field appearance="outline">
-        <mat-label>Incident Title</mat-label>
-        <input matInput placeholder="Enter here" formControlName="incidentTitle" autocomplete="off">
-        <mat-error>
-          <app-control-messages [control]="f['incidentTitle']"></app-control-messages>
-        </mat-error>
+        <mat-form-field appearance="outline">
+          <mat-label>Incident Title</mat-label>
+          <input matInput placeholder="Enter here" formControlName="incidentTitle" autocomplete="off">
+          <mat-error>
+            <app-control-messages [control]="f['incidentTitle']"></app-control-messages>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-      </mat-form-field>
+      <div class="form-group">
+        <mat-form-field appearance="outline">
+          <mat-label>Incident Type</mat-label>
+          <mat-select name="incidentType" formControlName="incidentType">
+            <mat-option *ngFor="let incidentType of IncidentTypes" [value]="incidentType.value">
+              {{incidentType.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            <app-control-messages [control]="f['incidentType']"></app-control-messages>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-    </div>
+      <div class="form-group">
 
-    <div class="form-group">
-      <mat-form-field appearance="outline">
-        <mat-label>Incident Type</mat-label>
-        <mat-select name="incidentType" formControlName="incidentType">
-          <mat-option *ngFor="let incidentType of IncidentTypes" [value]="incidentType.value">
-            {{incidentType.viewValue}}
-          </mat-option>
-        </mat-select>
-        <mat-error>
-          <app-control-messages [control]="f['incidentType']"></app-control-messages>
-        </mat-error>
-      </mat-form-field>
-    </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Incident Description</mat-label>
+          <textarea matInput placeholder="Enter here" formControlName="incidentDesc" autocomplete="off"></textarea>
+          <mat-error>
+            <app-control-messages [control]="f['incidentDesc']"></app-control-messages>
+          </mat-error>
+        </mat-form-field>
 
-    <div class="form-group">
+      </div>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Incident Description</mat-label>
-        <textarea matInput placeholder="Enter here" formControlName="incidentDesc" autocomplete="off"></textarea>
-        <mat-error>
-          <app-control-messages [control]="f['incidentDesc']"></app-control-messages>
-        </mat-error>
-      </mat-form-field>
+      <div class="form-group">
+        <div class="input-group">
 
-    </div>
-
-    <div class="form-group">
-      <div class="input-group">
-
-        <!-- <input #imageInput hidden="true" name="file" type="file" onclick="this.value=null" id="inputGroupFile01"
+          <!-- <input #imageInput hidden="true" name="file" type="file" onclick="this.value=null" id="inputGroupFile01"
           (change)="onImageSelected($event.target.files)" accept="image/*" />
         <button mat-flat-button color="primary" (click)="imageInput.click()">Add Image</button>
         <label  for="inputGroupFile01" #labelFileUpload>Choose file</label>
        -->
 
-        <app-mat-file-upload (imageSelected)="onFileComplete($event)"></app-mat-file-upload>
+          <app-mat-file-upload (imageSelected)="onFileComplete($event)"></app-mat-file-upload>
+        </div>
       </div>
-    </div>
 
-    <img [src]="imgURL" height="200" *ngIf="imgURL">
+      <img [src]="imgURL" height="200" *ngIf="imgURL">
 
 
-    <div class="form-group">
+      <div class="form-group">
 
-      <button mat-raised-button type="submit" color="primary" class="btn btn-primary btn-block btn-raised" type="submit"
-        [disabled]="newIncidentForm.invalid"> <span> Submit</span>
-      </button>
-    </div>
+        <button mat-raised-button type="submit" color="primary" class="btn btn-primary btn-block btn-raised"
+          type="submit" [disabled]="newIncidentForm.invalid"> <span> Submit</span>
+        </button>
+      </div>
 
-  </form>
+    </form>
+  </div>
 
 
   <!-- <app-google-map></app-google-map> -->

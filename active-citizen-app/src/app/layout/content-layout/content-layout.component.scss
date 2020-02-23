@@ -13,4 +13,5 @@ app-nav {
 
 #content {
   margin-top: 1em;
+  min-height: calc(100vh - 206px); // TODO - USE variables for header/footer/margins
 }

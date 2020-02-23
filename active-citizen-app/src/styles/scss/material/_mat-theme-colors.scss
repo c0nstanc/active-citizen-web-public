@@ -6,7 +6,8 @@
     accent-color: map-get($selected-theme, accent),
     warn-color: map-get($selected-theme, warn),
     foreground-color: map-get($selected-theme, foreground),
-    background-color: map-get($selected-theme, background)
+    background-color: map-get($selected-theme, background),
+    is-dark: map-get($selected-theme, is-dark)
   );
 }
 
@@ -27,5 +28,12 @@
 }
 
 @function mat-theme-background-color($selected-theme) {
-  @return map-get(mat-theme-colors($selected-theme), background-color);
+  @return map-get(
+    map-get(mat-theme-colors($selected-theme), background-color),
+    background
+  );
+}
+
+@function mat-theme-is-dark($selected-theme) {
+  @return map-get(mat-theme-colors($selected-theme), is-dark);
 }
