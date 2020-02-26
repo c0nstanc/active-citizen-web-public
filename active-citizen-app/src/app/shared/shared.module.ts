@@ -8,6 +8,7 @@ import { MaterialModule } from './material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule, FaConfig } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { FileDropModule } from '@browninglogic/ng-file-drop';
 
 import {
   faImages,
@@ -84,6 +85,7 @@ import { MatFileUploadComponent } from './component/mat-file-upload/mat-file-upl
     ReactiveFormsModule,
     RouterModule,
     TranslateModule,
+    FileDropModule,
 
     NgbModule,
     FontAwesomeModule,
@@ -98,7 +100,7 @@ import { MatFileUploadComponent } from './component/mat-file-upload/mat-file-upl
     ReactiveFormsModule,
     RouterModule,
     TranslateModule,
-
+    FileDropModule,
     MaterialModule,
 
     NgbModule,

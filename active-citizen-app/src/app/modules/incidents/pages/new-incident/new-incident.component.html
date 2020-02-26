@@ -7,7 +7,6 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="newIncidentForm">
 
       <div class="form-group">
-
         <mat-form-field appearance="outline">
           <mat-label>Incident Title</mat-label>
           <input matInput placeholder="Enter here" formControlName="incidentTitle" autocomplete="off">
@@ -16,7 +15,6 @@
           </mat-error>
         </mat-form-field>
       </div>
-
       <div class="form-group">
         <mat-form-field appearance="outline">
           <mat-label>Incident Type</mat-label>
@@ -30,6 +28,11 @@
           </mat-error>
         </mat-form-field>
       </div>
+
+
+
+
+
 
       <div class="form-group">
 
@@ -52,8 +55,35 @@
         <label  for="inputGroupFile01" #labelFileUpload>Choose file</label>
        -->
 
-          <app-mat-file-upload (imageSelected)="onFileComplete($event)"></app-mat-file-upload>
+          <!-- <app-mat-file-upload (imageSelected)="onFileComplete($event)"></app-mat-file-upload> -->
         </div>
+
+        <!-- <nfd-file-input #fileInput containerDivClass="file-input-demo" (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304"> -->
+          <nfd-file-input #fileInput containerDivClass="file-input-demo"  allowedExtensions="jpg" [maxFileSize]="4194304">
+
+          <ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
+          <!-- If there are selected files, then show them in a list. -->
+          <ng-template #filesSelected>
+            <ul class="file-list">
+              <li *ngFor="let file of fileInput.selectedFiles">
+                {{file['name']}}
+              </li>
+            </ul>
+          </ng-template>
+          <ng-template #noFilesSelected>
+            <!-- If there are no selected files, then tell the user to either
+            click / drag or to drop, depending on whether files are currently
+            being dragged. -->
+            <ng-container *ngIf="fileInput.dragging; then dragging else notDragging"></ng-container>
+            <ng-template #dragging>Drop Files Here</ng-template>
+            <ng-template #notDragging>Click or Drag Files Here</ng-template>
+          </ng-template>
+        </nfd-file-input>
+        <!-- Show a "Clear Selection" button when files are selected in order to demonstrate the clearSelection functionality.-->
+        <input type="button" *ngIf="fileInput.filesSelected" (click)="fileInput.clearSelection()" value="Clear Selection">
+
+
+
       </div>
 
       <img [src]="imgURL" height="200" *ngIf="imgURL">
@@ -61,8 +91,8 @@
 
       <div class="form-group">
 
-        <button mat-raised-button type="submit" color="primary" class="btn btn-primary btn-block btn-raised"
-          type="submit" [disabled]="newIncidentForm.invalid"> <span> Submit</span>
+        <button mat-raised-button type="submit" color="accent" type="submit" [disabled]="newIncidentForm.invalid">
+          <span> Submit</span>
         </button>
       </div>
 

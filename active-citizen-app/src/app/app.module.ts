@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
-import { NavComponent } from './layout/nav/nav.component';
+import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
@@ -20,7 +20,7 @@ import { AuthModule } from './modules/auth/auth.module';
   declarations: [
     AppComponent,
     ContentLayoutComponent,
-    NavComponent,
+    HeaderComponent,
     FooterComponent,
     AuthLayoutComponent
   ],

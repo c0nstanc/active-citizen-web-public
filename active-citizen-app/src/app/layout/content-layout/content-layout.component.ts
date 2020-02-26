@@ -1,19 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ThemeService } from '../../core/services/theme.service';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-content-layout',
   templateUrl: './content-layout.component.html',
   styleUrls: ['./content-layout.component.scss']
 })
-export class ContentLayoutComponent implements OnInit {
+export class ContentLayoutComponent implements OnInit, OnDestroy {
   private overlayContainer: OverlayContainer;
   public theme = 'my-light-theme';
 
+  sidenavHeight = '2.5rem';
+
+
+  mobileQuery: MediaQueryList;
+
+
+  private mobileQueryListener: () => void;
+
   constructor(
-    private themeService: ThemeService
-  ) { }
+    private themeService: ThemeService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this.mobileQueryListener);
+  }
 
   ngOnInit() {
     if (this.overlayContainer) {
@@ -45,6 +57,9 @@ export class ContentLayoutComponent implements OnInit {
         overlayContainerClasses.add(this.theme);
       }
     });
+  }
 
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this.mobileQueryListener);
   }
 }

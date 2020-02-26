@@ -1,9 +1,28 @@
-// $font-family:'Rubik', sans-serif;
-$app-font-family: 'Roboto', 'Helvetica Neue', sans-serif;
-$body-font-size: 16px;
+$app-font-family: "Roboto", "Helvetica Neue", sans-serif;
+$body-font-size: 1rem;
 
-$breakpoint-tablet:35em;
-$breakpoint-desktop: 64em;
+// Responsiveness - Breakpoints
+$breakpoint-tablet: 35rem;
+$breakpoint-desktop: 64rem;
 
-// $header-bg-color:#185BB2;
-// $header-height:50px;
+// Header
+$app-header-height: 4rem;
+$app-header-icon-size: 1rem;
+$app-header-z-index: 100;
+
+// Sidenav
+$app-sidenav-min-width:200px;
+$app-sidenav-z-index: 1;
+
+// Footer
+$app-footer-height: 5rem;
+
+// Content
+$app-content-margin-top: 1rem;
+$app-content-padding-bottom: 3rem;
+$app-content-min-height: calc(
+  100vh -
+    calc(
+      #{$app-header-height} + #{$app-footer-height} + #{$app-content-margin-top}
+    )
+);

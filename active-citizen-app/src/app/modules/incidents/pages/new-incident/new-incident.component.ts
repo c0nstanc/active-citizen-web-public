@@ -23,7 +23,6 @@ export class NewIncidentComponent implements OnInit {
 
   incident: Incident;
 
-
   @ViewChild('labelFileUpload')
   labelFileUpload: ElementRef;
 

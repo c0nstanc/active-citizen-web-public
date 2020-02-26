@@ -22,6 +22,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 
 @NgModule({
@@ -49,6 +51,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatNativeDateModule,
     MatProgressBarModule,
     MatAutocompleteModule,
+    MatExpansionModule,
   ],
   exports: [
     MatButtonModule,
@@ -73,6 +76,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatNativeDateModule,
     MatProgressBarModule,
     MatAutocompleteModule,
+    MatExpansionModule,
 
   ]
 })

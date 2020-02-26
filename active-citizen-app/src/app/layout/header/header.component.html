@@ -1,5 +1,4 @@
 <div class="wrapper">
-  <div class="toolbar">
     <mat-toolbar class="header" color="primary">
       <span routerLink="" class="navbar-brand spacer center d-sm-inline d-md-none">
         {{ 'Active Citizen' }}
@@ -17,9 +16,12 @@
       </span>
       <div class="flex-spacer"></div>
 
-      <mat-slide-toggle [checked]="isDarkTheme$ | async" (change)="toggleTheme($event.checked)">Toggle Theme
+      <mat-slide-toggle [checked]="!isLightTheme" (change)="toggleTheme($event.checked)">
+
+        <mat-icon *ngIf="isLightTheme">wb_sunny</mat-icon>
+        <mat-icon *ngIf="!isLightTheme">nights_stay</mat-icon>
+        Dark mode
       </mat-slide-toggle>
 
     </mat-toolbar>
-  </div>
 </div>

@@ -1,0 +1,14 @@
+@import "variables";
+
+.header {
+  display: flex;
+  align-items: center;
+  height: $app-header-height;
+}
+.flex-spacer {
+  flex-grow: 1;
+}
+
+mat-icon {
+  font-size: $app-header-icon-size;
+}

@@ -1,17 +1,45 @@
+@import "variables";
+
 .mat-app-background {
   height: 100%;
-  padding-top: 80px;
+  padding-top: $app-header-height;
 }
 
-app-nav {
+app-header {
   top: 0;
   width: 100%;
   position: fixed;
-  z-index: 100;
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  z-index: $app-header-z-index;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 
 #content {
-  margin-top: 1em;
-  min-height: calc(100vh - 206px); // TODO - USE variables for header/footer/margins
+  margin-top: $app-content-margin-top;
+  padding-bottom: $app-content-padding-bottom;
+  min-height: $app-content-min-height;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+mat-sidenav {
+  left: 0;
+  height: 100%;
+  min-width: $app-sidenav-min-width;
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
+  z-index: $app-sidenav-z-index;
+  .sidenav-overlay {
+    position: fixed;
+    min-width: $app-sidenav-min-width;
+  }
+}
+
+mat-expansion-panel {
+  box-shadow: 0px 0 0px rgba(0, 0, 0, 0) !important;
+}
+
+.nav-item {
+  font-size: 14px !important;
 }
