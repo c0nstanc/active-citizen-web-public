@@ -1,0 +1,52 @@
+<div class="container">
+  <h4>Add a photo</h4>
+<div class="description">
+  <p>Please add a photo. It help us to better identify your request.</p>
+</div>
+
+<mat-card class="file-upload-container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="newIncidentForm">
+    <div class="form-group">
+      <div class="input-group">
+        <!-- <input #imageInput hidden="true" name="file" type="file" onclick="this.value=null" id="inputGroupFile01"
+        (change)="onImageSelected($event.target.files)" accept="image/*" />
+      <button mat-flat-button color="primary" (click)="imageInput.click()">Add Image</button>
+      <label  for="inputGroupFile01" #labelFileUpload>Choose file</label>
+     -->
+
+        <!-- <app-mat-file-upload (imageSelected)="onFileComplete($event)"></app-mat-file-upload> -->
+      </div>
+
+      <!-- <nfd-file-input #fileInput containerDivClass="file-input-demo" (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304"> -->
+      <nfd-file-input #fileInput containerDivClass="file-input-demo" allowedExtensions="jpg" [maxFileSize]="4194304">
+
+        <ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
+        <!-- If there are selected files, then show them in a list. -->
+        <ng-template #filesSelected>
+          <ul class="file-list">
+            <li *ngFor="let file of fileInput.selectedFiles">
+              {{file['name']}}
+            </li>
+          </ul>
+        </ng-template>
+        <ng-template #noFilesSelected>
+          <!-- If there are no selected files, then tell the user to either
+          click / drag or to drop, depending on whether files are currently
+          being dragged. -->
+          <ng-container *ngIf="fileInput.dragging; then dragging else notDragging"></ng-container>
+          <ng-template #dragging>Drop Files Here</ng-template>
+          <ng-template #notDragging>Click or Drag Files Here</ng-template>
+        </ng-template>
+      </nfd-file-input>
+      <!-- Show a "Clear Selection" button when files are selected in order to demonstrate the clearSelection functionality.-->
+      <input type="button" *ngIf="fileInput.filesSelected" (click)="fileInput.clearSelection()" value="Clear Selection">
+
+    </div>
+
+    <img [src]="imgURL" height="200" *ngIf="imgURL">
+  </form>
+</mat-card>
+
+
+
+</div>

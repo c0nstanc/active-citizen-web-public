@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { IncidentResolver } from './incident-resolver.service';
 import { MyIncidentsComponent } from './pages/my-incidents/my-incidents.component';
 import { NewIncidentComponent } from './pages/new-incident/new-incident.component';
 
@@ -16,7 +15,10 @@ export const routes: Routes = [
   },
   {
     path: 'new-incident',
-    component: NewIncidentComponent
+    component: NewIncidentComponent,
+    loadChildren: () =>
+      import('../../modules/incident-wizard/incident-wizard.module').then(m => m.IncidentWizardModule)
+    // component: NewIncidentComponent
   },
     // {
   //   path: 'incidents/:id',
