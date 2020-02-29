@@ -1,7 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 import { ThemeService } from 'src/app/core/services/theme.service';
+import { HeaderNavItem } from './model/header-nav-item.model';
+import { NavItem } from 'src/app/shared/model/nav/nav-item.model';
 
 @Component({
   selector: 'app-header',
@@ -10,24 +12,25 @@ import { ThemeService } from 'src/app/core/services/theme.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  public isLightTheme: boolean;
-  public isDarkTheme: boolean;
 
-  public isLightThemeSub: Subscription;
+  @Output()
+  hamburgerToggle: EventEmitter<void> = new EventEmitter();
 
-
-  navItems = [
-    { link: '/incidents/my-incidents', title: 'My Incidents' },
-    { link: '/incidents/my-incidents', title: 'Register Item' },
-    { link: '/contact', title: 'Contact' },
-    { link: '/about', title: 'About' }
+  isLightTheme: boolean;
+  isDarkTheme: boolean;
+  isLightThemeSub: Subscription;
+  navItems: NavItem[] = [
+    new HeaderNavItem('My Incidents', '/incidents/my-incidents'),
+    new HeaderNavItem('Register Item', '/incidents/my-incidents'),
+    new HeaderNavItem('Contact', '/contact'),
+    new HeaderNavItem('About', '/about')
   ];
 
   constructor(
     private themeService: ThemeService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.initThemeSelection();
     this.isLightThemeSub = this.themeService.getLightTheme().subscribe((isLightTheme: boolean) => {
       this.isLightTheme = isLightTheme;
@@ -37,7 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     );
   }
 
-  toggleTheme(checked: boolean) {
+  toggleTheme(checked: boolean): void {
     this.themeService.setLightTheme(!checked);
   }
 
@@ -46,7 +49,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isDarkTheme = !this.isLightTheme;
   }
 
-  ngOnDestroy() {
+  onHamburgerToggled(): void {
+    this.hamburgerToggle.emit();
+  }
+
+  ngOnDestroy(): void {
 
     if (this.isLightThemeSub) {
       this.isLightThemeSub.unsubscribe();

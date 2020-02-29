@@ -2,7 +2,7 @@
 
 @mixin my-styles-reset-theme($selected-theme) {
   a {
-    color: mat-color(mat-theme-foreground-color($selected-theme), text);
+    color: mat-theme-foreground-color($selected-theme,text);
 
     &:hover {
       color: mat-color(mat-theme-accent-color($selected-theme));

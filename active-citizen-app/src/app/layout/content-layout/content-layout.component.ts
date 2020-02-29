@@ -1,7 +1,11 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ThemeService } from '../../core/services/theme.service';
-import { MediaMatcher } from '@angular/cdk/layout';
+import { NavItem } from 'src/app/shared/model/nav/nav-item.model';
+import { SidenavNavItem } from './model/sidenav-nav-item.model';
+
+
+const TABLET_WIDTH_BREAKPOINT = '35em';
 
 @Component({
   selector: 'app-content-layout',
@@ -9,25 +13,35 @@ import { MediaMatcher } from '@angular/cdk/layout';
   styleUrls: ['./content-layout.component.scss']
 })
 export class ContentLayoutComponent implements OnInit, OnDestroy {
-  private overlayContainer: OverlayContainer;
-  public theme = 'my-light-theme';
 
+
+  overlayContainer: OverlayContainer;
+  theme = 'my-light-theme';
   sidenavHeight = '2.5rem';
 
+  sidenavOpen: boolean;
 
-  mobileQuery: MediaQueryList;
+  mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${TABLET_WIDTH_BREAKPOINT})`);
+
+  navItems: NavItem[] = [
+    new SidenavNavItem('My Incidents', '/incidents/my-incidents', [
+      new SidenavNavItem('About', '/about'),
+      new SidenavNavItem('About', '/about'),
+      new SidenavNavItem('About', '/about')]),
+    new SidenavNavItem('Register Item', '/incidents/my-incidents'),
+    new SidenavNavItem('Contact', '/contact'),
+    new SidenavNavItem('About', '/about')
+  ];
 
 
-  private mobileQueryListener: () => void;
 
   constructor(
-    private themeService: ThemeService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this.mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this.mobileQueryListener);
+    private themeService: ThemeService) {
+    // zone.run(() => this.mediaMatcher.addEventListener('change', this.mediaMatcher.onchange));
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.sidenavOpen = true;
     if (this.overlayContainer) {
       this.overlayContainer.getContainerElement().classList.add(this.theme);
     }
@@ -59,7 +73,12 @@ export class ContentLayoutComponent implements OnInit, OnDestroy {
     });
   }
 
+  isScreenSmall(): boolean {
+    return this.mediaMatcher.matches;
+  }
+
+
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this.mobileQueryListener);
+    // this.mediaMatcher.removeEventListener('change', this.mediaMatcher.onchange);
   }
 }

@@ -1,0 +1,12 @@
+@import "variables";
+
+.nav-item-no-children {
+  height: 2.5rem;
+  min-width: $app-sidenav-min-width;
+  button {
+    padding: 0 1.5rem;
+    display: flex;
+    font-size: calc(#{$body-font-size} - 1px);
+    min-width: $app-sidenav-min-width;
+  }
+}

@@ -25,11 +25,11 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  top: $app-header-height!important;
+  top: $app-header-height !important;
   left: 0;
   min-width: $app-sidenav-min-width;
   box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
-  z-index: $app-sidenav-z-index;
+  // z-index: $app-sidenav-z-index;
   .sidenav-overlay {
     position: fixed;
     min-width: $app-sidenav-min-width;

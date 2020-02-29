@@ -1,7 +1,10 @@
 @mixin my-incident-component-theme($selected-theme) {
   .form-container {
     @if mat-theme-is-dark($selected-theme) {
-      background-color: rgba(mat-theme-background-color($selected-theme), 0.9);
+      background-color: rgba(
+        mat-theme-background-color($selected-theme, background),
+        0.9
+      );
     } @else {
       background-color: white;
     }

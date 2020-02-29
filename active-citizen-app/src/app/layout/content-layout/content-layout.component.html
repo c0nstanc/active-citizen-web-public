@@ -1,176 +1,39 @@
 <div [class]="theme">
   <div class="mat-app-background">
-    <app-header></app-header>
+    <app-header (hamburgerToggle)="sidenav.toggle()"></app-header>
 
 
     <mat-sidenav-container class="example-sidenav-container">
-        <mat-sidenav fixedInViewport="true" mode="side" opened #snav>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header [collapsedHeight]="sidenavHeight" [expandedHeight]="sidenavHeight">
-              <mat-panel-title>
-                <!-- <mat-icon> person </mat-icon> -->
-                Profile
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-nav-list>
+      <mat-sidenav fixedInViewport="true" [mode]="isScreenSmall()? 'over' : 'side'"
+        [opened]="(!isScreenSmall() && sidenavOpen)" mat-elevation-z10 #sidenav>
 
-              <a mat-list-item class="nav-item" href="#">Menu option 1</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
+        <div *ngFor="let navItem of navItems">
+          <div *ngIf="navItem.children; else noChildren">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header [collapsedHeight]="sidenavHeight" [expandedHeight]="sidenavHeight">
+                <mat-panel-title>
+                  <!-- <mat-icon> person </mat-icon> -->
+                  {{navItem.title}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-nav-list>
+                <a *ngFor="let childNavItem of navItem.children" mat-list-item class="nav-item"
+                  [routerLink]="[childNavItem.link]">{{childNavItem.title}}</a>
+              </mat-nav-list>
+            </mat-expansion-panel>
+          </div>
+          <ng-template #noChildren>
+            <app-sidenav-menu-item [navItem]="navItem">
+            </app-sidenav-menu-item>
 
-            </mat-nav-list>
+          </ng-template>
 
-          </mat-expansion-panel>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header [collapsedHeight]="sidenavHeight" [expandedHeight]="sidenavHeight">
-              <mat-panel-title>
-                Incidents
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-nav-list>
 
-              <a mat-list-item class="nav-item" href="#">Menu option 1</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
 
-            </mat-nav-list>
-
-          </mat-expansion-panel>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header [collapsedHeight]="sidenavHeight" [expandedHeight]="sidenavHeight">
-              <mat-panel-title>
-                Notifications
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-
-              <a mat-list-item class="nav-item" href="#">Menu option 1</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-
-            </mat-nav-list>
-
-          </mat-expansion-panel>
-          <mat-expansion-panel class="no-shadow">
-            <mat-expansion-panel-header [collapsedHeight]="sidenavHeight" [expandedHeight]="sidenavHeight">
-              <mat-panel-title>
-                <!-- <mat-icon> settings </mat-icon> -->
-                Settings
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-
-              <a mat-list-item class="nav-item" href="#">Menu option 1</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-
-            </mat-nav-list>
-
-          </mat-expansion-panel>
-          <mat-expansion-panel class="no-shadow">
-            <mat-expansion-panel-header [collapsedHeight]="sidenavHeight" [expandedHeight]="sidenavHeight">
-              <mat-panel-title>
-                <!-- <mat-icon> settings </mat-icon> -->
-                Settings
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-
-              <a mat-list-item class="nav-item" href="#">Menu option 1</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-
-            </mat-nav-list>
-
-          </mat-expansion-panel>
-          <mat-expansion-panel class="no-shadow">
-            <mat-expansion-panel-header [collapsedHeight]="sidenavHeight" [expandedHeight]="sidenavHeight">
-              <mat-panel-title>
-                <!-- <mat-icon> settings </mat-icon> -->
-                Settings
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-
-              <a mat-list-item class="nav-item" href="#">Menu option 1</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-
-            </mat-nav-list>
-
-          </mat-expansion-panel>
-          <mat-expansion-panel class="no-shadow">
-            <mat-expansion-panel-header [collapsedHeight]="sidenavHeight" [expandedHeight]="sidenavHeight">
-              <mat-panel-title>
-                <!-- <mat-icon> settings </mat-icon> -->
-                Settings
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-
-              <a mat-list-item class="nav-item" href="#">Menu option 1</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-
-            </mat-nav-list>
-
-          </mat-expansion-panel>
-          <mat-expansion-panel class="no-shadow">
-            <mat-expansion-panel-header [collapsedHeight]="sidenavHeight" [expandedHeight]="sidenavHeight">
-              <mat-panel-title>
-                <!-- <mat-icon> settings </mat-icon> -->
-                Settings
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-
-              <a mat-list-item class="nav-item" href="#">Menu option 1</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-
-            </mat-nav-list>
-
-          </mat-expansion-panel>
-          <mat-expansion-panel class="no-shadow">
-            <mat-expansion-panel-header [collapsedHeight]="sidenavHeight" [expandedHeight]="sidenavHeight">
-              <mat-panel-title>
-                <!-- <mat-icon> settings </mat-icon> -->
-                Settings
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-
-              <a mat-list-item class="nav-item" href="#">Menu option 1</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-              <!-- <mat-divider class="title-divider"></mat-divider> -->
-              <a mat-list-item class="nav-item" href="#">Menu option 2</a>
-
-            </mat-nav-list>
-
-          </mat-expansion-panel>
-        </mat-sidenav>
+        </div>
+      </mat-sidenav>
       <mat-sidenav-content>
-        <div  id="content" class="container">
-          <button mat-icon-button (click)="snav.toggle()">
-            <mat-icon>menu</mat-icon>
-          </button>
+        <div id="content" class="container">
           <router-outlet></router-outlet>
         </div>
         <app-footer></app-footer>

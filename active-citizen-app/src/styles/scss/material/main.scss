@@ -4,7 +4,7 @@
 // html, body { height: 100%; }
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-@import "themes/black-theme";
+@import "themes/dark-theme";
 @import "themes/light-theme";
 @import "custom-components";
 @import "mat-typography";
@@ -21,6 +21,6 @@
 }
 
 .my-dark-theme {
-  @include angular-material-theme($my-black-theme);
-  @include custom-components-theme($my-black-theme);
+  @include angular-material-theme($my-dark-theme);
+  @include custom-components-theme($my-dark-theme);
 }

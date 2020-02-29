@@ -8,14 +8,13 @@ import { environment } from '../../../environments/environment';
 })
 export class FooterComponent implements OnInit {
 
-
   version: string;
   currentYear: number;
   companyTitle: string;
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.currentYear = new Date().getFullYear();
     this.companyTitle = environment.company;
     this.version = environment.version;

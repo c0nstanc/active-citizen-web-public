@@ -6,7 +6,7 @@
 
 // mat-palette($base-palette, $default: 500, $lighter: 100, $darker: 700, $text: $default)
 
-$my-light-primary: mat-palette($mat-deep-purple, 500, 200, 700);
+$my-light-primary: mat-palette($mat-indigo, 500, 200, 700);
 $my-light-accent: mat-palette($mat-amber, 300, 200, 500);
 $my-light-warn: mat-palette($mat-red);
 

@@ -1,5 +1,14 @@
 <div class="wrapper">
-    <mat-toolbar class="header" color="primary">
+  <mat-toolbar class="header" color="primary">
+
+
+    <mat-toolbar-row class="mat-toolbar-row">
+
+      <button mat-button class="hamburger" (click)="onHamburgerToggled()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+
       <span routerLink="" class="navbar-brand spacer center d-sm-inline d-md-none">
         {{ 'Active Citizen' }}
       </span>
@@ -7,9 +16,9 @@
         {{ 'Active Citizen' }}
       </span>
       <span class="d-none d-md-inline">
-        <button mat-button class="nav-button" *ngFor="let item of navItems" [routerLink]="[item.link]"
+        <button mat-button class="nav-button" *ngFor="let navItem of navItems" [routerLink]="[navItem.link]"
           routerLinkActive="active">
-          {{ item.title }}
+          {{ navItem.title }}
         </button>
 
 
@@ -17,11 +26,11 @@
       <div class="flex-spacer"></div>
 
       <mat-slide-toggle [checked]="!isLightTheme" (change)="toggleTheme($event.checked)">
-
-        <mat-icon *ngIf="isLightTheme">wb_sunny</mat-icon>
-        <mat-icon *ngIf="!isLightTheme">nights_stay</mat-icon>
+        <mat-icon *ngIf="isLightTheme" class="theme-icon">wb_sunny</mat-icon>
+        <mat-icon *ngIf="!isLightTheme" class="theme-icon">nights_stay</mat-icon>
         Dark mode
       </mat-slide-toggle>
 
-    </mat-toolbar>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </div>

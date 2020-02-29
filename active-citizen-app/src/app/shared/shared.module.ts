@@ -77,6 +77,7 @@ import { ControlMessagesComponent } from './component/control-messages/control-m
 import { PageTitleComponent } from './component/page-title/page-title.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatFileUploadComponent } from './component/mat-file-upload/mat-file-upload.component';
+import { SidenavMenuItemComponent } from './component/sidenav-menu-item/sidenav-menu-item.component';
 
 @NgModule({
   imports: [
@@ -93,6 +94,7 @@ import { MatFileUploadComponent } from './component/mat-file-upload/mat-file-upl
   ],
   declarations: [ControlMessagesComponent,
     PageTitleComponent,
+    SidenavMenuItemComponent,
     MatFileUploadComponent],
   exports: [
     CommonModule,
@@ -108,6 +110,7 @@ import { MatFileUploadComponent } from './component/mat-file-upload/mat-file-upl
 
     ControlMessagesComponent,
     PageTitleComponent,
+    SidenavMenuItemComponent,
     MatFileUploadComponent
   ]
 })

@@ -3,7 +3,7 @@
     @if mat-theme-is-dark($selected-theme) {
       color: white;
     } @else {
-      color: mat-theme-background-color($selected-theme);
+      color: mat-theme-background-color($selected-theme, background);
     }
     background-color: mat-color(
       mat-theme-primary-color($selected-theme),

@@ -1,0 +1,48 @@
+// A primary palette: colors most widely used across all screens and components.
+// An accent palette: colors used for the floating action button and interactive elements.
+// A warn palette: colors used to convey error state.
+// A foreground palette: colors for text and icons.
+// A background palette: colors used for element backgrounds.
+
+// mat-palette($base-palette, $default: 500, $lighter: 100, $darker: 700, $text: $default)
+
+$my-dark-primary: mat-palette($mat-teal, 500, 300, 900);
+$my-dark-accent: mat-palette($mat-blue-grey,600);
+$my-dark-warn: mat-palette($mat-red, 500);
+
+$my-dark-theme: mat-dark-theme(
+  $my-dark-primary,
+  $my-dark-accent,
+  $my-dark-warn
+);
+
+$my-dark-theme-background-color: map-get($mat-blue-grey, 900);
+$my-dark-theme-foreground-color: white;
+
+$background: map-get($my-dark-theme, background);
+$background: map_merge(
+  $background,
+  (
+    background: $my-dark-theme-background-color
+  )
+);
+$my-dark-theme: map_merge(
+  $my-dark-theme,
+  (
+    background: $background
+  )
+);
+
+$foreground: map-get($my-dark-theme, foreground);
+$foreground: map_merge(
+  $foreground,
+  (
+    foreground: $my-dark-theme-foreground-color
+  )
+);
+$my-dark-theme: map_merge(
+  $my-dark-theme,
+  (
+    foreground: $foreground
+  )
+);

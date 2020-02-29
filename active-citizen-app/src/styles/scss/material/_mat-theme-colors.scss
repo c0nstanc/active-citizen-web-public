@@ -23,14 +23,17 @@
   @return map-get(mat-theme-colors($selected-theme), warn-color);
 }
 
-@function mat-theme-foreground-color($selected-theme) {
-  @return map-get(mat-theme-colors($selected-theme), foreground-color);
+@function mat-theme-foreground-color($selected-theme,$type) {
+  @return mat-color(
+    map-get(mat-theme-colors($selected-theme), foreground-color),
+    $type
+  );
 }
 
-@function mat-theme-background-color($selected-theme) {
+@function mat-theme-background-color($selected-theme, $type) {
   @return map-get(
     map-get(mat-theme-colors($selected-theme), background-color),
-    background
+    $type
   );
 }
 

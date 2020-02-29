@@ -9,6 +9,21 @@
   flex-grow: 1;
 }
 
-mat-icon {
+mat-icon.theme-icon {
   font-size: $app-header-icon-size;
+}
+
+.mat-toolbar-row {
+  padding: 0 1rem 0 0;
+}
+
+.hamburger {
+  margin-right: .5rem;
+  padding: 0;
+  display: flex;
+  display: -webkit-box;
+  align-self: center;
+  justify-content: center;
+  min-width: $app-header-height;
+  min-height: $app-header-height;
 }

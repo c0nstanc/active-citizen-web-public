@@ -1,0 +1,12 @@
+@mixin sidenav-menu-item-theme($selected-theme) {
+  .nav-item-no-children {
+    .nav-item-button {
+      font-weight: 400;
+      @if mat-theme-is-dark($selected-theme) {
+        color: mat-theme-foreground-color($selected-theme, text);
+      } @else {
+        color: mat-theme-foreground-color($selected-theme, text);
+      }
+    }
+  }
+}
