@@ -8,7 +8,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./enter-incident-photo.component.scss']
 })
 export class EnterIncidentPhotoComponent implements OnInit {
-  newIncidentForm: FormGroup;
 
   selectedFile: File = null;
   public imagePath: string;
@@ -19,20 +18,14 @@ export class EnterIncidentPhotoComponent implements OnInit {
 
 
 
-  constructor(private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.buildForm();
 
   }
 
   onLocationConfirmed(): void {
     this.router.navigate(['incidents/new-incident/1']);
-  }
-
-  onSubmit(): void {
-
-    console.log(this.newIncidentForm.value);
   }
 
   onImageSelected(files: FileList): void {
@@ -51,14 +44,6 @@ export class EnterIncidentPhotoComponent implements OnInit {
     this.labelFileUpload.nativeElement.innerText = Array.from(files).filter(f => f.type.match(/image\/*/) != null)
       .map(f => f.name)
       .join(', ');
-  }
-
-  private buildForm(): void {
-    this.newIncidentForm = this.formBuilder.group({
-      incidentTitle: this.formBuilder.control('', [Validators.required, Validators.minLength(4)]),
-      incidentType: this.formBuilder.control('', Validators.required),
-      incidentDesc: this.formBuilder.control('', [Validators.required, Validators.minLength(4)]),
-    });
   }
 
   onFileComplete(data: any) {

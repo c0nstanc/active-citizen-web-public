@@ -1,21 +1,11 @@
-<div class="container">
-  <h4>Add a photo</h4>
-<div class="description">
-  <p>Please add a photo. It help us to better identify your request.</p>
-</div>
+<div class="container wizard-container">
+  <div class="form-container">
+    <h4>Add a photo</h4>
+    <div class="description">
+      <p>Please add a photo. It help us to better identify your request.</p>
+    </div>
 
-<mat-card class="file-upload-container">
-  <form (ngSubmit)="onSubmit()" [formGroup]="newIncidentForm">
-    <div class="form-group">
-      <div class="input-group">
-        <!-- <input #imageInput hidden="true" name="file" type="file" onclick="this.value=null" id="inputGroupFile01"
-        (change)="onImageSelected($event.target.files)" accept="image/*" />
-      <button mat-flat-button color="primary" (click)="imageInput.click()">Add Image</button>
-      <label  for="inputGroupFile01" #labelFileUpload>Choose file</label>
-     -->
-
-        <!-- <app-mat-file-upload (imageSelected)="onFileComplete($event)"></app-mat-file-upload> -->
-      </div>
+    <mat-card class="file-upload-container">
 
       <!-- <nfd-file-input #fileInput containerDivClass="file-input-demo" (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304"> -->
       <nfd-file-input #fileInput containerDivClass="file-input-demo" allowedExtensions="jpg" [maxFileSize]="4194304">
@@ -41,11 +31,19 @@
       <!-- Show a "Clear Selection" button when files are selected in order to demonstrate the clearSelection functionality.-->
       <input type="button" *ngIf="fileInput.filesSelected" (click)="fileInput.clearSelection()" value="Clear Selection">
 
-    </div>
 
-    <img [src]="imgURL" height="200" *ngIf="imgURL">
-  </form>
-</mat-card>
+      <img [src]="imgURL" height="200" *ngIf="imgURL">
+    </mat-card>
+
+
+    <div class="button-container">
+      <button mat-raised-button class="next-btn" color="accent">
+        Next
+      </button>
+    </div>
+  </div>
+
+
 
 
 

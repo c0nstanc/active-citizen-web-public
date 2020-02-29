@@ -4,13 +4,18 @@
 //   margin-bottom: 1em;
 // }
 
+.wizard-container {
+  height: 100%;
+  padding: 0;
+}
+
 .form-container {
-  width: 100%;
-  margin: 2em 0 2em 0;
-  padding: 2em;
+  height: 100%;
+  //margin: 1em 1rem 1em 1rem;
+  padding: 3rem 2rem 6rem 2rem;
   // box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
   //   0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px;
-  border-radius: 0.5em;
+  border-radius: 6px;
 }
 
 // .form-group {
@@ -28,11 +33,11 @@ mat-form-field {
 .button-container {
   position: absolute;
   bottom: 3rem;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-
   .next-btn {
     width: 20rem;
     height: 3rem;

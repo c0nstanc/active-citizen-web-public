@@ -1,6 +1,14 @@
-.container {
-  height: 50vh;
+.wizard-container {
+  height: 100%;
+  padding: 0;
 }
+
+.form-container{
+  height: 100%;
+  padding: 3rem 2rem 6rem 2rem;
+  border-radius: 6px;
+}
+
 
 .description{
   margin-top: 1rem;
@@ -42,4 +50,19 @@ https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep
   max-width: 375px;
   width: 80%;
   margin: auto;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 3rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .next-btn {
+    width: 20rem;
+    height: 3rem;
+    font-weight: 600;
+  }
 }
