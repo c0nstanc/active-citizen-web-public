@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import { Router } from '@angular/router';
-import { MatChipInputEvent } from '@angular/material/chips';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MyModalComponent } from 'src/app/modules/incidents/modal/my-modal.component';
 
-export interface Fruit {
-  name: string;
-}
 
 @Component({
   selector: 'app-file-drop',
@@ -14,38 +11,49 @@ export interface Fruit {
 })
 export class FileDropComponent implements OnInit {
 
+  @Output()
+  selectionChanged = new EventEmitter<File[]>();
+
+  selectedFiles: File[];
+  dragging: boolean;
+
 
   selectedFile: File = null;
-  public imagePath: string;
   imgURL: any;
-
 
   visible = true;
   selectable = true;
   removable = true;
-  addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  fruits: Fruit[] = [
-    {name: 'Lemon'},
-    {name: 'Lime'},
-    {name: 'Apple'},
-  ];
 
-
-  constructor(private router: Router) { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
-
+    this.selectedFiles = new Array<File>();
+    this.dragging = false;
   }
 
-  onLocationConfirmed(): void {
-    this.router.navigate(['incidents/new-incident/1']);
+  onSelectionChanged(files: File[]): void {
+    Array.from(files).forEach(f => this.selectedFiles.push(f));
+    this.selectionChanged.emit(files);
+    this.computeImageUrl(files[0]);
   }
 
-  onImageSelected(files: File[]): void {
+  onDragging(dragging: boolean): void {
+    this.dragging = dragging;
+  }
 
-    if (files[0].type.match(/image\/*/) != null) {
-      this.selectedFile = files[0];
+  public clearFileSelection(): void {
+    if (this.selectedFiles.length > 0) {
+      this.selectedFiles.splice(0, this.selectedFiles.length);
+      this.selectionChanged.emit(this.selectedFiles);
+    }
+  }
+
+  private computeImageUrl(file: File): void {
+
+    if (file.type.match(/image\/*/) != null) {
+      this.selectedFile = file;
       const reader: FileReader = new FileReader();
       reader.readAsDataURL(this.selectedFile);
       reader.onload = (event: ProgressEvent) => {
@@ -54,41 +62,25 @@ export class FileDropComponent implements OnInit {
         }
       };
     }
-  }
-  //   this.labelFileUpload.nativeElement.innerText = Array.from(files).filter(f => f.type.match(/image\/*/) != null)
-  //     .map(f => f.name)
-  //     .join(', ');
-  // }
 
-  // onFileComplete(data: any) {
-  //   console.log(data); // We just print out data bubbled up from event emitter.
-  // }
-
-  onInputChanged(test: any) {
-    this.onImageSelected(test);
   }
 
-  add(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
-
-    // Add our fruit
-    if ((value || '').trim()) {
-      this.fruits.push({name: value.trim()});
-    }
-
-    // Reset the input value
-    if (input) {
-      input.value = '';
+  removeFile(fileIndex: number): void {
+    if (fileIndex >= 0) {
+      this.selectedFiles.splice(fileIndex, 1);
     }
   }
 
-  remove(fruit: Fruit): void {
-    const index = this.fruits.indexOf(fruit);
-
-    if (index >= 0) {
-      this.fruits.splice(index, 1);
-    }
+  selectedFileOnClick(event: any): void {
+    this.openMyModal();
   }
 
+
+  openMyModal() {
+    const modalRef = this.modalService.open(MyModalComponent);
+    modalRef.componentInstance.id = 1;
+    modalRef.result.then((result) => {
+      console.log(result);
+    });
+  }
 }

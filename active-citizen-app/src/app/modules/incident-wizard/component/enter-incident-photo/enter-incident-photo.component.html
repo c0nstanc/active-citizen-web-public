@@ -1,6 +1,5 @@
 <app-wizard-step-title>Add a Photo</app-wizard-step-title>
 
-
 <div class="form-container">
 
   <div class="description">
@@ -9,4 +8,4 @@
 
   <app-file-drop></app-file-drop>
 
-  <app-wizard-nxt-btn>Next</app-wizard-nxt-btn>
+  <app-wizard-nxt-btn (clicked)="onNxtBtnClicked()">Next</app-wizard-nxt-btn>

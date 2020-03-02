@@ -1,43 +1,39 @@
-<div class="file-upload-container">
-  <app-simple-file-drop class="file-upload" #fileInput (selectionChanged)="this.onInputChanged($event)"
-    containerDivClass="file-input-demo" allowedExtensions="jpg" [maxFileSize]="4194304">
+<div class="file-drop-container">
+  <app-simple-file-drop (selectionChanged)="onSelectionChanged($event)" containerDivClass="file-input-demo"
+    allowedExtensions="jpg" [maxFileSize]="4194304" (dragging)="onDragging($event)">
 
-    <ng-container class="file-upload-content" *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected">
+    <ng-container *ngIf="dragging; then draggingText else notDraggingText">
     </ng-container>
-    <ng-template #filesSelected>
+    <ng-template #draggingText>Drop Files Heree</ng-template>
+    <ng-template #notDraggingText>
+      <div>
+        <!-- <mat-icon class="add-photo-icon">add_a_photo</mat-icon> -->
+        <div> Click or Drag Files Here</div>
+      </div>
+    </ng-template>
+
+    <!-- <ng-container *ngIf="selectedFiles.length >0; then showSelectedFiles else noFilesSelected">
+    </ng-container>
+    <ng-template #showSelectedFiles>
       <ul class="file-list">
-        <li *ngFor="let file of fileInput.selectedFiles">
+        <li *ngFor="let file of selectedFiles">
           {{file['name']}}
         </li>
       </ul>
-    </ng-template>
-    <ng-template #noFilesSelected>
+    </ng-template> -->
 
-      <ng-container class="file-upload-content" *ngIf="fileInput.dragging; then dragging else notDragging">
-      </ng-container>
-      <ng-template #dragging>Drop Files Here</ng-template>
-      <ng-template class="file-upload-content" #notDragging>
-        <div class="file-upload-content">
-          <!-- <mat-icon class="add-photo-icon">add_a_photo</mat-icon> -->
-          <div> Click or Drag Files Here</div>
-        </div>
-
-      </ng-template>
-    </ng-template>
   </app-simple-file-drop>
 
 
-  <input type="button" *ngIf="fileInput.filesSelected" (click)="onImageSelected(fileInput.selectedFiles)"
-    value="Clear Selection">
+  <div class="display-files-container">
+    <mat-chip-list #chipList aria-label="Fruit selection">
+      <mat-chip *ngFor="let file of selectedFiles; let fileIndex = index" [selectable]="selectable"
+        [removable]="removable" (removed)="removeFile(fileIndex)" (click)="selectedFileOnClick(file)">
+        {{file['name']}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
 
+  </div>
 
-  <img [src]="imgURL" height="200" *ngIf="imgURL">
-
-  <mat-chip-list #chipList aria-label="Fruit selection">
-    <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable" (removed)="remove(fruit)">
-      {{fruit.name}}
-      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-    </mat-chip>
-
-  </mat-chip-list>
 </div>

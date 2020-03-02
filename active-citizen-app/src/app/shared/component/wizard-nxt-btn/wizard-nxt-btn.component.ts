@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-wizard-nxt-btn',
@@ -14,9 +14,16 @@ export class WizardNxtBtnComponent implements OnInit {
   disabled = false;
 
 
+  @Output()
+  clicked = new EventEmitter<void>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClick(): void {
+    this.clicked.emit();
   }
 
 }

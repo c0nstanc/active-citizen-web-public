@@ -10,21 +10,28 @@ import { FileRejection } from './model/file-rejection.model';
 })
 
 export class SimpleFileDropComponent {
-  @Input() allowedExtensions: string;
-  @Input() maxFileSize: number;
-  @Input() containerDivClass = '';
-  @Output() selectionChanged = new EventEmitter<File[]>();
-  @Output() filesRejected = new EventEmitter<FileRejection[]>();
+
+  @Input()
+  allowedExtensions: string;
+  @Input()
+  maxFileSize: number;
+  @Input()
+  containerDivClass = '';
+
+  @Output()
+  selectionChanged = new EventEmitter<File[]>();
+  @Output()
+  filesRejected = new EventEmitter<FileRejection[]>();
+  @Output()
+  dragging = new EventEmitter<boolean>();
+
 
   @ViewChild('fileInput', { static: true }) fileInput: ElementRef;
 
   constructor() { }
 
 
-  public Array = Array;
   selectedFiles: File[] = new Array<File>();
-
-  dragging = false;
 
 
   public filesSelected(): boolean {
@@ -42,7 +49,7 @@ export class SimpleFileDropComponent {
       this.selectedFiles = new Array<File>();
     }
 
-    filesToSelect.forEach(file => {
+    Array.from(filesToSelect).forEach(file => {
       if (this.maxFileSize != null && file.size > this.maxFileSize) {
         rejectedFiles.push(new FileRejection(file, RejectionReasons.FileSize));
       } else if (this.getAllowedExtensionsArray() != null &&
@@ -61,7 +68,7 @@ export class SimpleFileDropComponent {
   }
 
 
-  onChange(selectedFiles: Array<File>): void {
+  onChange(selectedFiles: File[]): void {
     if (selectedFiles.length > 0) {
       this.selectFiles(selectedFiles);
       this.fileInput.nativeElement.value = null;
@@ -69,22 +76,14 @@ export class SimpleFileDropComponent {
   }
 
 
-  public clearSelection(): void {
-    if (this.selectedFiles.length > 0) {
-      this.selectedFiles = new Array<File>();
-      this.selectionChanged.emit(this.selectedFiles);
-    }
-  }
-
   onDragEnter(event: any): void {
     event.preventDefault();
-
-    this.dragging = true;
+    this.dragging.emit(true);
   }
 
 
   onDragLeave(event: any): void {
-    this.dragging = false;
+    this.dragging.emit(false);
   }
 
   onDragOver(event: any): void {
@@ -94,7 +93,7 @@ export class SimpleFileDropComponent {
 
   onDrop(event: any): void {
     event.preventDefault();
-    this.dragging = false;
+    this.dragging.emit(false);
     this.selectFiles(Array.from(event.dataTransfer.files));
   }
 }
