@@ -1,29 +1,27 @@
 <div class="file-drop-container">
-  <app-simple-file-drop (selectionChanged)="onSelectionChanged($event)" containerDivClass="file-input-demo"
-    allowedExtensions="jpg" [maxFileSize]="4194304" (dragging)="onDragging($event)">
 
-    <ng-container *ngIf="dragging; then draggingText else notDraggingText">
-    </ng-container>
-    <ng-template #draggingText>Drop Files Heree</ng-template>
-    <ng-template #notDraggingText>
-      <div>
-        <!-- <mat-icon class="add-photo-icon">add_a_photo</mat-icon> -->
-        <div> Click or Drag Files Here</div>
-      </div>
-    </ng-template>
+  <div class="row">
+    <div class="col-12">
+      <app-simple-file-drop (selectionChanged)="onSelectionChanged($event)" containerDivClass="file-drop-area"
+        allowedExtensions="jpg" [maxFileSize]="4194304" (dragging)="onDragging($event)">
+        <ng-container *ngIf="dragging; then draggingText else notDraggingText">
+        </ng-container>
+        <ng-template #draggingText>
+          <div class="file-drop-area-content">
+            <mat-icon class="add-photo-icon">add_a_photo</mat-icon>
+            <div>Drop {{supportedFileTypesCategoty}} Here</div>
+          </div>
 
-    <!-- <ng-container *ngIf="selectedFiles.length >0; then showSelectedFiles else noFilesSelected">
-    </ng-container>
-    <ng-template #showSelectedFiles>
-      <ul class="file-list">
-        <li *ngFor="let file of selectedFiles">
-          {{file['name']}}
-        </li>
-      </ul>
-    </ng-template> -->
-
-  </app-simple-file-drop>
-
+        </ng-template>
+        <ng-template #notDraggingText>
+          <div class="file-drop-area-content">
+            <mat-icon class="add-photo-icon">add_a_photo</mat-icon>
+            <div> Click or Drag {{supportedFileTypesCategoty}} Here</div>
+          </div>
+        </ng-template>
+      </app-simple-file-drop>
+    </div>
+  </div>
 
   <div class="display-files-container">
     <mat-chip-list #chipList aria-label="Fruit selection">

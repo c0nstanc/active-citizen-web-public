@@ -6,6 +6,8 @@
     <p>Please add a photo. It help us to better identify your request.</p>
   </div>
 
-  <app-file-drop></app-file-drop>
+  <div class="file-drop-container">
+    <app-file-drop supportedFileTypesCategoty='Photos'></app-file-drop>
+  </div>
 
   <app-wizard-nxt-btn (clicked)="onNxtBtnClicked()">Next</app-wizard-nxt-btn>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MyModalComponent } from 'src/app/modules/incidents/modal/my-modal.component';
@@ -10,6 +10,9 @@ import { MyModalComponent } from 'src/app/modules/incidents/modal/my-modal.compo
   styleUrls: ['./file-drop.component.scss']
 })
 export class FileDropComponent implements OnInit {
+
+  @Input()
+  supportedFileTypesCategoty = 'Files';
 
   @Output()
   selectionChanged = new EventEmitter<File[]>();

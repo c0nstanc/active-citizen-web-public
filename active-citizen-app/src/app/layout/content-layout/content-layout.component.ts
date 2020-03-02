@@ -5,7 +5,7 @@ import { NavItem } from 'src/app/shared/model/nav/nav-item.model';
 import { SidenavMenuItem } from './model/sidenav-menu-item.model';
 
 
-const TABLET_WIDTH_BREAKPOINT = '35em';
+const DESKTOP_WIDTH_BREAKPOINT = '64em';
 
 @Component({
   selector: 'app-content-layout',
@@ -14,14 +14,13 @@ const TABLET_WIDTH_BREAKPOINT = '35em';
 })
 export class ContentLayoutComponent implements OnInit, OnDestroy {
 
-
   overlayContainer: OverlayContainer;
   theme = 'my-light-theme';
   sidenavHeight = '2.5rem';
 
   sidenavOpen: boolean;
 
-  mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${TABLET_WIDTH_BREAKPOINT})`);
+  mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${DESKTOP_WIDTH_BREAKPOINT})`);
 
   navItems: NavItem[] = [
     new SidenavMenuItem('My Incidents', '/incidents/my-incidents', [
