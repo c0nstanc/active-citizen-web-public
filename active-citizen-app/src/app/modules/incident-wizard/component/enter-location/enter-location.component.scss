@@ -1,32 +1,14 @@
-.wizard-container {
-  height: 100%;
-  padding: 0;
+.floating {
+  position: absolute;
+  background-color: rgba($color: gray, $alpha: 0.25)
 }
 
 .map {
   width: 100%;
   height: 100%;
-  padding: 1rem;
-  border-radius: 6px;
   img {
     width: 100%;
-    height: 100%;
+    height: 32rem;
     border-radius: 6px;
-  }
-}
-
-.button-container {
-  position: absolute;
-  bottom: 3rem;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .next-btn {
-    width: 20rem;
-    height: 3rem;
-    font-weight: 600;
   }
 }

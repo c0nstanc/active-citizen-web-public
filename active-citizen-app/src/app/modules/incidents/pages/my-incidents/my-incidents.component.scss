@@ -1,11 +1,8 @@
-.title-container {
+.create-new-incident-btn-container {
+  position: absolute;
+  top: 4rem;
+  right: 2rem;
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  // .btn {
-  //   border-radius: 0.75em;
-  //   background-color: #673AB7;
-  //   border: 1px solid #673AB7;
-  // }
+  justify-content: flex-end;
 }

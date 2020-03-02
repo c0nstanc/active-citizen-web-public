@@ -11,7 +11,7 @@ $app-header-icon-size: 1rem;
 $app-header-z-index: 100;
 
 // Sidenav
-$app-sidenav-min-width:200px;
+$app-sidenav-min-width: 200px;
 $app-sidenav-z-index: 1;
 
 // Footer
@@ -26,3 +26,8 @@ $app-content-min-height: calc(
       #{$app-header-height} + #{$app-footer-height} + #{$app-content-margin-top}
     )
 );
+
+// Page - Global
+$app-title-margin-top: 2rem;
+$app-title-margin-bottom: 2rem;
+

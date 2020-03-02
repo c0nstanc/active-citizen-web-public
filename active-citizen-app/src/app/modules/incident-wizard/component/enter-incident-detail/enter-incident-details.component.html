@@ -1,5 +1,8 @@
 <div class="container wizard-container">
+  <app-wizard-step-title>Add Problem Details</app-wizard-step-title>
+
   <div class="form-container">
+
     <form (ngSubmit)="onSubmit()" [formGroup]="newIncidentForm">
 
       <div class="form-group">
@@ -36,11 +39,7 @@
         </mat-form-field>
       </div>
 
-      <div class="button-container">
-        <button mat-raised-button class="next-btn" color="accent" type="submit" [disabled]="newIncidentForm.invalid">
-          Next
-        </button>
-      </div>
+      <app-wizard-nxt-btn [type]="'submit'" [disabled]="newIncidentForm.invalid">Next</app-wizard-nxt-btn>
     </form>
   </div>
 </div>

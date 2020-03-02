@@ -8,8 +8,6 @@ import { MaterialModule } from './material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule, FaConfig } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FileDropModule } from '@browninglogic/ng-file-drop';
-
 import {
   faImages,
   faCodeBranch,
@@ -76,8 +74,12 @@ library.add(
 import { ControlMessagesComponent } from './component/control-messages/control-messages.component';
 import { PageTitleComponent } from './component/page-title/page-title.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { MatFileUploadComponent } from './component/mat-file-upload/mat-file-upload.component';
 import { SidenavMenuItemComponent } from './component/sidenav-menu-item/sidenav-menu-item.component';
+import { SimpleFileDropComponent } from './component/simple-file-drop/simple-file-drop.component';
+import { FileDropComponent } from './component/file-drop/file-drop.component';
+import { WizardStepTitleComponent } from './component/wizard-step-title/wizard-step-title.component';
+import { WizardComponent } from './component/wizard/wizard.component';
+import { WizardNxtBtnComponent } from './component/wizard-nxt-btn/wizard-nxt-btn.component';
 
 @NgModule({
   imports: [
@@ -86,7 +88,6 @@ import { SidenavMenuItemComponent } from './component/sidenav-menu-item/sidenav-
     ReactiveFormsModule,
     RouterModule,
     TranslateModule,
-    FileDropModule,
 
     NgbModule,
     FontAwesomeModule,
@@ -95,14 +96,17 @@ import { SidenavMenuItemComponent } from './component/sidenav-menu-item/sidenav-
   declarations: [ControlMessagesComponent,
     PageTitleComponent,
     SidenavMenuItemComponent,
-    MatFileUploadComponent],
+    SimpleFileDropComponent,
+    FileDropComponent,
+    WizardStepTitleComponent,
+    WizardComponent,
+    WizardNxtBtnComponent],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
     TranslateModule,
-    FileDropModule,
     MaterialModule,
 
     NgbModule,
@@ -111,7 +115,10 @@ import { SidenavMenuItemComponent } from './component/sidenav-menu-item/sidenav-
     ControlMessagesComponent,
     PageTitleComponent,
     SidenavMenuItemComponent,
-    MatFileUploadComponent
+    FileDropComponent,
+    WizardStepTitleComponent,
+    WizardComponent,
+    WizardNxtBtnComponent
   ]
 })
 export class SharedModule {

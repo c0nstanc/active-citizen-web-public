@@ -1,0 +1,13 @@
+<div (click)="fileInput.click()"
+    (dragenter)="onDragEnter($event)"
+    (dragleave)="onDragLeave($event)"
+    (dragover)="onDragOver($event)"
+    (drop)="onDrop($event)"
+    [class]="'drag-drop-handler ' + containerDivClass"
+    [class.nfd-dragging]="dragging">
+
+    <div>
+        <ng-content></ng-content>
+    </div>
+    <input type="file" #fileInput style="display:none;" (change)="onChange(Array.from($event.target.files))" multiple [accept]="allowedExtensions">
+</div>

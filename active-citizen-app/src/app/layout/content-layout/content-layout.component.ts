@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ThemeService } from '../../core/services/theme.service';
 import { NavItem } from 'src/app/shared/model/nav/nav-item.model';
-import { SidenavNavItem } from './model/sidenav-nav-item.model';
+import { SidenavMenuItem } from './model/sidenav-menu-item.model';
 
 
 const TABLET_WIDTH_BREAKPOINT = '35em';
@@ -24,13 +24,13 @@ export class ContentLayoutComponent implements OnInit, OnDestroy {
   mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${TABLET_WIDTH_BREAKPOINT})`);
 
   navItems: NavItem[] = [
-    new SidenavNavItem('My Incidents', '/incidents/my-incidents', [
-      new SidenavNavItem('About', '/about'),
-      new SidenavNavItem('About', '/about'),
-      new SidenavNavItem('About', '/about')]),
-    new SidenavNavItem('Register Item', '/incidents/my-incidents'),
-    new SidenavNavItem('Contact', '/contact'),
-    new SidenavNavItem('About', '/about')
+    new SidenavMenuItem('My Incidents', '/incidents/my-incidents', [
+      new SidenavMenuItem('About', '/about'),
+      new SidenavMenuItem('About', '/about'),
+      new SidenavMenuItem('About', '/about')]),
+    new SidenavMenuItem('Register Item', '/incidents/my-incidents'),
+    new SidenavMenuItem('Contact', '/contact'),
+    new SidenavMenuItem('About', '/about')
   ];
 
 

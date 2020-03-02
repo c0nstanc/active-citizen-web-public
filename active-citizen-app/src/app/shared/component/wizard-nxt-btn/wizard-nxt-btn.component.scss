@@ -1,0 +1,14 @@
+.wizard-nxt-btn-container {
+  position: absolute;
+  bottom: 3rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .nxt-btn {
+    width: 20rem;
+    height: 3rem;
+    font-weight: 600;
+  }
+}

@@ -9,7 +9,6 @@ import { IncidentItemComponent } from './pages/components/incident-item/incident
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NewIncidentComponent } from './pages/new-incident/new-incident.component';
 import { GoogleMapComponent } from './pages/components/google-map/google-map.component';
-import { IncidentWizardContainerComponent } from './pages/new-incident/component/incident-wizard-container/incident-wizard-container';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { IncidentWizardContainerComponent } from './pages/new-incident/component
     MyModalComponent,
     IncidentItemComponent,
     NewIncidentComponent,
-    IncidentWizardContainerComponent,
     GoogleMapComponent
   ],
   imports: [

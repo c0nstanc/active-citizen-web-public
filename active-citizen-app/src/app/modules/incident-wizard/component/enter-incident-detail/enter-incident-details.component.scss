@@ -1,46 +1,10 @@
 @import "variables";
 
-// .title-divider {
-//   margin-bottom: 1em;
-// }
-
-.wizard-container {
-  height: 100%;
-  padding: 0;
-}
 
 .form-container {
-  height: 100%;
-  //margin: 1em 1rem 1em 1rem;
-  padding: 3rem 2rem 6rem 2rem;
-  // box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-  //   0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px;
-  border-radius: 6px;
+  padding: 0rem 1rem 6rem 1rem;
 }
-
-// .form-group {
-//   width: 100%;
-
-//   @media screen and (min-width: $breakpoint-desktop) {
-//     width: 100%;
-//   }
-// }
 
 mat-form-field {
   width: 100%;
-}
-
-.button-container {
-  position: absolute;
-  bottom: 3rem;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .next-btn {
-    width: 20rem;
-    height: 3rem;
-    font-weight: 600;
-  }
 }

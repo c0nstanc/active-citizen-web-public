@@ -6,6 +6,8 @@
 @import "app/modules/incidents/pages/new-incident/new-incident.component-theme";
 @import "app/layout/footer/footer.component-theme";
 @import "app/shared/component/sidenav-menu-item/sidenav-menu-item.component-theme";
+@import "app/shared/component/wizard/wizard.component-theme";
+
 
 
 @mixin custom-components-theme($selected-theme) {
@@ -14,5 +16,6 @@
   @include footer-component-theme($selected-theme);
   @include my-incident-container-component-theme($selected-theme);
   @include my-incident-component-theme($selected-theme);
+  @include wizard-theme($selected-theme);
   @include angular-material-typography($active-citizens-typography);
 }

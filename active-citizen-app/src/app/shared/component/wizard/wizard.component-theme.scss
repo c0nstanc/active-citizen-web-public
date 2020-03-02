@@ -1,0 +1,12 @@
+@mixin wizard-theme($selected-theme) {
+  .wizard-container {
+    @if mat-theme-is-dark($selected-theme) {
+      background-color: rgba(
+        mat-theme-background-color($selected-theme, background),
+        0.9
+      );
+    } @else {
+      background-color: white;
+    }
+  }
+}

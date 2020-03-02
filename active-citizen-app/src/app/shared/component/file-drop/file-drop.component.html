@@ -1,0 +1,43 @@
+<div class="file-upload-container">
+  <app-simple-file-drop class="file-upload" #fileInput (selectionChanged)="this.onInputChanged($event)"
+    containerDivClass="file-input-demo" allowedExtensions="jpg" [maxFileSize]="4194304">
+
+    <ng-container class="file-upload-content" *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected">
+    </ng-container>
+    <ng-template #filesSelected>
+      <ul class="file-list">
+        <li *ngFor="let file of fileInput.selectedFiles">
+          {{file['name']}}
+        </li>
+      </ul>
+    </ng-template>
+    <ng-template #noFilesSelected>
+
+      <ng-container class="file-upload-content" *ngIf="fileInput.dragging; then dragging else notDragging">
+      </ng-container>
+      <ng-template #dragging>Drop Files Here</ng-template>
+      <ng-template class="file-upload-content" #notDragging>
+        <div class="file-upload-content">
+          <!-- <mat-icon class="add-photo-icon">add_a_photo</mat-icon> -->
+          <div> Click or Drag Files Here</div>
+        </div>
+
+      </ng-template>
+    </ng-template>
+  </app-simple-file-drop>
+
+
+  <input type="button" *ngIf="fileInput.filesSelected" (click)="onImageSelected(fileInput.selectedFiles)"
+    value="Clear Selection">
+
+
+  <img [src]="imgURL" height="200" *ngIf="imgURL">
+
+  <mat-chip-list #chipList aria-label="Fruit selection">
+    <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable" (removed)="remove(fruit)">
+      {{fruit.name}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+
+  </mat-chip-list>
+</div>
