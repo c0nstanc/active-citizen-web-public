@@ -19,13 +19,25 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  color: #9F9F9F;
+  color: #9f9f9f;
 
-  .add-photo-icon{
+  .add-photo-icon {
     font-size: 4rem;
     height: unset;
     width: unset;
     margin-bottom: 1rem;
-    color: #9F9F9F;
+    color: #9f9f9f;
+  }
+}
+
+
+.photo-container {
+  width: 100%;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 32rem;
+    border-radius: 6px;
+    border:1px solid black;
   }
 }

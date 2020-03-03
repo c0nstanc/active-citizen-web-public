@@ -80,6 +80,10 @@ import { FileDropComponent } from './component/file-drop/file-drop.component';
 import { WizardStepTitleComponent } from './component/wizard-step-title/wizard-step-title.component';
 import { WizardComponent } from './component/wizard/wizard.component';
 import { WizardNxtBtnComponent } from './component/wizard-nxt-btn/wizard-nxt-btn.component';
+import { SimpleModalComponent } from './component/simple-modal/simple-modal.component';
+import { ModalContentComponent } from './component/modal-content/modal-content.component';
+import { ModalFooterComponent } from './component/modal-footer/modal-footer.component';
+import { ModalHeaderComponent } from './component/modal-header/modal-header.component';
 
 @NgModule({
   imports: [
@@ -100,7 +104,11 @@ import { WizardNxtBtnComponent } from './component/wizard-nxt-btn/wizard-nxt-btn
     FileDropComponent,
     WizardStepTitleComponent,
     WizardComponent,
-    WizardNxtBtnComponent],
+    WizardNxtBtnComponent,
+    SimpleModalComponent,
+    ModalContentComponent,
+    ModalFooterComponent,
+    ModalHeaderComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -118,7 +126,11 @@ import { WizardNxtBtnComponent } from './component/wizard-nxt-btn/wizard-nxt-btn
     FileDropComponent,
     WizardStepTitleComponent,
     WizardComponent,
-    WizardNxtBtnComponent
+    WizardNxtBtnComponent,
+    SimpleModalComponent,
+    ModalContentComponent,
+    ModalFooterComponent,
+    ModalHeaderComponent
   ]
 })
 export class SharedModule {

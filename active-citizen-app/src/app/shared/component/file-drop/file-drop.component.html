@@ -35,3 +35,18 @@
   </div>
 
 </div>
+
+<app-simple-modal #myModal>
+
+  <app-modal-header>
+    {{displayedPhoto?.name}}
+  </app-modal-header>
+
+  <app-modal-content>
+    <div class="photo-container">
+      <img [src]="displayedPhotoUrl" max-heigh="400" *ngIf="displayedPhotoUrl">
+    </div>
+  </app-modal-content>
+
+
+</app-simple-modal>

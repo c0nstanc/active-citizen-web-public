@@ -1,7 +1,7 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { MyModalComponent } from 'src/app/modules/incidents/modal/my-modal.component';
+import { ModalService } from '../simple-modal/service/modal.service';
+import { ModalSize } from '../simple-modal/model/modal-size.enum';
 
 
 @Component({
@@ -21,15 +21,18 @@ export class FileDropComponent implements OnInit {
   dragging: boolean;
 
 
-  selectedFile: File = null;
-  imgURL: any;
+  displayedPhoto: File = null;
+  displayedPhotoUrl: any;
 
   visible = true;
   selectable = true;
   removable = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  constructor(private modalService: NgbModal) { }
+  @ViewChild('myModal') myModal;
+  private modalRef;
+
+  constructor(private modalService: ModalService) { }
 
   ngOnInit(): void {
     this.selectedFiles = new Array<File>();
@@ -39,11 +42,45 @@ export class FileDropComponent implements OnInit {
   onSelectionChanged(files: File[]): void {
     Array.from(files).forEach(f => this.selectedFiles.push(f));
     this.selectionChanged.emit(files);
-    this.computeImageUrl(files[0]);
   }
 
   onDragging(dragging: boolean): void {
     this.dragging = dragging;
+  }
+
+
+  removeFile(fileIndex: number): void {
+    if (fileIndex >= 0) {
+      this.selectedFiles.splice(fileIndex, 1);
+    }
+  }
+
+  selectedFileOnClick(file: File): void {
+    this.openModal(file);
+  }
+
+
+
+  openModal(file: File): void {
+    this.loadPhoto(file);
+    this.modalRef = this.modalService.open(this.myModal, {
+      modalClass: 'modal',
+      hideCloseButton: false,
+      verticallyCentered: true,
+      backdrop: true,
+      isStaticBackdrop: false,
+      animation: true,
+      listenToKeyboard: false,
+      closeOnOutsideClick: true,
+      backdropClass: 'modal-backdrop'
+    });
+  }
+
+
+
+  closeModal() {
+    this.modalService.close(this.modalRef);
+    //or this.modalRef.close();
   }
 
   public clearFileSelection(): void {
@@ -53,37 +90,18 @@ export class FileDropComponent implements OnInit {
     }
   }
 
-  private computeImageUrl(file: File): void {
+  private loadPhoto(file: File): void {
 
     if (file.type.match(/image\/*/) != null) {
-      this.selectedFile = file;
+      this.displayedPhoto = file;
       const reader: FileReader = new FileReader();
-      reader.readAsDataURL(this.selectedFile);
+      reader.readAsDataURL(this.displayedPhoto);
       reader.onload = (event: ProgressEvent) => {
         if (event.loaded) {
-          this.imgURL = reader.result;
+          this.displayedPhotoUrl = reader.result;
         }
       };
     }
 
-  }
-
-  removeFile(fileIndex: number): void {
-    if (fileIndex >= 0) {
-      this.selectedFiles.splice(fileIndex, 1);
-    }
-  }
-
-  selectedFileOnClick(event: any): void {
-    this.openMyModal();
-  }
-
-
-  openMyModal() {
-    const modalRef = this.modalService.open(MyModalComponent);
-    modalRef.componentInstance.id = 1;
-    modalRef.result.then((result) => {
-      console.log(result);
-    });
   }
 }

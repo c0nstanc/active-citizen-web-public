@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { HeaderNavItem } from './model/header-nav-item.model';
 import { NavItem } from 'src/app/shared/model/nav/nav-item.model';
+import { ModalService } from 'src/app/shared/component/simple-modal/service/modal.service';
 
 @Component({
   selector: 'app-header',
@@ -27,7 +28,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ];
 
   constructor(
-    private themeService: ThemeService
+    private themeService: ThemeService, private modalService: ModalService
   ) { }
 
   ngOnInit(): void {
@@ -50,6 +51,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onHamburgerToggled(): void {
+    this.modalService.setSideNavIsOpen(!this.modalService.getSideNavIsOpen());
     this.hamburgerToggle.emit();
   }
 
