@@ -3,6 +3,7 @@ export interface ModalConfig {
   size?: string | 'md';
   modalClass?: string | '';
   hideCloseButton?: boolean | false;
+  hideFooterArea?: boolean | false;
   cancelButtonLabel?: string | '';
   verticallyCentered?: boolean | false;
   backdrop?: boolean | true;

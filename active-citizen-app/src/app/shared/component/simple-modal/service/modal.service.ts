@@ -15,9 +15,10 @@ export class ModalService {
   private modalHost: ViewContainerRef;
 
   private globalConfig: ModalConfig = {
-    //size: ModalSize.MEDIUM,
+    // size: ModalSize.MEDIUM,
     modalClass: '',
     hideCloseButton: false,
+    hideFooterArea: false,
     verticallyCentered: false,
     backdrop: true,
     isStaticBackdrop: true,

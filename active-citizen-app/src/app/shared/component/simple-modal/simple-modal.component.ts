@@ -21,6 +21,8 @@ export class SimpleModalComponent implements OnInit {
   @Input()
   hideCloseButton: boolean;
   @Input()
+  hideFooterArea: boolean;
+  @Input()
   verticallyCentered: boolean;
   @Input()
   backdrop: boolean;
@@ -63,6 +65,7 @@ export class SimpleModalComponent implements OnInit {
       // size: this.size || ModalSize.MEDIUM,
       modalClass: this.modalClass || '',
       hideCloseButton: this.hideCloseButton || false,
+      hideFooterArea: this.hideFooterArea || false,
       verticallyCentered: this.verticallyCentered || false,
       backdrop: this.backdrop || true,
       isStaticBackdrop: this.isStaticBackdrop || true,

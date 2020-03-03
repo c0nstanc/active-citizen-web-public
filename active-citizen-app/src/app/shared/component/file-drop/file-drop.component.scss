@@ -30,7 +30,6 @@
   }
 }
 
-
 .photo-container {
   width: 100%;
   height: 100%;
@@ -38,6 +37,20 @@
     width: 100%;
     height: 32rem;
     border-radius: 6px;
-    border:1px solid black;
+    border: 1px dashed black;
   }
+}
+
+.photo-name {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .modal-header.image-modal {
+  padding: unset;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  border-bottom: unset;
 }

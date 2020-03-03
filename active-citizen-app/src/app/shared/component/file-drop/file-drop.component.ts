@@ -64,8 +64,9 @@ export class FileDropComponent implements OnInit {
   openModal(file: File): void {
     this.loadPhoto(file);
     this.modalRef = this.modalService.open(this.myModal, {
-      modalClass: 'modal',
+      modalClass: 'image-modal',
       hideCloseButton: false,
+      hideFooterArea: true,
       verticallyCentered: true,
       backdrop: true,
       isStaticBackdrop: false,

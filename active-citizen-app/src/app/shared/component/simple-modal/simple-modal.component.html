@@ -6,7 +6,7 @@
     [ngClass]="{'modal-dialog-centered': settings?.verticallyCentered,'modal-open-sidenav':sideNavIsOpen}">
 
     <div class="modal-content" tabindex="0" *ngIf="isOpened">
-      <div class="modal-header">
+      <div class="modal-header" [class]="'modal-header ' + settings?.modalClass">
         <h4 class="modal-title" *ngIf="settings?.title">{{ settings?.title }}</h4>
         <ng-content select="app-modal-header"></ng-content>
         <button *ngIf="!settings?.hideCloseButton" type="button" class="close"
@@ -16,7 +16,7 @@
       <div class="modal-body">
         <ng-content select="app-modal-content"></ng-content>
       </div>
-      <div class="modal-footer">
+      <div *ngIf="!settings?.hideFooterArea " class="modal-footer">
         <ng-content select="app-modal-footer"></ng-content>
       </div>
     </div>
