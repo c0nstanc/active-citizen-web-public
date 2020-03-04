@@ -3,7 +3,10 @@
 .header {
   display: flex;
   align-items: center;
-  height: $app-header-height;
+  height: $app-header-height-sm;
+  @media screen and (min-width: $breakpoint-tablet) {
+    height: $app-header-height;
+  }
 }
 .flex-spacer {
   flex-grow: 1;
@@ -18,7 +21,7 @@ mat-icon.theme-icon {
 }
 
 .hamburger {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   padding: 0;
   display: flex;
   display: -webkit-box;
@@ -26,4 +29,8 @@ mat-icon.theme-icon {
   justify-content: center;
   min-width: $app-header-height;
   min-height: $app-header-height;
+  @media screen and (min-width: $breakpoint-tablet) {
+    min-width: $app-header-height;
+    min-height: $app-header-height;
+  }
 }

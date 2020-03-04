@@ -6,10 +6,8 @@ $breakpoint-tablet: 35rem;
 $breakpoint-desktop: 64rem;
 
 // Header
-$app-header-height: 3.5rem;
-@media screen and (min-width: $breakpoint-tablet) {
-  $app-header-height: 4rem;
-}
+$app-header-height-sm: 3.5rem;
+$app-header-height: 4rem;
 
 $app-header-icon-size: 1rem;
 $app-header-z-index: 100;
@@ -24,6 +22,12 @@ $app-footer-height: 5rem;
 // Content
 $app-content-margin-top: 1rem;
 $app-content-padding-bottom: 3rem;
+$app-content-min-height-sm: calc(
+  100vh -
+    calc(
+      #{$app-header-height-sm} + #{$app-footer-height} + #{$app-content-margin-top}
+    )
+);
 $app-content-min-height: calc(
   100vh -
     calc(

@@ -2,7 +2,10 @@
 
 .mat-app-background {
   height: 100%;
-  padding-top: $app-header-height;
+  padding-top: $app-header-height-sm;
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding-top: $app-header-height;
+  }
 }
 
 app-header {
@@ -17,7 +20,10 @@ app-header {
 #content {
   margin-top: $app-content-margin-top;
   padding-bottom: $app-content-padding-bottom;
-  min-height: $app-content-min-height;
+  min-height: $app-content-min-height-sm;
+  @media screen and (min-width: $breakpoint-tablet) {
+    min-height: $app-content-min-height;
+  }
 }
 
 mat-sidenav-container {
@@ -25,7 +31,10 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  top: $app-header-height !important;
+  top: $app-header-height-sm !important;
+  @media screen and (min-width: $breakpoint-tablet) {
+    top: $app-header-height !important;
+  }
   left: 0;
   min-width: $app-sidenav-min-width;
   box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
