@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ModalService {
 
-  private sideNavIsOpened = true;
+  private sideNavIsOpened = false;
 
   public sideNavToggled: BehaviorSubject<boolean> = new BehaviorSubject(this.sideNavIsOpened);
 

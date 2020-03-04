@@ -40,7 +40,7 @@ export class ContentLayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.sidenavOpen = true;
+    this.sidenavOpen = false;
     if (this.overlayContainer) {
       this.overlayContainer.getContainerElement().classList.add(this.theme);
     }

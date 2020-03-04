@@ -9,10 +9,13 @@
       </button>
 
 
-      <span routerLink="" class="navbar-brand spacer center d-sm-inline d-md-none">
+      <!-- <span routerLink="" class="navbar-brand spacer center d-sm-inline d-md-none">
         {{ 'ActiveCitizen' }}
       </span>
       <span routerLink="" class="navbar-brand spacer d-none d-md-inline">
+        {{ 'ActiveCitizen' }}
+      </span> -->
+      <span routerLink="">
         {{ 'ActiveCitizen' }}
       </span>
       <span class="d-none d-md-inline">
@@ -25,10 +28,9 @@
       </span>
       <div class="flex-spacer"></div>
 
-      <mat-slide-toggle [checked]="!isLightTheme" (change)="toggleTheme($event.checked)">
+      <mat-slide-toggle class="d-none d-md-inline" [checked]="!isLightTheme" (change)="toggleTheme($event.checked)">
         <mat-icon *ngIf="isLightTheme" class="theme-icon">wb_sunny</mat-icon>
         <mat-icon *ngIf="!isLightTheme" class="theme-icon">nights_stay</mat-icon>
-        Dark mode
       </mat-slide-toggle>
 
     </mat-toolbar-row>

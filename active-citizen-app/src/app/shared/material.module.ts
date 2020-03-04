@@ -23,7 +23,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import { MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -52,6 +52,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatProgressBarModule,
     MatAutocompleteModule,
     MatExpansionModule,
+    MatStepperModule
   ],
   exports: [
     MatButtonModule,
@@ -77,6 +78,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatProgressBarModule,
     MatAutocompleteModule,
     MatExpansionModule,
+    MatStepperModule
 
   ]
 })

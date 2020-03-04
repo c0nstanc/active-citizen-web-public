@@ -6,7 +6,11 @@ $breakpoint-tablet: 35rem;
 $breakpoint-desktop: 64rem;
 
 // Header
-$app-header-height: 4rem;
+$app-header-height: 3.5rem;
+@media screen and (min-width: $breakpoint-tablet) {
+  $app-header-height: 4rem;
+}
+
 $app-header-icon-size: 1rem;
 $app-header-z-index: 100;
 
@@ -31,3 +35,5 @@ $app-content-min-height: calc(
 $app-title-margin-top: 2rem;
 $app-title-margin-bottom: 2rem;
 
+// wizard
+$app-wizard-height: 400px;

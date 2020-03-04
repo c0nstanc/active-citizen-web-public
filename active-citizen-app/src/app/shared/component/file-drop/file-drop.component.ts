@@ -14,11 +14,17 @@ export class FileDropComponent implements OnInit {
   @Input()
   supportedFileTypesCategoty = 'Files';
 
+  @Input()
+  maxFiles = 4;
+
+
   @Output()
   selectionChanged = new EventEmitter<File[]>();
 
   selectedFiles: File[];
   dragging: boolean;
+
+  numOfSelectedFiles: number;
 
 
   displayedPhoto: File = null;
@@ -37,11 +43,17 @@ export class FileDropComponent implements OnInit {
   ngOnInit(): void {
     this.selectedFiles = new Array<File>();
     this.dragging = false;
+    this.numOfSelectedFiles = 0;
   }
 
   onSelectionChanged(files: File[]): void {
-    Array.from(files).forEach(f => this.selectedFiles.push(f));
-    this.selectionChanged.emit(files);
+    Array.from(files).forEach(file => {
+      if (this.numOfSelectedFiles < this.maxFiles) {
+        this.selectedFiles.push(file);
+        this.numOfSelectedFiles++;
+      }
+    });
+    this.selectionChanged.emit(this.selectedFiles);
   }
 
   onDragging(dragging: boolean): void {
@@ -52,6 +64,7 @@ export class FileDropComponent implements OnInit {
   removeFile(fileIndex: number): void {
     if (fileIndex >= 0) {
       this.selectedFiles.splice(fileIndex, 1);
+      this.numOfSelectedFiles--;
     }
   }
 

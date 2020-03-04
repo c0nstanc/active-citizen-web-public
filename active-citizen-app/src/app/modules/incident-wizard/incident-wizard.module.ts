@@ -15,6 +15,9 @@ import { EnterIncidentPhotoComponent } from './component/enter-incident-photo/en
     IncidentWizardRoutingModule,
 
     SharedModule
-  ]
+  ],
+  exports: [EnterLocationComponent,
+    EnterIncidentDetailsComponent,
+    EnterIncidentPhotoComponent]
 })
 export class IncidentWizardModule { }
