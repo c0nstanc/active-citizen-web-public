@@ -1,0 +1,23 @@
+<mat-horizontal-stepper labelPosition="bottom" [@.disabled]="true" #stepper  (selectionChange)="selectionChanged($event)" [linear]="true">
+
+  <!-- <ng-template matStepperIcon="edit">
+      <mat-icon>insert_drive_file</mat-icon>
+    </ng-template>
+
+    <ng-template matStepperIcon="done">
+      <mat-icon>done_all</mat-icon>
+    </ng-template> -->
+
+  <mat-step *ngFor="let step of steps; let i=index;" [label]="step.stepName">
+    <div class="step-container">
+
+      <router-outlet *ngIf="stepper.selectedIndex==i"></router-outlet>
+
+    </div>
+    <div class="photos-btn-container">
+      <button mat-raised-button matStepperNext color='accent' class="stepper-btn-nxt">{{step.buttonName}}</button>
+    </div>
+
+  </mat-step>
+
+</mat-horizontal-stepper>

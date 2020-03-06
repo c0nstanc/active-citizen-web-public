@@ -1,47 +1,4 @@
 <div class="container">
   <app-page-title>Report a Problem</app-page-title>
-
-  <mat-horizontal-stepper labelPosition="bottom" [@.disabled]="true">
-
-    <!-- <ng-template matStepperIcon="edit">
-      <mat-icon>insert_drive_file</mat-icon>
-    </ng-template>
-
-    <ng-template matStepperIcon="done">
-      <mat-icon>done_all</mat-icon>
-    </ng-template> -->
-
-
-    <mat-step label="Enter location">
-      <div class="step-container">
-        <app-enter-location></app-enter-location>
-      </div>
-      <div class="location-btn-container">
-        <button mat-raised-button matStepperNext color='accent' class="stepper-btn-nxt">Submit Location</button>
-      </div>
-    </mat-step>
-
-    <mat-step label="Enter problem details">
-      <div class="step-container">
-        <app-enter-incident-details></app-enter-incident-details>
-      </div>
-      <div class="details-btn-container">
-        <button mat-raised-button matStepperNext color='accent' class="stepper-btn-nxt">Submit Details</button>
-      </div>
-    </mat-step>
-
-    <mat-step label="Enter problem photo">
-      <div class="step-container">
-        <app-enter-incident-photo></app-enter-incident-photo>
-      </div>
-      <div class="photos-btn-container">
-        <button mat-raised-button matStepperNext color='accent' class="stepper-btn-nxt">Submit Photos</button>
-      </div>
-    </mat-step>
-
-  </mat-horizontal-stepper>
-
-  <!-- <app-wizard>
-    <router-outlet></router-outlet>
-  </app-wizard> -->
+  <app-new-incident-wizard-stepper></app-new-incident-wizard-stepper>
 </div>

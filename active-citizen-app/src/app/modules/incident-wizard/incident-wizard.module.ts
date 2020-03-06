@@ -6,18 +6,18 @@ import { IncidentWizardRoutingModule } from './incident-wizard.routing.module';
 import { EnterLocationComponent } from './component/enter-location/enter-location.component';
 import { EnterIncidentDetailsComponent } from './component/enter-incident-detail/enter-incident-details.component';
 import { EnterIncidentPhotoComponent } from './component/enter-incident-photo/enter-incident-photo.component';
+import { NewIncidentWizardStepperComponent } from './component/new-incident-wizard-stepper/new-incident-wizard-stepper.component';
 
 @NgModule({
   declarations: [EnterLocationComponent,
     EnterIncidentDetailsComponent,
-    EnterIncidentPhotoComponent],
+    EnterIncidentPhotoComponent,
+    NewIncidentWizardStepperComponent],
   imports: [
     IncidentWizardRoutingModule,
 
     SharedModule
   ],
-  exports: [EnterLocationComponent,
-    EnterIncidentDetailsComponent,
-    EnterIncidentPhotoComponent]
+  exports: [NewIncidentWizardStepperComponent]
 })
 export class IncidentWizardModule { }

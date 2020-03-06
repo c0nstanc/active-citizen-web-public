@@ -7,16 +7,16 @@ import { EnterIncidentPhotoComponent } from './component/enter-incident-photo/en
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'step0',
     component: EnterLocationComponent,
 
   },
   {
-    path: '1',
+    path: 'step1',
     component: EnterIncidentDetailsComponent
   },
   {
-    path: '2',
+    path: 'step2',
     component: EnterIncidentPhotoComponent
   }
 
