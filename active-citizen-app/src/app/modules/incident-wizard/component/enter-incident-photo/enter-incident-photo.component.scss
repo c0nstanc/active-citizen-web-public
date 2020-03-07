@@ -1,3 +1,4 @@
+@import "variables";
 .form-container {
   padding: 0rem 1rem 6rem 1rem;
   border-radius: 6px;
@@ -7,6 +8,20 @@
   margin: 1rem 0 1rem 0;
 }
 
-.file-drop-container{
+.file-drop-container {
   margin: 2rem 0 0rem 0rem;
+}
+
+.take-picture {
+  @media screen and (min-width: $breakpoint-desktop) {
+    display: none;
+  }
+}
+
+.snapshot {
+  text-align: center;
+  img {
+    max-width: 800px;
+    max-height: 800px;
+  }
 }

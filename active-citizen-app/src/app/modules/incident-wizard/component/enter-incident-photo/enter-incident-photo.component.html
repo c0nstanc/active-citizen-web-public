@@ -10,6 +10,14 @@
     <div class="file-drop-container">
       <app-file-drop supportedFileTypesCategoty='Photos'></app-file-drop>
     </div>
+
+    <app-take-picture (pictureTaken)="onPictureTaken($event);" class="take-picture"></app-take-picture>
+    <div class="snapshot" *ngIf="camImage">
+      <h2>Nice picture! Now wait until I make it more compatible with the file uploader :)</h2>
+      <img [src]="camImage.imageAsDataUrl" />
+    </div>
+
   </div>
+
 
   <!-- <app-wizard-nxt-btn (clicked)="onNxtBtnClicked()">Next</app-wizard-nxt-btn> -->

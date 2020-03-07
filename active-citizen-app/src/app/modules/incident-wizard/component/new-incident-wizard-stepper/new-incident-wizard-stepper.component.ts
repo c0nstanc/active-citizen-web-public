@@ -16,7 +16,8 @@ export class NewIncidentWizardStepperComponent implements OnInit {
   ngOnInit(): void {
     this.steps = [new Step('Enter location', 'Submit Location'),
     new Step('Enter details', 'Submit Details'),
-    new Step('Enter photo', 'Submit Photos')
+    new Step('Enter photo', 'Submit Photos'),
+      // new Step('Enter picture', 'Submit Picture')
     ];
   }
 

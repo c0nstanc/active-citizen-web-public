@@ -3,12 +3,12 @@
 .footer {
   height: $app-footer-height;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   padding: 1rem;
 
-  .footer-content {
+  .copyright-container {
     display: flex;
     flex-direction: column;
     align-items: center;

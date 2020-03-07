@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CamImage } from 'src/app/shared/component/camera/model/cam-image.model';
 
 
 @Component({
@@ -9,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class EnterIncidentPhotoComponent implements OnInit {
 
+  camImage: CamImage;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -16,6 +19,11 @@ export class EnterIncidentPhotoComponent implements OnInit {
 
   onNxtBtnClicked(): void {
     this.router.navigate(['incidents/new-incident/']);
+  }
+
+  onPictureTaken(camImage: CamImage) {
+    console.log('cheeess!!!' + camImage.imageAsDataUrl);
+    this.camImage = camImage;
   }
 
 }

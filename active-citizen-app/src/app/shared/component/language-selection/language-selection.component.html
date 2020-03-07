@@ -1,0 +1,6 @@
+<div class="language-selection-container">
+  {{ appName }} is offered in :
+  <ng-container *ngFor="let language of supportedLanguages">
+    <span class="language" (click)="onLanguageSelected(language)">{{language.name}}</span>
+  </ng-container>
+</div>

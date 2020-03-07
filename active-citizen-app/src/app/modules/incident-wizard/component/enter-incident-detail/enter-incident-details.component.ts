@@ -51,9 +51,7 @@ export class EnterIncidentDetailsComponent implements OnInit {
   }
 
   onSubmit(): void {
-
     console.log(this.newIncidentForm.value);
-    this.router.navigate(['incidents/new-incident/2']);
-
+    // this.router.navigate(['incidents/new-incident/2']);
   }
 }

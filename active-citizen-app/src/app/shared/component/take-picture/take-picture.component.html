@@ -1,0 +1,32 @@
+<button mat-raised-button color="accent" (click)="onTakePicture()">Take Picture</button>
+
+<app-simple-modal #myModal (closed)="onCloseModal()">
+  <app-modal-header>
+    <div class="header-container">
+      <h4>Take a picture</h4>
+    </div>
+  </app-modal-header>
+
+  <app-modal-content>
+
+    <div class="camera-container">
+      <app-camera [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="onImageCaptured($event)"
+        *ngIf="showCam" [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
+        [videoOptions]="videoOptions" [imageQuality]="1" (cameraSwitched)="cameraWasSwitched($event)"
+        (initError)="handleInitError($event)"></app-camera>
+    </div>
+
+  </app-modal-content>
+
+  <app-modal-footer>
+    <div class="camera-controls-container">
+      <button mat-raised-button color="accent" (click)="triggerSnapshot();">Take A Snapshot</button>
+      <button mat-raised-button color="accent" (click)="toggleCam();">Toggle Camera</button>
+      <button mat-raised-button color="accent" (click)="showNextWebcam(true);"
+        [disabled]="!multipleWebcamsAvailable">Switch Camera</button>
+    </div>
+  </app-modal-footer>
+
+
+
+</app-simple-modal>

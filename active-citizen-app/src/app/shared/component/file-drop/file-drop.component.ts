@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { ModalService } from '../simple-modal/service/modal.service';
 import { ModalSize } from '../simple-modal/model/modal-size.enum';
@@ -35,8 +35,9 @@ export class FileDropComponent implements OnInit {
   removable = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  @ViewChild('myModal') myModal;
-  private modalRef;
+  @ViewChild('myModal') myModal: ElementRef;
+
+  private modalRef: ElementRef;
 
   constructor(private modalService: ModalService) { }
 
@@ -94,7 +95,7 @@ export class FileDropComponent implements OnInit {
 
   closeModal() {
     this.modalService.close(this.modalRef);
-    //or this.modalRef.close();
+    // or this.modalRef.close();
   }
 
   public clearFileSelection(): void {

@@ -1,0 +1,19 @@
+.camera-container,
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+app-modal-header,
+app-modal-footer {
+  width: 100%;
+}
+
+.camera-controls-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}

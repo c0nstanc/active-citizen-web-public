@@ -12,6 +12,7 @@ export class FooterComponent implements OnInit {
   currentYear: number;
   companyTitle: string;
 
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,5 +21,7 @@ export class FooterComponent implements OnInit {
     this.version = environment.version;
 
   }
+
+
 
 }

@@ -40,7 +40,7 @@ export class SimpleModalComponent implements OnInit {
   @Output()
   public opened = new EventEmitter<string>();
   @Output()
-  public closed = new EventEmitter<string>();
+  public closed = new EventEmitter<void>();
 
 
   @ViewChild('modalRoot')
@@ -77,8 +77,6 @@ export class SimpleModalComponent implements OnInit {
   }
 
   init(config: ModalConfig) {
-    this.opened.observers = [];
-    this.closed.observers = [];
     this.settings = Object.assign({}, this.modalService.getDefaults(), this.inputSettings, config);
     this.createBackDrop();
   }
@@ -108,7 +106,7 @@ export class SimpleModalComponent implements OnInit {
     document.body.className = document.body.className.replace(/modal-open\b/, '');
     window.setTimeout(() => {
       this.isOpened = false;
-      this.closed.emit('test');
+      this.closed.emit();
     }, 100);
   }
 

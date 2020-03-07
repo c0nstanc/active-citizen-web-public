@@ -84,6 +84,10 @@ import { SimpleModalComponent } from './component/simple-modal/simple-modal.comp
 import { ModalContentComponent } from './component/modal-content/modal-content.component';
 import { ModalFooterComponent } from './component/modal-footer/modal-footer.component';
 import { ModalHeaderComponent } from './component/modal-header/modal-header.component';
+import { GoogleMapComponent } from './component/google-map/google-map.component';
+import { CameraComponent } from './component/camera/camera.component';
+import { LanguageSelectionComponent } from './component/language-selection/language-selection.component';
+import { TakePictureComponent } from './component/take-picture/take-picture.component';
 
 @NgModule({
   imports: [
@@ -108,7 +112,11 @@ import { ModalHeaderComponent } from './component/modal-header/modal-header.comp
     SimpleModalComponent,
     ModalContentComponent,
     ModalFooterComponent,
-    ModalHeaderComponent],
+    ModalHeaderComponent,
+    GoogleMapComponent,
+    CameraComponent,
+    LanguageSelectionComponent,
+    TakePictureComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -130,7 +138,10 @@ import { ModalHeaderComponent } from './component/modal-header/modal-header.comp
     SimpleModalComponent,
     ModalContentComponent,
     ModalFooterComponent,
-    ModalHeaderComponent
+    ModalHeaderComponent,
+    GoogleMapComponent,
+    TakePictureComponent,
+    LanguageSelectionComponent
   ]
 })
 export class SharedModule {

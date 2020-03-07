@@ -8,7 +8,6 @@ import { IncidentsRoutingModule } from './incidents.routing';
 import { IncidentItemComponent } from './pages/components/incident-item/incident-item.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NewIncidentComponent } from './pages/new-incident/new-incident.component';
-import { GoogleMapComponent } from './pages/components/google-map/google-map.component';
 import { IncidentWizardModule } from '../incident-wizard/incident-wizard.module';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { IncidentWizardModule } from '../incident-wizard/incident-wizard.module'
     MyModalComponent,
     IncidentItemComponent,
     NewIncidentComponent,
-    GoogleMapComponent
   ],
   imports: [
     SharedModule,
