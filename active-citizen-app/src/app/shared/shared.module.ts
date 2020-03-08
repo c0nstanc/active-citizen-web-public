@@ -88,6 +88,7 @@ import { GoogleMapComponent } from './component/google-map/google-map.component'
 import { CameraComponent } from './component/camera/camera.component';
 import { LanguageSelectionComponent } from './component/language-selection/language-selection.component';
 import { TakePictureComponent } from './component/take-picture/take-picture.component';
+import { MainMenuComponent } from './component/main-menu/main-menu.component';
 
 @NgModule({
   imports: [
@@ -116,7 +117,8 @@ import { TakePictureComponent } from './component/take-picture/take-picture.comp
     GoogleMapComponent,
     CameraComponent,
     LanguageSelectionComponent,
-    TakePictureComponent],
+    TakePictureComponent,
+    MainMenuComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -141,7 +143,8 @@ import { TakePictureComponent } from './component/take-picture/take-picture.comp
     ModalHeaderComponent,
     GoogleMapComponent,
     TakePictureComponent,
-    LanguageSelectionComponent
+    LanguageSelectionComponent,
+    MainMenuComponent
   ]
 })
 export class SharedModule {

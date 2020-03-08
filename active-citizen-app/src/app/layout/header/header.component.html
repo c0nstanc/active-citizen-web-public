@@ -5,7 +5,7 @@
     <mat-toolbar-row class="mat-toolbar-row">
 
       <button mat-button class="hamburger" (click)="onHamburgerToggled()">
-        <mat-icon >menu</mat-icon>
+        <mat-icon>menu</mat-icon>
       </button>
 
 
@@ -30,9 +30,9 @@
 
       <mat-slide-toggle class="d-none d-md-inline" [checked]="!isLightTheme" (change)="toggleTheme($event.checked)">
         <mat-icon *ngIf="isLightTheme" class="theme-icon">wb_sunny</mat-icon>
-        <mat-icon *ngIf="!isLightTheme" class="theme-icon">nights_stay</mat-icon>
+        <mat-icon *ngIf="!isLightTheme" class="theme-icon">brightness_3</mat-icon>
       </mat-slide-toggle>
-
+      <app-main-menu></app-main-menu>
     </mat-toolbar-row>
   </mat-toolbar>
 </div>

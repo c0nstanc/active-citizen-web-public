@@ -13,7 +13,7 @@
 
     <app-take-picture (pictureTaken)="onPictureTaken($event);" class="take-picture"></app-take-picture>
     <div class="snapshot" *ngIf="camImage">
-      <h2>Nice picture! Now wait until I make it more compatible with the file uploader :)</h2>
+      <h2>Nice picture! </h2>
       <img [src]="camImage.imageAsDataUrl" />
     </div>
 
