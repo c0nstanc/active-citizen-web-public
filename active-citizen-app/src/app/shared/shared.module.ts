@@ -98,7 +98,6 @@ import { MainMenuComponent } from './component/main-menu/main-menu.component';
     RouterModule,
     TranslateModule,
 
-    NgbModule,
     FontAwesomeModule,
     MaterialModule,
   ],
