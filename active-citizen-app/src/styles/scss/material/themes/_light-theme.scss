@@ -16,33 +16,33 @@ $my-light-theme: mat-light-theme(
   $my-light-warn
 );
 
-$my-light-theme-background-color: map-get($my-light-primary, 50);
-$my-light-theme-foreground-color: black;
+// $my-light-theme-background-color: map-get($my-light-primary, 50);
+// $my-light-theme-foreground-color: black;
 
-$background: map-get($my-light-theme, background);
-$background: map_merge(
-  $background,
-  (
-    background: $my-light-theme-background-color
-  )
-);
-$my-light-theme: map_merge(
-  $my-light-theme,
-  (
-    background: $background
-  )
-);
+// $background: map-get($my-light-theme, background);
+// $background: map_merge(
+//   $background,
+//   (
+//     background: $my-light-theme-background-color
+//   )
+// );
+// $my-light-theme: map_merge(
+//   $my-light-theme,
+//   (
+//     background: $background
+//   )
+// );
 
-$foreground: map-get($my-light-theme, foreground);
-$foreground: map_merge(
-  $foreground,
-  (
-    foreground: $my-light-theme-foreground-color
-  )
-);
-$my-light-theme: map_merge(
-  $my-light-theme,
-  (
-    foreground: $foreground
-  )
-);
+// $foreground: map-get($my-light-theme, foreground);
+// $foreground: map_merge(
+//   $foreground,
+//   (
+//     foreground: $my-light-theme-foreground-color
+//   )
+// );
+// $my-light-theme: map_merge(
+//   $my-light-theme,
+//   (
+//     foreground: $foreground
+//   )
+// );

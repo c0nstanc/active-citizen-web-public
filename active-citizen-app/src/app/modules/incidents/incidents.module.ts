@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 
-import { MyModalComponent } from './modal/my-modal.component';
-
 import { MyIncidentsComponent } from './pages/my-incidents/my-incidents.component';
 import { IncidentsRoutingModule } from './incidents.routing';
 
@@ -13,7 +11,6 @@ import { IncidentWizardModule } from '../incident-wizard/incident-wizard.module'
 @NgModule({
   declarations: [
     MyIncidentsComponent,
-    MyModalComponent,
     IncidentItemComponent,
     NewIncidentComponent,
   ],
@@ -24,6 +21,6 @@ import { IncidentWizardModule } from '../incident-wizard/incident-wizard.module'
   ],
   exports: [],
   providers: [],
-  entryComponents: [MyModalComponent]
+  entryComponents: []
 })
 export class IncidentsModule { }

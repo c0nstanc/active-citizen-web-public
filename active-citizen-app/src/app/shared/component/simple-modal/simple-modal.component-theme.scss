@@ -1,0 +1,9 @@
+@mixin simple-modal-component-theme($selected-theme) {
+  .modal-content {
+    color: mat-theme-foreground-color($selected-theme, text)!important;
+    background-color: mat-theme-background-color($selected-theme, background)!important;
+  }
+  button.close {
+    color: mat-theme-foreground-color($selected-theme, text);
+  }
+}
