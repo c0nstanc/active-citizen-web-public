@@ -1,0 +1,18 @@
+<app-simple-file-drop (selectionChanged)="onSelectionChanged($event)" containerDivClass="image-drop-area"
+  [allowedExtensions]='allowedExtensions' [maxFileSize]="maxFileSize" (dragging)="onDragging($event)">
+  <ng-container *ngIf="dragging; then draggingText else notDraggingText">
+  </ng-container>
+  <ng-template #draggingText>
+    <div class="image-drop-area-content">
+      <mat-icon class="add-image-icon">add_a_photo</mat-icon>
+      <div>Drop {{supportedFileTypesCategoty}} Here</div>
+    </div>
+
+  </ng-template>
+  <ng-template #notDraggingText>
+    <div class="image-drop-area-content">
+      <mat-icon class="add-photo-icon">add_a_photo</mat-icon>
+      <div> Click or Drag {{supportedFileTypesCategoty}} Here</div>
+    </div>
+  </ng-template>
+</app-simple-file-drop>

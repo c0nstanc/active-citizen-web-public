@@ -14,9 +14,9 @@ import { NewIncidentWizardStepperComponent } from './component/new-incident-wiza
     EnterIncidentPhotoComponent,
     NewIncidentWizardStepperComponent],
   imports: [
-    IncidentWizardRoutingModule,
+    SharedModule,
+    IncidentWizardRoutingModule
 
-    SharedModule
   ],
   exports: [NewIncidentWizardStepperComponent]
 })

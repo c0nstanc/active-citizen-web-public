@@ -14,7 +14,7 @@ export class TakePictureComponent implements OnInit, OnDestroy {
 
 
   @Output()
-  pictureTaken = new EventEmitter<CamImage>();
+  pictureTaken = new EventEmitter<File>();
 
   // toggle webcam on/off
   public showCam = false;
@@ -28,7 +28,7 @@ export class TakePictureComponent implements OnInit, OnDestroy {
   public errors: CamInitError[] = [];
 
   // latest snapshot
-  public camImage: CamImage = null;
+  public imageFile: File = null;
 
   // webcam snapshot trigger
   private trigger: Subject<void> = new Subject<void>();
@@ -68,9 +68,9 @@ export class TakePictureComponent implements OnInit, OnDestroy {
     this.nextCam.next(directionOrDeviceId);
   }
 
-  public onImageCaptured(camImage: CamImage): void {
-    this.pictureTaken.emit(camImage);
-    this.camImage = camImage;
+  public onImageCaptured(imageFile: File): void {
+    this.pictureTaken.emit(imageFile);
+    this.imageFile = imageFile;
     this.closeModal();
   }
 
@@ -86,8 +86,6 @@ export class TakePictureComponent implements OnInit, OnDestroy {
   public get nextWebcamObservable(): Observable<boolean | string> {
     return this.nextCam.asObservable();
   }
-
-
 
   onTakePicture(): void {
     this.openModal();
@@ -108,8 +106,6 @@ export class TakePictureComponent implements OnInit, OnDestroy {
       backdropClass: 'modal-backdrop'
     });
   }
-
-
 
   onCloseModal() {
     this.closeModal();

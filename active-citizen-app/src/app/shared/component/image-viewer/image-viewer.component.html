@@ -1,0 +1,12 @@
+<app-simple-modal #imageViewerModal>
+
+  <app-modal-content>
+    <div class="image-container">
+      <img [src]="displayedImageUrl" max-heigh="400" *ngIf="displayedImageUrl">
+    </div>
+    <div class="image-name">
+      {{displayedImage?.name}}
+    </div>
+  </app-modal-content>
+
+</app-simple-modal>

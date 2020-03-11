@@ -8,15 +8,8 @@
     </div>
 
     <div class="file-drop-container">
-      <app-file-drop supportedFileTypesCategoty='Photos'></app-file-drop>
+      <app-image-input supportedFileTypesCategoty='Photos'></app-image-input>
     </div>
-
-    <app-take-picture (pictureTaken)="onPictureTaken($event);" class="take-picture"></app-take-picture>
-    <div class="snapshot" *ngIf="camImage">
-      <h2>Nice picture! </h2>
-      <img [src]="camImage.imageAsDataUrl" />
-    </div>
-
   </div>
 
 

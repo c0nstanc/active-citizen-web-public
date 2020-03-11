@@ -1,0 +1,16 @@
+<div class="file-drop-container">
+
+  <div class="row">
+    <div class="col-12">
+      <app-image-drop (selectionChanged)="onSelectionChanged($event)"></app-image-drop>
+    </div>
+  </div>
+
+  <app-take-picture (pictureTaken)="onPictureTaken($event);" class="take-picture"></app-take-picture>
+
+  <app-file-list [selectedFiles]="selectedFiles" (fileRemoved)="removeFile($event)"
+    (fileSelected)="selectedFileOnClick($event)"></app-file-list>
+
+  <app-image-viewer #imageViewer></app-image-viewer>
+
+</div>

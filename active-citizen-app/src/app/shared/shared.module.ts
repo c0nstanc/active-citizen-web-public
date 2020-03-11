@@ -76,7 +76,7 @@ import { PageTitleComponent } from './component/page-title/page-title.component'
 import { TranslateModule } from '@ngx-translate/core';
 import { SidenavMenuItemComponent } from './component/sidenav-menu-item/sidenav-menu-item.component';
 import { SimpleFileDropComponent } from './component/simple-file-drop/simple-file-drop.component';
-import { FileDropComponent } from './component/file-drop/file-drop.component';
+import { ImageInputComponent } from './component/image-input/image-input.component';
 import { WizardStepTitleComponent } from './component/wizard-step-title/wizard-step-title.component';
 import { WizardComponent } from './component/wizard/wizard.component';
 import { WizardNxtBtnComponent } from './component/wizard-nxt-btn/wizard-nxt-btn.component';
@@ -89,6 +89,9 @@ import { CameraComponent } from './component/camera/camera.component';
 import { LanguageSelectionComponent } from './component/language-selection/language-selection.component';
 import { TakePictureComponent } from './component/take-picture/take-picture.component';
 import { MainMenuComponent } from './component/main-menu/main-menu.component';
+import { ImageViewerComponent } from './component/image-viewer/image-viewer.component';
+import { FileListComponent } from './component/file-list/file-list.component';
+import { ImageDropComponent } from './component/image-drop/image-drop.component';
 
 @NgModule({
   imports: [
@@ -105,7 +108,7 @@ import { MainMenuComponent } from './component/main-menu/main-menu.component';
     PageTitleComponent,
     SidenavMenuItemComponent,
     SimpleFileDropComponent,
-    FileDropComponent,
+    ImageInputComponent,
     WizardStepTitleComponent,
     WizardComponent,
     WizardNxtBtnComponent,
@@ -117,7 +120,10 @@ import { MainMenuComponent } from './component/main-menu/main-menu.component';
     CameraComponent,
     LanguageSelectionComponent,
     TakePictureComponent,
-    MainMenuComponent],
+    MainMenuComponent,
+    ImageViewerComponent,
+    FileListComponent,
+    ImageDropComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -132,16 +138,10 @@ import { MainMenuComponent } from './component/main-menu/main-menu.component';
     ControlMessagesComponent,
     PageTitleComponent,
     SidenavMenuItemComponent,
-    FileDropComponent,
+    ImageInputComponent,
     WizardStepTitleComponent,
-    WizardComponent,
     WizardNxtBtnComponent,
-    SimpleModalComponent,
-    ModalContentComponent,
-    ModalFooterComponent,
-    ModalHeaderComponent,
     GoogleMapComponent,
-    TakePictureComponent,
     LanguageSelectionComponent,
     MainMenuComponent
   ]

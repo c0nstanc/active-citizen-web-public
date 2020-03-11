@@ -11,7 +11,6 @@ export class CamImage {
   private readonly _imageAsDataUrl: string = null;
   private readonly _imageData: ImageData = null;
 
-
   /**
    * Extracts the Base64 data out of the given dataUrl.
    * @param dataUrl the given dataUrl
@@ -44,6 +43,22 @@ export class CamImage {
    */
   public get imageData(): ImageData {
     return this._imageData;
+  }
+
+  public camImageToFile(): File {
+    const imageName = 'CAPTURE_' + new Date().valueOf() + '.' + this._mimeType.replace('image/', '');
+    const imageBlob = this.dataURItoBlob(this.imageAsBase64);
+    return new File([imageBlob], imageName, { type: this._mimeType });
+  }
+
+  private dataURItoBlob(dataURI: string): Blob {
+    const byteString = window.atob(dataURI);
+    const arrayBuffer = new ArrayBuffer(byteString.length);
+    const int8Array = new Uint8Array(arrayBuffer);
+    for (let i = 0; i < byteString.length; i++) {
+      int8Array[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([int8Array], { type: 'this._mimeType' });
   }
 
 }

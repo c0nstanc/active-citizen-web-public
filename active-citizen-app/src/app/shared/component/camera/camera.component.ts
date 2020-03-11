@@ -24,7 +24,7 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
   @Input() public imageType: string = CameraComponent.DEFAULT_IMAGE_TYPE;
   @Input() public imageQuality: number = CameraComponent.DEFAULT_IMAGE_QUALITY;
 
-  @Output() public imageCapture: EventEmitter<CamImage> = new EventEmitter<CamImage>();
+  @Output() public imageCapture: EventEmitter<File> = new EventEmitter<File>();
   @Output() public initError: EventEmitter<CamInitError> = new EventEmitter<CamInitError>();
   @Output() public imageClick: EventEmitter<void> = new EventEmitter<void>();
   @Output() public cameraSwitched: EventEmitter<string> = new EventEmitter<string>();
@@ -178,7 +178,7 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
       imageData = context2d.getImageData(0, 0, canvas.width, canvas.height);
     }
 
-    this.imageCapture.next(new CamImage(dataUrl, mimeType, imageData));
+    this.imageCapture.next(new CamImage(dataUrl, mimeType, imageData).camImageToFile());
   }
 
   public rotateVideoInput(forward: boolean) {
