@@ -11,6 +11,9 @@ export class ImageInputComponent implements OnInit {
   @Input()
   maxFiles = 4;
 
+  @Input()
+  supportedFileTypesCategoty: string;
+
   @Output()
   selectionChanged = new EventEmitter<File[]>();
 

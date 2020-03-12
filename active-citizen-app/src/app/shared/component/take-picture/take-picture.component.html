@@ -1,6 +1,6 @@
 <button mat-raised-button color="accent" (click)="onTakePicture()">Take Picture</button>
 
-<app-simple-modal #myModal (closed)="onCloseModal()">
+<app-simple-modal #simpleModal (closed)="onCloseModal()">
   <app-modal-header>
     <div class="header-container">
       <h4>Take a picture</h4>
@@ -20,7 +20,7 @@
 
   <app-modal-footer>
     <div class="camera-controls-container">
-      <button mat-raised-button color="accent" (click)="triggerSnapshot();">Take A Snapshot</button>
+      <button mat-raised-button color="accent" (click)="triggerSnapshot();">Take a Picture</button>
       <button mat-raised-button color="accent" (click)="toggleCam();">Toggle Camera</button>
       <button mat-raised-button color="accent" (click)="showNextWebcam(true);"
         [disabled]="!multipleWebcamsAvailable">Switch Camera</button>

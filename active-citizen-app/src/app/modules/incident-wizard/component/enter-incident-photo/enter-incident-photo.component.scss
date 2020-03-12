@@ -11,17 +11,3 @@
 .file-drop-container {
   margin: 2rem 0 0rem 0rem;
 }
-
-.take-picture {
-  @media screen and (min-width: $breakpoint-desktop) {
-    display: none;
-  }
-}
-
-.snapshot {
-  text-align: center;
-  img {
-    max-width: 800px;
-    max-height: 800px;
-  }
-}

@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { CamInitError } from '../camera/model/cam-init-error.model';
-import { CamImage } from '../camera/model/cam-image.model';
 import { Subject, Observable } from 'rxjs';
 import { CamUtil } from '../camera/util/cam.util';
 import { ModalService } from '../simple-modal/service/modal.service';
@@ -35,9 +34,9 @@ export class TakePictureComponent implements OnInit, OnDestroy {
   // switch to next / previous / specific webcam; true/false: forward/backwards, string: deviceId
   private nextCam: Subject<boolean | string> = new Subject<boolean | string>();
 
-  @ViewChild('myModal') myModal: ElementRef;
+  @ViewChild('simpleModal') simpleModal: ElementRef;
 
-  private modalRef: ElementRef;
+  private simpleModalRef: ElementRef;
 
   constructor(private modalService: ModalService) { }
 
@@ -93,7 +92,7 @@ export class TakePictureComponent implements OnInit, OnDestroy {
 
   openModal(): void {
     this.startCam();
-    this.modalRef = this.modalService.open(this.myModal, {
+    this.simpleModalRef = this.modalService.open(this.simpleModal, {
       modalClass: 'photo-modal',
       hideCloseButton: false,
       hideFooterArea: false,
@@ -111,9 +110,9 @@ export class TakePictureComponent implements OnInit, OnDestroy {
     this.closeModal();
   }
 
-  closeModal(){
+  closeModal() {
     this.closeCam();
-    this.modalService.close(this.modalRef);
+    this.modalService.close(this.simpleModalRef);
     // or this.modalRef.close();
   }
 
