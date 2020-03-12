@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, ViewChild, ElementRef, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild, ElementRef, EventEmitter, OnDestroy } from '@angular/core';
 import { ModalService } from './service/modal.service';
 import { ModalConfig } from './model/modal-config.model';
 import { ModalSize } from './model/modal-size.enum';
+import { SubSink } from 'subsink';
 
 declare var document: any;
 
@@ -10,7 +11,7 @@ declare var document: any;
   templateUrl: './simple-modal.component.html',
   styleUrls: ['./simple-modal.component.scss']
 })
-export class SimpleModalComponent implements OnInit {
+export class SimpleModalComponent implements OnInit, OnDestroy {
 
   @Input()
   title: string;
@@ -46,6 +47,8 @@ export class SimpleModalComponent implements OnInit {
   @ViewChild('modalRoot')
   public modalRoot: ElementRef;
 
+  private subs = new SubSink();
+
   public isOpened = false;
   private inputSettings: ModalConfig;
   public settings: ModalConfig;
@@ -57,7 +60,7 @@ export class SimpleModalComponent implements OnInit {
 
   ngOnInit() {
     this.sideNavIsOpen = this.modalService.getSideNavIsOpen();
-    this.modalService.sideNavToggled.subscribe((sideNavIsOpen: boolean) => {
+    this.subs.sink = this.modalService.sideNavToggled.subscribe((sideNavIsOpen: boolean) => {
       this.sideNavIsOpen = sideNavIsOpen;
     });
     this.inputSettings = {
@@ -121,5 +124,9 @@ export class SimpleModalComponent implements OnInit {
     if (this.settings && this.settings.backdrop && this.settings.backdrop === true) {
       this.backdropElement.classList.add(this.settings.backdropClass);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }

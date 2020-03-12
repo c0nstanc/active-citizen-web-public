@@ -1,9 +1,10 @@
 import { Component, AfterViewInit, OnDestroy, Input, EventEmitter, Output, ViewChild } from '@angular/core';
-import { Subscription, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CamUtil } from './util/cam.util';
 import { CamInitError } from './model/cam-init-error.model';
 import { CamImage } from './model/cam-image.model';
 import { CamMirrorProperties } from './model/cam-mirror-properties.model';
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-camera',
@@ -11,6 +12,7 @@ import { CamMirrorProperties } from './model/cam-mirror-properties.model';
   styleUrls: ['./camera.component.scss']
 })
 export class CameraComponent implements AfterViewInit, OnDestroy {
+
   private static DEFAULT_VIDEO_OPTIONS: MediaTrackConstraints = { facingMode: 'environment' };
   private static DEFAULT_IMAGE_TYPE = 'image/jpeg';
   private static DEFAULT_IMAGE_QUALITY = 0.92;
@@ -33,10 +35,9 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
 
   public videoInitialized = false;
 
+  private subs = new SubSink();
 
-  private imageCaptureSubscription: Subscription;
   private activeVideoInputIndex = -1;
-  private switchCameraSubscription: Subscription;
   private mediaStream: MediaStream = null;
   @ViewChild('video', { static: true })
   private video: any;
@@ -50,23 +51,21 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
    */
   @Input()
   public set trigger(trigger: Observable<void>) {
-    if (this.imageCaptureSubscription) {
-      this.imageCaptureSubscription.unsubscribe();
-    }
 
-    this.imageCaptureSubscription = trigger.subscribe(() => {
+    this.subs.unsubscribe();
+
+
+    this.subs.sink = trigger.subscribe(() => {
       this.takeSnapshot();
     });
   }
 
   @Input()
   public set switchCamera(switchCamera: Observable<boolean | string>) {
-    if (this.switchCameraSubscription) {
-      this.switchCameraSubscription.unsubscribe();
-    }
+    this.subs.unsubscribe();
 
     // Subscribe to events from this Observable to switch video device
-    this.switchCameraSubscription = switchCamera.subscribe((value: boolean | string) => {
+    this.subs.sink = switchCamera.subscribe((value: boolean | string) => {
       if (typeof value === 'string') {
         this.switchToVideoInput(value);
       } else {
@@ -330,12 +329,7 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
 
 
   private unsubscribeFromSubscriptions() {
-    if (this.imageCaptureSubscription) {
-      this.imageCaptureSubscription.unsubscribe();
-    }
-    if (this.switchCameraSubscription) {
-      this.switchCameraSubscription.unsubscribe();
-    }
+    this.subs.unsubscribe();
   }
 
 

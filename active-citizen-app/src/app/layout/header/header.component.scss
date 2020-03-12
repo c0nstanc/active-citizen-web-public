@@ -23,10 +23,11 @@ mat-icon.theme-icon {
 .hamburger {
   margin-right: 0.5rem;
   padding: 0;
-  display: flex;
-  display: -webkit-box;
-  align-self: center;
-  justify-content: center;
+  // display: flex;
+  // display: -webkit-flex;
+  // display: -moz-box;
+  // align-self: center;
+  // justify-content: center;
   min-width: $app-header-height;
   min-height: $app-header-height;
   @media screen and (min-width: $breakpoint-tablet) {

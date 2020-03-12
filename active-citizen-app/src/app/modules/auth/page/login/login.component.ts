@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { tap, delay, finalize, catchError, startWith } from 'rxjs/operators';
@@ -6,6 +6,8 @@ import { of, Observable } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faAsterisk } from '@fortawesome/free-solid-svg-icons';
+import { SubSink } from 'subsink';
+
 
 
 @Component({
@@ -13,7 +15,9 @@ import { faAsterisk } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
+
+  private subs = new SubSink();
 
   asterisk$: Observable<IconDefinition>;
   error: string;
@@ -40,7 +44,7 @@ export class LoginComponent implements OnInit {
 
     const credentials = this.loginForm.value;
 
-    this.authService.login(credentials)
+    this.subs.sink = this.authService.login(credentials)
       .pipe(
         delay(1000),
         tap(user => this.router.navigate(['/incidents/my-incidents'])),
@@ -63,6 +67,10 @@ export class LoginComponent implements OnInit {
 
   private loadUserCircle(): Observable<IconDefinition> {
     return of(faAsterisk);
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
 }

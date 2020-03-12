@@ -1,10 +1,9 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
-
-import { Subscription } from 'rxjs';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { HeaderNavItem } from './model/header-nav-item.model';
 import { NavItem } from 'src/app/shared/model/nav/nav-item.model';
 import { ModalService } from 'src/app/shared/component/simple-modal/service/modal.service';
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +18,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   isLightTheme: boolean;
   isDarkTheme: boolean;
-  isLightThemeSub: Subscription;
+
+  private subs = new SubSink();
+
+
   navItems: NavItem[] = [
     new HeaderNavItem('My Incidents', '/incidents/my-incidents'),
     new HeaderNavItem('Register Item', '/incidents/my-incidents'),
@@ -33,7 +35,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initThemeSelection();
-    this.isLightThemeSub = this.themeService.getLightTheme().subscribe((isLightTheme: boolean) => {
+    this.subs.sink = this.themeService.getLightTheme().subscribe((isLightTheme: boolean) => {
       this.isLightTheme = isLightTheme;
       this.isDarkTheme = !this.isLightTheme;
     }
@@ -56,10 +58,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-
-    if (this.isLightThemeSub) {
-      this.isLightThemeSub.unsubscribe();
-    }
+    this.subs.unsubscribe();
   }
 
 }

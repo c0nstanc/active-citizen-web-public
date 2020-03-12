@@ -1,33 +1,35 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DropDownItem } from 'src/app/shared/model/drop-down-item.model';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { TranslateService } from '@ngx-translate/core';
 import { IncidentTypes } from 'src/app/modules/incidents/model/incident-type.enum';
-import { Router } from '@angular/router';
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-enter-incident-details',
   templateUrl: './enter-incident-details.component.html',
   styleUrls: ['./enter-incident-details.component.scss']
 })
-export class EnterIncidentDetailsComponent implements OnInit {
+export class EnterIncidentDetailsComponent implements OnInit, OnDestroy {
   newIncidentForm: FormGroup;
   dropDownIncidentTypes: Array<DropDownItem>;
   incident: Incident;
+
+  private subs = new SubSink();
 
   get f() {
     return this.newIncidentForm.controls;
   }
 
-  constructor(private formBuilder: FormBuilder,
-              private translateService: TranslateService,
-              private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private translateService: TranslateService) {
   }
 
   ngOnInit(): void {
     this.initDropDownIncidentTypes();
-    this.translateService.onLangChange.subscribe(() => {
+    this.subs.sink = this.translateService.onLangChange.subscribe(() => {
       this.initDropDownIncidentTypes();
     });
 
@@ -53,5 +55,9 @@ export class EnterIncidentDetailsComponent implements OnInit {
   onSubmit(): void {
     console.log(this.newIncidentForm.value);
     // this.router.navigate(['incidents/new-incident/2']);
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }
