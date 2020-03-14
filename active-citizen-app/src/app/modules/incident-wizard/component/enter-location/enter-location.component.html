@@ -2,7 +2,7 @@
   <app-wizard-step-title>Select Location</app-wizard-step-title>
 
   <div class="map">
-    <app-google-map #incidentLocation (markerUpdated)="onMarkerUpdated($event)"></app-google-map>
+    <app-google-map (markerUpdated)="onMarkerUpdated($event)"></app-google-map>
   </div>
 </div>
 

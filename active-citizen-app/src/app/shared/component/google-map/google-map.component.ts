@@ -16,7 +16,7 @@ export class GoogleMapComponent implements AfterViewInit {
 
 
   @Output()
-  markerUpdated = new EventEmitter<google.maps.Marker>();
+  markerUpdated = new EventEmitter<LatLng>();
 
   @ViewChild('googleMapContainer')
   gmap: ElementRef;
@@ -74,18 +74,22 @@ export class GoogleMapComponent implements AfterViewInit {
     });
 
     this.myLocationMarker.addListener('mouseup', () => {
-      this.markerUpdated.emit(this.myLocationMarker);
+      this.onMarkerUpdated(this.myLocationMarker);
     });
 
     this.myLocationMarker.setMap(googleMap);
     this.myLocationMarker.setDraggable(true);
-    this.markerUpdated.emit(this.myLocationMarker);
+    this.onMarkerUpdated(this.myLocationMarker);
   }
 
-  public getMarkerLocation(): LatLng {
+  private onMarkerUpdated(marker: google.maps.Marker) {
+    this.markerUpdated.emit(this.getMarkerLatLng(marker));
+  }
+
+  private getMarkerLatLng(marker: google.maps.Marker): LatLng {
     return new LatLng(
-      this.myLocationMarker.getPosition().lat(),
-      this.myLocationMarker.getPosition().lng()
+      marker.getPosition().lat(),
+      marker.getPosition().lng()
     );
   }
 

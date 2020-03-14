@@ -18,10 +18,6 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep {
 
   newIncidentForm: FormGroup;
 
-
-  @ViewChild('incidentLocation')
-  incidentLocation: GoogleMapComponent;
-
   constructor(
     private formBuilder: FormBuilder,
     private clonerService: ClonerService,
@@ -42,8 +38,8 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep {
     console.log(this.newIncidentForm.value);
   }
 
-  onMarkerUpdated(): void {
-    this.newIncidentForm.patchValue({ latLng: this.incidentLocation.getMarkerLocation() });
+  onMarkerUpdated(markerlatLng: LatLng): void {
+    this.newIncidentForm.patchValue({ latLng: markerlatLng });
   }
 
   private buildForm(): void {

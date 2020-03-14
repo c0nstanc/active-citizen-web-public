@@ -1,5 +1,6 @@
 @mixin footer-component-theme($selected-theme) {
   .footer {
+    font-weight: 500;
     @if mat-theme-is-dark($selected-theme) {
       color: white;
     } @else {

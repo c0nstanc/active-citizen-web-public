@@ -6,9 +6,11 @@
 
 // mat-palette($base-palette, $default: 500, $lighter: 100, $darker: 700, $text: $default)
 
-$my-dark-primary: mat-palette($mat-teal, 500, 300, 900);
-$my-dark-accent: mat-palette($mat-blue-grey,600);
-$my-dark-warn: mat-palette($mat-red, 500);
+// https://material.angularjs.org/1.1.0/demo/colors
+
+$my-dark-primary: mat-palette($mat-teal);
+$my-dark-accent: mat-palette($mat-teal,A200);
+$my-dark-warn: mat-palette($mat-red);
 
 $my-dark-theme: mat-dark-theme(
   $my-dark-primary,
