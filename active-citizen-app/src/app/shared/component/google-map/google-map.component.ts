@@ -6,16 +6,14 @@ import { LatLng } from './model/lat-lng.model';
   templateUrl: './google-map.component.html',
   styleUrls: ['./google-map.component.scss']
 })
-export class GoogleMapComponent implements AfterViewInit, OnInit {
+export class GoogleMapComponent implements AfterViewInit {
 
   map: google.maps.Map;
   mapOptions: google.maps.MapOptions;
 
-  myLat: number;
-  myLng: number;
-  accuracy: number;
-  myPossition: google.maps.LatLng;
+  myPosition: google.maps.LatLng;
   myLocationMarker: google.maps.Marker;
+
 
   @Output()
   markerUpdated = new EventEmitter<google.maps.Marker>();
@@ -23,55 +21,65 @@ export class GoogleMapComponent implements AfterViewInit, OnInit {
   @ViewChild('googleMapContainer')
   gmap: ElementRef;
 
-  ngOnInit(): void {
-  }
-
   constructor() {
   }
 
 
   ngAfterViewInit(): void {
+    const defaultPosition = new google.maps.LatLng(
+      35.185471,
+      33.389757);
+
     navigator.geolocation.getCurrentPosition(position => {
-      this.myLat = position.coords.latitude;
-      this.myLng = position.coords.longitude;
-      this.accuracy = position.coords.accuracy;
-      this.myPossition = new google.maps.LatLng(this.myLat, this.myLng);
-
-      this.mapOptions = {
-        center: this.myPossition,
-        zoom: 15,
-        mapTypeId: 'roadmap',
-        mapTypeControl: true
-      };
-
-      this.myLocationMarker = new google.maps.Marker({
-        position: this.myPossition,
-        map: this.map,
-        title: 'Problem Location',
-        animation: google.maps.Animation.DROP,
-      });
-      this.myLocationMarker.addListener('click', () => {
-        setTimeout(() => {
-          this.myLocationMarker.setAnimation(null);
-        }, 4000);
-        this.myLocationMarker.setAnimation(google.maps.Animation.BOUNCE);
-      });
-
-      this.myLocationMarker.addListener('mouseup', () => {
-        this.markerUpdated.emit(this.myLocationMarker);
-      });
-
-      this.mapInitializer();
-      this.markerUpdated.emit(this.myLocationMarker);
+      console.log('My Position accuracy: ' + position.coords.accuracy);
+      const myPosition = new google.maps.LatLng(
+        position.coords.latitude,
+        position.coords.longitude);
+      this.mapInitializer(myPosition);
     });
+
+    this.mapInitializer(defaultPosition);
+  }
+
+  mapInitializer(myPosition: google.maps.LatLng): void {
+    this.setupMarker(myPosition, this.setupMap(myPosition));
+  }
+
+  setupMap(myPosition: google.maps.LatLng): google.maps.Map {
+    this.mapOptions = {
+      center: myPosition,
+      zoom: 15,
+      mapTypeId: 'roadmap',
+      mapTypeControl: true
+    };
+
+    return new google.maps.Map(this.gmap.nativeElement,
+      this.mapOptions);
 
   }
 
-  mapInitializer(): void {
-    this.map = new google.maps.Map(this.gmap.nativeElement,
-      this.mapOptions);
-    this.myLocationMarker.setMap(this.map);
+  setupMarker(myPosition: google.maps.LatLng, googleMap: google.maps.Map): void {
+    this.myLocationMarker = new google.maps.Marker({
+      position: myPosition,
+      map: googleMap,
+      title: 'Problem Location',
+      animation: google.maps.Animation.DROP,
+    });
+
+    this.myLocationMarker.addListener('click', () => {
+      setTimeout(() => {
+        this.myLocationMarker.setAnimation(null);
+      }, 4000);
+      this.myLocationMarker.setAnimation(google.maps.Animation.BOUNCE);
+    });
+
+    this.myLocationMarker.addListener('mouseup', () => {
+      this.markerUpdated.emit(this.myLocationMarker);
+    });
+
+    this.myLocationMarker.setMap(googleMap);
     this.myLocationMarker.setDraggable(true);
+    this.markerUpdated.emit(this.myLocationMarker);
   }
 
   public getMarkerLocation(): LatLng {
