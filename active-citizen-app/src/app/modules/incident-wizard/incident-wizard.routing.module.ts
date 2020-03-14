@@ -4,6 +4,7 @@ import { EnterLocationComponent } from './component/enter-location/enter-locatio
 import { EnterIncidentDetailsComponent } from './component/enter-incident-detail/enter-incident-details.component';
 import { EnterIncidentPhotoComponent } from './component/enter-incident-photo/enter-incident-photo.component';
 import { TakePictureComponent } from 'src/app/shared/component/take-picture/take-picture.component';
+import { SubmitIncidentComponent } from './component/submit-incident/submit-incident.component';
 
 
 const routes: Routes = [
@@ -25,10 +26,10 @@ const routes: Routes = [
     path: 'step2',
     component: EnterIncidentPhotoComponent
   },
-  // {
-  //   path: 'step3',
-  //   component: TakePictureComponent
-  // }
+  {
+    path: 'step3',
+    component: SubmitIncidentComponent
+  }
 
 
 ];

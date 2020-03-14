@@ -15,7 +15,7 @@
 
     </div>
     <div class="photos-btn-container">
-      <button mat-raised-button matStepperNext color='accent' class="stepper-btn-nxt" (click)="submit()">{{step.buttonName}}</button>
+      <button mat-raised-button matStepperNext color='accent' class="stepper-btn-nxt" [disabled]="!currentWizardStep?.getFormGroup()?.valid" (click)="submit()">{{step.buttonName}}</button>
     </div>
 
   </mat-step>

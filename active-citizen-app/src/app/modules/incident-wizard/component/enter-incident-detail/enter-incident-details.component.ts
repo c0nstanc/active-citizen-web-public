@@ -20,12 +20,10 @@ interface IncidentDetails {
   templateUrl: './enter-incident-details.component.html',
   styleUrls: ['./enter-incident-details.component.scss']
 })
-export class EnterIncidentDetailsComponent implements OnInit, OnDestroy, SubmittableWizardStep {
+export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardStep {
   newIncidentForm: FormGroup;
   dropDownIncidentTypes: Array<DropDownItem>;
   incident: Incident;
-
-  private subs = new SubSink();
 
   get f() {
     return this.newIncidentForm.controls;
@@ -33,16 +31,13 @@ export class EnterIncidentDetailsComponent implements OnInit, OnDestroy, Submitt
 
   constructor(
     private formBuilder: FormBuilder,
-    private translateService: TranslateService,
     private newIncidentWizardService: NewIncidentWizardService,
     private clonerService: ClonerService) {
   }
 
   ngOnInit(): void {
     this.initDropDownIncidentTypes();
-    this.subs.sink = this.translateService.onLangChange.subscribe(() => {
-      this.initDropDownIncidentTypes();
-    });
+
 
     this.buildForm();
   }
@@ -50,7 +45,7 @@ export class EnterIncidentDetailsComponent implements OnInit, OnDestroy, Submitt
   private initDropDownIncidentTypes(): void {
     this.dropDownIncidentTypes = new Array<DropDownItem>();
     IncidentTypes().forEach(it => {
-      this.dropDownIncidentTypes.push(new DropDownItem(this.translateService.instant('incidentType.' + it), it));
+      this.dropDownIncidentTypes.push(new DropDownItem('incidentType.' + it, it));
     });
   }
 
@@ -60,7 +55,6 @@ export class EnterIncidentDetailsComponent implements OnInit, OnDestroy, Submitt
       incidentType: this.formBuilder.control('', Validators.required),
       incidentDesc: this.formBuilder.control('', [Validators.required, Validators.minLength(4)]),
     });
-
   }
 
   public getFormGroup(): FormGroup {
@@ -79,7 +73,4 @@ export class EnterIncidentDetailsComponent implements OnInit, OnDestroy, Submitt
     console.log(this.newIncidentForm.value);
   }
 
-  ngOnDestroy(): void {
-    this.subs.unsubscribe();
-  }
 }

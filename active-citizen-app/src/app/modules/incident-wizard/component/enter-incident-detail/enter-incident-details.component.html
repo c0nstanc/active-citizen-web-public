@@ -19,7 +19,7 @@
           <mat-label>Incident Type</mat-label>
           <mat-select name="incidentType" formControlName="incidentType">
             <mat-option *ngFor="let incidentType of dropDownIncidentTypes" [value]="incidentType.value">
-              {{incidentType.name}}
+              {{incidentType.name | translate}}
             </mat-option>
           </mat-select>
           <mat-error>

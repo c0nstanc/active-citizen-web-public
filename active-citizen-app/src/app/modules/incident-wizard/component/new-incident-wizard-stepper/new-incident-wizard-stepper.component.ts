@@ -2,7 +2,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Step } from './model/step.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-new-incident-wizard-stepper',
@@ -16,12 +15,17 @@ export class NewIncidentWizardStepperComponent implements OnInit {
 
   steps: Step[];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.steps = [new Step('Enter location', 'Submit Location'),
-    new Step('Enter details', 'Submit Details'),
-    new Step('Enter photo', 'Submit Photos'),
+    this.steps = [
+      new Step('Enter location', 'Proceed'),
+      new Step('Enter details', 'Proceed'),
+      new Step('Enter photo', 'Proceed'),
+      new Step('Done', 'Submit Problem'),
     ];
   }
 
@@ -29,11 +33,11 @@ export class NewIncidentWizardStepperComponent implements OnInit {
     this.navigate('step' + event.selectedIndex);
   }
 
-  onRouterOutletActivate(loadedStep: SubmittableWizardStep) {
+  onRouterOutletActivate(loadedStep: SubmittableWizardStep): void {
     this.currentWizardStep = loadedStep;
   }
 
-  submit() {
+  submit(): void {
     this.currentWizardStep.onSubmit();
   }
 

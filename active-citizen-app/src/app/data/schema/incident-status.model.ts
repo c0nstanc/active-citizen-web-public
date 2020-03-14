@@ -1,6 +1,6 @@
 export enum IncidentStatus {
   CREATED = 'created',
-  SUBMITTED = 'submuitted',
+  SUBMITTED = 'submitted',
   CONFIRMED = 'confirmed',
   RESOLVED = 'resolved'
 }

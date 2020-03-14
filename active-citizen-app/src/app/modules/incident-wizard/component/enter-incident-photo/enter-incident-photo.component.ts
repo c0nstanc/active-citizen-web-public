@@ -39,7 +39,7 @@ export class EnterIncidentPhotoComponent implements OnInit, SubmittableWizardSte
 
   private buildForm(): void {
     this.newIncidentForm = this.formBuilder.group({
-      incidentImageUrls: this.formBuilder.array([this.formBuilder.control('', [])])
+      incidentImageUrls: this.formBuilder.array([])
     });
   }
 
@@ -63,8 +63,6 @@ export class EnterIncidentPhotoComponent implements OnInit, SubmittableWizardSte
         };
       }
     });
-
   }
-
 
 }

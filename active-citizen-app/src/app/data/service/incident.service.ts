@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import { JsonApiService } from './json-api.service';
 import { Incident } from '../schema/incident.model';
@@ -14,13 +14,14 @@ export class IncidentService {
 
   constructor(
     private jsonApiService: JsonApiService
-  ) { }
+  ) {
+    this.jsonApiService.get('/incidents').subscribe((incidents: Incident[]) => {
+      this.incidents.push(...incidents);
+    });
+  }
 
   getAll(): Observable<Array<Incident>> {
-    return this.jsonApiService.get('/incidents').pipe(map((incidents: Incident[]) => {
-      incidents.push(...this.incidents);
-      return incidents;
-    }));
+    return of(this.incidents);
   }
 
   getSingle(id: number): Observable<Incident> {
@@ -28,6 +29,7 @@ export class IncidentService {
   }
 
   addNewIncident(incident: Incident): void {
+    incident.id = (this.incidents.length + 1).toString();
     this.incidents.push(incident);
   }
 }

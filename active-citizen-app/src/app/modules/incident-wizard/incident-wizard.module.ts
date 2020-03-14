@@ -7,12 +7,14 @@ import { EnterLocationComponent } from './component/enter-location/enter-locatio
 import { EnterIncidentDetailsComponent } from './component/enter-incident-detail/enter-incident-details.component';
 import { EnterIncidentPhotoComponent } from './component/enter-incident-photo/enter-incident-photo.component';
 import { NewIncidentWizardStepperComponent } from './component/new-incident-wizard-stepper/new-incident-wizard-stepper.component';
+import { SubmitIncidentComponent } from './component/submit-incident/submit-incident.component';
 
 @NgModule({
   declarations: [EnterLocationComponent,
     EnterIncidentDetailsComponent,
     EnterIncidentPhotoComponent,
-    NewIncidentWizardStepperComponent],
+    NewIncidentWizardStepperComponent,
+    SubmitIncidentComponent],
   imports: [
     SharedModule,
     IncidentWizardRoutingModule
