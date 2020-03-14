@@ -34,6 +34,8 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "@types/googlemaps": "^3.39.3",
     "bootstrap": "^4.4.1",
+    "clone": "^2.1.2",
+    "immutable": "^4.0.0-rc.12",
     "jquery": "^3.4.1",
     "material-design-icons": "^3.0.1",
     "ngx-spinner": "^8.1.0",

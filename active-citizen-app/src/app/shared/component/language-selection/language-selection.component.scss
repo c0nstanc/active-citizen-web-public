@@ -1,6 +1,11 @@
 .language {
-  padding-left: 1rem;
+  margin-left: 1rem;
   &:hover {
     cursor: pointer;
+    text-decoration: underline;
+  }
+  &:active {
+    color: yellow;
+    text-decoration: underline;
   }
 }

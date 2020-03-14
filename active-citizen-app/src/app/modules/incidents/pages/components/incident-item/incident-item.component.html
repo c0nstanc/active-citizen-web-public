@@ -44,7 +44,7 @@
 
 
   <div class="incident-image-wrapper">
-    <img *ngIf="incident.imageUrl; else noImage" [src]="incident.imageUrl" alt="Photo incident">
+    <img *ngIf="incident.imageUrls.length>0; else noImage" [src]="incident.imageUrls[0]" alt="Photo incident">
 
     <ng-template #noImage>
       <!-- <fa-icon icon="images" size="6x"></fa-icon> -->
@@ -66,7 +66,7 @@
     </div>
 
 
-    <div class="status" [ngClass]="incident.status" >
+    <div class="status" [ngClass]="incident.status">
       {{ incident.status }}
     </div>
 

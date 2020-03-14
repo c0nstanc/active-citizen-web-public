@@ -42,6 +42,7 @@ export class ImageInputComponent implements OnInit {
     if (fileIndex >= 0) {
       this.selectedFiles.splice(fileIndex, 1);
       this.numOfSelectedFiles--;
+      this.selectionChanged.emit(this.selectedFiles);
     }
   }
 

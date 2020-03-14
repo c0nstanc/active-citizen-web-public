@@ -5,13 +5,22 @@ import { Incident } from 'src/app/data/schema/incident.model';
 import { TranslateService } from '@ngx-translate/core';
 import { IncidentTypes } from 'src/app/modules/incidents/model/incident-type.enum';
 import { SubSink } from 'subsink';
+import { NewIncidentWizardService } from '../new-incident-wizard-stepper/service/new-incident-wizard.service';
+import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
+import { ClonerService } from 'src/app/core/services/cloner.service';
+
+interface IncidentDetails {
+  incidentTitle: string;
+  incidentType: string;
+  incidentDesc: string;
+}
 
 @Component({
   selector: 'app-enter-incident-details',
   templateUrl: './enter-incident-details.component.html',
   styleUrls: ['./enter-incident-details.component.scss']
 })
-export class EnterIncidentDetailsComponent implements OnInit, OnDestroy {
+export class EnterIncidentDetailsComponent implements OnInit, OnDestroy, SubmittableWizardStep {
   newIncidentForm: FormGroup;
   dropDownIncidentTypes: Array<DropDownItem>;
   incident: Incident;
@@ -24,7 +33,9 @@ export class EnterIncidentDetailsComponent implements OnInit, OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
-    private translateService: TranslateService) {
+    private translateService: TranslateService,
+    private newIncidentWizardService: NewIncidentWizardService,
+    private clonerService: ClonerService) {
   }
 
   ngOnInit(): void {
@@ -45,16 +56,27 @@ export class EnterIncidentDetailsComponent implements OnInit, OnDestroy {
 
   private buildForm(): void {
     this.newIncidentForm = this.formBuilder.group({
-      incidentTitle: this.formBuilder.control('', [Validators.required, Validators.minLength(4)]),
+      incidentTitle: this.formBuilder.control('', [Validators.minLength(4)]),
       incidentType: this.formBuilder.control('', Validators.required),
       incidentDesc: this.formBuilder.control('', [Validators.required, Validators.minLength(4)]),
     });
 
   }
 
-  onSubmit(): void {
+  public getFormGroup(): FormGroup {
+    if (this.newIncidentForm) {
+      return this.clonerService.cloneFormGroup(this.newIncidentForm) as FormGroup;
+    }
+
+  }
+
+  public onSubmit(): void {
+    if (this.newIncidentForm.valid) {
+      this.newIncidentWizardService.setIncidentName((this.newIncidentForm.value as IncidentDetails).incidentTitle);
+      this.newIncidentWizardService.setIncidentDescription((this.newIncidentForm.value as IncidentDetails).incidentDesc);
+      this.newIncidentWizardService.setIncidentCategory((this.newIncidentForm.value as IncidentDetails).incidentType);
+    }
     console.log(this.newIncidentForm.value);
-    // this.router.navigate(['incidents/new-incident/2']);
   }
 
   ngOnDestroy(): void {

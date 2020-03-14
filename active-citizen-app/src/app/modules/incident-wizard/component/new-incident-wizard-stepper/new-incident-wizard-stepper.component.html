@@ -1,4 +1,4 @@
-<mat-horizontal-stepper labelPosition="bottom" [@.disabled]="true" #stepper  (selectionChange)="selectionChanged($event)" >
+<mat-horizontal-stepper labelPosition="bottom" [@.disabled]="true" #stepper  (selectionChange)="selectionChanged($event)" linear>
 
   <!-- <ng-template matStepperIcon="edit">
       <mat-icon>insert_drive_file</mat-icon>
@@ -8,14 +8,14 @@
       <mat-icon>done_all</mat-icon>
     </ng-template> -->
 
-  <mat-step *ngFor="let step of steps; let i=index;" [label]="step.stepName">
+  <mat-step *ngFor="let step of steps; let i=index;" [label]="step.stepName" [stepControl]="currentWizardStep?.getFormGroup()">
     <div class="step-container">
 
-      <router-outlet *ngIf="stepper.selectedIndex==i"></router-outlet>
+      <router-outlet (activate)="onRouterOutletActivate($event)" *ngIf="stepper.selectedIndex==i"></router-outlet>
 
     </div>
     <div class="photos-btn-container">
-      <button mat-raised-button matStepperNext color='accent' class="stepper-btn-nxt">{{step.buttonName}}</button>
+      <button mat-raised-button matStepperNext color='accent' class="stepper-btn-nxt" (click)="submit()">{{step.buttonName}}</button>
     </div>
 
   </mat-step>

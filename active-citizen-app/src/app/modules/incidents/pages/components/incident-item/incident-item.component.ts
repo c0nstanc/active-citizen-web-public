@@ -14,18 +14,18 @@ export class IncidentItemComponent {
   @Input() incident: Incident;
   // flipped = false;
 
-  images$ : Observable<IconDefinition>;
+  images$: Observable<IconDefinition>;
 
 
-constructor() {
-  this.initializeIcons();
-}
+  constructor() {
+    this.initializeIcons();
+  }
 
   private initializeIcons(): void {
-  this.images$ = this.loadUserCircle().pipe(startWith(faImages));
-}
+    this.images$ = this.loadUserCircle().pipe(startWith(faImages));
+  }
 
-  private loadUserCircle(): Observable < IconDefinition > {
-  return of(faImages);
-}
+  private loadUserCircle(): Observable<IconDefinition> {
+    return of(faImages);
+  }
 }
