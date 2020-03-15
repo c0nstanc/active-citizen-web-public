@@ -8,15 +8,11 @@
     </button>
   </div>
 
-
-
-
-
-  <!-- <h1>{{'atouken' | translate}}</h1> -->
-
-  <div class="incident-items-container">
+  <div class="row incident-items-container">
     <div *ngFor="let incident of incidents$ | async">
-      <app-incident-item [incident]="incident"></app-incident-item>
+      <div class="col-12 col-mid-6 col-lg-4 col-xl-3">
+        <app-incident-item [incident]="incident"></app-incident-item>
+      </div>
     </div>
   </div>
 
