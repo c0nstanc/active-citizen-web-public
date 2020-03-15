@@ -1,0 +1,10 @@
+@import 'variables';
+
+.new-incident-item {
+  padding-left: 0;
+  padding-right: 0;
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

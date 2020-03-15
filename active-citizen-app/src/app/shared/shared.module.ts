@@ -104,7 +104,8 @@ import { ImageDropComponent } from './component/image-drop/image-drop.component'
     FontAwesomeModule,
     MaterialModule,
   ],
-  declarations: [ControlMessagesComponent,
+  declarations: [
+    ControlMessagesComponent,
     PageTitleComponent,
     SidenavMenuItemComponent,
     SimpleFileDropComponent,

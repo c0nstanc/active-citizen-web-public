@@ -1,6 +1,14 @@
-@import 'variables';
+@import "variables";
 
-.app-page-title{
+.app-page-title {
   margin-top: $app-title-margin-top;
   margin-bottom: $app-title-margin-bottom;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
