@@ -14,7 +14,10 @@
 
   <!-- <h1>{{'atouken' | translate}}</h1> -->
 
-  <div *ngFor="let incident of incidents$ | async">
-    <app-incident-item [incident]="incident"></app-incident-item>
+  <div class="incident-items-container">
+    <div *ngFor="let incident of incidents$ | async">
+      <app-incident-item [incident]="incident"></app-incident-item>
+    </div>
   </div>
+
 </div>

@@ -1,80 +1,29 @@
-<!-- <div class='card-container'>
-  <div class='flippable-card' [ngClass]="{'flipped':flipped}">
-    <mat-card class="custom-card front" *ngIf="!flipped">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{ incident.name }}</mat-card-title>
-        <mat-card-subtitle>{{ incident.status}}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image [src]="incident.imageUrl" alt="Photo incident">
-      <mat-card-content>
-        <p>
-          {{ incident.description}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button class="active" mat-button (click)='flipped = !flipped'>READ MORE</button>
-        <button class="active" mat-button
-          [routerLink]="['/dashboard/incidents/' + incident.id]">{{ incident.id }}</button>
-      </mat-card-actions>
-    </mat-card>
-
-
-
-
-    <mat-card class="custom-card back" *ngIf="flipped">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{ incident.name }}</mat-card-title>
-        <mat-card-subtitle>{{ incident.status}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          {{ incident.description}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button class="active" mat-button (click)='flipped = !flipped'>READ MORE</button>
-        <button class="active" mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-</div> -->
 <div class="incident-item">
 
+  <div class="grid-container">
 
-  <div class="incident-image-wrapper">
-    <img *ngIf="incident.imageUrls.length>0; else noImage" [src]="incident.imageUrls[0]" alt="Photo incident">
-
-    <ng-template #noImage>
-      <!-- <fa-icon icon="images" size="6x"></fa-icon> -->
-      <fa-icon *ngIf="images$ | async as images" [icon]="images" size="6x"></fa-icon>
-    </ng-template>
-  </div>
-
-  <div class="incident-info">
-
-    <div class="incident-identity">
-
-      <div class="title">
-        {{ incident.name }}
-      </div>
-
-      <div class="id">
-        #{{ incident.id }}
-      </div>
+    <div class="incident-image-wrapper">
+      <img *ngIf="incident.imageUrls.length>0; else noImage" [src]="incident.imageUrls[0]" alt="Photo incident">
+      <ng-template #noImage>
+        <fa-icon *ngIf="images$ | async as images" [icon]="images" size="6x"></fa-icon>
+      </ng-template>
     </div>
 
+    <div class="title">
+      <h4>{{ incident.name }}</h4>
+    </div>
+
+    <div class="id">
+      #{{ incident.id }}
+    </div>
 
     <div class="status" [ngClass]="incident.status">
       {{ incident.status }}
     </div>
 
-
     <div class="description">
       {{ incident.description}}
     </div>
+
+
   </div>
-
-
-</div>

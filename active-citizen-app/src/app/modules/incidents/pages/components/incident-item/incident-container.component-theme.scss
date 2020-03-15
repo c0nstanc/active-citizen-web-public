@@ -1,37 +1,39 @@
 @mixin my-incident-container-component-theme($selected-theme) {
   .incident-item {
-    border-color: mat-color(mat-theme-primary-color($selected-theme), 900);
     @if mat-theme-is-dark($selected-theme) {
-      background-color: rgba(
-        mat-theme-background-color($selected-theme, background),
-        0.9
+      background-color: mat-color(
+        mat-theme-primary-color($selected-theme),
+        default
       );
     } @else {
-      background-color: white;
+      background-color: snow;
     }
-
-    .incident-info {
+    &:hover {
       @if mat-theme-is-dark($selected-theme) {
+        color: mat-theme-background-color($selected-theme, background);
         background-color: rgba(
-          mat-theme-background-color($selected-theme, background),
+          mat-color(mat-theme-accent-color($selected-theme), default),
           0.9
         );
-        border: 1px solid grey;
       } @else {
-        background-color: white;
-        border: 3px
-          solid
-          rgba(mat-theme-background-color($selected-theme, background), 0.9);
+        background-color: rgba(
+          mat-color(mat-theme-accent-color($selected-theme), default),
+          0.3
+        );
       }
     }
-    // .active {
-    //   color: mat-color($accent-color, default-contrast);
-    //   background-color: mat-color($accent);
-
-    //   &:hover {
-    //     color: mat-color($accent-color, default-contrast);
-    //     background-color: mat-color($accent-color);
-    //   }
-    // }
+    &:active {
+      @if mat-theme-is-dark($selected-theme) {
+        background-color: rgba(
+          mat-color(mat-theme-accent-color($selected-theme), default),
+          0.3
+        );
+      } @else {
+        background-color: rgba(
+          mat-color(mat-theme-accent-color($selected-theme), default),
+          0.9
+        );
+      }
+    }
   }
 }
