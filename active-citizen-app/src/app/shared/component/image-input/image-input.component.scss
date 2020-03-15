@@ -1,12 +1,13 @@
-@import 'variables';
+@import "variables";
+@import "mixins";
 
-.file-drop-container{
+.file-drop-container {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
 .take-picture {
-  @media screen and (min-width: $breakpoint-desktop) {
+  @include media-breakpoint-up(lg) {
     display: none;
   }
 }

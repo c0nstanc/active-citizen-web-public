@@ -1,10 +1,11 @@
 @import "variables";
+@import "mixins";
 
 .wizard-nxt-btn-container {
   position: absolute;
   bottom: 0rem;
 
-  @media screen and (min-width: $breakpoint-tablet) {
+  @include media-breakpoint-up(sm) {
     bottom: 3rem;
   }
 
@@ -22,7 +23,7 @@
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
 
-    @media screen and (min-width: $breakpoint-tablet) {
+    @include media-breakpoint-up(sm) {
       border-radius: 4px;
       border-top: unset;
       width: 20rem;

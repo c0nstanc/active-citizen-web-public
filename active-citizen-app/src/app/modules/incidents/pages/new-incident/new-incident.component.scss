@@ -1,9 +1,10 @@
-@import 'variables';
+@import "variables";
+@import "mixins";
 
 .new-incident-item {
   padding-left: 0;
   padding-right: 0;
-  @media screen and (min-width: $breakpoint-tablet) {
+  @include media-breakpoint-up(sm) {
     padding-left: 1rem;
     padding-right: 1rem;
   }

@@ -1,13 +1,11 @@
 
 @import "mobile-default";
 
-//35em is also 560px (if basefont is 16px)
-@media only screen and (min-width: $breakpoint-tablet) {
+@media only screen and (min-width: 768px) {
   @import "tablet";
 }
 
-//64em is also 1028px (if basefont is 16px)
-@media only screen and (min-width: $breakpoint-desktop) {
+@media only screen and (min-width: 992px) {
   @import "desktop";
 }
 

@@ -1,3 +1,4 @@
+@import "mixins";
 @import "variables";
 
 .footer {
@@ -8,14 +9,14 @@
   justify-content: center;
   padding: 1rem;
 
-  @media screen and (min-width: $breakpoint-tablet) {
+  @include media-breakpoint-up(sm) {
     justify-content: space-between;
   }
 
-  .language-selection{
+  .language-selection {
     display: none;
-    @media screen and (min-width: $breakpoint-tablet) {
-    display: unset;
+    @include media-breakpoint-up(sm) {
+      display: unset;
     }
   }
 

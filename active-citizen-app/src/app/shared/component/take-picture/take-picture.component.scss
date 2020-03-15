@@ -1,4 +1,4 @@
-@import "variables";
+@import "mixins";
 
 .camera-container,
 .header-container {
@@ -16,7 +16,7 @@ app-modal-footer {
 .camera-btn {
   width: 100%;
   margin-bottom: 0.5rem;
-  @media screen and (min-width: $breakpoint-tablet) {
+  @include media-breakpoint-up(sm) {
     margin-bottom: unset;
   }
 }
