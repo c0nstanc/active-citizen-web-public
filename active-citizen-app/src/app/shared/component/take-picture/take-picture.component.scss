@@ -1,3 +1,5 @@
+@import "variables";
+
 .camera-container,
 .header-container {
   display: flex;
@@ -11,9 +13,10 @@ app-modal-footer {
   width: 100%;
 }
 
-.camera-controls-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+.camera-btn {
   width: 100%;
+  margin-bottom: 0.5rem;
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-bottom: unset;
+  }
 }

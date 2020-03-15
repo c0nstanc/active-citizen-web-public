@@ -26,4 +26,11 @@
     max-width: 60vw;
     min-height: calc(100% - (1.75rem * 2));
   }
+
+  .modal-body{
+    padding: 0.5rem;
+    @media screen and (min-width: $breakpoint-tablet) {
+      padding: 1rem;
+    }
+  }
 }

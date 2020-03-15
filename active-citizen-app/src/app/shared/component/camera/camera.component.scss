@@ -1,3 +1,5 @@
+@import "variables";
+
 .cam-wrapper {
   display: inline-block;
   position: relative;
@@ -9,6 +11,11 @@
 
   canvas {
     display: none;
+  }
+
+  .video {
+    height: 100%;
+    width: 100%;
   }
 
   .camera-switch {

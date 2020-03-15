@@ -213,10 +213,10 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
   }
 
   public get videoStyleClasses() {
-    let classes = '';
+    let classes = 'video';
 
     if (this.isMirrorImage()) {
-      classes += 'mirrored ';
+      classes += ' mirrored ';
     }
 
     return classes.trim();
