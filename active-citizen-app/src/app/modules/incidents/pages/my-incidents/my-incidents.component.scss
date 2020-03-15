@@ -12,4 +12,8 @@
 .incident-items-container {
   display: flex;
   justify-content: center;
+
+  @media screen and (min-width: $breakpoint-tablet){
+    justify-content: space-between;
+  }
 }
