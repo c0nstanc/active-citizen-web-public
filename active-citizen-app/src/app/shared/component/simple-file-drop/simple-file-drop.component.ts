@@ -53,7 +53,9 @@ export class SimpleFileDropComponent {
       if (this.maxFileSize != null && file.size > this.maxFileSize) {
         rejectedFiles.push(new FileRejection(file, RejectionReasons.FileSize));
       } else if (this.getAllowedExtensionsArray() != null &&
-        this.getAllowedExtensionsArray().filter(extension => file.name.endsWith(`.${extension}`)).length === 0) {
+        this.getAllowedExtensionsArray().filter(
+          extension => file.name.toLowerCase().endsWith(`.${extension}`)).length === 0
+      ) {
         rejectedFiles.push(new FileRejection(file, RejectionReasons.FileType));
       } else {
         this.selectedFiles.push(file);

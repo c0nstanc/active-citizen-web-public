@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { ImageExtentionsService } from 'src/app/core/services/image-extentions.service';
 
 @Component({
   selector: 'app-image-drop',
@@ -6,7 +7,6 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   styleUrls: ['./image-drop.component.scss']
 })
 export class ImageDropComponent implements OnInit {
-
 
   @Input()
   supportedFileTypesCategoty = 'Images';
@@ -17,13 +17,16 @@ export class ImageDropComponent implements OnInit {
   @Output()
   selectionChanged: EventEmitter<File[]> = new EventEmitter<File[]>();
 
-  allowedExtensions = 'jpg'; // TODO - Add more extensions
+  allowedExtensions: string;
 
   dragging: boolean;
 
-  constructor() { }
+  constructor(
+    private imageExtentionsService: ImageExtentionsService
+  ) { }
 
   ngOnInit(): void {
+    this.allowedExtensions = this.imageExtentionsService.getImageExtentionsAsString();
     this.dragging = false;
   }
 
