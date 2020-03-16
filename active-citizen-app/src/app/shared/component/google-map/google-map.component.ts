@@ -14,6 +14,10 @@ export class GoogleMapComponent implements AfterViewInit {
   myPosition: google.maps.LatLng;
   myLocationMarker: google.maps.Marker;
 
+  geocoder = new google.maps.Geocoder();
+  infowindow = new google.maps.InfoWindow();
+
+  myLocationAddress: string;
 
   @Output()
   markerUpdated = new EventEmitter<LatLng>();
@@ -42,7 +46,9 @@ export class GoogleMapComponent implements AfterViewInit {
   }
 
   mapInitializer(myPosition: google.maps.LatLng): void {
-    this.setupMarker(myPosition, this.setupMap(myPosition));
+    this.map = this.setupMap(myPosition);
+    this.setupMarker(myPosition, this.map);
+    this.getAddressFromLocation();
   }
 
   setupMap(myPosition: google.maps.LatLng): google.maps.Map {
@@ -75,6 +81,7 @@ export class GoogleMapComponent implements AfterViewInit {
 
     this.myLocationMarker.addListener('mouseup', () => {
       this.onMarkerUpdated(this.myLocationMarker);
+      this.getAddressFromLocation();
     });
 
     this.myLocationMarker.setMap(googleMap);
@@ -91,6 +98,24 @@ export class GoogleMapComponent implements AfterViewInit {
       marker.getPosition().lat(),
       marker.getPosition().lng()
     );
+  }
+
+  private getAddressFromLocation() {
+    this.geocoder.geocode({
+      location: new LatLng(
+        this.myLocationMarker.getPosition().lat(),
+        this.myLocationMarker.getPosition().lng()
+      )
+    }, (results, status) => {
+      if (status === 'OK') {
+        if (results[0]) {
+          this.myLocationAddress = results[0].formatted_address;
+          this.map.setZoom(11);
+          this.infowindow.setContent(results[0].formatted_address);
+          this.infowindow.open(this.map, this.myLocationMarker);
+        }
+      }
+    });
   }
 
 }
