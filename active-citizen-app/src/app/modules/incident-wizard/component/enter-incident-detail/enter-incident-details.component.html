@@ -10,20 +10,23 @@
           <mat-label>Incident Title</mat-label>
           <input matInput placeholder="Enter here" formControlName="incidentTitle" autocomplete="off">
           <mat-error>
-            <app-control-messages [control]="f['incidentTitle']"></app-control-messages>
+            <app-control-messages [control]="formControls['incidentTitle']"></app-control-messages>
           </mat-error>
         </mat-form-field>
       </div>
       <div class="form-group">
         <mat-form-field appearance="outline">
           <mat-label>Incident Type</mat-label>
-          <mat-select name="incidentType" formControlName="incidentType">
-            <mat-option *ngFor="let incidentType of dropDownIncidentTypes" [value]="incidentType.value">
+          <input type="text" matInput formControlName="translatedIncidentType" [matAutocomplete]="auto"
+            (blur)="onIncidentTypeChanged($event.target.value)">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let incidentType of filteredDropDownIncidentTypes | async"
+              [value]="incidentType.translatedName">
               {{incidentType.name | translate}}
             </mat-option>
-          </mat-select>
+          </mat-autocomplete>
           <mat-error>
-            <app-control-messages [control]="f['incidentType']"></app-control-messages>
+            <app-control-messages [control]="formControls['incidentType']"></app-control-messages>
           </mat-error>
         </mat-form-field>
       </div>
@@ -34,12 +37,10 @@
           <mat-label>Incident Description</mat-label>
           <textarea matInput placeholder="Enter here" formControlName="incidentDesc" autocomplete="off"></textarea>
           <mat-error>
-            <app-control-messages [control]="f['incidentDesc']"></app-control-messages>
+            <app-control-messages [control]="formControls['incidentDesc']"></app-control-messages>
           </mat-error>
         </mat-form-field>
       </div>
-
-      <!-- <app-wizard-nxt-btn [type]="'submit'" [disabled]="newIncidentForm.invalid">Next</app-wizard-nxt-btn> -->
     </form>
   </div>
 </div>
