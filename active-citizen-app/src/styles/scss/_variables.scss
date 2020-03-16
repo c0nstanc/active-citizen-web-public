@@ -1,9 +1,11 @@
 $app-font-family: "Roboto", "Helvetica Neue", sans-serif;
 $body-font-size: 1rem;
 
-// Responsiveness - Breakpoints
-// $breakpoint-tablet: 35rem;
-// $breakpoint-desktop: 64rem;
+// Responsiveness - Breakpoints - based on bootstrap 4
+$breakpoint-smal: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+$breakpoint-extra-large: 1200px;
 
 // Header
 $app-header-height-sm: 3.5rem;

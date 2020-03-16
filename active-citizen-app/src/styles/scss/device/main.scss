@@ -1,11 +1,12 @@
 
 @import "mobile-default";
+@import "variables";
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: $breakpoint-medium) {
   @import "tablet";
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: $breakpoint-large) {
   @import "desktop";
 }
 

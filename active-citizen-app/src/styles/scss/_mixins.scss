@@ -3,11 +3,11 @@
 @mixin header-padding-left {
   padding-left: 20px;
 
-  @media screen and (min-width: $breakpoint-tablet) {
+  @media screen and (min-width: $breakpoint-medium) {
     padding-left: 40px;
   }
 
-  @media screen and (min-width: $breakpoint-desktop) {
+  @media screen and (min-width: $breakpoint-large) {
     padding-left: 60px;
   }
 
@@ -17,12 +17,12 @@
   height: $size;
   max-height: $size;
 
-  @media screen and (min-width: $breakpoint-tablet) {
+  @media screen and (min-width: $breakpoint-medium) {
     height: $size+10px;
     max-height: $size+10px;
   }
 
-  @media screen and (min-width: $breakpoint-desktop) {
+  @media screen and (min-width: $breakpoint-large) {
     height: $size+20px;
     max-height: $size+20px;
   }
@@ -32,12 +32,12 @@
 @mixin header-padding-top($size) {
   padding-top: $size+1px;
 
-  @media screen and (min-width: $breakpoint-tablet) {
+  @media screen and (min-width: $breakpoint-medium) {
     padding-top: $size+1px+20px;
 
   }
 
-  @media screen and (min-width: $breakpoint-desktop) {
+  @media screen and (min-width: $breakpoint-large) {
     padding-top: $size+1px+20px;
 
   }
@@ -49,11 +49,11 @@
   @include header-height($size);
   width: $size;
 
-  @media screen and (min-width: $breakpoint-tablet) {
+  @media screen and (min-width: $breakpoint-medium) {
     width: 156px;
   }
 
-  @media screen and (min-width: $breakpoint-desktop) {
+  @media screen and (min-width: $breakpoint-large) {
     width: 182px;
   }
 
