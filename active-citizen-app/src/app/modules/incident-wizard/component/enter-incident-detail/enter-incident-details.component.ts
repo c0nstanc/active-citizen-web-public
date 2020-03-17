@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DropDownItem } from 'src/app/shared/model/drop-down-item.model';
 import { Incident } from 'src/app/data/schema/incident.model';
@@ -9,6 +9,7 @@ import { ClonerService } from 'src/app/core/services/cloner.service';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
+import { SubSink } from 'subsink';
 
 interface IncidentDetails {
   incidentTitle: string;
@@ -22,11 +23,13 @@ interface IncidentDetails {
   templateUrl: './enter-incident-details.component.html',
   styleUrls: ['./enter-incident-details.component.scss']
 })
-export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardStep {
+export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardStep, OnDestroy {
   newIncidentForm: FormGroup;
   dropDownIncidentTypes: Array<DropDownItem>;
   incident: Incident;
   filteredDropDownIncidentTypes: Observable<Array<DropDownItem>>;
+
+  subs: SubSink = new SubSink();
 
   get formControls() {
     return this.newIncidentForm.controls;
@@ -41,7 +44,7 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
 
   ngOnInit(): void {
     this.initDropDownIncidentTypes();
-    this.translateService.onLangChange.subscribe(() =>
+    this.subs.sink = this.translateService.onLangChange.subscribe(() =>
       this.initDropDownIncidentTypes()
     );
     this.buildForm();
@@ -53,7 +56,7 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
 
   private initDropDownIncidentTypes(): void {
     this.dropDownIncidentTypes = new Array<DropDownItem>();
-    IncidentTypes().forEach(it => this.translateService.get('incidentType.' + it).subscribe(translation => {
+    IncidentTypes().forEach(it => this.subs.sink = this.translateService.get('incidentType.' + it).subscribe(translation => {
       this.dropDownIncidentTypes.push(new DropDownItem('incidentType.' + it, it, translation));
     }));
   }
@@ -71,7 +74,6 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
     if (this.newIncidentForm) {
       return this.clonerService.cloneFormGroup(this.newIncidentForm) as FormGroup;
     }
-
   }
 
   onIncidentTypeChanged(translatedName: string) {
@@ -102,6 +104,10 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
     const filterValue = value.toLowerCase();
     return this.dropDownIncidentTypes.filter(dropDownItem => (dropDownItem.translatedName).toLowerCase()
       .includes(filterValue));
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
 }

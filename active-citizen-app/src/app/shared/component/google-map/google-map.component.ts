@@ -17,10 +17,11 @@ export class GoogleMapComponent implements AfterViewInit {
   geocoder = new google.maps.Geocoder();
   infowindow = new google.maps.InfoWindow();
 
-  myLocationAddress: string;
-
   @Output()
   markerUpdated = new EventEmitter<LatLng>();
+
+  @Output()
+  addressUpdated = new EventEmitter<string>();
 
   @ViewChild('googleMapContainer')
   gmap: ElementRef;
@@ -48,7 +49,6 @@ export class GoogleMapComponent implements AfterViewInit {
   mapInitializer(myPosition: google.maps.LatLng): void {
     this.map = this.setupMap(myPosition);
     this.setupMarker(myPosition, this.map);
-    this.getAddressFromLocation();
   }
 
   setupMap(myPosition: google.maps.LatLng): google.maps.Map {
@@ -87,10 +87,15 @@ export class GoogleMapComponent implements AfterViewInit {
     this.myLocationMarker.setMap(googleMap);
     this.myLocationMarker.setDraggable(true);
     this.onMarkerUpdated(this.myLocationMarker);
+    this.getAddressFromLocation();
   }
 
   private onMarkerUpdated(marker: google.maps.Marker) {
     this.markerUpdated.emit(this.getMarkerLatLng(marker));
+  }
+
+  private onAddressUpdated(address: string) {
+    this.addressUpdated.emit(address);
   }
 
   private getMarkerLatLng(marker: google.maps.Marker): LatLng {
@@ -109,11 +114,15 @@ export class GoogleMapComponent implements AfterViewInit {
     }, (results, status) => {
       if (status === 'OK') {
         if (results[0]) {
-          this.myLocationAddress = results[0].formatted_address;
           this.map.setZoom(11);
           this.infowindow.setContent(results[0].formatted_address);
           this.infowindow.open(this.map, this.myLocationMarker);
+          this.addressUpdated.emit(results[0].formatted_address);
+        } else {
+          this.addressUpdated.emit('');
         }
+      } else {
+        this.addressUpdated.emit('');
       }
     });
   }

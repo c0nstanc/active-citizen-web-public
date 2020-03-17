@@ -1,0 +1,29 @@
+@import "mixins";
+
+.wizard-step-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.incident-summary {
+  max-width: 100%;
+  @include media-breakpoint-up(sm) {
+    max-width: 80%;
+  }
+}
+
+.incident-image-wrapper {
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0.3em;
+  }
+
+  fa-icon.ng-fa-icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+}

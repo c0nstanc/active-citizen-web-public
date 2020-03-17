@@ -3,8 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { EnterLocationComponent } from './component/enter-location/enter-location.component';
 import { EnterIncidentDetailsComponent } from './component/enter-incident-detail/enter-incident-details.component';
 import { EnterIncidentPhotoComponent } from './component/enter-incident-photo/enter-incident-photo.component';
-import { TakePictureComponent } from 'src/app/shared/component/take-picture/take-picture.component';
-import { SubmitIncidentComponent } from './component/submit-incident/submit-incident.component';
+import { SummaryIncidentComponent } from './component/summary-incident/summary-incident.component';
 
 
 const routes: Routes = [
@@ -14,21 +13,21 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'step0',
+    path: 'step1',
     component: EnterLocationComponent,
 
   },
   {
-    path: 'step1',
+    path: 'step2',
     component: EnterIncidentDetailsComponent
   },
   {
-    path: 'step2',
+    path: 'step3',
     component: EnterIncidentPhotoComponent
   },
   {
-    path: 'step3',
-    component: SubmitIncidentComponent
+    path: 'step4',
+    component: SummaryIncidentComponent
   }
 
 

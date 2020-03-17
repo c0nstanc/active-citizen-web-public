@@ -69,13 +69,13 @@
   border-top-left-radius: 1rem;
 
   padding-top: 1rem;
-  padding-left: 2rem;
-  max-height: 440px;
+  padding-bottom: 1rem;
+  // max-height: 440px;
 
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   @include media-breakpoint-up(sm) {
+    padding-left: 2rem;
     padding-right: 2rem;
-    padding-bottom: 2rem;
   }
 }

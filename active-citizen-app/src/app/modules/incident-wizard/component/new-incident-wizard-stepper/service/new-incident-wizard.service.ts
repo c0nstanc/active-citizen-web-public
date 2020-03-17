@@ -5,6 +5,7 @@ import { IncidentStatus } from 'src/app/data/schema/incident-status.model';
 import { LatLng } from 'src/app/shared/component/google-map/model/lat-lng.model';
 import { IncidentService } from 'src/app/data/service/incident.service';
 import { ClonerService } from 'src/app/core/services/cloner.service';
+import { LocationDetails } from 'src/app/data/schema/location-details.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class NewIncidentWizardService {
   constructor(
     private incidentService: IncidentService,
     private clonerService: ClonerService
-    ) {
+  ) {
     this.initializeIncident();
   }
 
@@ -32,8 +33,8 @@ export class NewIncidentWizardService {
     this.newIncidedUpdated.next(this.newIncident);
   }
 
-  public setIncidentLatLng(latLng: LatLng): void {
-    this.newIncident.latLng = latLng;
+  public setIncidentLocationDetails(locationDetails: LocationDetails): void {
+    this.newIncident.locationDetails = locationDetails;
     this.newIncidedUpdated.next(this.newIncident);
   }
 
@@ -60,7 +61,7 @@ export class NewIncidentWizardService {
   private initializeIncident() {
     this.newIncident = new Incident();
     this.newIncident.status = IncidentStatus.CREATED;
-    this.newIncidedUpdated = new BehaviorSubject(this.newIncident);
+    this.newIncidedUpdated = new BehaviorSubject(null);
   }
 
 }

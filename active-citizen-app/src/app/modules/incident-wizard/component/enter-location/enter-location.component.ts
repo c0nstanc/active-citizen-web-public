@@ -1,13 +1,14 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClonerService } from 'src/app/core/services/cloner.service';
-import { GoogleMapComponent } from 'src/app/shared/component/google-map/google-map.component';
 import { LatLng } from 'src/app/shared/component/google-map/model/lat-lng.model';
 import { NewIncidentWizardService } from '../new-incident-wizard-stepper/service/new-incident-wizard.service';
+import { LocationDetails } from 'src/app/data/schema/location-details.model';
 
 interface IncidentLocation {
   latLng: LatLng;
+  locationAddress: string;
 }
 @Component({
   selector: 'app-enter-location',
@@ -28,12 +29,13 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep {
     this.buildForm();
   }
 
-
   public onSubmit(): void {
 
     console.log('Submitting Location ...');
-    this.newIncidentWizardService.setIncidentLatLng(
-      (this.newIncidentForm.value as IncidentLocation).latLng
+    this.newIncidentWizardService.setIncidentLocationDetails(
+      new LocationDetails(
+        (this.newIncidentForm.value as IncidentLocation).latLng,
+        (this.newIncidentForm.value as IncidentLocation).locationAddress)
     );
     console.log(this.newIncidentForm.value);
   }
@@ -42,12 +44,16 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep {
     this.newIncidentForm.patchValue({ latLng: markerlatLng });
   }
 
+  onAddressUpdated(address: string): void {
+    this.newIncidentForm.patchValue({ locationAddress: address });
+  }
+
   private buildForm(): void {
     this.newIncidentForm = this.formBuilder.group({
       latLng: this.formBuilder.control('', [Validators.required]),
+      locationAddress: this.formBuilder.control('')
     });
   }
-
 
   public getFormGroup(): FormGroup {
     if (this.newIncidentForm) {

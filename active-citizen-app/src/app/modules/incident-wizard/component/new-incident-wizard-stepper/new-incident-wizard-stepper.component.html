@@ -1,4 +1,4 @@
-<mat-horizontal-stepper labelPosition="bottom" [@.disabled]="true" #stepper  (selectionChange)="selectionChanged($event)" linear>
+<mat-horizontal-stepper labelPosition="bottom" [selectedIndex]="selectedIndex" [@.disabled]="true" #stepper  (selectionChange)="selectionChanged($event)" linear>
 
   <!-- <ng-template matStepperIcon="edit">
       <mat-icon>insert_drive_file</mat-icon>
@@ -17,7 +17,6 @@
     <div class="photos-btn-container">
       <button mat-raised-button matStepperNext color='accent' class="stepper-btn-nxt" [disabled]="!currentWizardStep?.getFormGroup()?.valid" (click)="submit()">{{step.buttonName}}</button>
     </div>
-
   </mat-step>
 
 </mat-horizontal-stepper>

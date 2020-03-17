@@ -1,9 +1,9 @@
 import { IncidentStatus } from './incident-status.model';
-import { LatLng } from 'src/app/shared/component/google-map/model/lat-lng.model';
+import { LocationDetails } from './location-details.model';
 
 export class Incident {
   id: string;
-  latLng: LatLng;
+  locationDetails: LocationDetails;
   name: string;
   description: string;
   category: string;

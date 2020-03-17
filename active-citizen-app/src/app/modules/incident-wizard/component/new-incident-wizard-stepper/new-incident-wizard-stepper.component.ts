@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { Step } from './model/step.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
@@ -13,6 +13,7 @@ export class NewIncidentWizardStepperComponent implements OnInit {
 
   private currentWizardStep: SubmittableWizardStep;
 
+  selectedIndex: number;
   steps: Step[];
 
   constructor(
@@ -27,10 +28,11 @@ export class NewIncidentWizardStepperComponent implements OnInit {
       new Step('Enter photo', 'Proceed'),
       new Step('Done', 'Submit Problem'),
     ];
+    this.selectedIndex = this.getStepIndex();
   }
 
   selectionChanged(event: any): void {
-    this.navigate('step' + event.selectedIndex);
+    this.navigate('step' + (event.selectedIndex + 1));
   }
 
   onRouterOutletActivate(loadedStep: SubmittableWizardStep): void {
@@ -43,6 +45,10 @@ export class NewIncidentWizardStepperComponent implements OnInit {
 
   private navigate(url: string): void {
     this.router.navigate([url], { relativeTo: this.activatedRoute });
+  }
+
+  private getStepIndex(): number {
+    return +this.router.url.split('/').find(urlPart => urlPart.includes('step')).replace('step', '') - 1;
   }
 
 }
