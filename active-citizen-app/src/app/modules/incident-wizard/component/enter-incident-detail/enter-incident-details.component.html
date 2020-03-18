@@ -1,32 +1,41 @@
 <div class="wizard-step-container">
-  <app-wizard-step-title>Add Problem Details</app-wizard-step-title>
+  <app-wizard-step-title>Problem Details</app-wizard-step-title>
 
+  These will be sent to your municipality and also published online for others to see
   <div class="form-container">
 
     <form (ngSubmit)="onSubmit()" [formGroup]="newIncidentForm">
 
       <div class="form-group">
         <mat-form-field appearance="outline">
-          <mat-label>Incident Title</mat-label>
-          <input matInput placeholder="Enter here" formControlName="incidentTitle" autocomplete="off">
-          <mat-error>
-            <app-control-messages [control]="formControls['incidentTitle']"></app-control-messages>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="form-group">
-        <mat-form-field appearance="outline">
-          <mat-label>Incident Type</mat-label>
-          <input type="text" matInput formControlName="translatedIncidentType" [matAutocomplete]="auto"
-            (blur)="onIncidentTypeChanged($event.target.value)">
+          <mat-label>Category</mat-label>
+          <input type="text" matInput formControlName="translatedIncidentCategory" [matAutocomplete]="auto"
+            (blur)="onIncidentCategoryChanged($event.target.value)">
           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-            <mat-option *ngFor="let incidentType of filteredDropDownIncidentTypes | async"
-              [value]="incidentType.translatedName">
-              {{incidentType.name | translate}}
+            <mat-option *ngFor="let incidentCategory of filteredDropDownIncidentCategories | async"
+              [value]="incidentCategory.translatedName">
+              {{incidentCategory.name | translate}}
             </mat-option>
           </mat-autocomplete>
           <mat-error>
-            <app-control-messages [control]="formControls['incidentType']"></app-control-messages>
+            <app-control-messages [control]="formControls['incidentCategory']"></app-control-messages>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      Help us resolve your problem quicker, by providing some extra detail.
+      <div class="form-group">
+        <mat-form-field appearance="outline">
+          <mat-label>Subcategory</mat-label>
+          <input type="text" matInput formControlName="translatedIncidentSubcategory" [matAutocomplete]="auto"
+            (blur)="onIncidentSubcategoryChanged($event.target.value)">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let incidentSubcategory of filteredDropDownIncidentCategories | async"
+              [value]="incidentSubcategory.translatedName">
+              {{incidentSubcategory.name | translate}}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-error>
+            <app-control-messages [control]="formControls['incidentSubcategory']"></app-control-messages>
           </mat-error>
         </mat-form-field>
       </div>
@@ -34,7 +43,7 @@
       <div class="form-group">
 
         <mat-form-field appearance="outline">
-          <mat-label>Incident Description</mat-label>
+          <mat-label>Summarise the problem</mat-label>
           <textarea matInput placeholder="Enter here" formControlName="incidentDesc" autocomplete="off"></textarea>
           <mat-error>
             <app-control-messages [control]="formControls['incidentDesc']"></app-control-messages>

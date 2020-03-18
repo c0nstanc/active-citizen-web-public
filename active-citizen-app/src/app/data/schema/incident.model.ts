@@ -4,9 +4,9 @@ import { LocationDetails } from './location-details.model';
 export class Incident {
   id: string;
   locationDetails: LocationDetails;
-  name: string;
-  description: string;
   category: string;
+  subcategory: string;
+  description: string;
   status: IncidentStatus;
   imageUrls: string[] = [];
 

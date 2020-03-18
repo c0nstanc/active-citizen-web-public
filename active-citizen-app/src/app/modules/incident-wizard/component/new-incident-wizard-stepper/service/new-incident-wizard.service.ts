@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { BehaviorSubject } from 'rxjs';
 import { IncidentStatus } from 'src/app/data/schema/incident-status.model';
-import { LatLng } from 'src/app/shared/component/google-map/model/lat-lng.model';
 import { IncidentService } from 'src/app/data/service/incident.service';
 import { ClonerService } from 'src/app/core/services/cloner.service';
 import { LocationDetails } from 'src/app/data/schema/location-details.model';
@@ -28,10 +27,16 @@ export class NewIncidentWizardService {
     this.newIncidedUpdated.next(this.newIncident);
   }
 
-  public setIncidentName(name: string): void {
-    this.newIncident.name = name;
+  public setIncidentCategory(category: string): void {
+    this.newIncident.category = category;
     this.newIncidedUpdated.next(this.newIncident);
   }
+
+  public setIncidentSubcategory(subcategory: string): void {
+    this.newIncident.subcategory = subcategory;
+    this.newIncidedUpdated.next(this.newIncident);
+  }
+
 
   public setIncidentLocationDetails(locationDetails: LocationDetails): void {
     this.newIncident.locationDetails = locationDetails;
@@ -40,11 +45,6 @@ export class NewIncidentWizardService {
 
   public setIncidentDescription(desc: string): void {
     this.newIncident.description = desc;
-    this.newIncidedUpdated.next(this.newIncident);
-  }
-
-  public setIncidentCategory(category: string): void {
-    this.newIncident.category = category;
     this.newIncidedUpdated.next(this.newIncident);
   }
 

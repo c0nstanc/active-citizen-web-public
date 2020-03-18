@@ -9,7 +9,7 @@ import { SummaryIncidentComponent } from './component/summary-incident/summary-i
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'step0',
+    redirectTo: 'step1',
     pathMatch: 'full'
   },
   {

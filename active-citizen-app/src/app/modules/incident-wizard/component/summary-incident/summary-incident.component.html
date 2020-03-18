@@ -1,24 +1,19 @@
 <div class="wizard-step-container">
 
   <mat-card *ngIf="incident" class="incident-summary justify-self-center">
-    <mat-card-header>
-      <mat-card-title>{{'incidentType.'+ incident.category | translate}} </mat-card-title>
+    <mat-card-header class="incident-card-header">
+      <mat-card-title>{{'incidentCategory.'+ incident.category | translate}} </mat-card-title>
+      <mat-card-subtitle>{{'incidentCategory.'+ incident.category | translate}} </mat-card-subtitle>
       <mat-card-subtitle>{{incident.locationDetails?.address}}</mat-card-subtitle>
-      <mat-card-subtitle>{{incident.name}}</mat-card-subtitle>
     </mat-card-header>
     <div class="incident-image-wrapper">
-      <img *ngIf="incident.imageUrls.length>0; else noImage" [src]="incident.imageUrls[0]" alt="First Problem Photo">
-      <ng-template #noImage>
-        <fa-icon *ngIf="images$ | async as images" [icon]="images" size="6x"></fa-icon>
-      </ng-template>
+      <img [src]="incident.imageUrls[0]" alt="First Problem Photo">
     </div>
-    <mat-card-content>
+    <mat-card-content class="incident-card-content">
       <p>
         {{incident.description}}
       </p>
     </mat-card-content>
-    <mat-card-actions>
-    </mat-card-actions>
   </mat-card>
 
 </div>

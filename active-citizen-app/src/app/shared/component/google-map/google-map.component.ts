@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild, ElementRef, OnInit, Output, EventEmitter } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { LatLng } from './model/lat-lng.model';
 
 @Component({
@@ -117,12 +117,12 @@ export class GoogleMapComponent implements AfterViewInit {
           this.map.setZoom(11);
           this.infowindow.setContent(results[0].formatted_address);
           this.infowindow.open(this.map, this.myLocationMarker);
-          this.addressUpdated.emit(results[0].formatted_address);
+          this.onAddressUpdated(results[0].formatted_address);
         } else {
-          this.addressUpdated.emit('');
+          this.onAddressUpdated('Unable to get address');
         }
       } else {
-        this.addressUpdated.emit('');
+        this.onAddressUpdated('Unable to get address');
       }
     });
   }

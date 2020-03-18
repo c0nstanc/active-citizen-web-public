@@ -48,7 +48,12 @@ export class NewIncidentWizardStepperComponent implements OnInit {
   }
 
   private getStepIndex(): number {
-    return +this.router.url.split('/').find(urlPart => urlPart.includes('step')).replace('step', '') - 1;
+
+    const stepNumber = this.router.url.split('/').find(urlPart => urlPart.includes('step'));
+    if (stepNumber) {
+      return +this.router.url.split('/').find(urlPart => urlPart.includes('step')).replace('step', '') - 1;
+    }
+    return 1;
   }
 
 }
