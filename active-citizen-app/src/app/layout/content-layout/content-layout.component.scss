@@ -34,7 +34,10 @@ app-header {
   min-height: $app-content-min-height-sm;
   @include media-breakpoint-up(sm) {
     padding-bottom: $app-content-padding-bottom;
-    min-height: $app-content-min-height;
+    min-height: $app-content-min-height-md;
+  }
+  @include media-breakpoint-up(sm) {
+    min-height: $app-content-min-height-lg;
   }
 }
 

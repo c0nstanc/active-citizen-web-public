@@ -27,14 +27,15 @@ $app-content-padding-bottom: 3rem;
 $app-content-min-height-sm: calc(
   100vh -
     calc(
-      #{$app-header-height-sm} + #{$app-footer-height} + #{$app-content-margin-top}
+      #{$app-header-height-sm} + #{$app-footer-height} + 1rem
     )
 );
-$app-content-min-height: calc(
-  100vh -
-    calc(
-      #{$app-header-height} + #{$app-footer-height} + #{$app-content-margin-top}
-    )
+$app-content-min-height-md: calc(
+  100vh - calc(#{$app-header-height} + #{$app-footer-height})
+);
+
+$app-content-min-height-lg: calc(
+  100vh - calc(#{$app-header-height} + #{$app-footer-height} + 1rem)
 );
 
 // Page - Global

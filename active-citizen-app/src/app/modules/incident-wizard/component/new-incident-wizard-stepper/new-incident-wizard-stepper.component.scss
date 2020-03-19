@@ -5,12 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  // background-color: white;
-
   padding-bottom: 1rem;
   padding-top: 1rem;
-  border-bottom-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
 }
 
 .stepper-btn-nxt {
@@ -55,8 +51,6 @@
 }
 
 ::ng-deep .mat-horizontal-stepper-header-container {
-  // background-color: #e8eaf6;
-  //  padding-bottom: 1rem;
   min-width: 250px;
   @include media-breakpoint-up(sm) {
     padding-bottom: 2rem;
@@ -64,18 +58,10 @@
 }
 
 ::ng-deep .mat-horizontal-content-container {
-  // background-color: #e8eaf6;
   padding: 0 !important;
 }
 
 ::ng-deep .wizard-step-container {
-  // background-color: white;
-  border-top-right-radius: 1rem;
-  border-top-left-radius: 1rem;
-
-  // padding-top: 1rem;
-  // max-height: 440px;
-
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   @include media-breakpoint-up(sm) {

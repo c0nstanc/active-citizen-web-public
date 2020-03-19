@@ -4,9 +4,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  @include media-breakpoint-up(sm) {
-    padding-top: 2rem;
-  }
 }
 
 .incident-summary {
