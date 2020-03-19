@@ -1,0 +1,5 @@
+@mixin summary-incident-component-theme($selected-theme) {
+  .summary-container {
+    background-color: mat-theme-background-color($selected-theme, background);
+  }
+}

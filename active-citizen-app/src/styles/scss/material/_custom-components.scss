@@ -10,6 +10,7 @@
 @import "app/shared/component/sidenav-menu-item/sidenav-menu-item.component-theme";
 @import "app/shared/component/wizard/wizard.component-theme";
 @import "app/shared/component/simple-modal/simple-modal.component-theme";
+@import "app/modules/incident-wizard/component/summary-incident/summary-incident-component-theme.scss";
 
 @mixin custom-components-theme($selected-theme) {
   @include my-styles-reset-theme($selected-theme);
@@ -19,6 +20,7 @@
 
   @include my-incident-container-component-theme($selected-theme);
   @include new-incident-wizard-stepper-component-theme($selected-theme);
+  @include summary-incident-component-theme($selected-theme);
   // @include my-incident-component-theme($selected-theme);
   // @include wizard-theme($selected-theme);
   @include angular-material-typography($active-citizens-typography);
