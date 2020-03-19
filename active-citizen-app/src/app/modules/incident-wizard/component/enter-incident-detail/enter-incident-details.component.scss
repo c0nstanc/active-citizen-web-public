@@ -1,7 +1,21 @@
+@import "mixins";
+
 mat-form-field {
   width: 100%;
 }
 
 .form-container {
   margin-top: 2rem;
+}
+
+.form-group {
+  margin-bottom: 0rem;
+  @include media-breakpoint-up(sm) {
+    margin-bottom: 2rem;
+  }
+
+  ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 1rem;
+    margin: 0.25rem;
+  }
 }

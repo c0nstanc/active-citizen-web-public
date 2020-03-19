@@ -2,4 +2,8 @@
   .mat-horizontal-stepper-header-container {
     background-color: mat-theme-background-color($selected-theme, background);
   }
+
+  .wizard-btn-container {
+    background-color: mat-theme-background-color($selected-theme, background);
+  }
 }

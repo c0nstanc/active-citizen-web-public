@@ -1,14 +1,14 @@
 @import "mixins";
 @import "variables";
 
-.location-btn-container,
-.details-btn-container,
-.photos-btn-container {
+.wizard-btn-container {
   display: flex;
   align-items: center;
   justify-content: center;
   // background-color: white;
+
   padding-bottom: 1rem;
+  padding-top: 1rem;
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
 }
@@ -22,9 +22,11 @@
 }
 
 ::ng-deep .mat-step-icon {
-  font-size: 1.25rem !important;
-  width: 2.25rem !important;
-  height: 2.25rem !important;
+  @include media-breakpoint-up(sm) {
+    font-size: 1.25rem !important;
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+  }
 }
 
 ::ng-deep
@@ -56,7 +58,9 @@
   // background-color: #e8eaf6;
   //  padding-bottom: 1rem;
   min-width: 250px;
-  padding-bottom: 2rem;
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 2rem;
+  }
 }
 
 ::ng-deep .mat-horizontal-content-container {
@@ -70,7 +74,6 @@
   border-top-left-radius: 1rem;
 
   // padding-top: 1rem;
-  padding-bottom: 1rem;
   // max-height: 440px;
 
   padding-left: 0.5rem;
@@ -78,5 +81,6 @@
   @include media-breakpoint-up(sm) {
     padding-left: 2rem;
     padding-right: 2rem;
+    padding-bottom: 1rem;
   }
 }

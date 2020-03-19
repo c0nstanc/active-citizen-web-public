@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ClonerService } from 'src/app/core/services/cloner.service';
@@ -6,10 +6,8 @@ import { NewIncidentWizardService } from '../new-incident-wizard-stepper/service
 import { Router } from '@angular/router';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { SubSink } from 'subsink';
-import { startWith } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faImages } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-summary-incident',
@@ -54,9 +52,6 @@ export class SummaryIncidentComponent implements OnInit, SubmittableWizardStep, 
   private buildForm(): FormGroup {
     return this.formBuilder.group({});
   }
-
-
-
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();

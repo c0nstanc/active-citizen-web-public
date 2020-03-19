@@ -1,10 +1,22 @@
 @import "mixins";
 
 .wizard-step-container {
-  padding-top: 2rem;
   width: 100%;
   display: flex;
   justify-content: center;
+  @include media-breakpoint-up(sm) {
+    padding-top: 2rem;
+  }
+}
+
+mat-card {
+  padding: 0;
+  box-shadow: none !important;
+  @include media-breakpoint-up(sm) {
+    padding: unset;
+    box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+      0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12) !important;
+  }
 }
 
 .incident-summary {
@@ -13,12 +25,14 @@
     "card-header"
     "card-image"
     "card-content";
-  grid-template-rows: 20% 50% 30%;
+  grid-template-rows: 25% 50% 25%;
+  padding: 0 1rem;
 
   min-width: 320px;
   min-height: 400px;
   max-width: 90%;
   @include media-breakpoint-up(sm) {
+    grid-template-rows: 20% 50% 30%;
     max-width: 80%;
   }
   @include media-breakpoint-up(md) {
@@ -30,6 +44,7 @@
 }
 
 .incident-card-header {
+  padding-top: 1rem;
   grid-area: card-header;
   margin: 0 -16px;
   max-width: 100%;

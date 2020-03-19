@@ -8,13 +8,13 @@
       <mat-icon>done_all</mat-icon>
     </ng-template> -->
 
-  <mat-step *ngFor="let step of steps; let i=index;" [label]="step.stepName" [stepControl]="currentWizardStep?.getFormGroup()">
+  <mat-step  *ngFor="let step of steps; let i=index;" [label]="step.stepName" [stepControl]="currentWizardStep?.getFormGroup()">
     <div class="step-container">
 
       <router-outlet (activate)="onRouterOutletActivate($event)" *ngIf="stepper.selectedIndex==i"></router-outlet>
 
     </div>
-    <div class="photos-btn-container">
+    <div class="wizard-btn-container">
       <button mat-raised-button matStepperNext color='accent' class="stepper-btn-nxt" [disabled]="!currentWizardStep?.getFormGroup()?.valid" (click)="submit()">{{step.buttonName}}</button>
     </div>
   </mat-step>
