@@ -4,6 +4,8 @@
 // import custom component themes here
 @import "app/modules/incidents/pages/components/incident-item/incident-container.component-theme";
 @import "app/modules/incidents/pages/new-incident/new-incident.component-theme";
+@import "app/modules/incidents/pages/new-incident/new-incident.component-theme";
+@import "app/modules/incident-wizard/component/new-incident-wizard-stepper/new-incident-wizard-stepper.component-theme.scss";
 @import "app/layout/footer/footer.component-theme";
 @import "app/shared/component/sidenav-menu-item/sidenav-menu-item.component-theme";
 @import "app/shared/component/wizard/wizard.component-theme";
@@ -16,6 +18,7 @@
   @include simple-modal-component-theme($selected-theme);
 
   @include my-incident-container-component-theme($selected-theme);
+  @include new-incident-wizard-stepper-component-theme($selected-theme);
   // @include my-incident-component-theme($selected-theme);
   // @include wizard-theme($selected-theme);
   @include angular-material-typography($active-citizens-typography);

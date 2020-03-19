@@ -23,7 +23,7 @@
   @return map-get(mat-theme-colors($selected-theme), warn-color);
 }
 
-@function mat-theme-foreground-color($selected-theme,$type) {
+@function mat-theme-foreground-color($selected-theme, $type) {
   @return mat-color(
     map-get(mat-theme-colors($selected-theme), foreground-color),
     $type
