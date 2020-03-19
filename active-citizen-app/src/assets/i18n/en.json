@@ -1,3 +1,21 @@
 {
-  "atouken": "I am Nicolas."
+
+  "incidentCategory": {
+    "abandoned_vehicles": "Abandoned Vehicles",
+    "bus_stop": "Bus Stop",
+    "enforcement": "Enforcement",
+    "grafiti": "Grafiti",
+    "parks_and_greenspace": "Parks and Greenspace",
+    "public_trees": "Public Trees",
+    "pavement": "Pavement",
+    "street_cleansing": "Street Cleansing",
+    "street_lighting": "Street Lightning",
+    "road_signs": "Road Signs",
+    "traffic_lights": "Traffic Lights",
+    "water": "Water",
+    "road": "Road",
+    "electricity": "Electricity",
+    "other": "Other"
+  }
+
 }

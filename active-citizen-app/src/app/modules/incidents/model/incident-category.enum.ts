@@ -1,10 +1,8 @@
 export enum IncidentCategory {
-
-  ABANDONED_SANTANDER_CYCLE = 'abandoned_santander_cycle',
   ABANDONED_VEHICLES = 'abandoned_vehicles',
-  BUS_STOP_AND_SHELTERS = 'bus_stop_and_shelders',
+  BUS_STOP = 'bus_stop',
   ENFORCEMENT = 'enforcement',
-  GRAFFITI_AND_FLYPOSTING = 'grafiti_and_flyposting',
+  GRAFITI = 'grafiti',
   PARKS_AND_GREENSPACE = 'parks_and_greenspace',
   PUBLIC_TREES = 'public_trees',
   PAVEMENT = 'pavement',

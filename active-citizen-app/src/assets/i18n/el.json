@@ -1,12 +1,21 @@
 {
-  "atouken": "Είμαι ο Νικόλας.",
 
-  "incidentType": {
+  "incidentCategory": {
+    "abandoned_vehicles": "Εγκαταλειμμένα Oχήματα",
+    "bus_stop": "Στάση Λεωφορείου",
+    "enforcement": "Επιβολή",
+    "grafiti": "Γκράφιτι",
+    "parks_and_greenspace": "Πάρκα και χώρος πρασίνου",
+    "public_trees": "Δημόσια Δέντρα",
+    "pavement": "Πεζοδρόμιο",
+    "street_cleansing": "Καθαρισμός οδών",
+    "street_lighting": "Φωτισμός οδών",
+    "road_signs": "Πινακίδες",
+    "traffic_lights": "Φανάρια",
     "water": "Νερό",
-    "road": "Δρομος",
+    "road": "Δρόμος",
     "electricity": "Ηλεκτρισμός",
     "other": "Άλλο"
   }
-
 
 }
