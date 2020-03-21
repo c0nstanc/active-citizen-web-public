@@ -84,7 +84,7 @@ import { SimpleModalComponent } from './component/simple-modal/simple-modal.comp
 import { ModalContentComponent } from './component/modal-content/modal-content.component';
 import { ModalFooterComponent } from './component/modal-footer/modal-footer.component';
 import { ModalHeaderComponent } from './component/modal-header/modal-header.component';
-import { GoogleMapComponent } from './component/google-map/google-map.component';
+import { MyLocationMapComponent } from './component/my-location-map/my-location-map.component';
 import { CameraComponent } from './component/camera/camera.component';
 import { LanguageSelectionComponent } from './component/language-selection/language-selection.component';
 import { TakePictureComponent } from './component/take-picture/take-picture.component';
@@ -92,6 +92,7 @@ import { MainMenuComponent } from './component/main-menu/main-menu.component';
 import { ImageViewerComponent } from './component/image-viewer/image-viewer.component';
 import { FileListComponent } from './component/file-list/file-list.component';
 import { ImageDropComponent } from './component/image-drop/image-drop.component';
+import { IncidentsMapComponent } from './component/incidents-map/incidents-map.component';
 
 @NgModule({
   imports: [
@@ -117,14 +118,15 @@ import { ImageDropComponent } from './component/image-drop/image-drop.component'
     ModalContentComponent,
     ModalFooterComponent,
     ModalHeaderComponent,
-    GoogleMapComponent,
+    MyLocationMapComponent,
     CameraComponent,
     LanguageSelectionComponent,
     TakePictureComponent,
     MainMenuComponent,
     ImageViewerComponent,
     FileListComponent,
-    ImageDropComponent],
+    ImageDropComponent,
+    IncidentsMapComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -142,9 +144,10 @@ import { ImageDropComponent } from './component/image-drop/image-drop.component'
     ImageInputComponent,
     WizardStepTitleComponent,
     WizardNxtBtnComponent,
-    GoogleMapComponent,
+    MyLocationMapComponent,
     LanguageSelectionComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    IncidentsMapComponent
   ]
 })
 export class SharedModule {

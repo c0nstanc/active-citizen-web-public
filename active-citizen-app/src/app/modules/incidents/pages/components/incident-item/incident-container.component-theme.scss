@@ -1,6 +1,10 @@
 @mixin my-incident-container-component-theme($selected-theme) {
   .incident-details {
-    background-color: mat-theme-background-color($selected-theme, app-bar);
+    @if mat-theme-is-dark($selected-theme) {
+      background-color: unset;
+    } @else {
+      background-color: mat-theme-background-color($selected-theme, app-bar);
+    }
     border-bottom: 1px solid
       mat-theme-foreground-color($selected-theme, divider);
   }
@@ -11,7 +15,11 @@
   }
 
   .incident-footer {
-    background-color: mat-theme-background-color($selected-theme, app-bar);
+    @if mat-theme-is-dark($selected-theme) {
+      background-color: unset;
+    } @else {
+      background-color: mat-theme-background-color($selected-theme, app-bar);
+    }
   }
   .incident-image-wrapper {
     border-bottom: 1px solid

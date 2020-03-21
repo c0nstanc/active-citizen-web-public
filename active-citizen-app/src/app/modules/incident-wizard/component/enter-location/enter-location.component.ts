@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClonerService } from 'src/app/core/services/cloner.service';
-import { LatLng } from 'src/app/shared/component/google-map/model/lat-lng.model';
+import { LatLng } from 'src/app/shared/component/my-location-map/model/lat-lng.model';
 import { NewIncidentWizardService } from '../new-incident-wizard-stepper/service/new-incident-wizard.service';
 import { LocationDetails } from 'src/app/data/schema/location-details.model';
 

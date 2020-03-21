@@ -2,11 +2,11 @@ import { AfterViewInit, Component, ViewChild, ElementRef, Output, EventEmitter }
 import { LatLng } from './model/lat-lng.model';
 
 @Component({
-  selector: 'app-google-map',
-  templateUrl: './google-map.component.html',
-  styleUrls: ['./google-map.component.scss']
+  selector: 'app-my-location-map',
+  templateUrl: './my-location-map.component.html',
+  styleUrls: ['./my-location-map.component.scss']
 })
-export class GoogleMapComponent implements AfterViewInit {
+export class MyLocationMapComponent implements AfterViewInit {
 
   map: google.maps.Map;
   mapOptions: google.maps.MapOptions;
@@ -23,7 +23,7 @@ export class GoogleMapComponent implements AfterViewInit {
   @Output()
   addressUpdated = new EventEmitter<string>();
 
-  @ViewChild('googleMapContainer')
+  @ViewChild('myLocationMapContainer')
   gmap: ElementRef;
 
   constructor() {
