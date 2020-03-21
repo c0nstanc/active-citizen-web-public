@@ -2,7 +2,7 @@
 @import "mixins";
 
 .create-new-incident-btn-container {
-  position: absolute;
+  // position: absolute;
   top: 4rem;
   right: 2rem;
   width: 100%;
@@ -10,11 +10,15 @@
   justify-content: flex-end;
 }
 
-.incident-items-container {
-  display: flex;
-  justify-content: center;
-
-  @include media-breakpoint-up(md) {
-    justify-content: space-between;
-  }
+.incident-list{
+  margin-top: 1rem;
 }
+
+// .incident-items-container {
+//   display: flex;
+//   justify-content: center;
+
+//   @include media-breakpoint-up(md) {
+//     justify-content: space-between;
+//   }
+// }

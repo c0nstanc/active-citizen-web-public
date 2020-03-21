@@ -55,6 +55,7 @@ export class NewIncidentWizardService {
 
   public submitIncident() {
     this.newIncident.status = IncidentStatus.SUBMITTED;
+    this.newIncident.created = new Date();
     this.incidentService.addNewIncident(this.clonerService.deepClone(this.newIncident));
   }
 

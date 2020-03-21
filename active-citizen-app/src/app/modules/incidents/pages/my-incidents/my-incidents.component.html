@@ -8,12 +8,11 @@
     </button>
   </div>
 
-  <div class="row incident-items-container">
+  <div class="incident-list">
     <div *ngFor="let incident of incidents$ | async">
-      <div class="col-12 col-mid-6 col-lg-4 col-xl-3">
-        <app-incident-item [incident]="incident"></app-incident-item>
-      </div>
+      <app-incident-item class="app-incident-item" [incident]="incident"></app-incident-item>
     </div>
   </div>
+
 
 </div>

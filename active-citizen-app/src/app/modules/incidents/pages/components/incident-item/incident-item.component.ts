@@ -12,7 +12,6 @@ import { Incident } from 'src/app/data/schema/incident.model';
 })
 export class IncidentItemComponent {
   @Input() incident: Incident;
-  // flipped = false;
 
   images$: Observable<IconDefinition>;
 

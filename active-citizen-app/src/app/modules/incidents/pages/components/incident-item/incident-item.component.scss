@@ -1,49 +1,38 @@
 .incident-item {
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px;
   display: flex;
-  padding: 0.5em;
   justify-content: center;
 
-  margin-top: 2em;
-  margin-bottom: 2em;
-  border-radius: 0.5em;
-  min-width: 250px;
-  max-width: 250px;
-}
-.grid-container {
-  padding: 1rem;
-  box-shadow:  0px 0px 35px 1px black;
-  border: 1px solid black;
-  display: grid;
+  margin: 1rem 0;
   width: 100%;
+  height: 100%;
+}
+.incident-item-grid-container {
+  display: grid;
+
   grid-template-areas:
-    "image image"
-    "title title"
-    "status status"
-    "description description"
-    "identity identity";
-  grid-template-columns: 4fr 0.2fr;
-  row-gap: 0.2rem;
-  grid-template-rows: 9rem auto auto auto;
+    "image details"
+    "footer footer";
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 2fr 0.5fr;
+  width: 100%;
+
+  mat-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    font-size: 18px;
+  }
 }
 
 .incident-image-wrapper {
-  display: inline-flex;
-  align-self: center;
   grid-area: image;
-  // margin: 0.25em;
+  display: flex;
+  align-items: center;
+  width: 100%;
 
-  // width: 9em;
-  // height: 9em;
-  // display: flex;
-  // align-items: stretch;
-  // justify-content: center;
-
+  // background-color: green;
   img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 0.3em;
+    width: 100%;
   }
 
   fa-icon.ng-fa-icon {
@@ -54,49 +43,88 @@
   }
 }
 
-// .incident-info {
-//   margin-left: 1em;
-//   padding: 0.5em;
-//   width: 100%;
-//   border-radius: 0.5em;
+.incident-details {
+  grid-area: details;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "left right";
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 0.5fr 2fr;
 
-//   // .incident-identity {
-//   //   display: flex;
-//   //   flex-direction: row;
-//   //   justify-content: space-between;
-//   // }
-// }
-.id {
-  grid-area: identity;
-  font-size: 1em;
-  color: grey;
-  display: flex;
-  align-items: center;
-  justify-self: flex-end;
-}
-.title {
-  grid-area: title;
-  font-weight: 700;
+  .header-area {
+    grid-area: header;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .category {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+    }
+    .id {
+      font-size: 14px;
+      color: grey;
+      display: flex;
+      align-items: flex-start;
+      justify-self: flex-end;
+    }
+  }
+
+  .left-area {
+    grid-area: left;
+
+    .subcategory {
+      display: flex;
+      align-items: flex-start;
+    }
+    .address {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  .right-area {
+    grid-area: right;
+    .description {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
 }
 
-.status {
-  // margin-top: 0.3rem;
-  grid-area: status;
-}
+.incident-footer {
+  grid-area: footer;
+  padding: 0.5rem;
 
-.status.submitted {
-  color: orange;
-}
+  // background-color: blue;
+  display: grid;
+  grid-template-areas: "created other status";
+  grid-template-columns: 2fr 4fr 1fr;
 
-.status.confirmed {
-  color: blue;
-}
+  .status {
+    grid-area: status;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 
-.status.resolved {
-  color: rgba($color: rgb(54, 168, 54), $alpha: 1);
-}
+  .created {
+    grid-area: created;
+    font-size: 14px;
+  }
 
-.description {
-  grid-area: description;
-  // margin-top: 1em;
+  .status.submitted {
+    color: orange;
+  }
+
+  .status.confirmed {
+    color: blue;
+  }
+
+  .status.resolved {
+    color: rgba($color: rgb(54, 168, 54), $alpha: 1);
+  }
 }

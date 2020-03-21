@@ -1,6 +1,6 @@
 <div class="incident-item">
 
-  <div class="grid-container">
+  <div class="incident-item-grid-container">
 
     <div class="incident-image-wrapper">
       <img *ngIf="incident.imageUrls.length>0; else noImage" [src]="incident.imageUrls[0]" alt="Photo incident">
@@ -9,21 +9,45 @@
       </ng-template>
     </div>
 
-    <div class="title">
-      <h4>{{ incident.category }}</h4>
+    <div class="incident-details">
+
+      <div class="header-area">
+        <div class="category">
+          <h5>{{ incident.category }}</h5>
+        </div>
+        <div class="id">
+          #{{ incident.id }}
+        </div>
+
+      </div>
+
+      <div class="left-area">
+        <div class="subcategory">
+          <mat-icon> note </mat-icon> {{ incident.subcategory }}
+        </div>
+        <div class="address">
+          <mat-icon> room </mat-icon> {{ incident?.locationDetails?.address }}
+        </div>
+
+      </div>
+
+      <div class="right-area">
+        <div class="description">
+          <mat-icon> event_note </mat-icon> {{ incident.description}}
+        </div>
+      </div>
+
     </div>
 
-    <div class="id">
-      #{{ incident.id }}
-    </div>
+    <div class="incident-footer">
 
-    <div class="status" [ngClass]="incident.status">
-      {{ incident.status }}
-    </div>
+      <div class="status" [ngClass]="incident.status">
+        {{ incident.status }}
+      </div>
 
-    <div class="description">
-      {{ incident.description}}
+      <div class="created">
+        Created on: {{ incident.created | date:'dd/MM/yyyy HH:mm' }}
+      </div>
     </div>
-
 
   </div>

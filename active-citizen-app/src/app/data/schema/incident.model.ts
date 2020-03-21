@@ -9,5 +9,7 @@ export class Incident {
   description: string;
   status: IncidentStatus;
   imageUrls: string[] = [];
+  created: Date;
+  updated: Date;
 
 }
