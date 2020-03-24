@@ -1,15 +1,11 @@
-<div class="container">
-  <app-page-title>My Incidents</app-page-title>
-
-  <div class="create-new-incident-btn-container">
-    <button class="create-new-incident-btn" mat-raised-button color="accent" (click)="createIncident()">
-      Create new incident
-    </button>
-  </div>
   <div class="my-incidents-container">
 
-    <div class="inciditents-list-area">
 
+    <app-page-title class="page-title">My Incidents</app-page-title>
+
+
+    <div class="inciditents-list-area" id="inciditents-list-area">
+      <app-page-title class="page-title">My Incidents</app-page-title>
       <div class="incident-list">
         <div *ngFor="let incident of incidents$ | async">
           <app-incident-item class="app-incident-item" [incident]="incident"></app-incident-item>
@@ -18,10 +14,14 @@
     </div>
 
     <div class="incidents-map-area">
+      <div class="create-new-incident-btn-container">
+        <button class="create-new-incident-btn" mat-raised-button color="accent" (click)="createIncident()">
+          Create new incident
+        </button>
+      </div>
       <div class="incidents-map">
         <app-incidents-map [incidentMarkers]='incidentMarkers'></app-incidents-map>
       </div>
     </div>
 
   </div>
-</div>

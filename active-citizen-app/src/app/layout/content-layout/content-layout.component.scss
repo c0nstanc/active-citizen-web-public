@@ -2,9 +2,14 @@
 @import "variables";
 
 .sidenav-content {
-  margin-top: 0.5rem !important;
-  padding-left: 0;
-  padding-right: 0;
+  display: flex;
+  justify-content: center;
+  max-width: unset !important;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0 !important;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   @include media-breakpoint-up(sm) {
     margin-top: 2rem;
     padding-left: 1rem;
@@ -33,7 +38,7 @@ app-header {
   margin-top: $app-content-margin-top;
   min-height: $app-content-min-height-sm;
   @include media-breakpoint-up(sm) {
-    padding-bottom: $app-content-padding-bottom;
+    // padding-bottom: $app-content-padding-bottom;
     min-height: $app-content-min-height-md;
   }
   @include media-breakpoint-up(sm) {

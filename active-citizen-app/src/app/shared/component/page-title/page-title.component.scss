@@ -2,17 +2,26 @@
 @import "mixins";
 
 .app-page-title {
-
   margin-top: 0;
-  margin-bottom:0;
+  margin-bottom: 0;
 
   padding-left: 1rem;
   padding-right: 1rem;
 
   @include media-breakpoint-up(sm) {
-    margin-top: $app-title-margin-top;
-    margin-bottom: $app-title-margin-bottom;
     padding-left: 0;
     padding-right: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @include media-breakpoint-up(sm) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
