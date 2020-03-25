@@ -3,16 +3,13 @@
 
 .my-incidents-container {
   display: grid;
-  grid-template-areas:
-    "page-title"
-    "incidents-list-area";
+  grid-template-areas: "incidents-list-area";
 
   @include media-breakpoint-up(md) {
     grid-template-areas:
-      "page-title"
       "incidents-map-area"
       "incidents-list-area";
-    grid-template-rows: 3rem 40% 55vh;
+    grid-template-rows: 40% 60vh;
     grid-template-columns: unset;
   }
 
@@ -23,18 +20,18 @@
   }
 }
 
-.page-title {
-  margin-top: 1rem;
-  @include media-breakpoint-up(md) {
-    margin-bottom: 1rem;
-  }
-  grid-area: page-title;
-  display: flex;
-  align-items: center;
-  @include media-breakpoint-up(lg) {
-    display: none;
-  }
-}
+// .page-title {
+//   margin-top: 1rem;
+//   @include media-breakpoint-up(md) {
+//     margin-bottom: 1rem;
+//   }
+//   grid-area: page-title;
+//   display: flex;
+//   align-items: center;
+//   @include media-breakpoint-up(lg) {
+//     display: none;
+//   }
+// }
 
 .create-new-incident-btn-container {
   position: absolute;
@@ -52,6 +49,8 @@
     grid-area: incidents-list;
 
     margin-top: 1rem;
+    padding-bottom: 1rem;
+
     @include media-breakpoint-up(lg) {
       margin-top: 0;
     }
@@ -71,14 +70,14 @@
     padding-right: 0.5rem;
   }
 
-  .page-title {
-    display: none;
-    @include media-breakpoint-up(lg) {
-      grid-area: page-title;
-      display: flex;
-      align-items: center;
-    }
-  }
+  // .page-title {
+  //   display: none;
+  //   @include media-breakpoint-up(lg) {
+  //     grid-area: page-title;
+  //     display: flex;
+  //     align-items: center;
+  //   }
+  // }
 }
 
 .incidents-map-area {
@@ -86,15 +85,27 @@
   position: relative;
   display: none;
   @include media-breakpoint-up(md) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  @include media-breakpoint-up(lg) {
-    margin-top: unset;
-  }
-  width: 100%;
-  .incidents-map {
+
+  .incidents-map-container {
     width: 100%;
     height: 100%;
+    @include media-breakpoint-up(md) {
+      padding: 1rem 0 1rem 1rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .incidents-map {
+      @include media-breakpoint-up(md) {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
 

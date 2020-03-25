@@ -35,7 +35,7 @@ $app-content-min-height-md: calc(
 );
 
 $app-content-min-height-lg: calc(
-  100vh - calc(#{$app-header-height} + #{$app-footer-height} + 1rem)
+  100vh - calc(#{$app-header-height} + #{$app-footer-height})
 );
 
 // Page - Global

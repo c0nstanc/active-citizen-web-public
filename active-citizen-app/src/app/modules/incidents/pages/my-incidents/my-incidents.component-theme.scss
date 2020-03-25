@@ -1,0 +1,9 @@
+@mixin my-incidents-component-theme($selected-theme) {
+  .incidents-map-area {
+    .incidents-map {
+      @include media-breakpoint-up(md) {
+        @include mat-elevation(4);
+      }
+    }
+  }
+}

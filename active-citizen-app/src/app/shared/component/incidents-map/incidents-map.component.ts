@@ -78,11 +78,17 @@ export class IncidentsMapComponent implements AfterViewInit {
         }
       });
 
+      // const contentString: string = incidentMarker.label;
+      // const infowindow = new google.maps.InfoWindow({
+      //   content: contentString
+      // });
+
       marker.addListener('click', () => {
         setTimeout(() => {
           marker.setAnimation(null);
         }, 4000);
         marker.setAnimation(google.maps.Animation.BOUNCE);
+        //infowindow.open(googleMap, marker);
       });
 
       marker.setMap(googleMap);
