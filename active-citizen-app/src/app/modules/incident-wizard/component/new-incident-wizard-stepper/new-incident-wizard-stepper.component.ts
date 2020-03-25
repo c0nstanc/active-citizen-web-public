@@ -11,7 +11,7 @@ import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 })
 export class NewIncidentWizardStepperComponent implements OnInit {
 
-  private currentWizardStep: SubmittableWizardStep;
+  currentWizardStep: SubmittableWizardStep;
 
   selectedIndex: number;
   steps: Step[];
