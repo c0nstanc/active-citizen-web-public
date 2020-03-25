@@ -9,6 +9,10 @@
       </ng-template>
     </div>
 
+    <div class="description">
+      <mat-icon> event_note </mat-icon> {{ incident.description}}
+    </div>
+
     <div class="incident-details">
 
       <div class="header-area">
@@ -21,20 +25,15 @@
 
       </div>
 
-      <div class="left-area">
-        <div class="subcategory">
-          <mat-icon> note </mat-icon> {{ incident.subcategory }}
-        </div>
-        <div class="address">
-          <mat-icon> room </mat-icon> {{ incident?.locationDetails?.address }}
-        </div>
-
+      <div class="subcategory">
+        <mat-icon> note </mat-icon> {{ incident.subcategory }}
+      </div>
+      <div class="address">
+        <mat-icon> room </mat-icon> {{ incident?.locationDetails?.address }}
       </div>
 
-      <div class="right-area">
-        <div class="description">
-          <mat-icon> event_note </mat-icon> {{ incident.description}}
-        </div>
+      <div class="description">
+        <mat-icon> event_note </mat-icon> {{ incident.description}}
       </div>
 
     </div>

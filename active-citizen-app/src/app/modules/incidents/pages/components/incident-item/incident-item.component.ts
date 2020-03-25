@@ -15,7 +15,6 @@ export class IncidentItemComponent {
 
   images$: Observable<IconDefinition>;
 
-
   constructor() {
     this.initializeIcons();
   }

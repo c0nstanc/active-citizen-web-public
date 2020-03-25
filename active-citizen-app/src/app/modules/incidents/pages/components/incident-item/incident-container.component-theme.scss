@@ -21,6 +21,15 @@
       background-color: mat-theme-background-color($selected-theme, app-bar);
     }
   }
+
+  .description {
+    @if mat-theme-is-dark($selected-theme) {
+      background-color: unset;
+    } @else {
+      background-color: mat-theme-background-color($selected-theme, app-bar);
+    }
+  }
+
   .incident-image-wrapper {
     border-bottom: 1px solid
       mat-theme-foreground-color($selected-theme, divider);

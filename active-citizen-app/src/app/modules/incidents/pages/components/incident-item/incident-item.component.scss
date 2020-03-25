@@ -1,19 +1,35 @@
+@import "variables";
+@import "mixins";
+
 .incident-item {
   display: flex;
   justify-content: center;
-
-  margin: 1rem 0;
   width: 100%;
   height: 100%;
+  margin: 2rem 0 0 0;
+  @include media-breakpoint-up(md) {
+    margin: 1rem 0;
+  }
 }
 .incident-item-grid-container {
   display: grid;
 
   grid-template-areas:
-    "image details"
-    "footer footer";
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: 2fr 0.5fr;
+    "details"
+    "image"
+    "description"
+    "footer";
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr fit-content() fit-content();
+  @include media-breakpoint-up(md) {
+    grid-template-areas:
+      "image details"
+      "footer footer";
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 2fr 0.5fr;
+  }
+
   width: 100%;
 
   mat-icon {
@@ -30,7 +46,6 @@
   align-items: center;
   width: 100%;
 
-  // background-color: green;
   img {
     width: 100%;
   }
@@ -43,15 +58,32 @@
   }
 }
 
+.description {
+  grid-area: description;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  display: flex;
+  align-items: center;
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
 .incident-details {
   grid-area: details;
   padding: 0.5rem;
   display: grid;
   grid-template-areas:
-    "header header"
-    "left right";
-  grid-template-columns: 0.5fr 1fr;
-  grid-template-rows: 0.5fr 2fr;
+    "header"
+    "subcategory"
+    "address";
+  grid-template-rows: fit-content() fit-content() fit-content();
+  @include media-breakpoint-up(md) {
+    grid-template-areas:
+      "header header"
+      "subcategory description"
+      "address description";
+    grid-template-rows: 0.5fr 1fr 1fr;
+  }
 
   .header-area {
     grid-area: header;
@@ -73,22 +105,21 @@
     }
   }
 
-  .left-area {
-    grid-area: left;
-
-    .subcategory {
-      display: flex;
-      align-items: flex-start;
-    }
-    .address {
-      display: flex;
-      align-items: flex-start;
-    }
+  .subcategory {
+    grid-area: subcategory;
+    display: flex;
+    align-items: flex-start;
+  }
+  .address {
+    grid-area: address;
+    display: flex;
+    align-items: flex-start;
   }
 
-  .right-area {
-    grid-area: right;
-    .description {
+  .description {
+    display: none;
+    @include media-breakpoint-up(md) {
+      grid-area: description;
       display: flex;
       align-items: flex-start;
     }
@@ -102,13 +133,18 @@
   // background-color: blue;
   display: grid;
   grid-template-areas: "created other status";
-  grid-template-columns: 2fr 4fr 1fr;
-
+  grid-template-columns: 4fr 1fr 1fr;
+  @include media-breakpoint-up(md) {
+    grid-template-columns: 2fr 4fr 1fr;
+  }
   .status {
     grid-area: status;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-end;
+    @include media-breakpoint-up(md) {
+      align-items: center;
+    }
   }
 
   .created {
