@@ -7,7 +7,7 @@
     <div class="inciditents-list-area" id="inciditents-list-area">
       <app-page-title class="page-title">My Incidents</app-page-title>
       <div class="incident-list">
-        <div *ngFor="let incident of incidents$ | async">
+        <div *ngFor="let incident of incidents">
           <app-incident-item class="app-incident-item" [incident]="incident"></app-incident-item>
         </div>
       </div>

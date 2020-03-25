@@ -15,7 +15,7 @@ import { LatLng } from 'src/app/shared/component/my-location-map/model/lat-lng.m
 })
 export class MyIncidentsComponent implements OnInit {
 
-  incidents$: Observable<Incident[]>;
+  incidents: Incident[];
 
   incidentMarkers: IncidentMarker[];
 
@@ -25,39 +25,11 @@ export class MyIncidentsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+
+    this.incidentMarkers = [];
     this.loadProjects();
-    this.incidentMarkers = [
-      new IncidentMarker(
-        new LatLng(
-          35.185475,
-          33.382757),
-          'my 1',
-          'red'),
-          new IncidentMarker(
-            new LatLng(
-              35.185475,
-              33.389757),
-              'my 2',
-              'red'),
-              new IncidentMarker(
-                new LatLng(
-                  35.185345,
-                  33.383345),
-                  'my 3',
-                  'red'),
-                  new IncidentMarker(
-                    new LatLng(
-                      35.183245,
-                      33.383757),
-                      'my 4',
-                      'red'),
-                      new IncidentMarker(
-                        new LatLng(
-                          35.184536,
-                          33.383757),
-                          'my 5',
-                          'red'),
-    ];
+
   }
 
   createIncident(): void {
@@ -65,6 +37,16 @@ export class MyIncidentsComponent implements OnInit {
   }
 
   private loadProjects(): void {
-    this.incidents$ = this.incidentService.getAll();
+    this.incidentService.getAll().subscribe((incidents: Incident[]) => {
+      this.incidents = incidents;
+
+      incidents.forEach(incident => {
+        this.incidentMarkers.push(new IncidentMarker(
+          incident.locationDetails.latLng,
+          incident.id,
+          'red'));
+      });
+
+    });
   }
 }

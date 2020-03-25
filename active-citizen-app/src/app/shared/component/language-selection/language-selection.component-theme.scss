@@ -1,0 +1,7 @@
+@mixin language-selection-component-theme($selected-theme) {
+  .language {
+    &:active {
+      color: mat-color(mat-theme-accent-color($selected-theme));
+    }
+  }
+}
