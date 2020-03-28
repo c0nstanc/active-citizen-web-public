@@ -1,5 +1,17 @@
 <div class="timeline">
-  <div class="entry">
+  <div *ngFor="let timelineEvent of getOrderedTimelineEvents()" class="timeline-event">
+    <div class="title" style="border-color: #eb9e38;">
+      <h6>{{timelineEvent.creationDate | date:'short'}}</h6>
+      <p class="text-secondary">{{timelineEvent.creationDate | dateAgo}}</p>
+    </div>
+    <div class="body">
+      <p> {{timelineEvent.event}} </p>
+      <ul>
+        <li>{{timelineEvent.comments}}</li>
+      </ul>
+    </div>
+  </div>
+  <!-- <div class="entry">
     <div class="title" style="border-color: #eb9e38;">
       <h5>20-07-2019</h5>
       <p class="text-secondary">8 months ago</p>
@@ -25,4 +37,4 @@
       </ul>
     </div>
   </div>
-</div>
+</div> -->

@@ -16,7 +16,7 @@
         <h4 class="title">Details</h4>
         <div><span class="label">Subcategory:</span> {{incident.subcategory}}</div>
         <div><span class="label">Involved Departments:</span> {{incident.subcategory}} </div>
-        <div><span class="label">Created:</span> {{incident.created}} </div>
+        <div><span class="label">Created:</span> {{incident.created | date:'short'}} </div>
         <div><span class="label">Hits:</span> {{incident.hits}}</div>
         <div><span class="label">Votes:</span> {{incident.votes}}</div>
       </div>

@@ -95,6 +95,7 @@ import { ImageDropComponent } from './component/image-drop/image-drop.component'
 import { IncidentsMapComponent } from './component/map/incidents-map/incidents-map.component';
 import { IncidentMapComponent } from './component/map/incident-map/incident-map.component';
 import { TimelineComponent } from './component/timeline/timeline.component';
+import { DateAgoPipe } from './pipe/date-ago.pipe';
 
 @NgModule({
   imports: [
@@ -130,7 +131,9 @@ import { TimelineComponent } from './component/timeline/timeline.component';
     ImageDropComponent,
     IncidentsMapComponent,
     IncidentMapComponent,
-    TimelineComponent],
+    DateAgoPipe,
+    TimelineComponent
+    ],
   exports: [
     CommonModule,
     FormsModule,
@@ -153,7 +156,8 @@ import { TimelineComponent } from './component/timeline/timeline.component';
     MainMenuComponent,
     IncidentsMapComponent,
     IncidentMapComponent,
-    TimelineComponent
+    TimelineComponent,
+    DateAgoPipe
   ]
 })
 export class SharedModule {
