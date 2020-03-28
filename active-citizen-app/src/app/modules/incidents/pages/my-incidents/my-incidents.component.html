@@ -8,7 +8,7 @@
       <!-- <app-page-title class="page-title">My Incidents</app-page-title> -->
       <div class="incident-list">
         <div *ngFor="let incident of incidents">
-          <app-incident-item class="app-incident-item" [incident]="incident"></app-incident-item>
+          <app-incident-item class="app-incident-item" [incident]="incident" (click)="onIncidentClicked(incident)"></app-incident-item>
         </div>
       </div>
     </div>

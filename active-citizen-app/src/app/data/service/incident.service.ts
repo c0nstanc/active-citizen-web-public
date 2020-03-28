@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 
 import { JsonApiService } from './json-api.service';
 import { Incident } from '../schema/incident.model';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +23,8 @@ export class IncidentService {
     return of(this.incidents);
   }
 
-  getSingle(id: number): Observable<Incident> {
-    return this.jsonApiService.get('/incidents/' + id); // Todo update me
+  getSingle(id: string): Observable<Incident> {
+    return of(this.incidents.find(incident => incident.id === id));
   }
 
   addNewIncident(incident: Incident): void {

@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Observable } from 'rxjs';
-
 import { IncidentService } from 'src/app/data/service/incident.service';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { Router } from '@angular/router';
-import { IncidentMarker } from 'src/app/shared/component/incidents-map/model/incident-marker.model';
-import { LatLng } from 'src/app/shared/component/my-location-map/model/lat-lng.model';
+import { IncidentMarker } from 'src/app/shared/component/map/incidents-map/model/incident-marker.model';
 
 @Component({
   selector: 'app-home',
@@ -25,15 +21,20 @@ export class MyIncidentsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-
     this.incidentMarkers = [];
     this.loadProjects();
-
   }
 
   createIncident(): void {
     this.router.navigate(['incidents/new-incident']);
+  }
+
+  onIncidentClicked(incident: Incident): void {
+    this.navigateToIncident(incident);
+  }
+
+  private navigateToIncident(incident: Incident) {
+    this.router.navigate(['incidents/' + incident.id]);
   }
 
   private loadProjects(): void {
@@ -46,7 +47,6 @@ export class MyIncidentsComponent implements OnInit {
           incident.id,
           'red'));
       });
-
     });
   }
 }

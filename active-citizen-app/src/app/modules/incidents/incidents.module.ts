@@ -7,9 +7,11 @@ import { IncidentItemComponent } from './pages/components/incident-item/incident
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NewIncidentComponent } from './pages/new-incident/new-incident.component';
 import { IncidentWizardModule } from '../incident-wizard/incident-wizard.module';
+import { IncidentDetailsComponent } from './pages/components/incident-details/incident-details.component';
 
 @NgModule({
   declarations: [
+    IncidentDetailsComponent,
     MyIncidentsComponent,
     IncidentItemComponent,
     NewIncidentComponent,

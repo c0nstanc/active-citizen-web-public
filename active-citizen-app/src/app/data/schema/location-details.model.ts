@@ -1,4 +1,4 @@
-import { LatLng } from '../../shared/component/my-location-map/model/lat-lng.model';
+import { LatLng } from '../../shared/component/map/my-location-map/model/lat-lng.model';
 
 export class LocationDetails {
   constructor(

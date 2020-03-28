@@ -11,5 +11,6 @@ export class Incident {
   imageUrls: string[] = [];
   created: Date;
   updated: Date;
-
+  votes: number;
+  hits: number;
 }

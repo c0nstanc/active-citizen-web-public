@@ -21,6 +21,6 @@ export class IncidentResolver implements Resolve<Incident> {
   ): Observable<any> {
 
     return this.incidentService.getSingle(route.params['id'])
-      .pipe(catchError((err) => this.router.navigateByUrl('/')));
+    .pipe(catchError((err) => this.router.navigateByUrl('/')));
   }
 }

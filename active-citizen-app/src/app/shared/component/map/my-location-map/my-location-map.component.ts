@@ -133,7 +133,7 @@ export class MyLocationMapComponent implements AfterViewInit {
 
 
 
-  createMyLocationControl(map: google.maps.Map): void {
+  private createMyLocationControl(map: google.maps.Map): void {
 
     const getMyLocationDiv = document.createElement('div');
     getMyLocationDiv.style.backgroundColor = '#fff';
@@ -143,6 +143,7 @@ export class MyLocationMapComponent implements AfterViewInit {
     getMyLocationDiv.style.cursor = 'pointer';
     getMyLocationDiv.style.textAlign = 'center';
     getMyLocationDiv.style.marginRight = '10px';
+    getMyLocationDiv.style.bottom = '110px';
     getMyLocationDiv.style.height = '40px';
     getMyLocationDiv.style.width = '40px';
     getMyLocationDiv.style.display = 'flex';

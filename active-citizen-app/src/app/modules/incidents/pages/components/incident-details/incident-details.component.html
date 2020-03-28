@@ -1,17 +1,34 @@
-<!-- <mat-card class="custom-card front">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{ incident.category }}</mat-card-title>
-    <mat-card-subtitle>{{ incident.status }}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image [src]="incident.imageUrl" alt="Incident photo">
-  <mat-card-content>
-    <p>
-      {{ incident.description }}
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button class="active" mat-button>READ MORE</button>
-    <button class="active" mat-button>{{ incident.id }}</button>
-  </mat-card-actions>
-</mat-card> -->
+<div class="incident-details-container">
+
+  <div class="incident-location-map-container">
+    {{incident.locationDetails.address}}
+    <div class="incident-location-map">
+      <app-incident-map #incidentMap></app-incident-map>
+    </div>
+  </div>
+
+  <div class="incident-details-card">
+    <div class="incident-details-card-header">
+      <h4>#{{incident.id}}. {{incident.category}}</h4>
+    </div>
+    <div class="incident-details-card-content">
+      <div class="incident-details-card-details-area">
+        <h4 class="title">Details</h4>
+        <div><span class="label">Subcategory:</span> {{incident.subcategory}}</div>
+        <div><span class="label">Involved Departments:</span> {{incident.subcategory}} </div>
+        <div><span class="label">Created:</span> {{incident.created}} </div>
+        <div><span class="label">Hits:</span> {{incident.hits}}</div>
+        <div><span class="label">Votes:</span> {{incident.votes}}</div>
+      </div>
+      <div class="incident-details-card-description-area">
+        <h4 class="title">Description</h4>
+        <div>{{incident.description}}</div>
+      </div>
+    </div>
+
+    <app-timeline></app-timeline>
+
+
+  </div>
+
+</div>

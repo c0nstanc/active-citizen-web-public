@@ -1,0 +1,31 @@
+@mixin incident-details-component-theme($selected-theme) {
+  .incident-details-card {
+    @include mat-elevation(4);
+    .incident-details-card-header {
+      background-color: mat-color(
+        mat-theme-primary-color($selected-theme),
+        700
+      );
+      @if mat-theme-is-dark($selected-theme) {
+        color: white;
+      } @else {
+        color: mat-theme-background-color($selected-theme, background);
+      }
+
+      .incident-details-card-content {
+        @if mat-theme-is-dark($selected-theme) {
+          background-color: white;
+        } @else {
+          background-color: mat-theme-background-color(
+            $selected-theme,
+            background
+          );
+        }
+      }
+    }
+  }
+
+  .incident-location-map-container {
+    @include mat-elevation(4);
+  }
+}
