@@ -21,6 +21,7 @@
 
     .incident-progress {
       display: block;
+      font-size: 12px;
     }
 
     .carousel {
@@ -55,7 +56,6 @@
 .incident-location-map-container {
   padding: 1rem;
   grid-area: incident-location-map-area;
-  height: 50%;
 
   .incident-location-map {
     margin-top: 0.5rem;
