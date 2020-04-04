@@ -7,7 +7,7 @@
     <div class="event-content">
       <p> {{'state.'+timelineEvent.event | translate}} </p>
       <ul>
-        <li>{{timelineEvent.comments}}</li>
+        <li *ngFor="let comment of timelineEvent.comments">{{comment}}</li>
       </ul>
     </div>
   </div>

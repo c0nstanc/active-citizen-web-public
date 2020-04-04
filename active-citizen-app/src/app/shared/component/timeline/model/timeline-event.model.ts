@@ -4,5 +4,5 @@ export class TimelineEvent {
   constructor(
     public creationDate: Date,
     public event: Event,
-    public comments: string) { }
+    public comments: string[] = []) { }
 }

@@ -3,6 +3,8 @@ import { Observable, of } from 'rxjs';
 
 import { JsonApiService } from './json-api.service';
 import { Incident } from '../schema/incident.model';
+import { Event } from 'src/app/shared/component/timeline/model/event.enum';
+import { TimelineEvent } from 'src/app/shared/component/timeline/model/timeline-event.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +31,7 @@ export class IncidentService {
 
   addNewIncident(incident: Incident): void {
     incident.id = (this.incidents.length + 1).toString();
+    incident.timelineEvents.push(new TimelineEvent(incident.created, Event.SUBMITTED, ['Submittted by the System']));
     this.incidents.push(incident);
   }
 }

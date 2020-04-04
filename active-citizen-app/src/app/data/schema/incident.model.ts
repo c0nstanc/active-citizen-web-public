@@ -1,5 +1,6 @@
 import { IncidentStatus } from './incident-status.model';
 import { LocationDetails } from './location-details.model';
+import { TimelineEvent } from 'src/app/shared/component/timeline/model/timeline-event.model';
 
 export class Incident {
   id: string;
@@ -11,6 +12,7 @@ export class Incident {
   imageUrls: string[] = [];
   created: Date;
   updated: Date;
-  votes: number;
-  hits: number;
+  votes = 0;
+  hits = 0;
+  timelineEvents: TimelineEvent[] = [];
 }

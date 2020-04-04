@@ -6,37 +6,48 @@
       <app-incident-map #incidentMap></app-incident-map>
     </div>
   </div>
-
   <div class="incident-details-card">
     <div class="incident-details-card-header">
       <h4>#{{incident.id}}.{{incident.category}}</h4>
     </div>
     <div class="incident-details-card-content">
-      <app-progress-indigator #progressIndigator [progressItems]='progressItems' [currentState]='incident.status'
-        class="incident-progress"></app-progress-indigator>
-      <div class="incident-details-card-details-area">
-        <h4 class="title">Details</h4>
-        <p>
-          <strong>Category:</strong> {{incident.category}}<br>
-          <strong>Subcategory:</strong> {{incident.subcategory}}<br>
-          <strong>Involved Departments:</strong> {{incident.subcategory}} <br>
-          <strong>Description:</strong> {{incident.description}}<br>
-          <strong>Created:</strong> {{incident.created | date:'short'}} <br>
-          <strong>Hits:</strong> {{incident.hits}}<br>
-          <strong>Votes:</strong> {{incident.votes}}<br>
-        </p>
+      <div class="row">
+        <div class="col-12">
+          <app-progress-indigator #progressIndigator [progressItems]='progressItems' [currentState]='incident.status'
+            class="incident-progress"></app-progress-indigator>
+        </div>
       </div>
-      <div class="incident-details-card-images-area">
-        <h4 class="title">Images</h4>
-        <app-carousel [imageSlides]='imageSlides'></app-carousel>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h4 class="title margin-top">Details</h4>
+          <p>
+            <strong>Category:</strong> {{incident.category}}<br>
+            <strong>Subcategory:</strong> {{incident.subcategory}}<br>
+            <strong>Involved Departments:</strong> {{incident.subcategory}} <br>
+            <strong>Created:</strong> {{incident.created | date:'short'}} <br>
+            <strong>Hits:</strong> {{incident.hits}}<br>
+            <strong>Votes:</strong> {{incident.votes}}<br>
+          </p>
+        </div>
+        <div class="col-12 col-md-6">
+          <h4 class="title margin-top">Description</h4>
+          <p>{{incident.description}}</p>
+        </div>
       </div>
-      <div class="incident-details-card-history-area">
-        <h4 class="title">Timeline</h4>
-        <app-timeline></app-timeline>
+      <div class="row">
+        <div *ngIf="incident.imageUrls.length > 0" class="col-12 col-md-6">
+          <h4 class="title margin-top">Images</h4>
+          <app-carousel class='carousel' [imageSlides]='imageSlides'></app-carousel>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="incident-details-card-history-area">
+            <h4 class="title margin-top">Timeline</h4>
+            <div class="timeline-container">
+              <app-timeline [timelineEvents]="incident.timelineEvents"></app-timeline>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-
   </div>
-
 </div>

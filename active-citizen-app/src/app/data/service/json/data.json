@@ -15,7 +15,14 @@
       "subcategory": "Lights",
       "status": "submitted",
       "votes": 93,
-      "hits": 645
+      "hits": 645,
+      "timelineEvents": [{
+        "creationDate": "2019-04-23T18:25",
+        "event": "submitted",
+        "comments": [
+          "Submitted by the system"
+        ]
+      }]
     },
     {
       "id": "2",
@@ -33,7 +40,14 @@
       "subcategory": "Water",
       "status": "submitted",
       "votes": 10,
-      "hits": 1462
+      "hits": 1462,
+      "timelineEvents": [{
+        "creationDate": "2019-04-23T18:25",
+        "event": "submitted",
+        "comments": [
+          "Submitted by the system"
+        ]
+      }]
     },
     {
       "id": "3",
@@ -51,7 +65,22 @@
       "subcategory": "Pavement",
       "status": "confirmed",
       "votes": 234,
-      "hits": 2325
+      "hits": 2325,
+      "timelineEvents": [{
+          "creationDate": "2019-04-23T18:25",
+          "event": "submitted",
+          "comments": [
+            "Submitted by the system"
+          ]
+        },
+        {
+          "creationDate": "2019-05-23T18:25",
+          "event": "confirmed",
+          "comments": [
+            "Acknowledged by XYZ"
+          ]
+        }
+      ]
     },
     {
       "id": "4",
@@ -69,7 +98,29 @@
       "subcategory": "Traffic jam",
       "status": "resolved",
       "votes": 88,
-      "hits": 2455
+      "hits": 2455,
+      "timelineEvents": [{
+          "creationDate": "2019-04-23T18:25",
+          "event": "submitted",
+          "comments": [
+            "Submitted by the system"
+          ]
+        },
+        {
+          "creationDate": "2019-05-23T18:25",
+          "event": "confirmed",
+          "comments": [
+            "Acknowledged by XYZ"
+          ]
+        },
+        {
+          "creationDate": "2019-06-23T18:25",
+          "event": "resolved",
+          "comments": [
+            "Resolved by XYZ"
+          ]
+        }
+      ]
     },
     {
       "id": "5",
@@ -87,7 +138,14 @@
       "subcategory": "Traffic jam",
       "status": "submitted",
       "votes": 54,
-      "hits": 234
+      "hits": 234,
+      "timelineEvents": [{
+        "creationDate": "2019-04-23T18:25",
+        "event": "submitted",
+        "comments": [
+          "Submitted by the system"
+        ]
+      }]
     },
     {
       "id": "6",
@@ -105,7 +163,14 @@
       "subcategory": "Test",
       "status": "submitted",
       "votes": 34,
-      "hits": 4623
+      "hits": 4623,
+      "timelineEvents": [{
+        "creationDate": "2019-04-23T18:25",
+        "event": "submitted",
+        "comments": [
+          "Submitted by the system"
+        ]
+      }]
     }
   ]
 
