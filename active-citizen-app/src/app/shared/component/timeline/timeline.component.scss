@@ -1,3 +1,5 @@
+$left-space: 120px;
+
 .timeline {
   width: 100%;
   padding: 50px 0 0 0;
@@ -6,7 +8,7 @@
     content: "";
     position: absolute;
     top: 0px;
-    left: 25%;
+    left: $left-space;
     bottom: 0px;
     width: 4px;
     background: #ddd;
@@ -16,44 +18,36 @@
     display: table;
     clear: both;
   }
-  &*,
-  &:after,
-  &:before {
-    box-sizing: border-box;
-  }
-
   .timeline-event {
     clear: both;
     text-align: left;
     position: relative;
-    .title {
-      border-color: #eb9e38;
+    .event-created {
       margin-bottom: 0.5em;
       float: left;
-      width: 25%;
+      width: $left-space;
       padding-right: 30px;
       text-align: right;
       position: relative;
-      .text-secondary {
-        color: #6c757d !important;
+      .event-created-secondary {
+        color: #6c757d;
       }
-      &:before {
+      &::before {
         content: "";
         position: absolute;
         width: 20px;
         height: 20px;
-        border: 4px solid salmon;
-        border-color: inherit;
+        border: 4px solid #eb9e38;
         background-color: #fff;
         border-radius: 100%;
         top: 0;
         right: -12px;
       }
     }
-    .body {
+    .event-content {
       margin: 0 0 3em;
       float: right;
-      width: 75%;
+      width: calc(100% - #{$left-space});
       padding-left: 30px;
       ul li:before {
         content: "–";

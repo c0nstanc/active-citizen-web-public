@@ -1,0 +1,11 @@
+<div class="progress-indigator">
+
+  <ul class="list-inline">
+    <li class='progress-item' [ngClass]="{'completed':progressItem.completed,'vertical':vertical }"
+      *ngFor="let progressItem of progressItems; index as progressIndex">
+      {{'state.'+progressItem.state | translate}}
+    </li>
+  </ul>
+
+
+</div>

@@ -21,7 +21,7 @@ export class TimelineComponent implements OnInit {
         'I am submitting the issue'),
       new TimelineEvent(
         new Date('2020-01-16'),
-        Event.ACKNOWLEDGED,
+        Event.CONFIRMED,
         'I am acknowledging the issue'),
       new TimelineEvent(
         new Date('2020-03-18'),
@@ -34,6 +34,6 @@ export class TimelineComponent implements OnInit {
     ];
   }
   getOrderedTimelineEvents(): TimelineEvent[] {
-    return this.timelineEvents.sort((a, b) => a.creationDate < b.creationDate ? 1 : a.creationDate > b.creationDate ? -1 : 0);
+    return this.timelineEvents.sort((a, b) => a.creationDate > b.creationDate ? 1 : a.creationDate < b.creationDate ? -1 : 0);
   }
 }

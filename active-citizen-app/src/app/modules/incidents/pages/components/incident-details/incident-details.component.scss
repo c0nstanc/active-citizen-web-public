@@ -15,31 +15,48 @@
   grid-area: incident-card-area;
 
   .incident-details-card-header {
-    padding: 2.5rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .incident-details-card-content {
+    padding: 1rem;
+    display: grid;
+    grid-template-areas:
+      "progress-area progress-area progress-area"
+      "details-area images-area history-area";
+    grid-template-columns: 5fr 5fr 5fr;
+    grid-template-rows: 3rem auto;
+    column-gap: 1rem;
+
     .title {
       margin-bottom: 0.5rem;
     }
 
-    padding: 1rem;
-    display: grid;
-    grid-template-areas: "details-area description-area";
-    grid-template-columns: 3fr 5fr;
-    column-gap: 2rem;
+    .incident-progress {
+      grid-area: progress-area;
+    }
 
     .incident-details-card-details-area {
       grid-area: details-area;
-      .label {
-        font-weight: 500;
-      }
     }
 
-    .incident-details-card-description-area {
-      grid-area: description-area;
+    .incident-details-card-images-area {
+      grid-area: images-area;
+      width: 100%;
     }
+
+    .incident-details-card-history-area {
+      grid-area: history-area;
+    }
+
   }
+
+
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
 }
 
 .incident-location-map-container {
@@ -55,4 +72,8 @@
       border-radius: 6px;
     }
   }
+}
+
+app-timeline {
+  font-size: 14px;
 }

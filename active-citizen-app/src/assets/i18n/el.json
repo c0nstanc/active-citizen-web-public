@@ -1,5 +1,4 @@
 {
-
   "incidentCategory": {
     "abandoned_vehicles": "Εγκαταλειμμένα Oχήματα",
     "bus_stop": "Στάση Λεωφορείου",
@@ -16,6 +15,15 @@
     "road": "Δρόμος",
     "electricity": "Ηλεκτρισμός",
     "other": "Άλλο"
+  },
+
+  "state": {
+    "submitted": "Υποβλήθηκε",
+    "confirmed": "Επιβεβαιώθηκε",
+    "progressing": "Σε εξέλιξη",
+    "resolved": "Επιλύθηκε",
+    "closed": "Έκλεισε",
+    "archived": "Αρχειοθετήθηκε"
   }
 
 }

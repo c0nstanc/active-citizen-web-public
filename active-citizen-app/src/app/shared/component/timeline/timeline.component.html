@@ -1,40 +1,13 @@
 <div class="timeline">
   <div *ngFor="let timelineEvent of getOrderedTimelineEvents()" class="timeline-event">
-    <div class="title" style="border-color: #eb9e38;">
-      <h6>{{timelineEvent.creationDate | date:'short'}}</h6>
-      <p class="text-secondary">{{timelineEvent.creationDate | dateAgo}}</p>
+    <div class="event-created">
+      <h6>{{timelineEvent.creationDate | date:'dd-MM-yyyy'}}</h6>
+      <p class="event-created-secondary">{{timelineEvent.creationDate | dateAgo}}</p>
     </div>
-    <div class="body">
-      <p> {{timelineEvent.event}} </p>
+    <div class="event-content">
+      <p> {{'state.'+timelineEvent.event | translate}} </p>
       <ul>
         <li>{{timelineEvent.comments}}</li>
       </ul>
     </div>
   </div>
-  <!-- <div class="entry">
-    <div class="title" style="border-color: #eb9e38;">
-      <h5>20-07-2019</h5>
-      <p class="text-secondary">8 months ago</p>
-    </div>
-    <div class="body">
-      <p>
-        Acknowledged </p>
-      <ul>
-        <li>Thank you !!</li>
-      </ul>
-    </div>
-  </div>
-  <div class="entry">
-    <div class="title" style="border-color: #236aed;">
-      <h5>20-07-2019</h5>
-      <p class="text-secondary">8 months ago</p>
-    </div>
-    <div class="body">
-      <p>
-        Submitted </p>
-      <ul>
-        <li>Initial commit at category Suggestions</li>
-      </ul>
-    </div>
-  </div>
-</div> -->

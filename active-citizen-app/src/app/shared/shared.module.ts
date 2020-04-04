@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from './material.module';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule, FaConfig } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -96,6 +96,8 @@ import { IncidentsMapComponent } from './component/map/incidents-map/incidents-m
 import { IncidentMapComponent } from './component/map/incident-map/incident-map.component';
 import { TimelineComponent } from './component/timeline/timeline.component';
 import { DateAgoPipe } from './pipe/date-ago.pipe';
+import { CarouselComponent } from './component/carousel/carousel.component';
+import { ProgressIndigatorComponent } from './component/progress-indigator/progress-indigator.component';
 
 @NgModule({
   imports: [
@@ -104,6 +106,7 @@ import { DateAgoPipe } from './pipe/date-ago.pipe';
     ReactiveFormsModule,
     RouterModule,
     TranslateModule,
+    NgbModule,
 
     FontAwesomeModule,
     MaterialModule,
@@ -132,7 +135,9 @@ import { DateAgoPipe } from './pipe/date-ago.pipe';
     IncidentsMapComponent,
     IncidentMapComponent,
     DateAgoPipe,
-    TimelineComponent
+    TimelineComponent,
+    CarouselComponent,
+    ProgressIndigatorComponent
     ],
   exports: [
     CommonModule,
@@ -157,7 +162,9 @@ import { DateAgoPipe } from './pipe/date-ago.pipe';
     IncidentsMapComponent,
     IncidentMapComponent,
     TimelineComponent,
-    DateAgoPipe
+    DateAgoPipe,
+    CarouselComponent,
+    ProgressIndigatorComponent
   ]
 })
 export class SharedModule {

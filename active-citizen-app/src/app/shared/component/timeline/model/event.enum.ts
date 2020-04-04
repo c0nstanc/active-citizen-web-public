@@ -1,5 +1,5 @@
 export enum Event {
-  ACKNOWLEDGED = 'acknowledged',
+  CONFIRMED = 'confirmed',
   SUBMITTED = 'submitted',
   RESOLVED = 'resolved',
   CLOSED = 'closed',

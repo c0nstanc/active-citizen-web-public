@@ -1,0 +1,30 @@
+.progress-item {
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  margin-right: 0.5rem;
+  &.vertical {
+    display: block;
+  }
+
+  &:not(.completed) {
+    color: darkgray;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+ul li.completed:before {
+  content: "✓";
+  margin-right: 0;
+}
+
+ul li:before {
+  content: "•";
+}
+
+ul li.vertical:not(.completed):before {
+  margin-right: 6px;
+}

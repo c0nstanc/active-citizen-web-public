@@ -9,24 +9,32 @@
 
   <div class="incident-details-card">
     <div class="incident-details-card-header">
-      <h4>#{{incident.id}}. {{incident.category}}</h4>
+      <h4>#{{incident.id}}.{{incident.category}}</h4>
     </div>
     <div class="incident-details-card-content">
+      <app-progress-indigator #progressIndigator [progressItems]='progressItems' [currentState]='incident.status'
+        class="incident-progress"></app-progress-indigator>
       <div class="incident-details-card-details-area">
         <h4 class="title">Details</h4>
-        <div><span class="label">Subcategory:</span> {{incident.subcategory}}</div>
-        <div><span class="label">Involved Departments:</span> {{incident.subcategory}} </div>
-        <div><span class="label">Created:</span> {{incident.created | date:'short'}} </div>
-        <div><span class="label">Hits:</span> {{incident.hits}}</div>
-        <div><span class="label">Votes:</span> {{incident.votes}}</div>
+        <p>
+          <strong>Category:</strong> {{incident.category}}<br>
+          <strong>Subcategory:</strong> {{incident.subcategory}}<br>
+          <strong>Involved Departments:</strong> {{incident.subcategory}} <br>
+          <strong>Description:</strong> {{incident.description}}<br>
+          <strong>Created:</strong> {{incident.created | date:'short'}} <br>
+          <strong>Hits:</strong> {{incident.hits}}<br>
+          <strong>Votes:</strong> {{incident.votes}}<br>
+        </p>
       </div>
-      <div class="incident-details-card-description-area">
-        <h4 class="title">Description</h4>
-        <div>{{incident.description}}</div>
+      <div class="incident-details-card-images-area">
+        <h4 class="title">Images</h4>
+        <app-carousel [imageSlides]='imageSlides'></app-carousel>
+      </div>
+      <div class="incident-details-card-history-area">
+        <h4 class="title">Timeline</h4>
+        <app-timeline></app-timeline>
       </div>
     </div>
-
-    <app-timeline></app-timeline>
 
 
   </div>

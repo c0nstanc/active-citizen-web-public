@@ -16,6 +16,14 @@
     "road": "Road",
     "electricity": "Electricity",
     "other": "Other"
+  },
+  "state": {
+    "submitted": "Submitted",
+    "confirmed": "Acknowledged",
+    "progressing": "Progressing",
+    "resolved": "Resolved",
+    "closed": "Closed",
+    "archived": "Archived"
   }
 
 }

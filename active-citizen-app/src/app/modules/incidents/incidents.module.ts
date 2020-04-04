@@ -14,7 +14,7 @@ import { IncidentDetailsComponent } from './pages/components/incident-details/in
     IncidentDetailsComponent,
     MyIncidentsComponent,
     IncidentItemComponent,
-    NewIncidentComponent,
+    NewIncidentComponent
   ],
   imports: [
     SharedModule,
