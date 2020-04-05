@@ -6,4 +6,13 @@
   .wizard-btn-container {
     background-color: mat-theme-background-color($selected-theme, background);
   }
+
+  .progressed.mat-horizontal-stepper-header::before,
+  .progressed.mat-horizontal-stepper-header::after,
+  .progressed.mat-stepper-horizontal-line {
+    border-top-color: mat-color(
+      mat-theme-primary-color($selected-theme),
+      default
+    ) !important;
+  }
 }

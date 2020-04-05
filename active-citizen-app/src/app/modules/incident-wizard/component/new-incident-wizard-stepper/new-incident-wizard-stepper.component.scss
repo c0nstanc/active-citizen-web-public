@@ -15,6 +15,7 @@
 
 ::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header {
   border-radius: 0.5rem;
+  padding: 1.25rem !important;
 }
 
 ::ng-deep .mat-step-icon {
@@ -52,9 +53,6 @@
 
 ::ng-deep .mat-horizontal-stepper-header-container {
   min-width: 250px;
-  @include media-breakpoint-up(sm) {
-    padding-bottom: 2rem;
-  }
 }
 
 ::ng-deep .mat-horizontal-content-container {

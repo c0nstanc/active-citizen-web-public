@@ -108,12 +108,13 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
   }
 
   public onSubmit(): void {
+    debugger;
     if (this.newIncidentForm.valid) {
       this.newIncidentWizardService.setIncidentCategory((this.newIncidentForm.value as IncidentDetails).incidentCategory);
       this.newIncidentWizardService.setIncidentSubcategory((this.newIncidentForm.value as IncidentDetails).incidentSubcategory);
       this.newIncidentWizardService.setIncidentDescription((this.newIncidentForm.value as IncidentDetails).incidentDesc);
+      console.log(this.newIncidentForm.value);
     }
-    console.log(this.newIncidentForm.value);
   }
 
   private _filter(value: string): DropDownItem[] {

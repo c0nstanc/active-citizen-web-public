@@ -1,21 +1,20 @@
-<mat-horizontal-stepper labelPosition="bottom" [selectedIndex]="selectedIndex" [@.disabled]="true" #stepper  (selectionChange)="selectionChanged($event)" linear>
+<mat-horizontal-stepper #stepper labelPosition="bottom" [selectedIndex]="selectedIndex" [@.disabled]="true"
+  (selectionChange)="selectionChanged($event)" [linear]="true">
 
-  <!-- <ng-template matStepperIcon="edit">
-      <mat-icon>insert_drive_file</mat-icon>
-    </ng-template>
+  <ng-template matStepperIcon="done">
+    <mat-icon>done</mat-icon>
+  </ng-template>
 
-    <ng-template matStepperIcon="done">
-      <mat-icon>done_all</mat-icon>
-    </ng-template> -->
-
-  <mat-step  *ngFor="let step of steps; let i=index;" [label]="step.stepName" [stepControl]="currentWizardStep?.getFormGroup()">
+  <mat-step *ngFor="let step of steps; let i=index;" [label]="step.stepName"
+    [stepControl]="currentWizardStep?.getFormGroup()">
     <div class="step-container">
 
       <router-outlet (activate)="onRouterOutletActivate($event)" *ngIf="stepper.selectedIndex==i"></router-outlet>
 
     </div>
     <div class="wizard-btn-container">
-      <button mat-raised-button matStepperNext color='accent' class="stepper-btn-nxt" [disabled]="!currentWizardStep?.getFormGroup()?.valid" (click)="submit()">{{step.buttonName}}</button>
+      <button mat-raised-button matStepperNext color='accent' class="stepper-btn-nxt"
+        [disabled]="!currentWizardStep?.getFormGroup()?.valid">{{step.buttonName}}</button>
     </div>
   </mat-step>
 

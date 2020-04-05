@@ -30,7 +30,6 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep {
   }
 
   public onSubmit(): void {
-
     console.log('Submitting Location ...');
     this.newIncidentWizardService.setIncidentLocationDetails(
       new LocationDetails(

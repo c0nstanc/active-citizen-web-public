@@ -29,12 +29,9 @@ export class EnterIncidentPhotoComponent implements OnInit, SubmittableWizardSte
 
   public onSubmit(): void {
     console.log('Submitting Photo ...');
-
     this.newIncidentWizardService.setIncidentUrls(
       (this.newIncidentForm.value as IncidentPhoto).incidentImageUrls);
-
     console.log(this.newIncidentForm.value);
-
   }
 
   private buildForm(): void {
