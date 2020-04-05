@@ -29,10 +29,10 @@ export class NewIncidentWizardStepperComponent implements OnInit, AfterViewInit 
 
   ngOnInit(): void {
     this.steps = [
-      new Step('Enter location', 'Proceed'),
-      new Step('Enter details', 'Proceed'),
-      new Step('Enter photo', 'Proceed'),
-      new Step('Done', 'Submit Problem'),
+      new Step('Enter location', 'proceed'),
+      new Step('Enter details', 'proceed'),
+      new Step('Enter photo', 'proceed'),
+      new Step('Done', 'submit'),
     ];
     this.selectedIndex = this.getStepIndex();
   }
