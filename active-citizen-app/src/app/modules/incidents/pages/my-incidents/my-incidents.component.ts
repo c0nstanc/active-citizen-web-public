@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IncidentService } from 'src/app/data/service/incident.service';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { Router } from '@angular/router';
 import { IncidentMarker } from 'src/app/shared/component/map/incidents-map/model/incident-marker.model';
+import { IncidentsMapComponent } from 'src/app/shared/component/map/incidents-map/incidents-map.component';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,10 @@ export class MyIncidentsComponent implements OnInit {
   incidents: Incident[];
 
   incidentMarkers: IncidentMarker[];
+
+
+  @ViewChild('incidentsMap')
+  incidentsMap: IncidentsMapComponent;
 
   constructor(
     private router: Router,
@@ -31,6 +36,14 @@ export class MyIncidentsComponent implements OnInit {
 
   onIncidentClicked(incident: Incident): void {
     this.navigateToIncident(incident);
+  }
+
+  onIncidentMouseEnter(incident: Incident): void {
+    this.incidentsMap.startBounceMarker(incident.locationDetails.latLng);
+  }
+
+  onIncidentMouseLeave(incident: Incident): void {
+    this.incidentsMap.stopBounceMarker(incident.locationDetails.latLng);
   }
 
   private navigateToIncident(incident: Incident) {
