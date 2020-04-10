@@ -61,6 +61,8 @@ export class IncidentsMapComponent implements AfterViewInit {
     const marker = this.getGoogleMarker(markerLatLng);
     if (marker) {
       marker.setAnimation(google.maps.Animation.BOUNCE);
+      this.map.setCenter(marker.getPosition());
+      this.map.setZoom(17);
     }
   }
 
