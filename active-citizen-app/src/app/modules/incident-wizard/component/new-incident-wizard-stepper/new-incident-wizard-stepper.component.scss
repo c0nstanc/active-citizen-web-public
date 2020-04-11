@@ -15,7 +15,7 @@
 
 ::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header {
   border-radius: 0.5rem;
-  padding: 1.25rem !important;
+  padding: 1rem !important;
 }
 
 ::ng-deep .mat-step-icon {
@@ -37,18 +37,18 @@
 }
 
 ::ng-deep .mat-stepper-label-position-bottom .mat-stepper-horizontal-line {
-  top: 40px !important;
+  top: 2.5rem !important;
 }
 
 ::ng-deep
   .mat-stepper-label-position-bottom
   .mat-horizontal-stepper-header::after {
-  top: 40px !important;
+  top: 2.5rem !important;
 }
 ::ng-deep
   .mat-stepper-label-position-bottom
   .mat-horizontal-stepper-header::before {
-  top: 40px !important;
+  top: 2.5rem !important;
 }
 
 ::ng-deep .mat-horizontal-stepper-header-container {

@@ -2,7 +2,7 @@
 @import "variables";
 
 .incident-details-container {
-  margin: 2rem 0;
+  padding: 2rem 0;
   display: grid;
   grid-template-areas: "incident-card-area incident-location-map-area";
   grid-template-columns: 5fr 3fr;
@@ -21,7 +21,7 @@
 
     .incident-progress {
       display: block;
-      font-size: 12px;
+      font-size: 0.75rem;
     }
 
     .carousel {
@@ -34,7 +34,7 @@
   }
 
   p {
-    font-size: 14px;
+    font-size: 1rem;
     line-height: 1.5;
   }
 
@@ -48,7 +48,7 @@
 
   .timeline-container {
     app-timeline {
-      font-size: 14px;
+      font-size: 0.875rem;
     }
   }
 }

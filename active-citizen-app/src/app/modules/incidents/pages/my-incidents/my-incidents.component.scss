@@ -45,18 +45,20 @@
 
 .inciditents-list-area {
   grid-area: incidents-list-area;
+  max-height: $app-content-min-height-sm;
+
   .incident-list {
     grid-area: incidents-list;
 
     margin-top: 1rem;
     padding-bottom: 1rem;
-
     @include media-breakpoint-up(lg) {
       margin-top: 0;
     }
   }
   @include media-breakpoint-up(md) {
     overflow-x: auto;
+    max-height: $app-content-min-height-md;
   }
 
   @include media-breakpoint-up(lg) {
@@ -65,7 +67,7 @@
       "page-title"
       "incidents-list";
 
-    max-height: calc(calc(100vh - 64px) - 80px);
+    max-height: $app-content-min-height-lg;
     overflow-x: auto;
     padding-right: 0.5rem;
   }
