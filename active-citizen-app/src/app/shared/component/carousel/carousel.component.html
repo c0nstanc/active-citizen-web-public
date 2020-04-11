@@ -1,6 +1,6 @@
 <ngb-carousel *ngIf="imageSlides">
   <ng-template ngbSlide *ngFor="let imageSlide of imageSlides">
-    <img class='img-fluid' [src]="imageSlide.url" [alt]="imageSlide.title">
+    <img class='img-fluid' [src]="imageSlide.url" [alt]="imageSlide.title" [ngStyle]="{'height': imageHeight}">
     <div class="carousel-caption">
       <h3>{{imageSlide.title}}</h3>
       <p>{{imageSlide.caption}}</p>

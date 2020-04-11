@@ -14,6 +14,9 @@ export class CarouselComponent implements OnInit {
   imageSlides: ImageSlide[] = [];
 
   @Input()
+  imageHeight = '100%';
+
+  @Input()
   carouselConfiguration: NgbCarouselConfig;
 
   constructor(private config: NgbCarouselConfig) { }
