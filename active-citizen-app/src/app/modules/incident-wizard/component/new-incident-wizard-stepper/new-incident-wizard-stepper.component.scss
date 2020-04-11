@@ -37,18 +37,27 @@
 }
 
 ::ng-deep .mat-stepper-label-position-bottom .mat-stepper-horizontal-line {
-  top: 2.25rem !important;
+  top: 2rem !important;
+  @include media-breakpoint-up(md) {
+    top: 2.25rem !important;
+  }
 }
 
 ::ng-deep
   .mat-stepper-label-position-bottom
   .mat-horizontal-stepper-header::after {
-  top: 2.25rem !important;
+  top: 2rem !important;
+  @include media-breakpoint-up(md) {
+    top: 2.25rem !important;
+  }
 }
 ::ng-deep
   .mat-stepper-label-position-bottom
   .mat-horizontal-stepper-header::before {
-  top: 2.25rem !important;
+  top: 2rem !important;
+  @include media-breakpoint-up(md) {
+    top: 2.25rem !important;
+  }
 }
 
 ::ng-deep .mat-horizontal-stepper-header-container {

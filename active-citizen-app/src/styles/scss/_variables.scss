@@ -1,5 +1,8 @@
 $app-font-family: "Roboto", "Helvetica Neue", sans-serif;
+$roboto-recommended-line-height: 1.5833320617675781; //Golden Ratio Typography
+
 $body-font-size: 14px;
+$body-line-height: $roboto-recommended-line-height;
 
 // Responsiveness - Breakpoints - based on bootstrap 4
 $breakpoint-smal: 576px;

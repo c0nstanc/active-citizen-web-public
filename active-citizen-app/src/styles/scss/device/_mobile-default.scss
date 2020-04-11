@@ -1,7 +1,7 @@
 html, body {
   font-family: $app-font-family;
   font-size: $body-font-size;
-  line-height: 1.25;
+  line-height: $body-line-height;
   height: 100%;
 }
 
