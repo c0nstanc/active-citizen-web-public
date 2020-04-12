@@ -2,7 +2,7 @@
   <app-wizard-step-title>Problem Details</app-wizard-step-title>
 
   These will be sent to your municipality and also published online for others to see
-  <div class="form-container">
+  <div class="form-container enter-details-form">
 
     <form (ngSubmit)="onSubmit()" [formGroup]="newIncidentForm">
 
@@ -22,7 +22,6 @@
           </mat-error>
         </mat-form-field>
       </div>
-      Help us resolve your problem quicker, by providing some extra detail.
       <div class="form-group">
         <mat-form-field appearance="outline">
           <mat-label>Subcategory</mat-label>

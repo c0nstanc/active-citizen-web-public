@@ -4,18 +4,19 @@ mat-form-field {
   width: 100%;
 }
 
-.form-container {
-  margin-top: 2rem;
-}
-
 .form-group {
   margin-bottom: 0rem;
+  margin-top: 0;
   @include media-breakpoint-up(sm) {
-    margin-bottom: 2rem;
+    margin-top: 2rem;
   }
 
   ::ng-deep .mat-form-field-wrapper {
     padding-bottom: 1rem;
     margin: 0.25rem;
   }
+}
+
+::ng-deep .mat-option-text {
+  font-size: 1rem;
 }

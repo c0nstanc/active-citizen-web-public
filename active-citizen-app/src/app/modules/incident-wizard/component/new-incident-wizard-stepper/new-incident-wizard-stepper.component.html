@@ -1,25 +1,45 @@
-<mat-horizontal-stepper #stepper labelPosition="bottom" [selectedIndex]="selectedIndex" [@.disabled]="true"
-  (selectionChange)="selectionChanged($event)" [linear]="true">
+<div class="new-incident-wizard-stepper-container">
 
-  <ng-template matStepperIcon="done">
-    <mat-icon>done</mat-icon>
-  </ng-template>
 
-  <mat-step *ngFor="let step of steps; let i=index;" [label]="step.stepName"
-    [stepControl]="currentWizardStep?.getFormGroup()">
-    <div class="step-container">
+  <div class="new-incident-wizard-stepper-card">
 
-      <router-outlet (activate)="onRouterOutletActivate($event)" *ngIf="stepper.selectedIndex==i"></router-outlet>
+    <div class="new-incident-wizard-stepper-card-header">
+      <h4>Report your problem</h4>
+    </div>
+
+    <div class="new-incident-wizard-stepper-card-content">
+      <div class="row">
+        <div class="col-12">
+
+          <mat-horizontal-stepper #stepper labelPosition="bottom" [selectedIndex]="selectedIndex" [@.disabled]="true"
+            (selectionChange)="selectionChanged($event)" [linear]="true">
+
+            <ng-template matStepperIcon="done">
+              <mat-icon>done</mat-icon>
+            </ng-template>
+
+            <mat-step *ngFor="let step of steps; let i=index;" [label]="step.stepName"
+              [stepControl]="currentWizardStep?.getFormGroup()">
+              <div class="step-container">
+
+                <router-outlet (activate)="onRouterOutletActivate($event)" *ngIf="stepper.selectedIndex==i">
+                </router-outlet>
+
+              </div>
+              <div class="wizard-btn-container">
+                <button *ngIf="step.buttonName==='proceed'" mat-raised-button matStepperNext color='accent'
+                  class="stepper-btn-nxt"
+                  [disabled]="!currentWizardStep?.getFormGroup()?.valid">{{'wizard.button.' + step.buttonName | translate }}</button>
+                <button *ngIf="step.buttonName==='submit'" mat-raised-button color='accent' class="stepper-btn-nxt"
+                  [disabled]="!currentWizardStep?.getFormGroup()?.valid"
+                  (click)="submit()">{{'wizard.button.' + step.buttonName | translate }}</button>
+              </div>
+            </mat-step>
+          </mat-horizontal-stepper>
+
+        </div>
+      </div>
 
     </div>
-    <div class="wizard-btn-container">
-      <button *ngIf="step.buttonName==='proceed'" mat-raised-button matStepperNext color='accent'
-        class="stepper-btn-nxt"
-        [disabled]="!currentWizardStep?.getFormGroup()?.valid">{{'wizard.button.' + step.buttonName | translate }}</button>
-      <button *ngIf="step.buttonName==='submit'" mat-raised-button color='accent' class="stepper-btn-nxt"
-        [disabled]="!currentWizardStep?.getFormGroup()?.valid"
-        (click)="submit()">{{'wizard.button.' + step.buttonName | translate }}</button>
-    </div>
-  </mat-step>
-
-</mat-horizontal-stepper>
+  </div>
+</div>

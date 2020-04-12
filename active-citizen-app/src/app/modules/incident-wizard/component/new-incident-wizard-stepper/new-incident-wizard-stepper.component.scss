@@ -1,6 +1,14 @@
 @import "mixins";
 @import "variables";
 
+.new-incident-wizard-stepper-container {
+  padding: 2rem 0;
+}
+
+.new-incident-wizard-stepper-card-header {
+  padding: 1.5rem 1rem;
+}
+
 .wizard-btn-container {
   display: flex;
   align-items: center;
@@ -58,6 +66,10 @@
   @include media-breakpoint-up(md) {
     top: 2.25rem !important;
   }
+}
+
+::ng-deep .mat-step-text-label {
+  font-size: 1rem;
 }
 
 ::ng-deep .mat-horizontal-stepper-header-container {

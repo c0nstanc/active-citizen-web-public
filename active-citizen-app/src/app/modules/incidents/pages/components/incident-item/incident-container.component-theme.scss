@@ -16,7 +16,7 @@
 
   .incident-details,
   .incident-footer,
-  .description,
+  .description, // TODO - Use a different class name
   .incident-image-wrapper,
   .incidents-map-area {
     @if mat-theme-is-dark($selected-theme) {

@@ -13,4 +13,17 @@
       default
     ) !important;
   }
+
+  .new-incident-wizard-stepper-card .new-incident-wizard-stepper-card-header {
+    background-color: mat-color(mat-theme-primary-color($selected-theme), 700);
+    @if mat-theme-is-dark($selected-theme) {
+      color: white;
+    } @else {
+      color: mat-theme-background-color($selected-theme, background);
+    }
+  }
+
+  .new-incident-wizard-stepper-card {
+    @include mat-elevation(4);
+  }
 }
