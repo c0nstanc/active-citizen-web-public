@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, AfterViewChecked, AfterViewInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ImageSlide } from './model/image-slide.model';
 
@@ -14,7 +14,8 @@ export class CarouselComponent implements OnInit {
   imageSlides: ImageSlide[] = [];
 
   @Input()
-  imageHeight = '100%';
+  imageHeight = '250px';
+
 
   @Input()
   carouselConfiguration: NgbCarouselConfig;
@@ -23,8 +24,6 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit(): void {
     this.initConfig();
-    // this.imageSlides = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].
-    // map(() => new ImageSlide(`https://picsum.photos/900/500?random&t=${Math.random()}`));
   }
 
   private initConfig(): void {

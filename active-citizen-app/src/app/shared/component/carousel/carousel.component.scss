@@ -1,5 +1,24 @@
+.ngb-carousel {
+  display: block;
+}
+
 img {
-  width: 100%;
-  max-width: 100%;
-  min-width: 100%;
+  width: auto;
+}
+
+::ng-deep .carousel-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .carousel-item {
+  width: unset;
+  margin-right: unset;
+  padding-bottom: 1.5rem;
+}
+
+::ng-deep.carousel-control-prev,
+::ng-deep.carousel-control-next {
+  width: unset;
 }
