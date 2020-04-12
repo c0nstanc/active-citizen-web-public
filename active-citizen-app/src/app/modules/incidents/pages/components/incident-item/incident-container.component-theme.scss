@@ -1,10 +1,5 @@
 @mixin my-incident-container-component-theme($selected-theme) {
   .incident-details {
-    @if mat-theme-is-dark($selected-theme) {
-      background-color: unset;
-    } @else {
-      background-color: mat-theme-background-color($selected-theme, app-bar);
-    }
     border-bottom: 1px solid
       mat-theme-foreground-color($selected-theme, divider);
   }
@@ -14,25 +9,25 @@
     border: 1px solid mat-theme-foreground-color($selected-theme, divider);
   }
 
-  .incident-footer {
-    @if mat-theme-is-dark($selected-theme) {
-      background-color: unset;
-    } @else {
-      background-color: mat-theme-background-color($selected-theme, app-bar);
-    }
-  }
-
-  .description {
-    @if mat-theme-is-dark($selected-theme) {
-      background-color: unset;
-    } @else {
-      background-color: mat-theme-background-color($selected-theme, app-bar);
-    }
-  }
-
   .incident-image-wrapper {
     border-bottom: 1px solid
       mat-theme-foreground-color($selected-theme, divider);
+  }
+
+  .incident-details,
+  .incident-footer,
+  .description,
+  .incident-image-wrapper,
+  .incidents-map-area {
+    @if mat-theme-is-dark($selected-theme) {
+      background-color: mat-theme-background-color($selected-theme, background);
+    } @else {
+      background-color: mat-theme-background-color($selected-theme, app-bar);
+    }
+  }
+
+  .incident-title {
+    color: mat-color(mat-theme-primary-color($selected-theme), default);
   }
 
   // .incident-item {

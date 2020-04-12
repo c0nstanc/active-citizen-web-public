@@ -1,8 +1,6 @@
 @mixin new-incident-wizard-stepper-component-theme($selected-theme) {
-  .mat-horizontal-stepper-header-container {
-    background-color: mat-theme-background-color($selected-theme, background);
-  }
-
+  .mat-horizontal-stepper-header-container,
+  .mat-horizontal-content-container,
   .wizard-btn-container {
     background-color: mat-theme-background-color($selected-theme, background);
   }

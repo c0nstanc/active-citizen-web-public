@@ -18,22 +18,31 @@ $my-dark-theme: mat-dark-theme(
   $my-dark-warn
 );
 
-// $my-dark-theme-background-color: map-get($mat-blue-grey, 900);
-// $my-dark-theme-foreground-color: white;
+$my-dark-theme-app-background-color: #34495E;
+$my-dark-theme: map_merge(
+  $my-dark-theme,
+  (
+    app-background: $my-dark-theme-app-background-color
+  )
+);
 
-// $background: map-get($my-dark-theme, background);
-// $background: map_merge(
-//   $background,
-//   (
-//     background: $my-dark-theme-background-color
-//   )
-// );
-// $my-dark-theme: map_merge(
-//   $my-dark-theme,
-//   (
-//     background: $background
-//   )
-// );
+//$my-dark-theme-background-color: rgb(64, 65, 66);
+$my-dark-theme-background-color: map-get($mat-blue-grey, 800);
+//$my-dark-theme-foreground-color: white;
+
+$background: map-get($my-dark-theme, background);
+$background: map_merge(
+  $background,
+  (
+    background: $my-dark-theme-background-color
+  )
+);
+$my-dark-theme: map_merge(
+  $my-dark-theme,
+  (
+    background: $background
+  )
+);
 
 // $foreground: map-get($my-dark-theme, foreground);
 // $foreground: map_merge(
