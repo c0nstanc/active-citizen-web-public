@@ -16,6 +16,14 @@ $my-light-theme: mat-light-theme(
   $my-light-warn
 );
 
+$my-light-theme-app-background-color: #e1e2e1;
+$my-light-theme: map_merge(
+  $my-light-theme,
+  (
+    app-background: $my-light-theme-app-background-color
+  )
+);
+
 // $my-light-theme-background-color: map-get($my-light-primary, 50);
 // $my-light-theme-foreground-color: black;
 

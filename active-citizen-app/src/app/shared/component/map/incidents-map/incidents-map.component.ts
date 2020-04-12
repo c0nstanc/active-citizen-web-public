@@ -76,7 +76,7 @@ export class IncidentsMapComponent implements AfterViewInit {
   setupMap(myPosition: google.maps.LatLng): google.maps.Map {
     this.mapOptions = {
       center: myPosition,
-      zoom: 15,
+      zoom: 10,
       mapTypeId: 'roadmap',
       mapTypeControl: true
     };

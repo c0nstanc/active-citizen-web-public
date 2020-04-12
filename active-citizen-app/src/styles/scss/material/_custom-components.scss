@@ -15,9 +15,11 @@
 @import "app/modules/incident-wizard/component/summary-incident/summary-incident-component-theme.scss";
 @import "app/modules/incidents/pages/my-incidents/my-incidents.component-theme.scss";
 @import "app/modules/incidents/pages/components/incident-details/incident-details.component-theme.scss";
+@import "app/layout/content-layout/content-layout.component-theme.scss";
 
 @mixin custom-components-theme($selected-theme) {
   @include my-styles-reset-theme($selected-theme);
+  @include content-layout-component-theme($selected-theme);
   @include sidenav-menu-item-theme($selected-theme);
   @include footer-component-theme($selected-theme);
   @include simple-modal-component-theme($selected-theme);

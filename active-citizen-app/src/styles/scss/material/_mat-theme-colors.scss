@@ -7,6 +7,7 @@
     warn-color: map-get($selected-theme, warn),
     foreground-color: map-get($selected-theme, foreground),
     background-color: map-get($selected-theme, background),
+    app-background-color: map-get($selected-theme, app-background),
     is-dark: map-get($selected-theme, is-dark)
   );
 }
@@ -35,6 +36,11 @@
     map-get(mat-theme-colors($selected-theme), background-color),
     $type
   );
+}
+
+@function mat-theme-app-background-color($selected-theme) {
+  @return map-get(
+    mat-theme-colors($selected-theme), app-background-color);
 }
 
 @function mat-theme-is-dark($selected-theme) {
