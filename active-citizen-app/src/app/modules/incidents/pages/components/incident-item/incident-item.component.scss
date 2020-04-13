@@ -1,7 +1,6 @@
 @import "variables";
 @import "mixins";
 
-
 // TODO - Implement IPAD and Mobile responsiveness - currently works only on desktop.
 
 .incident-item {
@@ -60,7 +59,6 @@
     }
     .incident-item-id {
       font-size: 0.875rem;
-      color: grey;
       display: flex;
       align-items: flex-start;
       justify-self: flex-end;
@@ -75,9 +73,9 @@
     max-width: 150px;
     min-width: 150px;
 
-
     img {
       width: auto;
+      max-width: 150px;
       max-height: 100px;
       height: 100px;
     }

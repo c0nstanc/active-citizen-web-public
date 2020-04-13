@@ -12,63 +12,53 @@
   .incident-item-image-area {
     border-bottom: 1px solid
       mat-theme-foreground-color($selected-theme, divider);
-      border-right: 1px solid
-      mat-theme-foreground-color($selected-theme, divider);
-  }
-
-  .incident-item-grid-container,
-  .incident-item-image-area,
-  .title-area,
-  .incident-item-details-area,
-  .incident-footer,
-  .incident-item-description,
-  .incidents-map-area {
-    @if mat-theme-is-dark($selected-theme) {
-      background-color: mat-theme-background-color($selected-theme, background);
-    } @else {
-      background-color: mat-theme-background-color($selected-theme, app-bar);
-    }
+    border-right: 1px solid mat-theme-foreground-color($selected-theme, divider);
   }
 
   .incident-item-title {
     color: mat-color(mat-theme-primary-color($selected-theme), default);
   }
 
-  // .incident-item {
-  //   @if mat-theme-is-dark($selected-theme) {
-  //     background-color: mat-color(
-  //       mat-theme-primary-color($selected-theme),
-  //       default
-  //     );
-  //   } @else {
-  //     background-color: snow;
-  //   }
-  //   &:hover {
-  //     @if mat-theme-is-dark($selected-theme) {
-  //       color: mat-theme-background-color($selected-theme, background);
-  //       background-color: rgba(
-  //         mat-color(mat-theme-accent-color($selected-theme), default),
-  //         0.9
-  //       );
-  //     } @else {
-  //       background-color: rgba(
-  //         mat-color(mat-theme-accent-color($selected-theme), default),
-  //         0.3
-  //       );
-  //     }
-  //   }
-  //   &:active {
-  //     @if mat-theme-is-dark($selected-theme) {
-  //       background-color: rgba(
-  //         mat-color(mat-theme-accent-color($selected-theme), default),
-  //         0.3
-  //       );
-  //     } @else {
-  //       background-color: rgba(
-  //         mat-color(mat-theme-accent-color($selected-theme), default),
-  //         0.9
-  //       );
-  //     }
-  //   }
-  // }
+  .incident-item-id {
+    @if mat-theme-is-dark($selected-theme) {
+      color: mat-theme-foreground-color($selected-theme, secondary-text);
+    } @else {
+      color: mat-theme-foreground-color($selected-theme, secondary-text);
+    }
+  }
+
+  .incident-item {
+    @if mat-theme-is-dark($selected-theme) {
+      background-color: mat-theme-background-color($selected-theme, background);
+    } @else {
+      background-color: mat-theme-background-color($selected-theme, app-bar);
+    }
+    &:hover {
+      @if mat-theme-is-dark($selected-theme) {
+        // color: mat-theme-background-color($selected-theme, background);
+        background-color: rgba(
+          mat-color(mat-theme-accent-color($selected-theme), default),
+          0.1
+        );
+      } @else {
+        background-color: rgba(
+          mat-color(mat-theme-accent-color($selected-theme), default),
+          0.2
+        );
+      }
+    }
+    &:active {
+      @if mat-theme-is-dark($selected-theme) {
+        background-color: rgba(
+          mat-color(mat-theme-accent-color($selected-theme), default),
+          0.2
+        );
+      } @else {
+        background-color: rgba(
+          mat-color(mat-theme-accent-color($selected-theme), default),
+          0.3
+        );
+      }
+    }
+  }
 }
