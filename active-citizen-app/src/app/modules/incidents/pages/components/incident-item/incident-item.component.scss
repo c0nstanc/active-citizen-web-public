@@ -1,6 +1,9 @@
 @import "variables";
 @import "mixins";
 
+
+// TODO - Implement IPAD and Mobile responsiveness - currently works only on desktop.
+
 .incident-item {
   display: flex;
   justify-content: center;
@@ -8,17 +11,16 @@
   height: 100%;
   margin: 2rem 0 0 0;
 
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
-  // @include media-breakpoint-up(md) {
-  //   margin: 1rem 0;
-  // }
 }
+
 .incident-item-grid-container {
   display: grid;
 
   grid-template-areas:
+    "title"
     "details"
     "image"
     "description"
@@ -28,80 +30,35 @@
   grid-template-rows: 1fr 2fr fit-content() fit-content();
   @include media-breakpoint-up(md) {
     grid-template-areas:
+      "image title"
       "image details"
       "footer footer";
-    grid-template-columns: 1fr 5fr;
-    grid-template-rows: 2fr 0.5fr;
+    grid-template-columns: 150px 5fr;
+    grid-template-rows: 2rem 2fr 0.5fr;
   }
 
   width: 100%;
 
   mat-icon {
+    line-height: $body-line-height;
+    vertical-align: middle;
+    font-size: 1rem;
     width: 1rem;
-    height: 1rem;
-    margin-right: 6px;
-    font-size: 1.125rem;
-  }
-}
-
-.incident-image-wrapper {
-  grid-area: image;
-  display: flex;
-  align-items: center;
-  width: 100%;
-
-  img {
-    width: 100%;
+    margin-right: 0.25rem;
   }
 
-  fa-icon.ng-fa-icon {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-  }
-}
-
-.description {
-  grid-area: description;
-  padding: 0.5rem 0.5rem 0 0.5rem;
-  display: flex;
-  align-items: center;
-  @include media-breakpoint-up(md) {
-    display: none;
-  }
-}
-
-.incident-details {
-  grid-area: details;
-  padding: 0.5rem;
-  display: grid;
-  grid-template-areas:
-    "header"
-    "subcategory"
-    "address";
-  grid-template-rows: fit-content() fit-content() fit-content();
-  @include media-breakpoint-up(md) {
-    grid-template-areas:
-      "header header"
-      "subcategory description"
-      "address description";
-    grid-template-rows: 0.5fr 1fr 1fr;
-    grid-template-columns: 4fr 10fr;
-  }
-
-  .header-area {
-    grid-area: header;
+  .title-area {
+    grid-area: title;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .category {
+    padding: 0.5rem;
+    .incident-item-title {
       display: flex;
       align-items: flex-start;
-      margin-bottom: 0.5rem;
     }
-    .id {
+    .incident-item-id {
       font-size: 0.875rem;
       color: grey;
       display: flex;
@@ -110,24 +67,31 @@
     }
   }
 
-  .subcategory {
-    grid-area: subcategory;
+  .incident-item-image-area {
+    grid-area: image;
     display: flex;
-    align-items: flex-start;
-  }
-  .address {
-    grid-area: address;
-    display: flex;
-    align-items: flex-start;
-  }
+    align-items: center;
+    justify-content: center;
+    max-width: 150px;
+    min-width: 150px;
 
-  .description {
-    display: none;
-    @include media-breakpoint-up(md) {
-      grid-area: description;
-      display: flex;
-      align-items: flex-start;
+
+    img {
+      width: auto;
+      max-height: 100px;
+      height: 100px;
     }
+
+    fa-icon.ng-fa-icon {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+    }
+  }
+  .incident-item-details-area {
+    grid-area: details;
+    padding: 0 0.5rem;
   }
 }
 
@@ -135,7 +99,6 @@
   grid-area: footer;
   padding: 0.5rem;
 
-  // background-color: blue;
   display: grid;
   grid-template-areas: "created other status";
   grid-template-columns: 4fr 1fr 1fr;

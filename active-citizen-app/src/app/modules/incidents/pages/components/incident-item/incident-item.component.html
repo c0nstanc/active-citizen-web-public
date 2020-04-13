@@ -2,48 +2,41 @@
 
   <div class="incident-item-grid-container">
 
-    <div class="incident-image-wrapper">
+    <div class="incident-item-image-area">
       <img *ngIf="incident.imageUrls.length>0; else noImage" [src]="incident.imageUrls[0]" alt="Photo incident">
       <ng-template #noImage>
         <fa-icon *ngIf="images$ | async as images" [icon]="images" size="6x"></fa-icon>
       </ng-template>
     </div>
 
-    <div class="description">
-      <mat-icon> event_note </mat-icon> {{ incident.description}}
+    <div class="title-area">
+      <div class="incident-item-title">
+        <h5>{{ incident.category }}</h5>
+      </div>
+      <div class="incident-item-id">
+        #{{ incident.id }}
+      </div>
     </div>
 
-    <div class="incident-details">
 
-      <div class="header-area">
-        <div class="incident-title category">
-          <h5>{{ incident.category }}</h5>
+
+    <div class="incident-item-details-area">
+      <div class="row">
+        <div class="col-12 col-sm-5">
+          <p><mat-icon> note </mat-icon> {{ incident.subcategory }}</p>
+          <p><mat-icon> room </mat-icon> {{ incident?.locationDetails?.address }}</p>
         </div>
-        <div class="id">
-          #{{ incident.id }}
+        <div class="col-12 col-sm-6 col-sm-offset-1">
+          <p><mat-icon> event_note </mat-icon> {{ incident.description}}</p>
         </div>
-
-      </div>
-
-      <div class="subcategory">
-        <mat-icon> note </mat-icon> {{ incident.subcategory }}
-      </div>
-      <div class="address">
-        <mat-icon> room </mat-icon> {{ incident?.locationDetails?.address }}
-      </div>
-
-      <div class="description">
-        <mat-icon> event_note </mat-icon> {{ incident.description}}
       </div>
 
     </div>
 
     <div class="incident-footer">
-
       <div class="status" [ngClass]="incident.status">
         {{ incident.status }}
       </div>
-
       <div class="created">
         Created on: {{ incident.created | date:'dd/MM/yyyy HH:mm' }}
       </div>
