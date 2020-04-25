@@ -54,6 +54,9 @@ export class SummaryIncidentComponent implements OnInit, SubmittableWizardStep, 
     this.router.navigate(['incidents/my-incidents']);
   }
 
+  onSave(): void {
+  }
+
   private buildForm(): FormGroup {
     return this.formBuilder.group({});
   }

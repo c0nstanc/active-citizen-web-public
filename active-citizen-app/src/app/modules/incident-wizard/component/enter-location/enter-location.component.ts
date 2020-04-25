@@ -42,12 +42,20 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep, On
 
   public onSubmit(): void {
     console.log('Submitting Location ...');
+    this.saveData();
+    console.log(this.newIncidentForm.value);
+  }
+
+  onSave(): void {
+    this.saveData();
+  }
+
+  private saveData() {
     this.newIncidentWizardService.setIncidentLocationDetails(
       new LocationDetails(
         (this.newIncidentForm.value as IncidentLocation).latLng,
         (this.newIncidentForm.value as IncidentLocation).locationAddress)
     );
-    console.log(this.newIncidentForm.value);
   }
 
   onMarkerUpdated(markerlatLng: LatLng): void {

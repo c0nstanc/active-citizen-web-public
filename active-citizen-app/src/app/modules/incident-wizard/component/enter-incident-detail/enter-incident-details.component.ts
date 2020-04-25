@@ -137,13 +137,21 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
   }
 
   public onSubmit(): void {
+    this.saveData();
+    console.log(this.newIncidentForm.value);
+  }
+
+  onSave(): void {
+    this.saveData();
+  }
+
+  private saveData() {
     if (this.newIncidentForm.valid) {
       this.newIncidentWizardService.setIncidentDetails(
         (this.newIncidentForm.value as IncidentDetails).incidentCategory,
         (this.newIncidentForm.value as IncidentDetails).incidentSubcategory,
         (this.newIncidentForm.value as IncidentDetails).incidentDesc
       );
-      console.log(this.newIncidentForm.value);
     }
   }
 

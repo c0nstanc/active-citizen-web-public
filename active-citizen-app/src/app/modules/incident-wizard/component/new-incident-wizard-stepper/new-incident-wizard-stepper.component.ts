@@ -42,9 +42,12 @@ export class NewIncidentWizardStepperComponent implements OnInit, AfterViewInit 
   }
 
   selectionChanged(event: any): void {
-    this.getCurrentStep().editable = true;
-    this.getCurrentStep().completed = true;
-    this.currentWizardStep.onSubmit();
+    if (this.currentWizardStep.getFormGroup().valid){
+      this.getCurrentStep().completed = true;
+    }else{
+      this.getCurrentStep().completed = false;
+    }
+    this.currentWizardStep.onSave();
     this.navigate('step' + (event.selectedIndex + 1));
   }
 
