@@ -3,7 +3,7 @@
   <mat-chip-list #chipList aria-label="file selection">
     <mat-chip *ngFor="let file of selectedFiles; let fileIndex = index" [selectable]="selectable"
       [removable]="removable" (removed)="removeFile(fileIndex)" (click)="selectedFileOnClick(file)">
-      {{file['name']}}
+      <div class="filename">{{file['name']}}</div>
       <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
     </mat-chip>
   </mat-chip-list>

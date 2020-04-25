@@ -1,10 +1,6 @@
-#imageViewerModal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .image-container {
+  display: flex;
+  align-items: baseline;
   img {
     width: auto;
     max-width: 65vw;
