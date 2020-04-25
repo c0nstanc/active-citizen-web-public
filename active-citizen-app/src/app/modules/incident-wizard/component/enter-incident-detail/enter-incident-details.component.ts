@@ -61,7 +61,8 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
     }
 
     );
-    this.formControls['translatedIncidentCategory'].valueChanges.pipe(
+    const field = 'translatedIncidentCategory';
+    this.formControls[field].valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
     ).subscribe(values => {
