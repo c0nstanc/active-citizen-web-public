@@ -6,7 +6,7 @@ import { IncidentCategories } from 'src/app/modules/incidents/model/incident-cat
 import { NewIncidentWizardService } from '../new-incident-wizard-stepper/service/new-incident-wizard.service';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { ClonerService } from 'src/app/core/services/cloner.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
@@ -27,7 +27,6 @@ interface IncidentDetails {
 export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardStep, OnDestroy {
   newIncidentForm: FormGroup;
   dropDownIncidentCategories: Array<DropDownItem>;
-  incident: Incident;
   filteredDropDownIncidentCategories: Observable<Array<DropDownItem>>;
 
   subs: SubSink = new SubSink();
@@ -45,14 +44,41 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
 
   ngOnInit(): void {
     this.initDropDownIncidentCategories();
-    this.subs.sink = this.translateService.onLangChange.subscribe(() =>
-      this.initDropDownIncidentCategories()
-    );
     this.buildForm();
-    this.filteredDropDownIncidentCategories = this.formControls['translatedIncidentCategory'].valueChanges.pipe(
+
+    this.subs.sink = this.translateService.onLangChange.subscribe(() => {
+
+      this.initDropDownIncidentCategories();
+
+      this.newIncidentForm.patchValue({
+        translatedIncidentCategory: this.getTranslatedCategoryByValue(
+          (this.newIncidentForm.value as IncidentDetails).incidentCategory)
+      });
+      this.newIncidentForm.patchValue({
+        translatedIncidentSubcategory: this.getTranslatedCategoryByValue(
+          (this.newIncidentForm.value as IncidentDetails).incidentSubcategory)
+      });
+    }
+
+    );
+    this.formControls['translatedIncidentCategory'].valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
-    );
+    ).subscribe(values => {
+      this.filteredDropDownIncidentCategories = of(values);
+    });
+
+    this.subs.sink = this.newIncidentWizardService.newIncidentUpdated.subscribe((updatedIncident: Incident) => {
+      if (updatedIncident.category) {
+        this.onIncidentCategoryChanged(this.getTranslatedCategoryByValue(updatedIncident.category));
+      }
+      if (updatedIncident.subcategory) {
+        this.onIncidentSubcategoryChanged(this.getTranslatedCategoryByValue(updatedIncident.subcategory));
+      }
+      if (updatedIncident.description) {
+        this.newIncidentForm.patchValue({ incidentDesc: updatedIncident.description });
+      }
+    });
   }
 
   private initDropDownIncidentCategories(): void {
@@ -85,6 +111,8 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
 
     if (selectedIncidentCategory) {
       this.newIncidentForm.patchValue({ incidentCategory: selectedIncidentCategory.value });
+      this.newIncidentForm.patchValue({ translatedIncidentCategory: selectedIncidentCategory.translatedName });
+
     } else {
       this.newIncidentForm.patchValue({
         incidentCategory: '',
@@ -99,6 +127,7 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
 
     if (selectedIncidentSubcategory) {
       this.newIncidentForm.patchValue({ incidentSubcategory: selectedIncidentSubcategory.value });
+      this.newIncidentForm.patchValue({ translatedIncidentSubcategory: selectedIncidentSubcategory.translatedName });
     } else {
       this.newIncidentForm.patchValue({
         incidentSubcategory: '',
@@ -109,17 +138,30 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
 
   public onSubmit(): void {
     if (this.newIncidentForm.valid) {
-      this.newIncidentWizardService.setIncidentCategory((this.newIncidentForm.value as IncidentDetails).incidentCategory);
-      this.newIncidentWizardService.setIncidentSubcategory((this.newIncidentForm.value as IncidentDetails).incidentSubcategory);
-      this.newIncidentWizardService.setIncidentDescription((this.newIncidentForm.value as IncidentDetails).incidentDesc);
+      this.newIncidentWizardService.setIncidentDetails(
+        (this.newIncidentForm.value as IncidentDetails).incidentCategory,
+        (this.newIncidentForm.value as IncidentDetails).incidentSubcategory,
+        (this.newIncidentForm.value as IncidentDetails).incidentDesc
+      );
       console.log(this.newIncidentForm.value);
     }
   }
 
   private _filter(value: string): DropDownItem[] {
-    const filterValue = value.toLowerCase();
-    return this.dropDownIncidentCategories.filter(dropDownItem => (dropDownItem.translatedName).toLowerCase()
-      .includes(filterValue));
+    if (value) {
+      const filterValue = value.toLowerCase();
+      return this.dropDownIncidentCategories.filter(dropDownItem => (dropDownItem.translatedName).toLowerCase()
+        .includes(filterValue));
+    }
+    return this.dropDownIncidentCategories;
+  }
+
+  private getTranslatedCategoryByValue(value: string): string {
+    if (value) {
+      const filterValue = value.toLowerCase();
+      return this.dropDownIncidentCategories.filter(dropDownItem => (dropDownItem.value).toLowerCase()
+        .includes(filterValue))[0].translatedName;
+    }
   }
 
   ngOnDestroy(): void {

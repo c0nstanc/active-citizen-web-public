@@ -12,20 +12,25 @@ export class ImageInputComponent implements OnInit {
   maxFiles = 4;
 
   @Input()
-  supportedFileTypesCategoty: string;
+  supportedFileTypesCategory: string;
+
+  @Input()
+  selectedFiles: File[];
 
   @Output()
   selectionChanged = new EventEmitter<File[]>();
-
-  selectedFiles: File[];
 
   numOfSelectedFiles: number;
 
   @ViewChild('imageViewer') imageViewer: ImageViewerComponent;
 
   ngOnInit(): void {
-    this.selectedFiles = new Array<File>();
-    this.numOfSelectedFiles = 0;
+    if (!this.selectedFiles) {
+      this.selectedFiles = new Array<File>();
+      this.numOfSelectedFiles = 0;
+    } else {
+      this.numOfSelectedFiles = this.selectedFiles.length;
+    }
   }
 
   onSelectionChanged(files: File[]): void {

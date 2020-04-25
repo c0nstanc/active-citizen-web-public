@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClonerService } from 'src/app/core/services/cloner.service';
 import { LatLng } from 'src/app/shared/component/map/my-location-map/model/lat-lng.model';
 import { NewIncidentWizardService } from '../new-incident-wizard-stepper/service/new-incident-wizard.service';
 import { LocationDetails } from 'src/app/data/schema/location-details.model';
+import { Incident } from 'src/app/data/schema/incident.model';
+import { SubSink } from 'subsink';
 
 interface IncidentLocation {
   latLng: LatLng;
@@ -15,9 +17,11 @@ interface IncidentLocation {
   templateUrl: './enter-location.component.html',
   styleUrls: ['./enter-location.component.scss']
 })
-export class EnterLocationComponent implements OnInit, SubmittableWizardStep {
+export class EnterLocationComponent implements OnInit, SubmittableWizardStep, OnDestroy {
 
   newIncidentForm: FormGroup;
+  subs: SubSink = new SubSink();
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,6 +31,13 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep {
 
   ngOnInit(): void {
     this.buildForm();
+    this.subs.sink = this.newIncidentWizardService.newIncidentUpdated.subscribe((updatedIncident: Incident) => {
+      if (updatedIncident.locationDetails) {
+        this.onMarkerUpdated(updatedIncident.locationDetails.latLng);
+        this.onAddressUpdated(updatedIncident.locationDetails.address)
+      }
+    });
+
   }
 
   public onSubmit(): void {
@@ -58,5 +69,9 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep {
     if (this.newIncidentForm) {
       return this.clonerService.cloneFormGroup(this.newIncidentForm) as FormGroup;
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }

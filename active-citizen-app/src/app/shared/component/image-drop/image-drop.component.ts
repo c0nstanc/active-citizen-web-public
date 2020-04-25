@@ -9,7 +9,7 @@ import { ImageExtentionsService } from 'src/app/core/services/image-extentions.s
 export class ImageDropComponent implements OnInit {
 
   @Input()
-  supportedFileTypesCategoty = 'Images';
+  supportedFileTypesCategory = 'Images';
 
   @Input()
   maxFileSize = 4194304;

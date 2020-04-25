@@ -2,7 +2,9 @@
   <app-wizard-step-title>Select Location</app-wizard-step-title>
 
   <div class="map">
-    <app-my-location-map (markerUpdated)="onMarkerUpdated($event)" (addressUpdated)="onAddressUpdated($event)">
+    <app-my-location-map  [myPosition]="newIncidentForm.value.latLng"
+    (markerUpdated)="onMarkerUpdated($event)"
+    (addressUpdated)="onAddressUpdated($event)">
     </app-my-location-map>
   </div>
 </div>

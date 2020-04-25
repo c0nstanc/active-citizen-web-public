@@ -3,11 +3,11 @@
   <mat-card *ngIf="incident" class="incident-summary">
     <mat-card-header class="incident-card-header">
       <mat-card-title>{{'incidentCategory.'+ incident.category | translate}} </mat-card-title>
-      <mat-card-subtitle>{{'incidentCategory.'+ incident.category | translate}} </mat-card-subtitle>
+      <mat-card-subtitle>{{'incidentCategory.'+ incident.subcategory | translate}} </mat-card-subtitle>
       <mat-card-subtitle>{{incident.locationDetails?.address}}</mat-card-subtitle>
     </mat-card-header>
     <div class="incident-image-wrapper">
-      <img [src]="incident.imageUrls[0]" alt="First Problem Photo">
+      <img [src]="imageUrls[0]" alt="First Problem Photo">
     </div>
     <mat-card-content class="incident-card-content">
       <p>

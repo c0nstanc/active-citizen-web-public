@@ -8,7 +8,8 @@
     </div>
 
     <div class="file-drop-container">
-      <app-image-input supportedFileTypesCategoty='Photos' (selectionChanged)='onSelectionChanged($event)'>
+      <app-image-input [selectedFiles]="newIncidentForm.value.files" supportedFileTypesCategory='Photos'
+        (selectionChanged)='onSelectionChanged($event)'>
       </app-image-input>
     </div>
   </div>

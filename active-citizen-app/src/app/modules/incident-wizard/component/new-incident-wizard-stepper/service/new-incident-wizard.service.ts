@@ -12,8 +12,11 @@ import { LocationDetails } from 'src/app/data/schema/location-details.model';
 export class NewIncidentWizardService {
 
   private newIncident: Incident;
+  private newIncidentFiles: File[]
 
-  newIncidedUpdated: BehaviorSubject<Incident>;
+  newIncidentUpdated: BehaviorSubject<Incident>;
+  newIncidentFilesUpdated: BehaviorSubject<File[]>;
+
 
   constructor(
     private incidentService: IncidentService,
@@ -24,45 +27,60 @@ export class NewIncidentWizardService {
 
   public setIncidentId(id: string): void {
     this.newIncident.id = id;
-    this.newIncidedUpdated.next(this.newIncident);
+    this.onIncidentUpdated(this.newIncident);
   }
 
-  public setIncidentCategory(category: string): void {
+  public setIncidentDetails(category: string, subcategory: string, desc: string): void {
     this.newIncident.category = category;
-    this.newIncidedUpdated.next(this.newIncident);
-  }
-
-  public setIncidentSubcategory(subcategory: string): void {
     this.newIncident.subcategory = subcategory;
-    this.newIncidedUpdated.next(this.newIncident);
+    this.newIncident.description = desc;
+    this.onIncidentUpdated(this.newIncident);
   }
-
 
   public setIncidentLocationDetails(locationDetails: LocationDetails): void {
     this.newIncident.locationDetails = locationDetails;
-    this.newIncidedUpdated.next(this.newIncident);
+    this.onIncidentUpdated(this.newIncident);
   }
 
-  public setIncidentDescription(desc: string): void {
-    this.newIncident.description = desc;
-    this.newIncidedUpdated.next(this.newIncident);
-  }
-
-  public setIncidentUrls(incidentImageUrls: string[]): void {
-    this.newIncident.imageUrls = incidentImageUrls;
-    this.newIncidedUpdated.next(this.newIncident);
+  public setIncidentFiles(newIncidentFiles: File[]): void {
+    this.newIncidentFiles = newIncidentFiles;
+    this.newIncidentFilesUpdated.next(this.newIncidentFiles);
+    this.covertFilesToImageUrls();
   }
 
   public submitIncident() {
     this.newIncident.status = IncidentStatus.SUBMITTED;
     this.newIncident.created = new Date();
     this.incidentService.addNewIncident(this.clonerService.deepClone(this.newIncident));
+    this.initializeIncident();
   }
 
   private initializeIncident() {
     this.newIncident = new Incident();
+    this.newIncidentFiles = [];
     this.newIncident.status = IncidentStatus.CREATED;
-    this.newIncidedUpdated = new BehaviorSubject(null);
+    this.newIncidentUpdated = new BehaviorSubject(this.newIncident);
+    this.newIncidentFilesUpdated = new BehaviorSubject([]);
+  }
+
+  onIncidentUpdated(incident: Incident) {
+    this.newIncidentUpdated.next(this.clonerService.deepClone(incident));
+  }
+
+  private covertFilesToImageUrls() {
+    this.newIncident.imageUrls = [];
+    this.newIncidentFiles.forEach(file => {
+      if (file.type.match(/image\/*/) != null) {
+        const reader: FileReader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (event: ProgressEvent) => {
+          if (event.loaded) {
+            this.newIncident.imageUrls.push(reader.result as string);
+            this.onIncidentUpdated(this.newIncident);
+          }
+        };
+      }
+    });
   }
 
 }

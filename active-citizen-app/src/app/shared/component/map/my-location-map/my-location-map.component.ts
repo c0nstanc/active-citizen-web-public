@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, ElementRef, Output, EventEmitter, Input } from '@angular/core';
 import { LatLng } from './model/lat-lng.model';
 
 @Component({
@@ -11,6 +11,7 @@ export class MyLocationMapComponent implements AfterViewInit {
   map: google.maps.Map;
   mapOptions: google.maps.MapOptions;
 
+  @Input()
   myPosition: google.maps.LatLng;
   myLocationMarker: google.maps.Marker;
 
@@ -29,13 +30,12 @@ export class MyLocationMapComponent implements AfterViewInit {
   constructor() {
   }
 
-
   ngAfterViewInit(): void {
-    const defaultPosition = new google.maps.LatLng(
-      35.185471,
-      33.389757);
-    this.getMyLocation();
-    this.mapInitializer(defaultPosition);
+    if (!this.myPosition) {
+      this.getMyLocation();
+    } else {
+      this.mapInitializer(this.myPosition);
+    }
   }
 
   getMyLocation() {
@@ -45,6 +45,11 @@ export class MyLocationMapComponent implements AfterViewInit {
         position.coords.latitude,
         position.coords.longitude);
       this.mapInitializer(myPosition);
+    }, () => {
+      const defaultPosition = new google.maps.LatLng(
+        35.185471,
+        33.389757);
+      this.mapInitializer(defaultPosition);
     });
 
   }

@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ClonerService } from 'src/app/core/services/cloner.service';
 import { NewIncidentWizardService } from '../new-incident-wizard-stepper/service/new-incident-wizard.service';
+import { SubSink } from 'subsink';
 
 
-interface IncidentPhoto {
-  incidentImageUrls: string[];
+
+interface IncidentPhotos {
+  files: File[];
 }
 
 @Component({
@@ -15,9 +16,11 @@ interface IncidentPhoto {
   templateUrl: './enter-incident-photo.component.html',
   styleUrls: ['./enter-incident-photo.component.scss']
 })
-export class EnterIncidentPhotoComponent implements OnInit, SubmittableWizardStep {
+export class EnterIncidentPhotoComponent implements OnInit, SubmittableWizardStep, OnDestroy {
 
   newIncidentForm: FormGroup;
+  subs: SubSink = new SubSink();
+
   constructor(
     private formBuilder: FormBuilder,
     private clonerService: ClonerService,
@@ -25,18 +28,22 @@ export class EnterIncidentPhotoComponent implements OnInit, SubmittableWizardSte
 
   ngOnInit(): void {
     this.buildForm();
+    this.subs.sink = this.newIncidentWizardService.newIncidentFilesUpdated.subscribe((updatedFiles: File[]) => {
+      this.onSelectionChanged(updatedFiles);
+    });
+
   }
 
   public onSubmit(): void {
     console.log('Submitting Photo ...');
-    this.newIncidentWizardService.setIncidentUrls(
-      (this.newIncidentForm.value as IncidentPhoto).incidentImageUrls);
+    this.newIncidentWizardService.setIncidentFiles(
+      (this.newIncidentForm.value as IncidentPhotos).files);
     console.log(this.newIncidentForm.value);
   }
 
   private buildForm(): void {
     this.newIncidentForm = this.formBuilder.group({
-      incidentImageUrls: this.formBuilder.array([])
+      files: this.formBuilder.array([])
     });
   }
 
@@ -48,18 +55,11 @@ export class EnterIncidentPhotoComponent implements OnInit, SubmittableWizardSte
   }
 
   onSelectionChanged(files: File[]): void {
-    (this.newIncidentForm.value as IncidentPhoto).incidentImageUrls = [];
-    files.forEach(file => {
-      if (file.type.match(/image\/*/) != null) {
-        const reader: FileReader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = (event: ProgressEvent) => {
-          if (event.loaded) {
-            (this.newIncidentForm.value as IncidentPhoto).incidentImageUrls.push(reader.result as string);
-          }
-        };
-      }
-    });
+    (this.newIncidentForm.value as IncidentPhotos).files = files;
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
 }
