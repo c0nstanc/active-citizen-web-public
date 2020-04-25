@@ -64,7 +64,7 @@ export class NewIncidentWizardService {
   }
 
   onIncidentUpdated(incident: Incident) {
-    this.newIncidentUpdated.next(this.clonerService.deepClone(incident));
+    this.newIncidentUpdated.next(incident);
   }
 
   private covertFilesToImageUrls() {
@@ -75,7 +75,7 @@ export class NewIncidentWizardService {
         reader.readAsDataURL(file);
         reader.onload = (event: ProgressEvent) => {
           if (event.loaded) {
-            this.newIncident.imageUrls.push(reader.result as string);
+            this.newIncident.imageUrls = [...this.newIncident.imageUrls, (reader.result as string)];
             this.onIncidentUpdated(this.newIncident);
           }
         };
