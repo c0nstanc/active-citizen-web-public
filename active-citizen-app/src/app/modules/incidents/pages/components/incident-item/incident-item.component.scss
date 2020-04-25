@@ -117,6 +117,14 @@
     grid-area: created;
     font-size: 0.875rem;
   }
+  .votes-and-comments  {
+    grid-area: other;
+    font-size: 0.875rem;
+
+    .votes {
+      margin-right: 1rem;
+    }
+  }
 
   .status.submitted {
     color: orange;

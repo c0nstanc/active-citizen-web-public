@@ -13,6 +13,7 @@ export class Incident {
   created: Date;
   updated: Date;
   votes = 0;
+  comments: string[] = [];
   hits = 0;
   timelineEvents: TimelineEvent[] = [];
 }

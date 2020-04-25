@@ -1,4 +1,4 @@
-<div class="incident-item"  (mouseenter)="onMouseEnter()"  (mouseleave)="onMouseLeave()">
+<div class="incident-item" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
 
   <div class="incident-item-grid-container">
 
@@ -23,11 +23,17 @@
     <div class="incident-item-details-area">
       <div class="row">
         <div class="col-12 col-sm-5">
-          <p><mat-icon> note </mat-icon> {{ incident.subcategory }}</p>
-          <p><mat-icon> room </mat-icon> {{ incident?.locationDetails?.address }}</p>
+          <p>
+            <mat-icon> note </mat-icon> {{ incident.subcategory }}
+          </p>
+          <p>
+            <mat-icon> room </mat-icon> {{ incident?.locationDetails?.address }}
+          </p>
         </div>
         <div class="col-12 col-sm-6 col-sm-offset-1">
-          <p><mat-icon> event_note </mat-icon> {{ incident.description}}</p>
+          <p>
+            <mat-icon> event_note </mat-icon> {{ incident.description}}
+          </p>
         </div>
       </div>
 
@@ -39,6 +45,14 @@
       </div>
       <div class="created">
         Created on: {{ incident.created | date:'dd/MM/yyyy HH:mm' }}
+      </div>
+      <div class="votes-and-comments">
+        <span class="votes">
+          <mat-icon>thumb_up</mat-icon>{{incident.votes}}
+        </span>
+        <span class="comments">
+          <mat-icon>comment</mat-icon>{{incident.comments.length}}
+        </span>
       </div>
     </div>
 

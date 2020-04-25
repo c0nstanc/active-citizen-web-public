@@ -22,7 +22,8 @@
         "comments": [
           "Submitted by the system"
         ]
-      }]
+      }],
+      "comments": []
     },
     {
       "id": "2",
@@ -47,7 +48,8 @@
         "comments": [
           "Submitted by the system"
         ]
-      }]
+      }],
+      "comments": []
     },
     {
       "id": "3",
@@ -80,7 +82,8 @@
             "Acknowledged by XYZ"
           ]
         }
-      ]
+      ],
+      "comments": []
     },
     {
       "id": "4",
@@ -120,7 +123,8 @@
             "Resolved by XYZ"
           ]
         }
-      ]
+      ],
+      "comments": []
     },
     {
       "id": "5",
@@ -145,7 +149,8 @@
         "comments": [
           "Submitted by the system"
         ]
-      }]
+      }],
+      "comments": []
     },
     {
       "id": "6",
@@ -170,7 +175,8 @@
         "comments": [
           "Submitted by the system"
         ]
-      }]
+      }],
+      "comments": []
     }
   ]
 
