@@ -1,4 +1,17 @@
-html, body {
+* {
+  // Natural box layout model to all elements.
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  // Prevent text resize on different devices
+  -webkit-text-size-adjust: none;
+}
+
+html,
+body {
   font-family: $app-font-family;
   font-size: $body-font-size;
   line-height: $body-line-height;
@@ -35,58 +48,68 @@ h5,
   font-weight: 500;
 }
 
+// The clearfix Hack
+// If an element is taller than the element containing it,
+// and it is floated, it will overflow outside of its container.
+// Use this class to fix it.
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .margin-top-xxl {
-    margin-top: 52px;
-  }
+  margin-top: 52px;
+}
 
-  .margin-bottom-xxl {
-    margin-bottom: 52px;
-  }
+.margin-bottom-xxl {
+  margin-bottom: 52px;
+}
 
-  .margin-top-xl {
-    margin-top: 32px;
-  }
+.margin-top-xl {
+  margin-top: 32px;
+}
 
-  .margin-bottom-xl {
-    margin-bottom: 32px;
-  }
+.margin-bottom-xl {
+  margin-bottom: 32px;
+}
 
-  .margin-top-lg {
-    margin-top: 22px;
-  }
+.margin-top-lg {
+  margin-top: 22px;
+}
 
-  .margin-bottom-lg {
-    margin-bottom: 22px;
-  }
+.margin-bottom-lg {
+  margin-bottom: 22px;
+}
 
-  .margin-top-md {
-    margin-top: 12px;
-  }
+.margin-top-md {
+  margin-top: 12px;
+}
 
-  .margin-bottom-md {
-    margin-bottom: 12px;
-  }
+.margin-bottom-md {
+  margin-bottom: 12px;
+}
 
-  .margin-top-sm {
-    margin-top: 6px;
-  }
+.margin-top-sm {
+  margin-top: 6px;
+}
 
-  .margin-bottom-sm {
-    margin-bottom: 6px;
-  }
+.margin-bottom-sm {
+  margin-bottom: 6px;
+}
 
-  .margin-top-xs {
-    margin-top: 6px;
-  }
+.margin-top-xs {
+  margin-top: 6px;
+}
 
-  .margin-bottom-xs {
-    margin-bottom: 6px;
-  }
+.margin-bottom-xs {
+  margin-bottom: 6px;
+}
 
-  .margin-top-xxs {
-    margin-top: 3px;
-  }
+.margin-top-xxs {
+  margin-top: 3px;
+}
 
-  .margin-bottom-xxs {
-    margin-bottom: 3px;
-  }
+.margin-bottom-xxs {
+  margin-bottom: 3px;
+}
