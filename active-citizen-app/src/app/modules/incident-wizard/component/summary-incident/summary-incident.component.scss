@@ -20,7 +20,7 @@
     "card-content";
   grid-template-rows: 25% 50% 25%;
 
-  min-width: 320px;
+  min-width: 310px;
   min-height: 400px;
   max-width: 90%;
   @include media-breakpoint-up(sm) {

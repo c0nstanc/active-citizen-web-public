@@ -1,4 +1,6 @@
-<button mat-raised-button color="accent" (click)="onTakePicture()">Take Picture</button>
+<button mat-raised-button color="primary" class="take-picture" (click)="onTakePicture()">
+  <mat-icon>add_a_photo</mat-icon>
+</button>
 
 <app-simple-modal #simpleModal (closed)="onCloseModal()">
   <app-modal-header>

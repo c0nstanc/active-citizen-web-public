@@ -1,13 +1,30 @@
 @import "variables";
 @import "mixins";
 
-.file-drop-container {
+.image-input-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
 }
 
-.take-picture {
-  @include media-breakpoint-up(lg) {
+.image-capture-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include media-breakpoint-up(md) {
     display: none;
+  }
+}
+
+.image-drop-container {
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: block;
   }
 }

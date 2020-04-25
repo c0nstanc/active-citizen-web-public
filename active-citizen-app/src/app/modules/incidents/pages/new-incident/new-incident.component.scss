@@ -4,7 +4,7 @@
 .new-incident-container {
   display: flex;
   justify-content: center;
-  min-width: 100vw;
+  min-width: 305px;
   @include media-breakpoint-up(sm) {
     min-width: unset;
   }
@@ -13,7 +13,7 @@
 .new-incident-item {
   padding-left: 0;
   padding-right: 0;
-  min-width: 320px;
+  min-width: 305px;
   @include media-breakpoint-up(sm) {
     padding-left: 1rem;
     padding-right: 1rem;

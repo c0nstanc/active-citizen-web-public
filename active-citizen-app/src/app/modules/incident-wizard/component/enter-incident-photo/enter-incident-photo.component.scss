@@ -13,5 +13,8 @@
 }
 
 .file-drop-container {
-  margin: 2rem 0 0rem 0rem;
+  margin: 0;
+  @include media-breakpoint-up(sm) {
+    margin: 2rem 0 0rem 0rem;
+  }
 }
