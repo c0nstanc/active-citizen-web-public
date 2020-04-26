@@ -1,63 +1,51 @@
 @import "mixins";
 @import "variables";
 
-.incident-details-container {
-  padding: 2rem 0;
-  display: grid;
-  grid-template-areas: "incident-card-area incident-location-map-area";
-  grid-template-columns: 5fr 3fr;
-  grid-template-rows: 100%;
-  column-gap: 2rem;
+.row {
+  margin-right: -7px;
+  margin-left: -7px;
 }
 
-.incident-details-card {
-  grid-area: incident-card-area;
-  .incident-details-card-header {
-    padding: 1.5rem 1rem;
+.card {
+  margin-top: 1rem;
+  .card-header {
+    padding: 0.5rem 0.5rem;
+
+    @include media-breakpoint-up(md) {
+      padding: 0.75rem 1.25rem;
+    }
   }
-
-  .incident-details-card-content {
-    padding: 1rem;
-
-    .incident-progress {
-      display: block;
-      font-size: 0.75rem;
+  .card-section {
+    padding: 0.5rem 0.5rem;
+    @include media-breakpoint-up(md) {
+      padding: 0.75rem 1.25rem;
     }
-
-    .carousel {
-      width: 100%;
-    }
-
-    .margin-top {
-      margin-top: 1rem;
+    border-bottom: 1px solid #e5e6e6;
+    @include media-breakpoint-up(md) {
+      border-bottom: none;
     }
   }
 
-  .title {
-    margin-bottom: 0.5rem;
-    border-bottom: 2px dotted #e3e3e3;
-    &.no-margin-bottom {
-      margin-bottom: 0;
+  .card-section-header {
+    padding-bottom: 0.75rem;
+    @include media-breakpoint-up(md) {
+      padding-bottom: 1rem;
     }
   }
+}
 
-  .timeline-container {
-    app-timeline {
-      font-size: 0.875rem;
-    }
+.incident-progress-section {
+  font-size: 0.75rem;
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: block;
   }
 }
 
 .incident-location-map-container {
-  padding: 1rem;
-  grid-area: incident-location-map-area;
-
-  .incident-location-map {
-    margin-top: 0.5rem;
-    min-height: 200px;
-    height: calc(100% - 2rem);
-    app-incident-map {
-      border-radius: 6px;
-    }
+  width: 100%;
+  height: 50vh;
+  app-incident-map {
+    border-radius: 6px;
   }
 }
