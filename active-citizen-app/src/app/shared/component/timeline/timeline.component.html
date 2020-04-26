@@ -1,13 +1,16 @@
-<div class="timeline">
-  <div *ngFor="let timelineEvent of getOrderedTimelineEvents()" class="timeline-event">
-    <div class="event-created">
-      <h6>{{timelineEvent.creationDate | date:'dd-MM-yyyy'}}</h6>
-      <p class="event-created-secondary">{{timelineEvent.creationDate | dateAgo}}</p>
+<div class="timeline-container" style="display:flex; justify-content: center;">
+  <div class="timeline">
+    <div *ngFor="let timelineEvent of getOrderedTimelineEvents()" class="timeline-event">
+      <div class="event-created">
+        <h6>{{timelineEvent.creationDate | date:'dd-MM-yyyy'}}</h6>
+        <p class="event-created-secondary">{{timelineEvent.creationDate | dateAgo}}</p>
+      </div>
+      <div class="event-content">
+        <p> {{'state.'+timelineEvent.event | translate}} </p>
+        <ul>
+          <li *ngFor="let comment of timelineEvent.comments">{{comment}}</li>
+        </ul>
+      </div>
     </div>
-    <div class="event-content">
-      <p> {{'state.'+timelineEvent.event | translate}} </p>
-      <ul>
-        <li *ngFor="let comment of timelineEvent.comments">{{comment}}</li>
-      </ul>
-    </div>
-  </div>
+</div>
+

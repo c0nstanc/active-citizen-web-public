@@ -1,13 +1,11 @@
 @import "mixins";
 @import "variables";
 
-.row {
-  margin-right: -7px;
-  margin-left: -7px;
-}
-
 .card {
   margin-top: 1rem;
+  @include media-breakpoint-up(lg) {
+    margin-right: 1rem;
+  }
   .card-header {
     padding: 0.5rem 0.5rem;
 
@@ -44,7 +42,7 @@
 
 .incident-location-map-container {
   width: 100%;
-  height: 50vh;
+  height: 55vh;
   app-incident-map {
     border-radius: 6px;
   }

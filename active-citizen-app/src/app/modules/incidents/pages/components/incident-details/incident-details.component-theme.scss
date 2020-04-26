@@ -14,7 +14,7 @@
       }
     }
     .card-section-header {
-      color: mat-color(mat-theme-primary-color($selected-theme), 700);
+      color: mat-color(mat-theme-primary-color($selected-theme), default);
     }
   }
 }

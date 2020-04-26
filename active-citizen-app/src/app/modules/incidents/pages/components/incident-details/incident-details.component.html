@@ -1,40 +1,18 @@
 <div class="incident-details-container">
 
+  <div class="title" style="padding-top: 2rem;">
+    <h3>Incident Title here</h3>
+  </div>
+
   <div class="row">
-    <!--------- INCIDENT LOCATION MAP CARD START ------------->
-    <div class="col-12 col-lg-5 order-2 order-md-1 order-lg-2">
-      <div class="card">
-        <!-- <div class="card-header">
-        </div> -->
-        <div class="card-section">
-          <div class="card-section-header">
-            <h5> {{incident.locationDetails.address}}</h5>
-          </div>
-          <div class="card-section-content">
-            <div class="incident-location-map-container">
-              <app-incident-map #incidentMap></app-incident-map>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <!--------- INCIDENT LOCATION MAP CARD END ------------->
-
-
-    <!--------- INCIDENT DETAILS CARD START ------------->
-    <div class="col-12 col-lg-7  order-1 order-md-2 order-lg-1">
-      <div class="card">
-        <div class="card-header">
-          <h4>{{incident.category}}</h4>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
+    <div class="col-12 col-lg-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
             <div class="card-section incident-progress-section">
-              <!-- <div class="card-section-header">
+              <div class="card-section-header">
                 <h5>Progress</h5>
-              </div> -->
+              </div>
               <div class="card-section-content">
                 <app-progress-indigator #progressIndigator [progressItems]='progressItems'
                   [currentState]='incident.status' class="incident-progress"></app-progress-indigator>
@@ -42,19 +20,20 @@
             </div>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <div class="card-section incident-details-section">
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-section">
               <div class="card-section-header">
-                <h4>Details</h4>
+                <h5>Details</h5>
               </div>
               <div class="card-section-content">
                 <p>
                   <strong>Category:</strong> {{incident.category}}<br>
                   <strong>Subcategory:</strong> {{incident.subcategory}}<br>
+                  <strong>Address:</strong> {{incident.locationDetails.address}}<br>
                   <strong>Involved Departments:</strong> {{incident.subcategory}} <br>
-                  <!-- <strong>Id:</strong> {{incident.id }} <br> -->
                   <strong>Created:</strong> {{incident.created | date:'short'}} <br>
                   <strong>Hits:</strong> {{incident.hits}}<br>
                   <strong>Votes:</strong> {{incident.votes}}<br>
@@ -62,34 +41,46 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-6">
-            <div class="card-section incident-description-section">
-              <div class="card-section-header">
-                <h4>Description</h4>
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-section">
+                  <div class="card-section-header">
+                    <h5>Description</h5>
+                  </div>
+                  <div class="card-section-content">
+                    <p>{{incident.description}}</p>
+                  </div>
+                </div>
               </div>
-              <div class="card-section-content">
-                <p>{{incident.description}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-section">
+                  <div class="card-section-header">
+                    <h5>Images</h5>
+                  </div>
+                  <div class="card-section-content">
+                    <app-carousel imageHeight="250px" class='carousel' [imageSlides]='imageSlides'></app-carousel>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-12 col-md-6" *ngIf="incident.imageUrls.length > 0">
-            <div class="card-section incident-images-section">
-              <div class="card-section-header">
-                <h4>Images</h4>
-              </div>
-              <div class="card-section-content">
-                <app-carousel class='carousel' [imageSlides]='imageSlides'></app-carousel>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
 
-          <div class="col-12 col-md-6">
-            <div class="card-section incident-timeline-section">
+    <div class="col-12 col-lg-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-section">
               <div class="card-section-header">
-                <h4>Timeline</h4>
+                <h5>Timeline</h5>
               </div>
               <div class="card-section-content">
                 <app-timeline [timelineEvents]="incident.timelineEvents"></app-timeline>
@@ -99,5 +90,25 @@
         </div>
       </div>
     </div>
-    <!--------- INCIDENT DETAILS CARD END ------------->
+
+    <div class="col-12 col-lg-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-section">
+              <div class="card-section-header">
+                <h5> Location on map</h5>
+              </div>
+              <div class="card-section-content">
+                <div class="incident-location-map-container">
+                  <app-incident-map #incidentMap></app-incident-map>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+</div>
