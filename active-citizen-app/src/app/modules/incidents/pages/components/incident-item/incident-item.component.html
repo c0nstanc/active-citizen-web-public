@@ -30,7 +30,7 @@
             <mat-icon> room </mat-icon> {{ incident?.locationDetails?.address }}
           </p>
         </div>
-        <div class="col-12 col-sm-6 col-sm-offset-1">
+        <div class="col-12 col-sm-6 col-sm-offset-1 incident-item-description">
           <p>
             <mat-icon> event_note </mat-icon> {{ incident.description}}
           </p>
@@ -43,10 +43,11 @@
       <div class="status" [ngClass]="incident.status">
         {{ incident.status }}
       </div>
-      <div class="created">
-        Created on: {{ incident.created | date:'dd/MM/yyyy HH:mm' }}
-      </div>
-      <div class="votes-and-comments">
+
+      <div class="created-votes-and-comments">
+        <span class="created">
+          <mat-icon>history</mat-icon>{{incident.created | dateAgo }}
+        </span>
         <span class="votes">
           <mat-icon>thumb_up</mat-icon>{{incident.votes}}
         </span>

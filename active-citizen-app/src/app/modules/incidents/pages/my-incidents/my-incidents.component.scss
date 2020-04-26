@@ -45,7 +45,6 @@
 
 .inciditents-list-area {
   grid-area: incidents-list-area;
-  max-height: $app-content-min-height-sm;
 
   .incident-list {
     grid-area: incidents-list;
@@ -57,8 +56,9 @@
     }
   }
   @include media-breakpoint-up(md) {
-    overflow-x: auto;
-    max-height: $app-content-min-height-md;
+   max-height: calc($app-content-min-height-md - 40%);
+   overflow-x: hidden;
+   overflow-y: auto;
   }
 
   @include media-breakpoint-up(lg) {
@@ -66,9 +66,7 @@
     grid-template-areas:
       "page-title"
       "incidents-list";
-
     max-height: $app-content-min-height-lg;
-    overflow-x: auto;
     padding-right: 0.5rem;
   }
 

@@ -1,8 +1,6 @@
 @import "variables";
 @import "mixins";
 
-// TODO - Implement IPAD and Mobile responsiveness - currently works only on desktop.
-
 .incident-item {
   display: flex;
   justify-content: center;
@@ -19,14 +17,12 @@
   display: grid;
 
   grid-template-areas:
-    "title"
-    "details"
-    "image"
-    "description"
-    "footer";
+    "title title"
+    "image details"
+    "footer footer";
 
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 2fr fit-content() fit-content();
+  grid-template-columns: 100px auto;
+  grid-template-rows: 1fr 2fr fit-content();
   @include media-breakpoint-up(md) {
     grid-template-areas:
       "image title"
@@ -70,14 +66,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 150px;
-    min-width: 150px;
+    max-width: 100px;
+    width: 100px;
+    @include media-breakpoint-up(sm) {
+      max-width: 150px;
+      min-width: 150px;
+    }
 
     img {
       width: auto;
-      max-width: 150px;
-      max-height: 100px;
-      height: 100px;
+      max-width: 100px;
+      max-height: 90px;
+      height: 90px;
+      @include media-breakpoint-up(sm) {
+        max-width: 150px;
+        max-height: 100px;
+        height: 100px;
+      }
     }
 
     fa-icon.ng-fa-icon {
@@ -90,6 +95,13 @@
   .incident-item-details-area {
     grid-area: details;
     padding: 0 0.5rem;
+
+    .incident-item-description {
+      display: none;
+      @include media-breakpoint-up(sm) {
+        display: block;
+      }
+    }
   }
 }
 
@@ -98,7 +110,7 @@
   padding: 0.5rem;
 
   display: grid;
-  grid-template-areas: "created other status";
+  grid-template-areas: "icons icons status";
   grid-template-columns: 4fr 1fr 1fr;
   @include media-breakpoint-up(md) {
     grid-template-columns: 2fr 4fr 1fr;
@@ -113,14 +125,12 @@
     }
   }
 
-  .created {
-    grid-area: created;
+  .created-votes-and-comments {
+    grid-area: icons;
     font-size: 0.875rem;
-  }
-  .votes-and-comments  {
-    grid-area: other;
-    font-size: 0.875rem;
-
+    .created {
+      margin-right: 1rem;
+    }
     .votes {
       margin-right: 1rem;
     }
