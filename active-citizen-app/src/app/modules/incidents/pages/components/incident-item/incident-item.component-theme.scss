@@ -1,4 +1,4 @@
-@mixin my-incident-container-component-theme($selected-theme) {
+@mixin incident-item-component-theme($selected-theme) {
   .incident-item-details-area {
     border-bottom: 1px solid
       mat-theme-foreground-color($selected-theme, divider);
@@ -34,18 +34,8 @@
       background-color: mat-theme-background-color($selected-theme, app-bar);
     }
     &:hover {
-      @if mat-theme-is-dark($selected-theme) {
-        // color: mat-theme-background-color($selected-theme, background);
-        background-color: rgba(
-          mat-color(mat-theme-accent-color($selected-theme), default),
-          0.1
-        );
-      } @else {
-        background-color: rgba(
-          mat-color(mat-theme-accent-color($selected-theme), default),
-          0.2
-        );
-      }
+      transform: translateY(-3px);
+      box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
     }
     &:active {
       @if mat-theme-is-dark($selected-theme) {

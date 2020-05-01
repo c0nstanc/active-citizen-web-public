@@ -2,7 +2,7 @@
 @import "mat-styles-reset.scss-theme";
 
 // import custom component themes here
-@import "app/modules/incidents/pages/components/incident-item/incident-container.component-theme";
+@import "app/modules/incidents/pages/components/incident-item/incident-item.component-theme";
 @import "app/modules/incidents/pages/new-incident/new-incident.component-theme";
 @import "app/modules/incidents/pages/new-incident/new-incident.component-theme";
 @import "app/modules/incident-wizard/component/new-incident-wizard-stepper/new-incident-wizard-stepper.component-theme.scss";
@@ -26,7 +26,7 @@
   @include footer-component-theme($selected-theme);
   @include simple-modal-component-theme($selected-theme);
 
-  @include my-incident-container-component-theme($selected-theme);
+  @include incident-item-component-theme($selected-theme);
   @include new-incident-wizard-stepper-component-theme($selected-theme);
   @include summary-incident-component-theme($selected-theme);
   @include language-selection-component-theme($selected-theme);
