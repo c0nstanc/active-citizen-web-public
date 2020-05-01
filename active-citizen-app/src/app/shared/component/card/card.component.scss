@@ -1,0 +1,33 @@
+@import "mixins";
+@import "variables";
+
+.card {
+  margin-top: 1rem;
+  @include media-breakpoint-up(lg) {
+    margin-right: 1rem;
+  }
+  .card-header {
+    padding: 0.5rem 0.5rem;
+
+    @include media-breakpoint-up(md) {
+      padding: 0.75rem 1.25rem;
+    }
+  }
+  .card-section {
+    padding: 0.5rem 0.5rem;
+    @include media-breakpoint-up(md) {
+      padding: 0.75rem 1.25rem;
+    }
+    border-bottom: 1px solid #e5e6e6;
+    @include media-breakpoint-up(md) {
+      border-bottom: none;
+    }
+  }
+
+  .card-section-header {
+    padding-bottom: 0.75rem;
+    @include media-breakpoint-up(md) {
+      padding-bottom: 1rem;
+    }
+  }
+}

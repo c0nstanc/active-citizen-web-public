@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-section">
+        <div *ngIf="header" class="card-section-header">
+          <h5>{{header}}</h5>
+        </div>
+        <div class="card-section-content">
+          <ng-content></ng-content>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

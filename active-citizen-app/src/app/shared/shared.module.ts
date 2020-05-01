@@ -98,6 +98,7 @@ import { TimelineComponent } from './component/timeline/timeline.component';
 import { DateAgoPipe } from './pipe/date-ago.pipe';
 import { CarouselComponent } from './component/carousel/carousel.component';
 import { ProgressIndigatorComponent } from './component/progress-indigator/progress-indigator.component';
+import { CardComponent } from './component/card/card.component';
 
 @NgModule({
   imports: [
@@ -137,7 +138,8 @@ import { ProgressIndigatorComponent } from './component/progress-indigator/progr
     DateAgoPipe,
     TimelineComponent,
     CarouselComponent,
-    ProgressIndigatorComponent
+    ProgressIndigatorComponent,
+    CardComponent
     ],
   exports: [
     CommonModule,
@@ -164,7 +166,8 @@ import { ProgressIndigatorComponent } from './component/progress-indigator/progr
     TimelineComponent,
     DateAgoPipe,
     CarouselComponent,
-    ProgressIndigatorComponent
+    ProgressIndigatorComponent,
+    CardComponent
   ]
 })
 export class SharedModule {
