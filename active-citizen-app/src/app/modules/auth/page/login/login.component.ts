@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.subs.sink = this.authService.login(credentials)
       .pipe(
         delay(1000),
-        tap(user => this.router.navigate(['/incidents/my-incidents'])),
+        tap(user => this.router.navigate(['/incidents/'])),
         finalize(() => this.isLoading = false),
         catchError(error => of(this.error = error))
       ).subscribe();

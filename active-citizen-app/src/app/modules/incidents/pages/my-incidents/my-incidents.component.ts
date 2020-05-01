@@ -31,7 +31,7 @@ export class MyIncidentsComponent implements OnInit {
   }
 
   createIncident(): void {
-    this.router.navigate(['incidents/new-incident']);
+    this.router.navigate(['incidents/new']);
   }
 
   onIncidentClicked(incident: Incident): void {
@@ -47,7 +47,7 @@ export class MyIncidentsComponent implements OnInit {
   }
 
   private navigateToIncident(incident: Incident) {
-    this.router.navigate(['incidents/incident-detail/' + incident.id]);
+    this.router.navigate(['incidents/' + incident.id]);
   }
 
   private loadProjects(): void {

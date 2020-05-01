@@ -23,8 +23,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
   navItems: NavItem[] = [
-    new HeaderNavItem('My Incidents', '/incidents/my-incidents'),
-    new HeaderNavItem('Register Item', '/incidents/my-incidents'),
+    new HeaderNavItem('My Incidents', '/incidents/'),
+    new HeaderNavItem('Register Item', '/incidents/'),
     new HeaderNavItem('Contact', '/contact'),
     new HeaderNavItem('About', '/about')
   ];

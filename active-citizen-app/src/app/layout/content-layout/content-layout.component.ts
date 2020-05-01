@@ -23,11 +23,11 @@ export class ContentLayoutComponent implements OnInit, OnDestroy {
   mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${DESKTOP_WIDTH_BREAKPOINT})`);
 
   navItems: NavItem[] = [
-    new SidenavMenuItem('My Incidents', '/incidents/my-incidents', [
+    new SidenavMenuItem('My Incidents', '/incidents/', [
       new SidenavMenuItem('About', '/about'),
       new SidenavMenuItem('About', '/about'),
       new SidenavMenuItem('About', '/about')]),
-    new SidenavMenuItem('Register Item', '/incidents/my-incidents'),
+    new SidenavMenuItem('Register Item', '/incidents/'),
     new SidenavMenuItem('Contact', '/contact'),
     new SidenavMenuItem('About', '/about')
   ];

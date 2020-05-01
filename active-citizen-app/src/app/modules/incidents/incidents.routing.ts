@@ -8,26 +8,22 @@ import { IncidentResolver } from './incident-resolver.service';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'my-incidents',
-    pathMatch: 'full'
-  },
-  {
-    path: 'my-incidents',
     component: MyIncidentsComponent
   },
   {
-    path: 'new-incident',
+    path: 'new',
     component: NewIncidentComponent,
     loadChildren: () =>
       import('./pages/new-incident/incident-wizard/incident-wizard.module').then(m => m.IncidentWizardModule)
   },
   {
-    path: 'incident-detail/:id',
+    path: ':id',
     component: IncidentDetailsComponent,
     resolve: {
       incident: IncidentResolver
     }
-  }
+  },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
   // {
   //   path: 'incidents/:id',
   //   component: IncidentDetailsComponent,

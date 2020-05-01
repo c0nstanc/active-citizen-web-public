@@ -8,8 +8,28 @@ import { SummaryIncidentComponent } from './component/summary-incident/summary-i
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'step1',
+    path: 'new',
+    redirectTo: 'new/step1',
+    pathMatch: 'full'
+  },
+  {
+    path: 'step1',
+    redirectTo: 'new/step1',
+    pathMatch: 'full'
+  },
+  {
+    path: 'step2',
+    redirectTo: 'new/step2',
+    pathMatch: 'full'
+  },
+  {
+    path: 'step3',
+    redirectTo: 'new/step3',
+    pathMatch: 'full'
+  },
+  {
+    path: 'step4',
+    redirectTo: 'new/step4',
     pathMatch: 'full'
   },
   {

@@ -54,7 +54,7 @@ export class SummaryIncidentComponent implements OnInit, SubmittableWizardStep, 
 
   onSubmit(): void {
     this.newIncidentWizardService.submitIncident();
-    this.router.navigate(['incidents/my-incidents']);
+    this.router.navigate(['incidents/']);
   }
 
   onSave(): void {
