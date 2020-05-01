@@ -9,6 +9,7 @@
 @import "app/layout/footer/footer.component-theme";
 @import "app/shared/component/sidenav-menu-item/sidenav-menu-item.component-theme";
 @import "app/shared/component/wizard/wizard.component-theme";
+@import "app/shared/component/card/card.component-theme";
 @import "app/shared/component/simple-modal/simple-modal.component-theme";
 @import "app/shared/component/language-selection/language-selection.component-theme.scss";
 @import "app/shared/component/carousel/carousel.component-theme.scss";
@@ -16,7 +17,6 @@
 
 @import "app/modules/incident-wizard/component/summary-incident/summary-incident-component-theme.scss";
 @import "app/modules/incidents/pages/my-incidents/my-incidents.component-theme.scss";
-@import "app/modules/incidents/pages/components/incident-details/incident-details.component-theme.scss";
 @import "app/layout/content-layout/content-layout.component-theme.scss";
 
 @mixin custom-components-theme($selected-theme) {
@@ -25,6 +25,8 @@
   @include sidenav-menu-item-theme($selected-theme);
   @include footer-component-theme($selected-theme);
   @include simple-modal-component-theme($selected-theme);
+  @include card-component-theme($selected-theme);
+
 
   @include incident-item-component-theme($selected-theme);
   @include new-incident-wizard-stepper-component-theme($selected-theme);
@@ -33,7 +35,6 @@
   @include carousel-component-theme($selected-theme);
 
   @include my-incidents-component-theme($selected-theme);
-  @include incident-details-component-theme($selected-theme);
   // @include my-incident-component-theme($selected-theme);
   // @include wizard-theme($selected-theme);
   @include angular-material-typography($active-citizens-typography);
