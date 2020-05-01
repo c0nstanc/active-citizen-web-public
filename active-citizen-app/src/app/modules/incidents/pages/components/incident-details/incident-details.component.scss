@@ -1,6 +1,11 @@
 @import "mixins";
 @import "variables";
 
+.row.container-row {
+  margin: 0 -1rem;
+  padding-bottom: 1rem;
+}
+
 .card {
   margin-top: 1rem;
   @include media-breakpoint-up(lg) {

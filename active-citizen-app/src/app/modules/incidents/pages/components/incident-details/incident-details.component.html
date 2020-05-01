@@ -4,23 +4,8 @@
     <h3>Incident Title here</h3>
   </div>
 
-  <div class="row">
+  <div class="row container-row">
     <div class="col-12 col-lg-4">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-section incident-progress-section">
-              <div class="card-section-header">
-                <h5>Progress</h5>
-              </div>
-              <div class="card-section-content">
-                <app-progress-indigator #progressIndigator [progressItems]='progressItems'
-                  [currentState]='incident.status' class="incident-progress"></app-progress-indigator>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="row">
         <div class="col-12">
           <div class="card">
@@ -75,6 +60,21 @@
     </div>
 
     <div class="col-12 col-lg-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-section incident-progress-section">
+              <div class="card-section-header">
+                <h5>Progress</h5>
+              </div>
+              <div class="card-section-content">
+                <app-progress-indigator #progressIndigator [progressItems]='progressItems'
+                  [currentState]='incident.status' class="incident-progress"></app-progress-indigator>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-12">
           <div class="card">
