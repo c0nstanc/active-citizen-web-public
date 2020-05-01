@@ -7,7 +7,7 @@ import env from './.env';
 
 export const environment = {
   production: false,
-  company: 'ActiveCitizens',
+  company: 'ActiveCitizen',
   version: env.npm_package_version + '-dev',
   serverUrl: '/api',
   envName: 'DEV',

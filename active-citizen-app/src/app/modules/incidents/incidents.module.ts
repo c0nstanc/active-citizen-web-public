@@ -6,8 +6,8 @@ import { IncidentsRoutingModule } from './incidents.routing';
 import { IncidentItemComponent } from './pages/components/incident-item/incident-item.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NewIncidentComponent } from './pages/new-incident/new-incident.component';
-import { IncidentWizardModule } from '../incident-wizard/incident-wizard.module';
-import { IncidentDetailsComponent } from './pages/components/incident-details/incident-details.component';
+import { IncidentWizardModule } from './pages/new-incident/incident-wizard/incident-wizard.module';
+import { IncidentDetailsComponent } from './pages/incident-details/incident-details.component';
 
 @NgModule({
   declarations: [

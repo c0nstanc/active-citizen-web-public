@@ -1,16 +1,18 @@
 <mat-menu #appMenu="matMenu" yPosition="below">
 
-  <button mat-menu-item class="mat-menu-item">Your profile page</button>
+  <div class="mat-menu-item username">User</div>
   <mat-divider></mat-divider>
-  <button mat-menu-item class="mat-menu-item">My Content</button>
-  <button mat-menu-item class="mat-menu-item">Points of Interest</button>
+  <button mat-menu-item class="mat-menu-item">Profile and Visibility</button>
+  <button mat-menu-item class="mat-menu-item">Activity</button>
+  <button mat-menu-item class="mat-menu-item">Settings</button>
+  <mat-divider></mat-divider>
   <button mat-menu-item class="mat-menu-item">Report an Issue</button>
+  <button mat-menu-item class="mat-menu-item">Change Language...</button>
+  <button mat-menu-item class="mat-menu-item">Help</button>
   <mat-divider></mat-divider>
-  <button mat-menu-item class="mat-menu-item">Preferences</button>
-  <button mat-menu-item class="mat-menu-item">Logout</button>
+  <button mat-menu-item class="mat-menu-item">Log Out</button>
 </mat-menu>
 
 <button mat-icon-button [matMenuTriggerFor]="appMenu">
   <mat-icon>person</mat-icon>
-  <!-- <mat-icon>arrow_drop_down</mat-icon> -->
 </button>

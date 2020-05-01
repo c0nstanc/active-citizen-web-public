@@ -47,7 +47,7 @@ export class MyIncidentsComponent implements OnInit {
   }
 
   private navigateToIncident(incident: Incident) {
-    this.router.navigate(['incidents/' + incident.id]);
+    this.router.navigate(['incidents/incident-detail/' + incident.id]);
   }
 
   private loadProjects(): void {

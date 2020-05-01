@@ -1,7 +1,21 @@
+@import "variables";
+
 ::ng-deep .mat-menu-content {
   min-width: 220px;
 }
 
 .mat-menu-item {
   padding-left: 1.5rem;
+  font-size: 1rem;
+  line-height: $body-line-height;
+  height: 2.5rem;
+  font-weight: 400;
+}
+
+.username {
+  cursor: text;
+
+  &:hover {
+    background: inherit;
+  }
 }
