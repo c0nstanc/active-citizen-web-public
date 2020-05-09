@@ -1,7 +1,7 @@
 import { Injectable, } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { IncidentService } from '../../data/service/incident.service';
 import { Incident } from 'src/app/data/schema/incident.model';
 
@@ -22,6 +22,13 @@ export class IncidentResolver implements Resolve<Incident> {
   ): Observable<any> {
 
     return this.incidentService.getSingle(route.params[ID])
-      .pipe(catchError((err) => this.router.navigateByUrl('/')));
+      .pipe(map((incident: Incident) => this.redirectIfNotExist(incident)), catchError((err) => this.router.navigateByUrl('/')));
+  }
+
+  private redirectIfNotExist(incident: Incident): Incident | void {
+    if (!incident) {
+      this.router.navigateByUrl('/');
+    }
+    return incident;
   }
 }

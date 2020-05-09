@@ -6,7 +6,7 @@ import { MatHorizontalStepper } from '@angular/material/stepper';
 import { CdkStep } from '@angular/cdk/stepper';
 
 @Component({
-  selector: 'app-new-incident-wizard-stepper',
+  selector: 'ac-new-incident-wizard-stepper',
   templateUrl: './new-incident-wizard-stepper.component.html',
   styleUrls: ['./new-incident-wizard-stepper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

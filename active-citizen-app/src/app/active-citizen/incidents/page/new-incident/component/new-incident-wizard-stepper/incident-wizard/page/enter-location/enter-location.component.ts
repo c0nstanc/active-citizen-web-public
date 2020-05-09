@@ -13,7 +13,7 @@ interface IncidentLocation {
   locationAddress: string;
 }
 @Component({
-  selector: 'app-enter-location',
+  selector: 'ac-enter-location',
   templateUrl: './enter-location.component.html',
   styleUrls: ['./enter-location.component.scss']
 })

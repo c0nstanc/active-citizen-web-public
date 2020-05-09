@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-new-incident-item',
+  selector: 'ac-new-incident-item',
   templateUrl: './new-incident.component.html',
   styleUrls: ['./new-incident.component.scss']
 })

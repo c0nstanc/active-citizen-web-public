@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-user-activity',
+  selector: 'ac-user-activity',
   templateUrl: './user-activity.component.html',
   styleUrls: ['./user-activity.component.scss']
 })

@@ -7,7 +7,7 @@ import { ImageSlide } from 'src/app/shared/component/carousel/model/image-slide.
 import { ProgressItem } from 'src/app/shared/component/progress-indigator/model/progress-item.model';
 
 @Component({
-  selector: 'app-incident-details',
+  selector: 'ac-incident-details',
   templateUrl: './incident-details.component.html',
   styleUrls: ['./incident-details.component.scss']
 })

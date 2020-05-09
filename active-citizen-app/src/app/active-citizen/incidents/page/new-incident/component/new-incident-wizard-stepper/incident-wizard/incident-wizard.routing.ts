@@ -8,31 +8,6 @@ import { SummaryIncidentComponent } from './page/summary-incident/summary-incide
 
 const routes: Routes = [
   {
-    path: 'new',
-    redirectTo: 'new/step1',
-    pathMatch: 'full'
-  },
-  {
-    path: 'step1',
-    redirectTo: 'new/step1',
-    pathMatch: 'full'
-  },
-  {
-    path: 'step2',
-    redirectTo: 'new/step2',
-    pathMatch: 'full'
-  },
-  {
-    path: 'step3',
-    redirectTo: 'new/step3',
-    pathMatch: 'full'
-  },
-  {
-    path: 'step4',
-    redirectTo: 'new/step4',
-    pathMatch: 'full'
-  },
-  {
     path: 'step1',
     component: EnterLocationComponent,
 
@@ -48,8 +23,11 @@ const routes: Routes = [
   {
     path: 'step4',
     component: SummaryIncidentComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'step1'
   }
-
 
 ];
 

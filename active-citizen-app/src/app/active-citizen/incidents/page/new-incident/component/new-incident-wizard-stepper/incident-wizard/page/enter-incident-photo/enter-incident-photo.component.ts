@@ -12,7 +12,7 @@ interface IncidentPhotos {
 }
 
 @Component({
-  selector: 'app-enter-incident-photo',
+  selector: 'ac-enter-incident-photo',
   templateUrl: './enter-incident-photo.component.html',
   styleUrls: ['./enter-incident-photo.component.scss']
 })

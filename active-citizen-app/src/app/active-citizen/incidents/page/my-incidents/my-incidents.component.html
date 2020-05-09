@@ -8,8 +8,8 @@
       <!-- <app-page-title class="page-title">My Incidents</app-page-title> -->
       <div class="incident-list">
         <div *ngFor="let incident of incidents">
-          <app-incident-item class="app-incident-item" [incident]="incident" (click)="onIncidentClicked(incident)"
-            (hoverEnter)="onIncidentMouseEnter($event)" (hoverLeave)="onIncidentMouseLeave($event)"></app-incident-item>
+          <ac-incident-item class="app-incident-item" [incident]="incident" (click)="onIncidentClicked(incident)"
+            (hoverEnter)="onIncidentMouseEnter($event)" (hoverLeave)="onIncidentMouseLeave($event)"></ac-incident-item>
         </div>
       </div>
     </div>

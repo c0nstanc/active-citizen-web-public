@@ -25,14 +25,7 @@ export const routes: Routes = [
       incident: IncidentResolver
     }
   },
-  // { path: '**', redirectTo: '', pathMatch: 'full' }
-  // {
-  //   path: 'incidents/:id',
-  //   component: IncidentDetailsComponent,
-  //   resolve: {
-  //     incident: IncidentResolver
-  //   }
-  // }
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -20,7 +20,7 @@ interface IncidentDetails {
 }
 
 @Component({
-  selector: 'app-enter-incident-details',
+  selector: 'ac-enter-incident-details',
   templateUrl: './enter-incident-details.component.html',
   styleUrls: ['./enter-incident-details.component.scss']
 })

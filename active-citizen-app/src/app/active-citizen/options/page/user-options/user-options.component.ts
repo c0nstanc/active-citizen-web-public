@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavLink } from '../../../../core/common/model/nav-link.model';
 
 @Component({
-  selector: 'app-user-options',
+  selector: 'ac-user-options',
   templateUrl: './user-options.component.html',
   styleUrls: ['./user-options.component.scss']
 })

@@ -6,7 +6,7 @@ import { IncidentMarker } from 'src/app/shared/component/map/incidents-map/model
 import { IncidentsMapComponent } from 'src/app/shared/component/map/incidents-map/incidents-map.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'ac-my-incidents',
   templateUrl: './my-incidents.component.html',
   styleUrls: ['./my-incidents.component.scss']
 })

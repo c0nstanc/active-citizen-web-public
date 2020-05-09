@@ -6,7 +6,7 @@ import { faImages } from '@fortawesome/free-solid-svg-icons';
 import { Incident } from 'src/app/data/schema/incident.model';
 
 @Component({
-  selector: 'app-incident-item',
+  selector: 'ac-incident-item',
   templateUrl: './incident-item.component.html',
   styleUrls: ['./incident-item.component.scss']
 })

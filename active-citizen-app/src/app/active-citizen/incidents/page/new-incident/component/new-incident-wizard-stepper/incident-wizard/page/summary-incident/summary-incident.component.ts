@@ -10,7 +10,7 @@ import { IncidentMapComponent } from 'src/app/shared/component/map/incident-map/
 import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
 
 @Component({
-  selector: 'app-summary-incident',
+  selector: 'ac-summary-incident',
   templateUrl: './summary-incident.component.html',
   styleUrls: ['./summary-incident.component.scss'],
 })
