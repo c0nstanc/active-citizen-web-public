@@ -1,0 +1,28 @@
+import { NgModule } from '@angular/core';
+
+import { MyIncidentsComponent } from './pages/my-incidents/my-incidents.component';
+import { IncidentsRoute } from './incidents.routing';
+
+import { IncidentItemComponent } from './pages/components/incident-item/incident-item.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { NewIncidentComponent } from './pages/new-incident/new-incident.component';
+import { IncidentWizardModule } from './pages/new-incident/incident-wizard/incident-wizard.module';
+import { IncidentDetailsComponent } from './pages/incident-details/incident-details.component';
+
+@NgModule({
+  declarations: [
+    IncidentDetailsComponent,
+    MyIncidentsComponent,
+    IncidentItemComponent,
+    NewIncidentComponent
+  ],
+  imports: [
+    SharedModule,
+    IncidentWizardModule,
+    IncidentsRoute
+  ],
+  exports: [],
+  providers: [],
+  entryComponents: []
+})
+export class IncidentsModule { }

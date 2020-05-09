@@ -8,6 +8,8 @@ import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { throwIfAlreadyLoaded } from './guard/module-import.guard';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 // AoT requires an exported function for factories
@@ -17,6 +19,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   imports: [
+    // angular
+    BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     NgxSpinnerModule,
     TranslateModule.forRoot({
