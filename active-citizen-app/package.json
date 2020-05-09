@@ -40,6 +40,7 @@
     "immutable": "^4.0.0-rc.12",
     "jquery": "^3.5.1",
     "material-design-icons": "^3.0.1",
+    "ngx-logger": "^4.1.9",
     "ngx-spinner": "^9.0.2",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.5",

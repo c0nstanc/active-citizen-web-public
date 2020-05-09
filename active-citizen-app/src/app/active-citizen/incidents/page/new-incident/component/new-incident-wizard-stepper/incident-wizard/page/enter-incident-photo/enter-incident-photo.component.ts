@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ClonerService } from 'src/app/core/services/cloner.service';
 import { SubSink } from 'subsink';
 import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
+import { LoggingService } from 'src/app/core/services/logging.service';
 
 
 
@@ -24,7 +25,8 @@ export class EnterIncidentPhotoComponent implements OnInit, SubmittableWizardSte
   constructor(
     private formBuilder: FormBuilder,
     private clonerService: ClonerService,
-    private newIncidentWizardService: NewIncidentWizardService) { }
+    private newIncidentWizardService: NewIncidentWizardService,
+    private loggingService: LoggingService) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -35,9 +37,9 @@ export class EnterIncidentPhotoComponent implements OnInit, SubmittableWizardSte
   }
 
   public onSubmit(): void {
-    console.log('Submitting Photo ...');
+    this.loggingService.log('Submitting Photo ...');
     this.saveData();
-    console.log(this.newIncidentForm.value);
+    this.loggingService.log(this.newIncidentForm.value);
   }
 
   onSave(): void {

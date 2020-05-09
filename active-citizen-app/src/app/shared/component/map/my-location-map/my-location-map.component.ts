@@ -40,7 +40,6 @@ export class MyLocationMapComponent implements AfterViewInit {
 
   getMyLocation() {
     navigator.geolocation.getCurrentPosition(position => {
-      console.log('My Position accuracy: ' + position.coords.accuracy);
       const myPosition = new google.maps.LatLng(
         position.coords.latitude,
         position.coords.longitude);

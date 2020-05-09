@@ -10,6 +10,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModuleTranslateLoader, IModuleTranslationOptions } from '@larscom/ngx-translate-module-loader';
+import { LoggerModule } from 'ngx-logger';
+import { environment } from 'src/environments/environment';
 
 
 // AoT requires an exported function for factories
@@ -34,8 +36,14 @@ export function ModuleHttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     HttpClientModule,
     NgxSpinnerModule,
+    LoggerModule.forRoot({
+      serverLoggingUrl: environment.serverLoggingUrl,
+      serverLogLevel: environment.serverLogLevel,
+      level: environment.logLevel,
+      disableConsoleLogging: environment.disableConsoleLogging
+    }),
     TranslateModule.forRoot({
-      defaultLanguage: 'el',
+      defaultLanguage: environment.defaultLanguage,
       loader: {
         provide: TranslateLoader,
         useFactory: ModuleHttpLoaderFactory,

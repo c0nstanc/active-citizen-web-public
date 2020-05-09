@@ -74,7 +74,6 @@ export class TakePictureComponent implements OnInit, OnDestroy {
   }
 
   public cameraWasSwitched(deviceId: string): void {
-    console.log('active device: ' + deviceId);
     this.deviceId = deviceId;
   }
 

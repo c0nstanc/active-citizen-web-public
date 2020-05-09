@@ -7,6 +7,7 @@ import { LocationDetails } from 'src/app/data/schema/location-details.model';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { SubSink } from 'subsink';
 import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
+import { LoggingService } from 'src/app/core/services/logging.service';
 
 interface IncidentLocation {
   latLng: LatLng;
@@ -26,7 +27,8 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep, On
   constructor(
     private formBuilder: FormBuilder,
     private clonerService: ClonerService,
-    private newIncidentWizardService: NewIncidentWizardService
+    private newIncidentWizardService: NewIncidentWizardService,
+    private loggingService: LoggingService
   ) { }
 
   ngOnInit(): void {
@@ -41,9 +43,9 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep, On
   }
 
   public onSubmit(): void {
-    console.log('Submitting Location ...');
+    this.loggingService.log('Submitting Location ...');
     this.saveData();
-    console.log(this.newIncidentForm.value);
+    this.loggingService.log(this.newIncidentForm.value);
   }
 
   onSave(): void {

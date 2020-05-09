@@ -10,6 +10,7 @@ import { startWith, map } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
+import { LoggingService } from 'src/app/core/services/logging.service';
 
 interface IncidentDetails {
   incidentCategory: string;
@@ -39,7 +40,8 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
     private formBuilder: FormBuilder,
     private newIncidentWizardService: NewIncidentWizardService,
     private clonerService: ClonerService,
-    private translateService: TranslateService) {
+    private translateService: TranslateService,
+    private loggingService: LoggingService) {
   }
 
   ngOnInit(): void {
@@ -139,7 +141,7 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
 
   public onSubmit(): void {
     this.saveData();
-    console.log(this.newIncidentForm.value);
+    this.loggingService.log(this.newIncidentForm.value);
   }
 
   onSave(): void {
