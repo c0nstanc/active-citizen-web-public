@@ -4,7 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AuthGuard } from './guard/auth.guard';
 import { NoAuthGuard } from './guard/no-auth.guard';
-import { TokenInterceptor } from './interceptors/token.interceptor';
+import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { throwIfAlreadyLoaded } from './guard/module-import.guard';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -34,7 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NoAuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
+      useClass: HttpErrorInterceptor,
       multi: true
     }
   ]

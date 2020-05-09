@@ -1,0 +1,20 @@
+<div class="options">
+  <div class="user">
+    <div class="default-user-avatar">
+      CC
+    </div>
+    Constantinos Constantinides
+  </div>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+      [active]="rla.isActive">
+      {{link.label}}
+    </a>
+  </nav>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+
+
+</div>

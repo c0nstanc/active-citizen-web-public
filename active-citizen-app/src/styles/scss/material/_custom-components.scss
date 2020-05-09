@@ -10,6 +10,7 @@
 @import "app/shared/component/card/card.component-theme";
 @import "app/shared/component/simple-modal/simple-modal.component-theme";
 @import "app/shared/component/language-selection/language-selection.component-theme.scss";
+@import "app/shared/component/main-menu/main-menu.component-theme.scss";
 @import "app/shared/component/carousel/carousel.component-theme.scss";
 
 @import "app/modules/incidents/pages/components/incident-item/incident-item.component-theme";
@@ -18,6 +19,7 @@
 @import "app/modules/incidents/pages/new-incident/incident-wizard/component/new-incident-wizard-stepper/new-incident-wizard-stepper.component-theme.scss";
 @import "app/modules/incidents/pages/new-incident/incident-wizard/component/summary-incident/summary-incident-component-theme.scss";
 @import "app/modules/incidents/pages/my-incidents/my-incidents.component-theme.scss";
+@import "app/modules/options/pages/user-options/user-options.component-theme.scss";
 
 
 @mixin custom-components-theme($selected-theme) {
@@ -31,11 +33,13 @@
   @include card-component-theme($selected-theme);
   @include language-selection-component-theme($selected-theme);
   @include carousel-component-theme($selected-theme);
+  @include main-menu-component-theme($selected-theme);
 
   @include incident-item-component-theme($selected-theme);
   @include new-incident-wizard-stepper-component-theme($selected-theme);
   @include summary-incident-component-theme($selected-theme);
   @include my-incidents-component-theme($selected-theme);
+  @include user-options-component-theme($selected-theme);
   // @include my-incident-component-theme($selected-theme);
   // @include wizard-theme($selected-theme);
 }

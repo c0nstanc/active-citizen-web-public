@@ -32,6 +32,7 @@
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^4.0.0",
+    "@types/clone": "^0.1.30",
     "@types/googlemaps": "^3.39.4",
     "bootstrap": "^4.4.1",
     "clone": "^2.1.2",

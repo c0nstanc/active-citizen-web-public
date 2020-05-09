@@ -1,0 +1,25 @@
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.personal-info {
+  margin-top: 2rem;
+  .title-section {
+    margin-bottom: 3rem;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-divider {
+  margin-bottom: 2rem;
+}
+
+button {
+  width: 100%;
+  margin-bottom: 5rem;
+  box-shadow: none !important;
+}

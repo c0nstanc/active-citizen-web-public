@@ -1,0 +1,27 @@
+@mixin user-options-component-theme($selected-theme) {
+  .options {
+    background-color: #f4f5f7; // TODO theme
+
+    .user {
+      .default-user-avatar {
+        background-color: #dfe1e6; // TODO theme
+      }
+    }
+
+    a.mat-tab-link {
+      color: rgba(0, 0, 0, 0.87);
+      border-top: 1px solid black;// TODO theme
+      border-left: 1px solid black;// TODO theme
+      border-right: 1px solid black;// TODO theme
+    }
+
+
+    a.mat-tab-link.mat-focus-indicator.mat-tab-label-active {
+      background-color: #f4f5f7; // TODO theme
+    }
+
+    .mat-tab-links {
+      border-bottom: 1px solid black // TODO theme
+    }
+  }
+}

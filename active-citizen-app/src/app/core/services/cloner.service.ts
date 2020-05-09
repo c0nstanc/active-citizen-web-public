@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as clone from 'clone';
-import { List, fromJS, Map as iMap } from 'immutable';
+import { List, fromJS } from 'immutable';
 import { AbstractControl, FormGroup, FormArray, FormControl } from '@angular/forms';
 
 
