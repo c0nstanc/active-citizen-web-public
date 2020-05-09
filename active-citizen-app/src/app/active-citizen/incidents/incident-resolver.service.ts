@@ -22,7 +22,7 @@ export class IncidentResolver implements Resolve<Incident> {
   ): Observable<any> {
 
     return this.incidentService.getSingle(route.params[ID])
-      .pipe(map((incident: Incident) => this.redirectIfNotExist(incident)), catchError((err) => this.router.navigateByUrl('/')));
+      .pipe(map((incident: Incident) => this.redirectIfNotExist(incident)));
   }
 
   private redirectIfNotExist(incident: Incident): Incident | void {
