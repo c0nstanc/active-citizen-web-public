@@ -2,12 +2,12 @@ import { Component, OnInit, OnDestroy, ChangeDetectorRef, ViewChild } from '@ang
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ClonerService } from 'src/app/core/services/cloner.service';
-import { NewIncidentWizardService } from '../new-incident-wizard-stepper/service/new-incident-wizard.service';
 import { Router } from '@angular/router';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { SubSink } from 'subsink';
 import { ImageSlide } from 'src/app/shared/component/carousel/model/image-slide.model';
 import { IncidentMapComponent } from 'src/app/shared/component/map/incident-map/incident-map.component';
+import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
 
 @Component({
   selector: 'app-summary-incident',

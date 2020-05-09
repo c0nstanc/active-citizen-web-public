@@ -3,10 +3,10 @@ import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClonerService } from 'src/app/core/services/cloner.service';
 import { LatLng } from 'src/app/shared/component/map/my-location-map/model/lat-lng.model';
-import { NewIncidentWizardService } from '../new-incident-wizard-stepper/service/new-incident-wizard.service';
 import { LocationDetails } from 'src/app/data/schema/location-details.model';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { SubSink } from 'subsink';
+import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
 
 interface IncidentLocation {
   latLng: LatLng;

@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 
-import { MyIncidentsComponent } from './pages/my-incidents/my-incidents.component';
+import { MyIncidentsComponent } from './page/my-incidents/my-incidents.component';
 import { IncidentsRoute } from './incidents.routing';
 
-import { IncidentItemComponent } from './pages/components/incident-item/incident-item.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { NewIncidentComponent } from './pages/new-incident/new-incident.component';
-import { IncidentWizardModule } from './pages/new-incident/incident-wizard/incident-wizard.module';
-import { IncidentDetailsComponent } from './pages/incident-details/incident-details.component';
+import { NewIncidentComponent } from './page/new-incident/new-incident.component';
+import { IncidentDetailsComponent } from './page/incident-details/incident-details.component';
+import { IncidentItemComponent } from './page/my-incidents/component/incident-item/incident-item.component';
+import { NewIncidentWizardStepperComponent } from './page/new-incident/component/new-incident-wizard-stepper/new-incident-wizard-stepper.component';
 
 @NgModule({
   declarations: [
     IncidentDetailsComponent,
     MyIncidentsComponent,
     IncidentItemComponent,
-    NewIncidentComponent
+    NewIncidentComponent,
+    NewIncidentWizardStepperComponent
   ],
   imports: [
     SharedModule,
-    IncidentWizardModule,
     IncidentsRoute
   ],
   exports: [],

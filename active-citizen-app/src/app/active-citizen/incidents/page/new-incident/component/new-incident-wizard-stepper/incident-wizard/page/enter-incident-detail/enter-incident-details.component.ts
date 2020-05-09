@@ -2,14 +2,14 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DropDownItem } from 'src/app/shared/model/drop-down-item.model';
 import { Incident } from 'src/app/data/schema/incident.model';
-import { IncidentCategories } from 'src/app/active-citizen/incidents/model/incident-category.enum';
-import { NewIncidentWizardService } from '../new-incident-wizard-stepper/service/new-incident-wizard.service';
+import { IncidentCategories } from 'src/app/active-citizen/shared-active-citizen/model/incident-category.enum';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { ClonerService } from 'src/app/core/services/cloner.service';
 import { Observable, of } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
+import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
 
 interface IncidentDetails {
   incidentCategory: string;

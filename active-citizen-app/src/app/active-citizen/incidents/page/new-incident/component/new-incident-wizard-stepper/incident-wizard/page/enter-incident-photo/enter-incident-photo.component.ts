@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ClonerService } from 'src/app/core/services/cloner.service';
-import { NewIncidentWizardService } from '../new-incident-wizard-stepper/service/new-incident-wizard.service';
 import { SubSink } from 'subsink';
+import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
 
 
 

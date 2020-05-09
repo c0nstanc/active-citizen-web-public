@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { IncidentService } from '../../data/service/incident.service';
 import { Incident } from 'src/app/data/schema/incident.model';
 
+const ID = 'id';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class IncidentResolver implements Resolve<Incident> {
     state: RouterStateSnapshot
   ): Observable<any> {
 
-    return this.incidentService.getSingle(route.params['id'])
-    .pipe(catchError((err) => this.router.navigateByUrl('/')));
+    return this.incidentService.getSingle(route.params[ID])
+      .pipe(catchError((err) => this.router.navigateByUrl('/')));
   }
 }
