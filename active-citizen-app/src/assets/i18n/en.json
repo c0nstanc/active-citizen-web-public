@@ -24,12 +24,5 @@
     "resolved": "Resolved",
     "closed": "Closed",
     "archived": "Archived"
-  },
-  "wizard":{
-    "button":{
-      "proceed":"Proceed",
-      "submit":"Submit"
-    }
   }
-
 }

@@ -7,14 +7,24 @@ import { NoAuthGuard } from './guard/no-auth.guard';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { throwIfAlreadyLoaded } from './guard/module-import.guard';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModuleTranslateLoader, IModuleTranslationOptions } from '@larscom/ngx-translate-module-loader';
 
 
 // AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+export function ModuleHttpLoaderFactory(http: HttpClient) {
+  const baseTranslateUrl = './assets/i18n';
+
+  const options: IModuleTranslationOptions = {
+    modules: [
+      { baseTranslateUrl },
+      { moduleName: 'wizard', baseTranslateUrl },
+
+    ],
+    nameSpaceUppercase: false,
+  };
+  return new ModuleTranslateLoader(http, options);
 }
 
 @NgModule({
@@ -28,7 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       defaultLanguage: 'el',
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: ModuleHttpLoaderFactory,
         deps: [HttpClient]
       }
     })
