@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NoAuthGuard } from '../core/guard/no-auth.guard';
-import { ActiveCitizenLayoutPageComponent } from './active-citizens-layout-page/active-citizens-layout-page.component';
-import { AuthLayoutPageComponent } from './auth-layout-page/auth-layout-page.component';
+import { ActiveCitizenLayoutPageComponent } from './component/active-citizens-layout-page/active-citizens-layout-page.component';
+import { AuthLayoutPageComponent } from './component/auth-layout-page/auth-layout-page.component';
 
 export const routes: Routes = [
   {

@@ -2,8 +2,8 @@
 @import "mat-styles-reset.scss-theme";
 
 // import custom component themes here
-@import "app/layout/active-citizens-layout-page/component/ac-footer/ac-footer.component-theme.scss";
-@import "app/layout/active-citizens-layout-page/component/ac-sidenav/ac-sidenav.component-theme.scss";
+@import "app/layout/component/ac-footer/ac-footer.component-theme.scss";
+@import "app/layout/component/ac-sidenav/ac-sidenav.component-theme.scss";
 
 @import "app/shared/component/sidenav-menu-item/sidenav-menu-item.component-theme";
 @import "app/shared/component/wizard/wizard.component-theme";
