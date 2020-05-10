@@ -6,9 +6,7 @@ import { IncidentService } from 'src/app/data/service/incident.service';
 import { ClonerService } from 'src/app/core/services/cloner.service';
 import { LocationDetails } from 'src/app/data/schema/location-details.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class NewIncidentWizardService {
 
   private newIncident: Incident;

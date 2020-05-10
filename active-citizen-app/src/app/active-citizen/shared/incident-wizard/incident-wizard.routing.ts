@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EnterLocationComponent } from './page/enter-location/enter-location.component';
-import { EnterIncidentDetailsComponent } from './page/enter-incident-detail/enter-incident-details.component';
-import { EnterIncidentPhotoComponent } from './page/enter-incident-photo/enter-incident-photo.component';
-import { SummaryIncidentComponent } from './page/summary-incident/summary-incident.component';
+import { EnterLocationComponent } from './component/enter-location/enter-location.component';
+import { EnterIncidentDetailsComponent } from './component/enter-incident-detail/enter-incident-details.component';
+import { EnterIncidentPhotoComponent } from './component/enter-incident-photo/enter-incident-photo.component';
+import { SummaryIncidentComponent } from './component/summary-incident/summary-incident.component';
 
 
 const routes: Routes = [

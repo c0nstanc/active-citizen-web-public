@@ -1,7 +1,7 @@
 import { Injectable, } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { IncidentService } from '../../data/service/incident.service';
 import { Incident } from 'src/app/data/schema/incident.model';
 

@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DropDownItem } from 'src/app/shared/model/drop-down-item.model';
 import { Incident } from 'src/app/data/schema/incident.model';
-import { IncidentCategories } from 'src/app/active-citizen/shared-active-citizen/model/incident-category.enum';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { ClonerService } from 'src/app/core/services/cloner.service';
 import { Observable, of } from 'rxjs';
@@ -11,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
 import { LoggingService } from 'src/app/core/services/logging.service';
+import { IncidentCategories } from '../../../model/incident-category.enum';
 
 interface IncidentDetails {
   incidentCategory: string;
