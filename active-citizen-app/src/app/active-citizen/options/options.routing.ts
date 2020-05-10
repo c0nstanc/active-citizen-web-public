@@ -1,12 +1,34 @@
 import { Routes, RouterModule } from '@angular/router';
-import { UserOptionsComponent } from './page/user-options/user-options.component';
+import { UserOptionsComponent } from './component/user-options/user-options.component';
+import { UserProfileComponent } from './component/user-profile/user-profile.component';
+import { UserActivityComponent } from './component/user-activity/user-activity.component';
+import { UserSettingsComponent } from './component/user-settings/user-settings.component';
 
 const routes: Routes = [
   {
     path: '',
     component: UserOptionsComponent,
-    loadChildren: () =>
-      import('./page/user-options/option-tabs/option-tabs.module').then(m => m.OptionTabsModule)
+    children: [
+      {
+        path: '',
+        redirectTo: 'profile',
+        pathMatch: 'full'
+      },
+      {
+        path: 'profile',
+        component: UserProfileComponent,
+
+      },
+      {
+        path: 'activity',
+        component: UserActivityComponent
+      },
+      {
+        path: 'settings',
+        component: UserSettingsComponent
+      }
+    ]
+
   },
 
 ];

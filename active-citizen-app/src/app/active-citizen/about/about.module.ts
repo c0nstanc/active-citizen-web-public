@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 
-import { AboutComponent } from './page/about/about.component';
+import { AboutComponent } from './component/about/about.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AboutRoute } from './about-routing.module';
 
