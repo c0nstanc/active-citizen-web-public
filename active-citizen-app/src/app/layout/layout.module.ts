@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { LayoutRoute } from './layout.routing';
@@ -8,6 +8,7 @@ import { AcHeaderComponent } from './active-citizens-layout-page/component/ac-he
 import { AcContentComponent } from './active-citizens-layout-page/component/ac-content/ac-content.component';
 import { AcFooterComponent } from './active-citizens-layout-page/component/ac-footer/ac-footer.component';
 import { AcSidenavComponent } from './active-citizens-layout-page/component/ac-sidenav/ac-sidenav.component';
+import { EnsureModuleLoadedOnceGuard } from '../core/guard/ensure-module-loaded-once.guard';
 
 @NgModule({
   declarations: [
@@ -25,4 +26,8 @@ import { AcSidenavComponent } from './active-citizens-layout-page/component/ac-s
   providers: [],
   entryComponents: []
 })
-export class LayoutModule { }
+export class LayoutModule extends EnsureModuleLoadedOnceGuard {
+  constructor(@Optional() @SkipSelf() parentModule: LayoutModule) {
+    super(parentModule);
+  }
+}

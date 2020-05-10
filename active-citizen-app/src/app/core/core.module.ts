@@ -5,13 +5,13 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { AuthGuard } from './guard/auth.guard';
 import { NoAuthGuard } from './guard/no-auth.guard';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
-import { throwIfAlreadyLoaded } from './guard/module-import.guard';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModuleTranslateLoader, IModuleTranslationOptions } from '@larscom/ngx-translate-module-loader';
 import { LoggerModule } from 'ngx-logger';
 import { environment } from 'src/environments/environment';
+import { EnsureModuleLoadedOnceGuard } from './guard/ensure-module-loaded-once.guard';
 
 
 // AoT requires an exported function for factories
@@ -62,8 +62,8 @@ export function ModuleHttpLoaderFactory(http: HttpClient) {
     }
   ]
 })
-export class CoreModule {
+export class CoreModule extends EnsureModuleLoadedOnceGuard {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
-    throwIfAlreadyLoaded(parentModule, 'CoreModule');
+    super(parentModule);
   }
 }
