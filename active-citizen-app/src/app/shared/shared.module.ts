@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from './material.module';
 
-import { NgbModule, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule, FaConfig } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -88,7 +88,7 @@ import { MyLocationMapComponent } from './component/map/my-location-map/my-locat
 import { CameraComponent } from './component/camera/camera.component';
 import { LanguageSelectionComponent } from './component/language-selection/language-selection.component';
 import { TakePictureComponent } from './component/take-picture/take-picture.component';
-import { MainMenuComponent } from './component/main-menu/main-menu.component';
+import { MenuComponent } from './component/menu/menu.component';
 import { ImageViewerComponent } from './component/image-viewer/image-viewer.component';
 import { FileListComponent } from './component/file-list/file-list.component';
 import { ImageDropComponent } from './component/image-drop/image-drop.component';
@@ -129,7 +129,7 @@ import { CardComponent } from './component/card/card.component';
     CameraComponent,
     LanguageSelectionComponent,
     TakePictureComponent,
-    MainMenuComponent,
+    MenuComponent,
     ImageViewerComponent,
     FileListComponent,
     ImageDropComponent,
@@ -160,7 +160,7 @@ import { CardComponent } from './component/card/card.component';
     WizardNxtBtnComponent,
     MyLocationMapComponent,
     LanguageSelectionComponent,
-    MainMenuComponent,
+    MenuComponent,
     IncidentsMapComponent,
     IncidentMapComponent,
     TimelineComponent,

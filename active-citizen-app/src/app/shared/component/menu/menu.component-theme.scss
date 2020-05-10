@@ -1,4 +1,4 @@
-@mixin main-menu-component-theme($selected-theme) {
+@mixin menu-component-theme($selected-theme) {
   .mat-menu-content {
     // TODO - FIGURE OUT WHY THIS CODE NEVER EXECUTES
     @if mat-theme-is-dark($selected-theme) {

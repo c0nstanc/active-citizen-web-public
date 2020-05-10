@@ -4,6 +4,8 @@ import { HeaderNavItem } from './model/header-nav-item.model';
 import { NavItem } from 'src/app/shared/model/nav/nav-item.model';
 import { ModalService } from 'src/app/shared/component/simple-modal/service/modal.service';
 import { SubSink } from 'subsink';
+import { OptionGroup } from 'src/app/shared/component/menu/model/option-group.model';
+import { NavLink } from 'src/app/core/common/model/nav-link.model';
 
 @Component({
   selector: 'app-ac-header',
@@ -15,6 +17,8 @@ export class AcHeaderComponent implements OnInit, OnDestroy {
 
   @Output()
   hamburgerToggle: EventEmitter<void> = new EventEmitter();
+
+  optionGroups: OptionGroup[] = [];
 
   isLightTheme: boolean;
   isDarkTheme: boolean;
@@ -35,6 +39,7 @@ export class AcHeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initThemeSelection();
+    this.initializeOptionGroups();
     this.subs.sink = this.themeService.getLightTheme().subscribe((isLightTheme: boolean) => {
       this.isLightTheme = isLightTheme;
       this.isDarkTheme = !this.isLightTheme;
@@ -59,6 +64,34 @@ export class AcHeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
+  }
+
+  private getOptionGroup1(): OptionGroup {
+    return new OptionGroup([
+      new NavLink('Profile and Visibility', '/options/profile'),
+      new NavLink('Activity', '/options/activity'),
+      new NavLink('Settings', '/options/settings')
+    ]);
+  }
+
+  private getOptionGroup2(): OptionGroup {
+    return new OptionGroup([
+      new NavLink('Report an Issue', ''),
+      new NavLink('Change Language...', ''),
+      new NavLink('Help', '')
+    ]);
+  }
+
+  private getOptionGroup3(): OptionGroup {
+    return new OptionGroup([
+      new NavLink('Log Out', '')
+    ]);
+  }
+
+  private initializeOptionGroups() {
+    this.optionGroups = [...this.optionGroups, this.getOptionGroup1()]
+    this.optionGroups = [...this.optionGroups, this.getOptionGroup2()]
+    this.optionGroups = [...this.optionGroups, this.getOptionGroup3()]
   }
 
 }

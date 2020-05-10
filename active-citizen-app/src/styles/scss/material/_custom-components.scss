@@ -10,7 +10,7 @@
 @import "app/shared/component/card/card.component-theme";
 @import "app/shared/component/simple-modal/simple-modal.component-theme";
 @import "app/shared/component/language-selection/language-selection.component-theme.scss";
-@import "app/shared/component/main-menu/main-menu.component-theme.scss";
+@import "app/shared/component/menu/menu.component-theme.scss";
 @import "app/shared/component/carousel/carousel.component-theme.scss";
 
 @import "app/active-citizen/incidents/component/incident-item/incident-item.component-theme";
@@ -34,7 +34,7 @@
   @include card-component-theme($selected-theme);
   @include language-selection-component-theme($selected-theme);
   @include carousel-component-theme($selected-theme);
-  @include main-menu-component-theme($selected-theme);
+  @include menu-component-theme($selected-theme);
 
   @include incident-item-component-theme($selected-theme);
   @include new-incident-wizard-stepper-component-theme($selected-theme);
