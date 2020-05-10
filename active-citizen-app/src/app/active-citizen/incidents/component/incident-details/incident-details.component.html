@@ -1,0 +1,48 @@
+<div class="incident-details-container">
+
+  <div class="title">
+    <h3>Incident Title here</h3>
+  </div>
+
+  <div class="row container-row">
+    <div class="col-12 col-lg-4">
+      <app-card [header]="'Details'">
+        <p>
+          <strong>Category:</strong> {{incident.category }}<br>
+          <strong>Subcategory:</strong> {{incident.subcategory}}<br>
+          <strong>Address:</strong> {{incident.locationDetails.address}}<br>
+          <strong>Involved Departments:</strong> {{incident.subcategory }} <br>
+          <strong>Created:</strong> {{incident.created | date:'short'}} <br>
+          <strong>Hits:</strong> {{incident.hits}}<br>
+          <strong>Votes:</strong> {{incident.votes}}<br>
+        </p>
+      </app-card>
+      <app-card [header]="'Description'">
+        <p>{{incident.description}}</p>
+      </app-card>
+      <app-card [header]="'Images'">
+        <app-carousel imageHeight="250px"  [imageSlides]='imageSlides'></app-carousel>
+      </app-card>
+    </div>
+
+    <div class="col-12 col-lg-4">
+      <app-card class='incident-progress-section' [header]="'Progress'">
+        <app-progress-indigator #progressIndigator [progressItems]='progressItems' [currentState]='incident.status'
+          class="incident-progress"></app-progress-indigator>
+      </app-card>
+      <app-card [header]="'Timeline'">
+        <app-timeline [timelineEvents]="incident.timelineEvents"></app-timeline>
+      </app-card>
+    </div>
+
+    <div class="col-12 col-lg-4">
+      <app-card [header]="'Location'">
+        <div class="incident-location-map-container">
+          <ac-incident-map #incidentMap></ac-incident-map>
+        </div>
+      </app-card>
+    </div>
+
+  </div>
+
+</div>

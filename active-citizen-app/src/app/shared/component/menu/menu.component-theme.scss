@@ -1,0 +1,12 @@
+@mixin menu-component-theme($selected-theme) {
+  .mat-menu-content {
+    // TODO - FIGURE OUT WHY THIS CODE NEVER EXECUTES
+    @if mat-theme-is-dark($selected-theme) {
+      background-color: mat-theme-background-color($selected-theme, background);
+    } @else {
+      background-color: mat-theme-background-color($selected-theme, app-bar);
+    }
+
+    color: mat-theme-foreground-color($selected-theme, primary-text);
+  }
+}

@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <mat-toolbar class="header" color="primary">
+
+
+    <mat-toolbar-row class="mat-toolbar-row">
+
+      <button mat-button class="hamburger" (click)="onHamburgerToggled()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+
+      <!-- <span routerLink="" class="navbar-brand spacer center d-sm-inline d-md-none">
+        {{ 'ActiveCitizen' }}
+      </span>
+      <span routerLink="" class="navbar-brand spacer d-none d-md-inline">
+        {{ 'ActiveCitizen' }}
+      </span> -->
+      <span routerLink="">
+        {{ 'ActiveCitizen' }}
+      </span>
+      <span class="d-none d-md-inline">
+        <button mat-button class="nav-button" *ngFor="let navItem of navItems" [routerLink]="[navItem.link]"
+          routerLinkActive="active">
+          {{ navItem.title }}
+        </button>
+
+
+      </span>
+      <div class="flex-spacer"></div>
+
+      <mat-slide-toggle class="d-none d-md-inline" [checked]="!isLightTheme" (change)="toggleTheme($event.checked)">
+        <mat-icon *ngIf="isLightTheme" class="theme-icon">wb_sunny</mat-icon>
+        <mat-icon *ngIf="!isLightTheme" class="theme-icon">brightness_3</mat-icon>
+      </mat-slide-toggle>
+      <app-menu [matIcon]="'person'" [optionGroups]='optionGroups' menuTitle='User'></app-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

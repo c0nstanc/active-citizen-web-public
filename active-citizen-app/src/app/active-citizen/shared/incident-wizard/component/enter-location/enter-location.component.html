@@ -1,0 +1,10 @@
+<div class="wizard-step-container">
+  <app-wizard-step-title>Select Location</app-wizard-step-title>
+
+  <div class="map">
+    <ac-my-location-map  [myPosition]="newIncidentForm.value.latLng"
+    (markerUpdated)="onMarkerUpdated($event)"
+    (addressUpdated)="onAddressUpdated($event)">
+    </ac-my-location-map>
+  </div>
+</div>

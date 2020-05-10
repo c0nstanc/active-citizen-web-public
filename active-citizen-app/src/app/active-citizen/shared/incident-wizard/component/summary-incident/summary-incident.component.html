@@ -1,0 +1,27 @@
+<div class="wizard-step-container summary-container">
+
+
+  <app-card [header]="'Details'">
+    <p>
+      <strong>Category:</strong> {{'incidentCategory.'+ incident.category | translate}}<br>
+      <strong>Subcategory:</strong> {{'incidentCategory.'+ incident.subcategory | translate}}<br>
+      <strong>Description:</strong> {{incident.description}}<br>
+    </p>
+  </app-card>
+
+
+  <div class="flex">
+    <app-card [header]="'Location'">
+      <p>
+        <strong>Address:</strong> {{incident.locationDetails.address}}<br>
+      </p>
+      <div class="incident-location-map-container">
+        <ac-incident-map #incidentMap></ac-incident-map>
+      </div>
+    </app-card>
+    <app-card *ngIf="imageSlides.length > 0" [header]="'Images'">
+      <app-carousel #imageCarousel imageHeight="25vh" [imageSlides]='imageSlides'></app-carousel>
+    </app-card>
+  </div>
+
+</div>

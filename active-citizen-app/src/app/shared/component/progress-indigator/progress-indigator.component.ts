@@ -12,7 +12,7 @@ export class ProgressIndigatorComponent implements OnInit, OnChanges {
   progressItems: ProgressItem[] = [];
 
   @Input()
-  currentState = 'submitted';
+  currentState;
 
   @Input()
   vertical = false;
