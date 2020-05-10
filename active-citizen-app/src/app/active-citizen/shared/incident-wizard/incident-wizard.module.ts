@@ -8,6 +8,7 @@ import { EnterIncidentDetailsComponent } from './component/enter-incident-detail
 import { EnterIncidentPhotoComponent } from './component/enter-incident-photo/enter-incident-photo.component';
 import { SummaryIncidentComponent } from './component/summary-incident/summary-incident.component';
 import { NewIncidentWizardService } from './service/new-incident-wizard.service';
+import { IncidentMapsModule } from '../incident-maps/incident-maps.module';
 
 @NgModule({
   declarations: [EnterLocationComponent,
@@ -16,7 +17,8 @@ import { NewIncidentWizardService } from './service/new-incident-wizard.service'
     SummaryIncidentComponent],
   imports: [
     SharedModule,
-    IncidentWizardRoute
+    IncidentWizardRoute,
+    IncidentMapsModule
   ],
   exports: [],
   providers: [NewIncidentWizardService]

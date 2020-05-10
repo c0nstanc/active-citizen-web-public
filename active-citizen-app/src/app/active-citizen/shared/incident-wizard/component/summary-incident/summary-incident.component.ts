@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { SubSink } from 'subsink';
 import { ImageSlide } from 'src/app/shared/component/carousel/model/image-slide.model';
-import { IncidentMapComponent } from 'src/app/shared/component/map/incident-map/incident-map.component';
 import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
+import { IncidentMapComponent } from '../../../incident-maps/component/incident-map/incident-map.component';
 
 @Component({
   selector: 'ac-summary-incident',

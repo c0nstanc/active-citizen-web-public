@@ -8,6 +8,7 @@ import { NewIncidentComponent } from './component/new-incident/new-incident.comp
 import { IncidentDetailsComponent } from './component/incident-details/incident-details.component';
 import { IncidentItemComponent } from './component/incident-item/incident-item.component';
 import { NewIncidentWizardStepperComponent } from './component/new-incident-wizard-stepper/new-incident-wizard-stepper.component';
+import { IncidentMapsModule } from '../shared/incident-maps/incident-maps.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NewIncidentWizardStepperComponent } from './component/new-incident-wiza
   ],
   imports: [
     SharedModule,
-    IncidentsRoute
+    IncidentsRoute,
+    IncidentMapsModule
   ],
   exports: [],
   providers: [],

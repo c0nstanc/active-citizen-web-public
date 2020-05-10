@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ViewChild, ElementRef, Output, EventEmitter, 
 import { LatLng } from './model/lat-lng.model';
 
 @Component({
-  selector: 'app-my-location-map',
+  selector: 'ac-my-location-map',
   templateUrl: './my-location-map.component.html',
   styleUrls: ['./my-location-map.component.scss']
 })

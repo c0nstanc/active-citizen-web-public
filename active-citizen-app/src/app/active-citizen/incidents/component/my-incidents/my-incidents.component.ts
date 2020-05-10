@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IncidentService } from 'src/app/data/service/incident.service';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { Router } from '@angular/router';
-import { IncidentMarker } from 'src/app/shared/component/map/incidents-map/model/incident-marker.model';
-import { IncidentsMapComponent } from 'src/app/shared/component/map/incidents-map/incidents-map.component';
+import { IncidentMarker } from 'src/app/active-citizen/shared/incident-maps/component/incidents-map/model/incident-marker.model';
+import { IncidentsMapComponent } from 'src/app/active-citizen/shared/incident-maps/component/incidents-map/incidents-map.component';
 
 @Component({
   selector: 'ac-my-incidents',

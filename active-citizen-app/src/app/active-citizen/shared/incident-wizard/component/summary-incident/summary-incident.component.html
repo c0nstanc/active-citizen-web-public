@@ -16,7 +16,7 @@
         <strong>Address:</strong> {{incident.locationDetails.address}}<br>
       </p>
       <div class="incident-location-map-container">
-        <app-incident-map #incidentMap></app-incident-map>
+        <ac-incident-map #incidentMap></ac-incident-map>
       </div>
     </app-card>
     <app-card *ngIf="imageSlides.length > 0" [header]="'Images'">

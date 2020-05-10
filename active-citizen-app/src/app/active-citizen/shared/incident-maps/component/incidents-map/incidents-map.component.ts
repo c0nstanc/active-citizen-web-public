@@ -3,7 +3,7 @@ import { IncidentMarker } from './model/incident-marker.model';
 import { LatLng } from '../my-location-map/model/lat-lng.model';
 
 @Component({
-  selector: 'app-incidents-map',
+  selector: 'ac-incidents-map',
   templateUrl: './incidents-map.component.html',
   styleUrls: ['./incidents-map.component.scss']
 })

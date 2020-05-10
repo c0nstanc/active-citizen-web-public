@@ -2,12 +2,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClonerService } from 'src/app/core/services/cloner.service';
-import { LatLng } from 'src/app/shared/component/map/my-location-map/model/lat-lng.model';
 import { LocationDetails } from 'src/app/data/schema/location-details.model';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { SubSink } from 'subsink';
 import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
 import { LoggingService } from 'src/app/core/services/logging.service';
+import { LatLng } from '../../../incident-maps/component/my-location-map/model/lat-lng.model';
 
 interface IncidentLocation {
   latLng: LatLng;

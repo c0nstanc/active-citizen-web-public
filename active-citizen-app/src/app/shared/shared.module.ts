@@ -84,7 +84,6 @@ import { SimpleModalComponent } from './component/simple-modal/simple-modal.comp
 import { ModalContentComponent } from './component/modal-content/modal-content.component';
 import { ModalFooterComponent } from './component/modal-footer/modal-footer.component';
 import { ModalHeaderComponent } from './component/modal-header/modal-header.component';
-import { MyLocationMapComponent } from './component/map/my-location-map/my-location-map.component';
 import { CameraComponent } from './component/camera/camera.component';
 import { LanguageSelectionComponent } from './component/language-selection/language-selection.component';
 import { TakePictureComponent } from './component/take-picture/take-picture.component';
@@ -92,8 +91,6 @@ import { MenuComponent } from './component/menu/menu.component';
 import { ImageViewerComponent } from './component/image-viewer/image-viewer.component';
 import { FileListComponent } from './component/file-list/file-list.component';
 import { ImageDropComponent } from './component/image-drop/image-drop.component';
-import { IncidentsMapComponent } from './component/map/incidents-map/incidents-map.component';
-import { IncidentMapComponent } from './component/map/incident-map/incident-map.component';
 import { TimelineComponent } from './component/timeline/timeline.component';
 import { DateAgoPipe } from './pipe/date-ago.pipe';
 import { CarouselComponent } from './component/carousel/carousel.component';
@@ -125,7 +122,6 @@ import { CardComponent } from './component/card/card.component';
     ModalContentComponent,
     ModalFooterComponent,
     ModalHeaderComponent,
-    MyLocationMapComponent,
     CameraComponent,
     LanguageSelectionComponent,
     TakePictureComponent,
@@ -133,8 +129,6 @@ import { CardComponent } from './component/card/card.component';
     ImageViewerComponent,
     FileListComponent,
     ImageDropComponent,
-    IncidentsMapComponent,
-    IncidentMapComponent,
     DateAgoPipe,
     TimelineComponent,
     CarouselComponent,
@@ -158,11 +152,8 @@ import { CardComponent } from './component/card/card.component';
     ImageInputComponent,
     WizardStepTitleComponent,
     WizardNxtBtnComponent,
-    MyLocationMapComponent,
     LanguageSelectionComponent,
     MenuComponent,
-    IncidentsMapComponent,
-    IncidentMapComponent,
     TimelineComponent,
     DateAgoPipe,
     CarouselComponent,

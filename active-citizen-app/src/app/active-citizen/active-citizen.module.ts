@@ -4,7 +4,7 @@ import { ActiveCitizenRoute } from './active-citizen.routing';
 @NgModule({
   declarations: [],
   imports: [
-    ActiveCitizenRoute
+    ActiveCitizenRoute,
   ],
   exports: [],
   providers: [],

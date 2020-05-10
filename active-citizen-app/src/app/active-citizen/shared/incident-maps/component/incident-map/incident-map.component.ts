@@ -1,8 +1,8 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { LatLng } from '../my-location-map/model/lat-lng.model';
 
 @Component({
-  selector: 'app-incident-map',
+  selector: 'ac-incident-map',
   templateUrl: './incident-map.component.html',
   styleUrls: ['./incident-map.component.scss']
 })
