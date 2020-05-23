@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
 
   constructor(private translateService: TranslateService){
-    this.translateService.setDefaultLang('en');
-    this.translateService.use('el');
+    this.translateService.setDefaultLang(environment.defaultLanguage);
+    this.translateService.use(environment.defaultLanguage);
 
   }
 }
