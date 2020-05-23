@@ -1,14 +1,14 @@
 <div class="wizard-step-container">
-  <app-wizard-step-title>Problem Details</app-wizard-step-title>
+  <app-wizard-step-title>{{'enter-incident-details.step.title' | translate}}</app-wizard-step-title>
 
-  These will be sent to your municipality and also published online for others to see
+  {{'enter-incident-details.step.description' | translate}}
   <div class="form-container enter-details-form">
 
     <form (ngSubmit)="onSubmit()" [formGroup]="newIncidentForm">
 
       <div class="form-group">
         <mat-form-field appearance="outline">
-          <mat-label>Category</mat-label>
+          <mat-label>{{'enter-incident-details.incident-category.label' | translate}}</mat-label>
           <input type="text" matInput formControlName="translatedIncidentCategory" [matAutocomplete]="auto"
             (blur)="onIncidentCategoryChanged($event.target.value)">
           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
@@ -18,13 +18,15 @@
             </mat-option>
           </mat-autocomplete>
           <mat-error>
-            <app-control-messages [control]="formControls['incidentCategory']"></app-control-messages>
+            <app-form-error-message [control]="formControls['translatedIncidentCategory']" [errorConfig]="{
+              required: 'enter-incident-details.incident-category.error-required' | translate
+            }"></app-form-error-message>
           </mat-error>
         </mat-form-field>
       </div>
       <div class="form-group">
         <mat-form-field appearance="outline">
-          <mat-label>Subcategory</mat-label>
+          <mat-label>{{'enter-incident-details.incident-subcategory.label' | translate}}</mat-label>
           <input type="text" matInput formControlName="translatedIncidentSubcategory" [matAutocomplete]="auto"
             (blur)="onIncidentSubcategoryChanged($event.target.value)">
           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
@@ -34,7 +36,9 @@
             </mat-option>
           </mat-autocomplete>
           <mat-error>
-            <app-control-messages [control]="formControls['incidentSubcategory']"></app-control-messages>
+            <app-form-error-message [control]="formControls['translatedIncidentSubcategory']" [errorConfig]="{
+              required: 'enter-incident-details.incident-subcategory.error-required' | translate
+            }"></app-form-error-message>
           </mat-error>
         </mat-form-field>
       </div>
@@ -42,10 +46,14 @@
       <div class="form-group">
 
         <mat-form-field appearance="outline">
-          <mat-label>Summarise the problem</mat-label>
-          <textarea matInput placeholder="Enter here" formControlName="incidentDesc" autocomplete="off"></textarea>
+          <mat-label>{{'enter-incident-details.incident-description.label' | translate}}</mat-label>
+          <textarea matInput [placeholder]="'enter-incident-details.incident-description.placeholder' | translate"
+            formControlName="incidentDesc" autocomplete="off"></textarea>
           <mat-error>
-            <app-control-messages [control]="formControls['incidentDesc']"></app-control-messages>
+            <app-form-error-message [control]="formControls['incidentDesc']" [errorConfig]="{
+              required: 'enter-incident-details.incident-description.error-required' | translate,
+              minLength: 'enter-incident-details.incident-description.error-minLength' | translate
+            }"></app-form-error-message>
           </mat-error>
         </mat-form-field>
       </div>

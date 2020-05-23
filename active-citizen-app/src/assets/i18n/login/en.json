@@ -1,0 +1,14 @@
+{
+  "username": {
+    "placeholder": "Username",
+    "error-required": "Username is required."
+  },
+  "password": {
+    "placeholder": "Password",
+    "error-required": "Password is required.",
+    "button":{
+      "submit" : "Login",
+      "switch-to-signup":"Don't have an account? Sign up here!"
+    }
+  }
+}

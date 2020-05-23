@@ -1,36 +1,41 @@
  <div class="alert alert-info" role="alert">
-   Username: User \\
-   Password: 12345
+  {{'login.username.placeholder' | translate}}: User \\
+   {{'login.password.placeholder' | translate}}: 12345
  </div>
 
  <div [hidden]="!error" class="alert alert-danger">
-   {{ error }}
+   {{ error | translate }}
  </div>
 
  <fieldset [disabled]="isLoading">
    <form (ngSubmit)="login()" [formGroup]="loginForm">
      <div class="form-group">
        <label class="d-block">
-         <input type="text" class="form-control" [placeholder]="'Username'" formControlName="username">
-         <app-control-messages [control]="f['username']"></app-control-messages>
+         <input type="text" class="form-control" [placeholder]="'login.username.placeholder' | translate"
+           formControlName="username">
+         <app-form-error-message [control]="f['username']" [errorConfig]="{
+          required: 'login.username.error-required' |translate
+        }"></app-form-error-message>
        </label>
      </div>
      <div class="form-group">
        <label class="d-block">
-         <input type="password" class="form-control" [placeholder]="'Password'" formControlName="password"
-           autocomplete="on">
-         <app-control-messages [control]="f['password']"></app-control-messages>
+         <input type="password" class="form-control" [placeholder]="'login.password.placeholder' | translate"
+           formControlName="password" autocomplete="on">
+         <app-form-error-message [control]="f['password']" [errorConfig]="{
+            required: 'login.password.error-required' |translate
+          }"></app-form-error-message>
        </label>
      </div>
      <div class="form-group">
        <button type="submit" class="btn btn-primary btn-block btn-raised" type="submit" [disabled]="loginForm.invalid">
-         <span [hidden]="isLoading">Submit</span>
+         <span [hidden]="isLoading">{{'login.button.submit' | translate}}</span>
          <span [hidden]="!isLoading">
            <!-- <fa-icon icon="asterisk" size="3x" [spin]="true"></fa-icon> -->
            <fa-icon *ngIf="asterisk$ | async as asterisk" [icon]="asterisk" size="3x" [spin]="true"></fa-icon>
          </span>
        </button>
      </div>
-     <a [routerLink]="['/auth/register']">Don't have an account? Sign up here!</a>
+     <a [routerLink]="['/auth/register']">{{'login.button.switch-to-signup' | translate}}</a>
    </form>
  </fieldset>

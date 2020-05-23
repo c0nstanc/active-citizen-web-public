@@ -1,0 +1,20 @@
+{
+  "step": {
+    "title": "Problem Details",
+    "description": "These will be sent to your municipality and also published online for others to see"
+  },
+  "incident-category": {
+    "label": "Incident Category",
+    "error-required": "Incident category is required."
+  },
+  "incident-subcategory": {
+    "label": "Incident Subcategory",
+    "error-required": "Incident subcategory is required."
+  },
+  "incident-description": {
+    "label": "Incident Summary",
+    "placeholder": "Summarize the incident here",
+    "error-required": "Incident description is mandatory.",
+    "error-minLength": "Incident description must contain atleast xyz characters."
+  }
+}

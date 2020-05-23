@@ -71,7 +71,7 @@ library.add(
   faBan
 );
 
-import { ControlMessagesComponent } from './component/control-messages/control-messages.component';
+import { FormErrorMessageComponent } from './component/form-error-message/form-error-message.component';
 import { PageTitleComponent } from './component/page-title/page-title.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SidenavMenuItemComponent } from './component/sidenav-menu-item/sidenav-menu-item.component';
@@ -110,7 +110,8 @@ import { CardComponent } from './component/card/card.component';
     MaterialModule,
   ],
   declarations: [
-    ControlMessagesComponent,
+    // Components
+    FormErrorMessageComponent,
     PageTitleComponent,
     SidenavMenuItemComponent,
     SimpleFileDropComponent,
@@ -129,24 +130,28 @@ import { CardComponent } from './component/card/card.component';
     ImageViewerComponent,
     FileListComponent,
     ImageDropComponent,
-    DateAgoPipe,
     TimelineComponent,
     CarouselComponent,
     ProgressIndigatorComponent,
-    CardComponent
-    ],
+    CardComponent,
+
+    // Pipes
+    DateAgoPipe,
+
+  ],
   exports: [
+    // Modules
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
     TranslateModule,
     MaterialModule,
-
     NgbModule,
     FontAwesomeModule,
 
-    ControlMessagesComponent,
+    // Components
+    FormErrorMessageComponent,
     PageTitleComponent,
     SidenavMenuItemComponent,
     ImageInputComponent,
@@ -155,10 +160,13 @@ import { CardComponent } from './component/card/card.component';
     LanguageSelectionComponent,
     MenuComponent,
     TimelineComponent,
-    DateAgoPipe,
     CarouselComponent,
     ProgressIndigatorComponent,
-    CardComponent
+    CardComponent,
+
+    // Pipes
+    DateAgoPipe,
+
   ]
 })
 export class SharedModule {

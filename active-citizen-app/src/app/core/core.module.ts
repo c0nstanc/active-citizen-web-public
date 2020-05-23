@@ -22,6 +22,10 @@ export function ModuleHttpLoaderFactory(http: HttpClient) {
     modules: [
       { baseTranslateUrl },
       { moduleName: 'wizard', baseTranslateUrl },
+      { moduleName: 'login', baseTranslateUrl },
+      { moduleName: 'enter-incident-details', baseTranslateUrl },
+      { moduleName: 'authentication', baseTranslateUrl }
+
 
     ],
     nameSpaceUppercase: false,

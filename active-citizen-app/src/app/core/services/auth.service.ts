@@ -29,7 +29,7 @@ export class AuthService {
         return of(defaultUser);
     }
 
-    return throwError('Invalid username or password');
+    return throwError('authentication.message.wrong-username-or-password');
   }
 
   logout(): Observable<boolean> {
