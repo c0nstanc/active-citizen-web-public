@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NavLink } from 'src/app/core/common/model/nav-link.model';
 import { Router } from '@angular/router';
 import { OptionGroup } from './model/option-group.model';
+import { NavLink } from './model/nav-link.model';
 
 @Component({
   selector: 'app-menu',
@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
   constructor(private router: Router) { }
 
   @Input()
-  menuTitle:string;
+  menuTitle: string;
 
   @Input()
   matIcon: string;

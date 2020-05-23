@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { ImageSlide } from 'src/app/shared/component/carousel/model/image-slide.model';
-import { ProgressItem } from 'src/app/shared/component/progress-indigator/model/progress-item.model';
 import { LatLng } from 'src/app/active-citizen/shared/incident-maps/component/my-location-map/model/lat-lng.model';
 import { IncidentMapComponent } from 'src/app/active-citizen/shared/incident-maps/component/incident-map/incident-map.component';
+import { ProgressItem } from 'src/app/core/common/model/progress/progress-item.model';
 
 @Component({
   selector: 'ac-incident-details',

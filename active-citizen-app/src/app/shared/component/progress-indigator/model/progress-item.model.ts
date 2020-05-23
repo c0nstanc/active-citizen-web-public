@@ -1,8 +1,5 @@
-export class ProgressItem {
-
-  constructor(
-    public state: string,
-    public completed: boolean = false
-  ) { }
-
+export interface ProgressItem {
+  state: string;
+  completed: boolean;
 }
+

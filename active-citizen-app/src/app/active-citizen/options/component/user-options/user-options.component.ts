@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavLink } from '../../../../core/common/model/nav-link.model';
+import { NavLink } from '../../../../core/common/model/nav/nav-link.model';
 
 @Component({
   selector: 'ac-user-options',

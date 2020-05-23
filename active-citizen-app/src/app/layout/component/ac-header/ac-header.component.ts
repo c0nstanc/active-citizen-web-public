@@ -5,7 +5,8 @@ import { NavItem } from 'src/app/shared/model/nav/nav-item.model';
 import { ModalService } from 'src/app/shared/component/simple-modal/service/modal.service';
 import { SubSink } from 'subsink';
 import { OptionGroup } from 'src/app/shared/component/menu/model/option-group.model';
-import { NavLink } from 'src/app/core/common/model/nav-link.model';
+import { NavLink } from 'src/app/core/common/model/nav/nav-link.model';
+import { LinksGroup } from 'src/app/core/common/model/nav/links-group.model';
 
 @Component({
   selector: 'app-ac-header',
@@ -18,7 +19,7 @@ export class AcHeaderComponent implements OnInit, OnDestroy {
   @Output()
   hamburgerToggle: EventEmitter<void> = new EventEmitter();
 
-  optionGroups: OptionGroup[] = [];
+  linksGroup: LinksGroup[] = [];
 
   isLightTheme: boolean;
   isDarkTheme: boolean;
@@ -39,7 +40,7 @@ export class AcHeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initThemeSelection();
-    this.initializeOptionGroups();
+    this.initializeLinksGroups();
     this.subs.sink = this.themeService.getLightTheme().subscribe((isLightTheme: boolean) => {
       this.isLightTheme = isLightTheme;
       this.isDarkTheme = !this.isLightTheme;
@@ -66,32 +67,32 @@ export class AcHeaderComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  private getOptionGroup1(): OptionGroup {
-    return new OptionGroup([
+  private getLinksGroup1(): OptionGroup {
+    return new LinksGroup([
       new NavLink('Profile and Visibility', '/options/profile'),
       new NavLink('Activity', '/options/activity'),
       new NavLink('Settings', '/options/settings')
     ]);
   }
 
-  private getOptionGroup2(): OptionGroup {
-    return new OptionGroup([
+  private getLinksGroup2(): OptionGroup {
+    return new LinksGroup([
       new NavLink('Report an Issue', ''),
       new NavLink('Change Language...', ''),
       new NavLink('Help', '')
     ]);
   }
 
-  private getOptionGroup3(): OptionGroup {
-    return new OptionGroup([
+  private getLinksGroup3(): OptionGroup {
+    return new LinksGroup([
       new NavLink('Log Out', '')
     ]);
   }
 
-  private initializeOptionGroups() {
-    this.optionGroups = [...this.optionGroups, this.getOptionGroup1()]
-    this.optionGroups = [...this.optionGroups, this.getOptionGroup2()]
-    this.optionGroups = [...this.optionGroups, this.getOptionGroup3()]
+  private initializeLinksGroups() {
+    this.linksGroup = [...this.linksGroup, this.getLinksGroup1()]
+    this.linksGroup = [...this.linksGroup, this.getLinksGroup2()]
+    this.linksGroup = [...this.linksGroup, this.getLinksGroup3()]
   }
 
 }

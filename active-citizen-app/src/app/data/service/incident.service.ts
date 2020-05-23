@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { JsonApiService } from './json-api.service';
 import { Incident } from '../schema/incident.model';
 import { Event } from 'src/app/active-citizen/incidents/model/event.enum';
-import { TimelineEvent } from 'src/app/shared/component/timeline/model/timeline-event.model';
+import { TimelineEvent } from 'src/app/core/common/model/timeline/timeline-event.model';
 
 @Injectable({
   providedIn: 'root'

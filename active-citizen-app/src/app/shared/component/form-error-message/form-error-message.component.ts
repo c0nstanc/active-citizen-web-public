@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl, NgModel } from '@angular/forms';
-import { ValidationService } from '../../service/validation.service';
 import { DefaultFormValidatorsTextConfig } from 'src/app/core/common/model/form-validation/default-form-validators-text-config.model';
 
 @Component({
