@@ -1,12 +1,11 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { ThemeService } from 'src/app/core/services/theme.service';
-import { HeaderNavItem } from './model/header-nav-item.model';
-import { NavItem } from 'src/app/shared/model/nav/nav-item.model';
 import { ModalService } from 'src/app/shared/component/simple-modal/service/modal.service';
 import { SubSink } from 'subsink';
 import { OptionGroup } from 'src/app/shared/component/menu/model/option-group.model';
 import { NavLink } from 'src/app/core/common/model/nav/nav-link.model';
 import { LinksGroup } from 'src/app/core/common/model/nav/links-group.model';
+import { NavItem } from 'src/app/core/common/model/nav/nav-item.model';
 
 @Component({
   selector: 'app-ac-header',
@@ -28,10 +27,10 @@ export class AcHeaderComponent implements OnInit, OnDestroy {
 
 
   navItems: NavItem[] = [
-    new HeaderNavItem('My Incidents', '/incidents/'),
-    new HeaderNavItem('Register Item', '/incidents/'),
-    new HeaderNavItem('Contact', '/contact'),
-    new HeaderNavItem('About', '/about')
+    new NavItem('My Incidents', '/incidents/'),
+    new NavItem('Register Item', '/incidents/'),
+    new NavItem('Contact', '/contact'),
+    new NavItem('About', '/about')
   ];
 
   constructor(

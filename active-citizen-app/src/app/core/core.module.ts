@@ -47,7 +47,7 @@ export function ModuleHttpLoaderFactory(http: HttpClient) {
       disableConsoleLogging: environment.disableConsoleLogging
     }),
     TranslateModule.forRoot({
-      defaultLanguage: environment.defaultLanguage,
+      defaultLanguage: environment.defaultLanguage.code,
       loader: {
         provide: TranslateLoader,
         useFactory: ModuleHttpLoaderFactory,

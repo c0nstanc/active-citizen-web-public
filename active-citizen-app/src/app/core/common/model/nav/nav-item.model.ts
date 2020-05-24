@@ -1,6 +1,6 @@
-export interface NavItem {
-  title: string;
-  link?: string;
-  children?: NavItem[];
-
+export class NavItem {
+  constructor(
+    public readonly title: string,
+    public readonly link?: string,
+    public readonly children?: NavItem[]) { }
 }

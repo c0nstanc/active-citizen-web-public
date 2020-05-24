@@ -1,4 +1,4 @@
-import { NavItem } from 'src/app/shared/model/nav/nav-item.model';
+import { NavItem } from 'src/app/shared/component/sidenav-menu-item/model/nav-item.model';
 
 export class SidenavMenuItem implements NavItem {
 

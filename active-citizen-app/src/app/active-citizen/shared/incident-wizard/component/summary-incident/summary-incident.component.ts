@@ -5,9 +5,9 @@ import { ClonerService } from 'src/app/core/services/cloner.service';
 import { Router } from '@angular/router';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { SubSink } from 'subsink';
-import { ImageSlide } from 'src/app/shared/component/carousel/model/image-slide.model';
 import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
 import { IncidentMapComponent } from '../../../incident-maps/component/incident-map/incident-map.component';
+import { ImageSlide } from 'src/app/core/common/model/carousel/image-slide.model';
 
 @Component({
   selector: 'ac-summary-incident',

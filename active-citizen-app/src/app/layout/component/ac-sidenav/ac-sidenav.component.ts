@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SidenavMenuItem } from './model/sidenav-menu-item.model';
-import { NavItem } from 'src/app/shared/model/nav/nav-item.model';
 import { MatSidenav } from '@angular/material/sidenav';
+import { NavItem } from 'src/app/core/common/model/nav/nav-item.model';
 
 const DESKTOP_WIDTH_BREAKPOINT = '64em';
 

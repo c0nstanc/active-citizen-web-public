@@ -10,8 +10,8 @@ import { environment } from 'src/environments/environment';
 export class AppComponent {
 
   constructor(private translateService: TranslateService){
-    this.translateService.setDefaultLang(environment.defaultLanguage);
-    this.translateService.use(environment.defaultLanguage);
+    this.translateService.setDefaultLang(environment.defaultLanguage.code);
+    this.translateService.use(environment.defaultLanguage.code);
 
   }
 }

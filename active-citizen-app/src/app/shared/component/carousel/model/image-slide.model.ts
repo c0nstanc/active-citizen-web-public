@@ -1,6 +1,5 @@
-export class ImageSlide {
-
-  public title: string;
-  public caption: string;
-  constructor(public url: string) { }
+export interface ImageSlide {
+  title: string;
+  caption: string;
+  url: string;
 }

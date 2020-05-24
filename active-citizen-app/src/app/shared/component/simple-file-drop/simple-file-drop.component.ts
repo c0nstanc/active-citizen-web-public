@@ -1,8 +1,13 @@
 import { Component, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { RejectionReasons } from './model/rejection-reasons.model';
-import { FileRejection } from './model/file-rejection.model';
 
 
+class FileRejection {
+  constructor(
+    public readonly file: File,
+    public readonly rejectionReason: RejectionReasons
+  ) { }
+}
 @Component({
   selector: 'app-simple-file-drop',
   templateUrl: './simple-file-drop.component.html',

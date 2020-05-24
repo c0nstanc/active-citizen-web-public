@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DropDownItem } from 'src/app/shared/model/drop-down-item.model';
+import { DropDownItem } from 'src/app/core/common/model/menu/drop-down-item.model';
 import { Incident } from 'src/app/data/schema/incident.model';
 import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
 import { ClonerService } from 'src/app/core/services/cloner.service';

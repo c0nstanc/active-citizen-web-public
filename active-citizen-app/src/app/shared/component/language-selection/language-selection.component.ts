@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Language } from './model/language.model';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../../../../environments/environment';
+import { Language } from './model/language.model';
 
 
 @Component({
@@ -15,15 +15,11 @@ export class LanguageSelectionComponent implements OnInit {
 
   supportedLanguages: Language[];
 
-
-
   constructor(private translateService: TranslateService) { }
 
   ngOnInit(): void {
     this.appName = environment.company;
-    this.supportedLanguages = [new Language('Ελληνικά', 'el'),
-    new Language('English', 'en')];
-
+    this.supportedLanguages = environment.supportedLanguages;
   }
 
   onLanguageSelected(language: Language): void {
