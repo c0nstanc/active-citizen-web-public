@@ -8,7 +8,7 @@ import { AcHeaderComponent } from './component/ac-header/ac-header.component';
 import { AcContentComponent } from './component/ac-content/ac-content.component';
 import { AcFooterComponent } from './component/ac-footer/ac-footer.component';
 import { AcSidenavComponent } from './component/ac-sidenav/ac-sidenav.component';
-import { EnsureModuleLoadedOnceGuard } from '../core/guard/ensure-module-loaded-once.guard';
+import { EnsureModuleLoadedOnceInAppModuleGuard } from '../core/guard/ensure-module-loaded-once-in-app-module.guard';
 
 @NgModule({
   declarations: [
@@ -26,8 +26,8 @@ import { EnsureModuleLoadedOnceGuard } from '../core/guard/ensure-module-loaded-
   providers: [],
   entryComponents: []
 })
-export class LayoutModule extends EnsureModuleLoadedOnceGuard {
-  constructor(@Optional() @SkipSelf() parentModule: LayoutModule) {
-    super(parentModule);
+export class LayoutModule extends EnsureModuleLoadedOnceInAppModuleGuard {
+  constructor(@Optional() @SkipSelf() targetModule: LayoutModule) {
+    super(targetModule);
   }
 }

@@ -11,7 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModuleTranslateLoader, IModuleTranslationOptions } from '@larscom/ngx-translate-module-loader';
 import { LoggerModule } from 'ngx-logger';
 import { environment } from 'src/environments/environment';
-import { EnsureModuleLoadedOnceGuard } from './guard/ensure-module-loaded-once.guard';
+import { EnsureModuleLoadedOnceInAppModuleGuard } from './guard/ensure-module-loaded-once-in-app-module.guard';
+import { MockModule } from '../mock/mock.module';
 
 
 // AoT requires an exported function for factories
@@ -39,6 +40,7 @@ export function ModuleHttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MockModule,
     NgxSpinnerModule,
     LoggerModule.forRoot({
       serverLoggingUrl: environment.serverLoggingUrl,
@@ -53,7 +55,7 @@ export function ModuleHttpLoaderFactory(http: HttpClient) {
         useFactory: ModuleHttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
     // CommonModule
   ],
   providers: [
@@ -66,8 +68,8 @@ export function ModuleHttpLoaderFactory(http: HttpClient) {
     }
   ]
 })
-export class CoreModule extends EnsureModuleLoadedOnceGuard {
-  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
-    super(parentModule);
+export class CoreModule extends EnsureModuleLoadedOnceInAppModuleGuard {
+  constructor(@Optional() @SkipSelf() targetModule: CoreModule) {
+    super(targetModule);
   }
 }

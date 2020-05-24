@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { startWith } from 'rxjs/operators';
 import { faImages } from '@fortawesome/free-solid-svg-icons';
-import { Incident } from 'src/app/data/schema/incident.model';
+import { Incident } from 'src/app/active-citizen/common/model/incident/incident.model';
 
 @Component({
   selector: 'ac-incident-item',

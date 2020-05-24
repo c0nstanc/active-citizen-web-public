@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Step } from '../../model/step.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SubmittableWizardStep } from 'src/app/core/common/model/wizard.model';
+import { SubmittableWizardStep } from 'src/app/active-citizen/common/model/wizard/wizard.model';
 import { MatHorizontalStepper } from '@angular/material/stepper';
 import { CdkStep } from '@angular/cdk/stepper';
 

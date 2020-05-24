@@ -15,7 +15,7 @@ export const routes: Routes = [
     path: 'new',
     component: NewIncidentComponent,
     loadChildren: () =>
-      import('../shared/incident-wizard/incident-wizard.module')
+      import('../common/module/incident-wizard/incident-wizard.module')
         .then(m => m.IncidentWizardModule)
   },
   {

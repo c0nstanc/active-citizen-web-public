@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, SkipSelf, Optional } from '@angular/core';
 import { ActiveCitizenRoute } from './active-citizen.routing';
+import { EnsureModuleLoadedOnceInLayoutModuleGuard } from '../core/guard/ensure-module-loaded-once-in-layout-module.guard';
 
 @NgModule({
   declarations: [],
@@ -10,4 +11,8 @@ import { ActiveCitizenRoute } from './active-citizen.routing';
   providers: [],
   entryComponents: []
 })
-export class ActiveCitizenModule { }
+export class ActiveCitizenModule extends EnsureModuleLoadedOnceInLayoutModuleGuard {
+  constructor(@Optional() @SkipSelf() targetModule: ActiveCitizenModule) {
+    super(targetModule);
+  }
+}

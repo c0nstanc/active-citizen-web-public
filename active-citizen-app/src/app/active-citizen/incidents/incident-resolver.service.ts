@@ -2,8 +2,8 @@ import { Injectable, } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IncidentService } from '../../data/service/incident.service';
-import { Incident } from 'src/app/data/schema/incident.model';
+import { Incident } from 'src/app/active-citizen/common/model/incident/incident.model';
+import { IncidentService } from '../common/service/incident.service';
 
 const ID = 'id';
 

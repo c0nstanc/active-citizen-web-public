@@ -20,7 +20,7 @@
 @import "app/active-citizen/incidents/component/my-incidents/my-incidents.component-theme.scss";
 @import "app/active-citizen/options/component/user-options/user-options.component-theme.scss";
 
-@import "app/active-citizen/shared/incident-wizard/component/summary-incident/summary-incident-component-theme.scss";
+@import "app/active-citizen/common/module/incident-wizard/component/summary-incident/summary-incident-component-theme.scss";
 
 @mixin custom-components-theme($selected-theme) {
   @include angular-material-typography($active-citizens-typography);
