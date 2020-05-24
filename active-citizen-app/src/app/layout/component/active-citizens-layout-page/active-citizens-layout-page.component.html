@@ -1,6 +1,9 @@
 <div [class]="theme">
   <div class="mat-app-background">
     <app-ac-header class="app-header" (hamburgerToggle)="sidenav.toggle()"></app-ac-header>
-    <app-ac-sidenav #sidenav></app-ac-sidenav>
+    <app-ac-sidenav #sidenav>
+      <app-ac-content></app-ac-content>
+      <app-ac-footer></app-ac-footer>
+    </app-ac-sidenav>
   </div>
 </div>

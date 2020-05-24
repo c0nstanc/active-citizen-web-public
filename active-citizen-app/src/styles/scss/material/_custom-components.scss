@@ -3,7 +3,7 @@
 
 // import custom component themes here
 @import "app/layout/component/ac-footer/ac-footer.component-theme.scss";
-@import "app/layout/component/ac-sidenav/ac-sidenav.component-theme.scss";
+@import "app/layout/component/ac-content/ac-content.component-theme.scss";
 
 @import "app/shared/component/sidenav-menu-item/sidenav-menu-item.component-theme";
 @import "app/shared/component/wizard/wizard.component-theme";
@@ -27,7 +27,7 @@
   @include my-styles-reset-theme($selected-theme);
 
   @include footer-component-theme($selected-theme);
-  @include sidenav-component-theme($selected-theme);
+  @include content-component-theme($selected-theme);
 
   @include sidenav-menu-item-theme($selected-theme);
   @include simple-modal-component-theme($selected-theme);

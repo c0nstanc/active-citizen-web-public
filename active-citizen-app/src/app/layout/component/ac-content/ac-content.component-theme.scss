@@ -1,0 +1,5 @@
+@mixin content-component-theme($selected-theme) {
+  .sidenav-content {
+    background-color: mat-theme-app-background-color($selected-theme);
+  }
+}

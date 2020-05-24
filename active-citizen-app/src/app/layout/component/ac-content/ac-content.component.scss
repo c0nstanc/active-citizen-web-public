@@ -1,0 +1,28 @@
+@import "mixins";
+@import "variables";
+
+#content {
+  margin-top: $app-content-margin-top;
+  min-height: $app-content-min-height-sm;
+  @include media-breakpoint-up(sm) {
+    // padding-bottom: $app-content-padding-bottom;
+    min-height: $app-content-min-height-md;
+  }
+  @include media-breakpoint-up(sm) {
+    min-height: $app-content-min-height-lg;
+  }
+}
+
+.app-content {
+  max-width: unset !important;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0 !important;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  @include media-breakpoint-up(sm) {
+    margin-top: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
