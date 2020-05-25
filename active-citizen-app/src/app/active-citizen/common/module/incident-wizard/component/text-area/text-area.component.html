@@ -1,0 +1,10 @@
+<div class="form-group" [formGroup]="formGroup">
+  <mat-form-field appearance="outline">
+    <mat-label>{{ label | translate}}</mat-label>
+    <textarea #textArea (blur)="onTouched()" (input)="onChange($event.target.value)" matInput [placeholder]="placeholder | translate" formControlName="textArea" autocomplete="off"
+      ></textarea>
+    <mat-error>
+      <app-form-error-message [control]="controlDir.control" [errorConfig]="errorConfig"></app-form-error-message>
+    </mat-error>
+  </mat-form-field>
+</div>

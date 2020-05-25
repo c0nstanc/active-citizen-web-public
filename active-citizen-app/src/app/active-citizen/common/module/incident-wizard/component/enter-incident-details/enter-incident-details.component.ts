@@ -4,8 +4,7 @@ import { DropDownItem } from 'src/app/core/common/model/menu/drop-down-item.mode
 import { Incident } from 'src/app/active-citizen/common/model/incident/incident.model';
 import { SubmittableWizardStep } from 'src/app/active-citizen/common/model/wizard/wizard.model';
 import { ClonerService } from 'src/app/core/services/cloner.service';
-import { Observable, of } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
@@ -13,10 +12,8 @@ import { LoggingService } from 'src/app/core/services/logging.service';
 import { IncidentCategories } from 'src/app/active-citizen/common/model/incident/incident-category.enum';
 
 interface IncidentDetails {
-  incidentCategory: string;
-  translatedIncidentCategory: string;
-  incidentSubcategory: string;
-  translatedIncidentSubcategory: string;
+  incidentCategory: DropDownItem;
+  incidentSubcategory: DropDownItem;
   incidentDesc: string;
 }
 
@@ -45,97 +42,40 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
   }
 
   ngOnInit(): void {
+    this.subs.sink = this.translateService.onLangChange.subscribe(() => {
+      this.initDropDownIncidentCategories();
+      this.translateSelectedOptions();
+    });
     this.initDropDownIncidentCategories();
     this.buildForm();
 
-    this.subs.sink = this.translateService.onLangChange.subscribe(() => {
-
-      this.initDropDownIncidentCategories();
-
-      this.newIncidentForm.patchValue({
-        translatedIncidentCategory: this.getTranslatedCategoryByValue(
-          (this.newIncidentForm.value as IncidentDetails).incidentCategory)
-      });
-      this.newIncidentForm.patchValue({
-        translatedIncidentSubcategory: this.getTranslatedCategoryByValue(
-          (this.newIncidentForm.value as IncidentDetails).incidentSubcategory)
-      });
-    }
-
-    );
-    const field = 'translatedIncidentCategory';
-    this.formControls[field].valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    ).subscribe(values => {
-      this.filteredDropDownIncidentCategories = of(values);
-    });
 
     this.subs.sink = this.newIncidentWizardService.newIncidentUpdated.subscribe((updatedIncident: Incident) => {
-      if (updatedIncident.category) {
-        this.onIncidentCategoryChanged(this.getTranslatedCategoryByValue(updatedIncident.category));
-      }
-      if (updatedIncident.subcategory) {
-        this.onIncidentSubcategoryChanged(this.getTranslatedCategoryByValue(updatedIncident.subcategory));
-      }
-      if (updatedIncident.description) {
-        this.newIncidentForm.patchValue({ incidentDesc: updatedIncident.description });
-      }
+      this.updateNewIncidentForm(updatedIncident);
     });
   }
 
-  private initDropDownIncidentCategories(): void {
-    this.dropDownIncidentCategories = new Array<DropDownItem>();
-    IncidentCategories().forEach(it => this.subs.sink = this.translateService.get('incidentCategory.' + it).subscribe(translation => {
-      this.dropDownIncidentCategories.push(new DropDownItem('incidentCategory.' + it, it, translation));
-    }));
+
+  onCategoryChanged(input: string): void {
+    this.newIncidentForm.patchValue(
+      { incidentCategory: this.getDropDownItemByInput(input, this.dropDownIncidentCategories) }
+    );
   }
 
-  private buildForm(): void {
-    this.newIncidentForm = this.formBuilder.group({
-      incidentCategory: this.formBuilder.control('', [Validators.minLength(4)]),
-      translatedIncidentCategory: this.formBuilder.control('', Validators.required),
-      incidentSubcategory: this.formBuilder.control('', Validators.required),
-      translatedIncidentSubcategory: this.formBuilder.control('', Validators.required),
-      incidentDesc: this.formBuilder.control('', [Validators.required, Validators.minLength(4)]),
-    });
+  onSubcategoryChanged(input: string): void {
+    this.newIncidentForm.patchValue(
+      { incidentSubcategory: this.getDropDownItemByInput(input, this.dropDownIncidentCategories) }
+    );
+  }
+
+  onDescriptionChanged(textAreaInput: string): void {
+    this.newIncidentForm.patchValue(
+      { incidentDesc: textAreaInput });
   }
 
   public getFormGroup(): FormGroup {
     if (this.newIncidentForm) {
       return this.clonerService.cloneFormGroup(this.newIncidentForm) as FormGroup;
-    }
-  }
-
-  onIncidentCategoryChanged(translatedName: string) {
-
-    const selectedIncidentCategory = this.dropDownIncidentCategories.find(
-      dropDownItem => dropDownItem.translatedName === translatedName);
-
-    if (selectedIncidentCategory) {
-      this.newIncidentForm.patchValue({ incidentCategory: selectedIncidentCategory.value });
-      this.newIncidentForm.patchValue({ translatedIncidentCategory: selectedIncidentCategory.translatedName });
-
-    } else {
-      this.newIncidentForm.patchValue({
-        incidentCategory: '',
-        translatedIncidentCategory: ''
-      });
-    }
-  }
-
-  onIncidentSubcategoryChanged(translatedName: string) {
-    const selectedIncidentSubcategory = this.dropDownIncidentCategories.find(
-      dropDownItem => dropDownItem.translatedName === translatedName);
-
-    if (selectedIncidentSubcategory) {
-      this.newIncidentForm.patchValue({ incidentSubcategory: selectedIncidentSubcategory.value });
-      this.newIncidentForm.patchValue({ translatedIncidentSubcategory: selectedIncidentSubcategory.translatedName });
-    } else {
-      this.newIncidentForm.patchValue({
-        incidentSubcategory: '',
-        translatedIncidentSubcategory: ''
-      });
     }
   }
 
@@ -146,37 +86,70 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
 
   onSave(): void {
     this.saveData();
+    this.loggingService.log(this.newIncidentForm.value);
   }
 
-  private saveData() {
+  private initDropDownIncidentCategories(): void {
+    this.dropDownIncidentCategories = [];
+    IncidentCategories().forEach(it => this.subs.sink = this.translateService.get('incidentCategory.' + it).subscribe(translation => {
+      this.dropDownIncidentCategories = [...this.dropDownIncidentCategories, new DropDownItem('incidentCategory.' + it, it, translation)];
+    }));
+  }
+
+  private buildForm(): void {
+    this.newIncidentForm = this.formBuilder.group({
+      incidentCategory: this.formBuilder.control('', [Validators.required]),
+      incidentSubcategory: this.formBuilder.control('', Validators.required),
+      incidentDesc: this.formBuilder.control('', [Validators.required, Validators.minLength(4)]),
+    });
+  }
+
+  private saveData(): void {
     if (this.newIncidentForm.valid) {
       this.newIncidentWizardService.setIncidentDetails(
-        (this.newIncidentForm.value as IncidentDetails).incidentCategory,
-        (this.newIncidentForm.value as IncidentDetails).incidentSubcategory,
+        (this.newIncidentForm.value as IncidentDetails).incidentCategory.value,
+        (this.newIncidentForm.value as IncidentDetails).incidentSubcategory.value,
         (this.newIncidentForm.value as IncidentDetails).incidentDesc
       );
     }
   }
 
-  private _filter(value: string): DropDownItem[] {
-    if (value) {
-      const filterValue = value.toLowerCase();
-      return this.dropDownIncidentCategories.filter(dropDownItem => (dropDownItem.translatedName).toLowerCase()
-        .includes(filterValue));
-    }
-    return this.dropDownIncidentCategories;
+  private translateSelectedOptions(): void {
+    this.newIncidentForm.patchValue({
+      incidentCategory: this.getDropDownItemByValue((this.newIncidentForm.value as IncidentDetails).incidentCategory.value)
+    });
+    this.newIncidentForm.patchValue({
+      incidentSubcategory: this.getDropDownItemByValue((this.newIncidentForm.value as IncidentDetails).incidentSubcategory.value)
+    });
   }
 
-  private getTranslatedCategoryByValue(value: string): string {
+  private getDropDownItemByValue(value: string): DropDownItem {
     if (value) {
       const filterValue = value.toLowerCase();
       return this.dropDownIncidentCategories.filter(dropDownItem => (dropDownItem.value).toLowerCase()
-        .includes(filterValue))[0].translatedName;
+        .includes(filterValue))[0];
+    }
+  }
+
+  private getDropDownItemByInput(input: string, dropDownItems: DropDownItem[]): DropDownItem | '' {
+    const dropDownItemFound = dropDownItems.find(
+      dropDownItem => dropDownItem.translatedName === input);
+    return dropDownItemFound ? dropDownItemFound : '';
+  }
+
+  private updateNewIncidentForm(updatedIncident: Incident): void {
+    if (updatedIncident.category) {
+      this.newIncidentForm.patchValue({ incidentCategory: this.getDropDownItemByValue(updatedIncident.category) });
+    }
+    if (updatedIncident.subcategory) {
+      this.newIncidentForm.patchValue({ incidentSubcategory: this.getDropDownItemByValue(updatedIncident.subcategory) });
+    }
+    if (updatedIncident.description) {
+      this.newIncidentForm.patchValue({ incidentDesc: updatedIncident.description });
     }
   }
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
   }
-
 }
