@@ -96,6 +96,8 @@ import { DateAgoPipe } from './pipe/date-ago.pipe';
 import { CarouselComponent } from './component/carousel/carousel.component';
 import { ProgressIndigatorComponent } from './component/progress-indigator/progress-indigator.component';
 import { CardComponent } from './component/card/card.component';
+import { AutocompleteSelectComponent } from './component/autocomplete-select/autocomplete-select.component';
+import { TextAreaComponent } from './component/text-area/text-area.component';
 
 @NgModule({
   imports: [
@@ -134,6 +136,8 @@ import { CardComponent } from './component/card/card.component';
     CarouselComponent,
     ProgressIndigatorComponent,
     CardComponent,
+    AutocompleteSelectComponent,
+    TextAreaComponent,
 
     // Pipes
     DateAgoPipe,
@@ -163,6 +167,8 @@ import { CardComponent } from './component/card/card.component';
     CarouselComponent,
     ProgressIndigatorComponent,
     CardComponent,
+    AutocompleteSelectComponent,
+    TextAreaComponent,
 
     // Pipes
     DateAgoPipe,

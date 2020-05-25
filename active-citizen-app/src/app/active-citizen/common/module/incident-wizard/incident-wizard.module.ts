@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-
-
 import { SharedModule } from 'src/app/shared/shared.module';
 import { IncidentWizardRoute } from './incident-wizard.routing';
 import { EnterLocationComponent } from './component/enter-location/enter-location.component';
@@ -9,16 +7,12 @@ import { EnterIncidentPhotoComponent } from './component/enter-incident-photo/en
 import { SummaryIncidentComponent } from './component/summary-incident/summary-incident.component';
 import { NewIncidentWizardService } from './service/new-incident-wizard.service';
 import { IncidentMapsModule } from '../incident-maps/incident-maps.module';
-import { AutocompleteSelectComponent } from './component/autocomplete-select/autocomplete-select.component';
-import { TextAreaComponent } from './component/text-area/text-area.component';
 
 @NgModule({
   declarations: [EnterLocationComponent,
     EnterIncidentDetailsComponent,
     EnterIncidentPhotoComponent,
-    SummaryIncidentComponent,
-    AutocompleteSelectComponent,
-    TextAreaComponent
+    SummaryIncidentComponent
   ],
   imports: [
     SharedModule,
