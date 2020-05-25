@@ -12,11 +12,10 @@
         [errorConfig]="{ required: 'enter-incident-details.incident-category.error-required' | translate }">
       </app-autocomplete-select>
 
-
       <app-autocomplete-select formControlName="incidentSubcategory"
         [label]="'enter-incident-details.incident-subcategory.label'" [dropDownItems]="dropDownIncidentCategories"
         (change)="onSubcategoryChanged($event.target.value)"
-        (optionSelected)=onSubcategoryChanged($event.translatedName)
+        (optionSelected)="onSubcategoryChanged($event.translatedName)"
         [errorConfig]=" { required: 'enter-incident-details.incident-subcategory.error-required' | translate }">
       </app-autocomplete-select>
 

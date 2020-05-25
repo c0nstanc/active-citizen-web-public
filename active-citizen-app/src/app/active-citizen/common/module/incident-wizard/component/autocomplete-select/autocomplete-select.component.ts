@@ -47,7 +47,9 @@ export class AutocompleteSelectComponent<T extends DefaultFormValidatorsTextConf
 
 
   writeValue(value: DropDownItem): void {
-    this.input.nativeElement.value = value;
+    if (value){
+      this.input.nativeElement.value = value;
+    }
   }
 
   onOptionSelected(selectedDropDownItem: DropDownItem) {
