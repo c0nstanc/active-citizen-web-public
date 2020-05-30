@@ -86,7 +86,13 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
     this.newIncidentForm = this.formBuilder.group({
       incidentCategory: this.formBuilder.control('', [Validators.required]),
       incidentSubcategory: this.formBuilder.control('', Validators.required),
-      incidentDesc: this.formBuilder.control('', [Validators.required, Validators.minLength(4)]),
+      incidentDesc: this.formBuilder.control('', {
+        validators: [
+          Validators.required,
+          Validators.minLength(16)
+        ],
+        updateOn: 'change'
+      }),
     });
   }
 

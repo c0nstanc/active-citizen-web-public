@@ -4,7 +4,7 @@
     <input #input type="text" matInput formControlName="autocompleteSelect" [matAutocomplete]="auto">
     <mat-autocomplete [displayWith]="displayInput" autoActiveFirstOption
       (optionSelected)="onOptionSelected($event.option.value)" #auto="matAutocomplete">
-      <mat-option *ngFor="let dropDownItem of filtereddropDownItems | async" [value]="dropDownItem">
+      <mat-option *ngFor="let dropDownItem of filteredDropDownItems | async" [value]="dropDownItem">
         {{dropDownItem.name | translate}}
       </mat-option>
     </mat-autocomplete>

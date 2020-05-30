@@ -1,11 +1,21 @@
+@import "variables";
+@import "mixins";
 
 @import "extra-small-default";
-@import "variables";
 
-@media only screen and (min-width: $breakpoint-medium) {
+
+@include media-breakpoint-up(sm) {
+  @import "small";
+}
+
+@include media-breakpoint-up(md) {
   @import "medium";
 }
 
-@media only screen and (min-width: $breakpoint-large) {
+@include media-breakpoint-up(lg) {
   @import "large";
+}
+
+@include media-breakpoint-up(xl) {
+  @import "extra-large";
 }

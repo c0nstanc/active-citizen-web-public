@@ -30,7 +30,7 @@ export class AutocompleteSelectComponent<T extends DefaultFormValidatorsTextConf
   input: ElementRef;
 
   formGroup: FormGroup;
-  filtereddropDownItems: Observable<DropDownItem[]>
+  filteredDropDownItems: Observable<DropDownItem[]>
   subs: SubSink = new SubSink();
 
   constructor(
@@ -84,7 +84,7 @@ export class AutocompleteSelectComponent<T extends DefaultFormValidatorsTextConf
         }
       }), map(value => this._filter(value)),
     ).subscribe(values => {
-      this.filtereddropDownItems = of(values);
+      this.filteredDropDownItems = of(values);
     });
 
     const validators = this.controlDir.control.validator ?
@@ -92,7 +92,7 @@ export class AutocompleteSelectComponent<T extends DefaultFormValidatorsTextConf
     this.controlDir.control.setValidators(validators);
     this.formGroup = this.formBuilder.group({
       autocompleteSelect: this.controlDir.control
-    })
+    });
   }
 
   private _filter(value: string): DropDownItem[] {

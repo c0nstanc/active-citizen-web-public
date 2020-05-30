@@ -19,6 +19,8 @@
         [errorConfig]=" { required: 'enter-incident-details.incident-subcategory.error-required' | translate }">
       </app-autocomplete-select>
 
+      <!-- {{newIncidentForm.value | json}} -->
+
       <app-text-area formControlName="incidentDesc" [label]="'enter-incident-details.incident-description.label'"
         [placeholder]="'enter-incident-details.incident-description.placeholder'"
         (change)="onDescriptionChanged($event.target.value)" [errorConfig]="{
