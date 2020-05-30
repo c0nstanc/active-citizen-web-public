@@ -2,8 +2,8 @@
 @import "mixins";
 
 .incident-item {
-  display: flex;
-  justify-content: center;
+  @include flexbox();
+  @include justify-content(center);
   width: 100%;
   height: 100%;
   margin: 2rem 0 0 0;
@@ -45,27 +45,27 @@
   .title-area {
     grid-area: title;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(space-between);
     padding: 0.5rem;
     .incident-item-title {
-      display: flex;
-      align-items: flex-start;
+      @include flexbox();
+      @include align-items(flex-start);
     }
     .incident-item-id {
       font-size: 0.875rem;
-      display: flex;
-      align-items: flex-start;
+      @include flexbox();
+      @include align-items(flex-start);
       justify-self: flex-end;
     }
   }
 
   .incident-item-image-area {
     grid-area: image;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
     max-width: 100px;
     width: 100px;
     @include media-breakpoint-up(sm) {
@@ -87,9 +87,9 @@
 
     fa-icon.ng-fa-icon {
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-self: center;
+      @include flexbox();
+      @include justify-content(center);
+      @include align-self(center);
     }
   }
   .incident-item-details-area {
@@ -117,11 +117,11 @@
   }
   .status {
     grid-area: status;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    @include flexbox();
+    @include align-items(flex-end);
+    @include justify-content(flex-end);
     @include media-breakpoint-up(md) {
-      align-items: center;
+      @include align-items(center);
     }
   }
 

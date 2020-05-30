@@ -1,11 +1,12 @@
 @import "variables";
+@import "mixins";
 
 .nav-item-no-children {
   height: 2.5rem;
   min-width: $app-sidenav-min-width;
   button {
     padding: 0 1.5rem;
-    display: flex;
+    @include flexbox();
     font-size: calc(#{$body-font-size} - 1px);
     min-width: $app-sidenav-min-width;
   }

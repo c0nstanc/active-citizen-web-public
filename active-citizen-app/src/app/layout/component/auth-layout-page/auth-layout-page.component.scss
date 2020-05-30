@@ -1,3 +1,5 @@
+@import "mixins";
+
 .full-width-image {
   min-height: 100vh;
   width: 100vw;
@@ -14,10 +16,10 @@
 }
 
 .auth-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flexbox();
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(center);
   width: 100%;
   min-height: 100%;
 }

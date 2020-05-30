@@ -1,17 +1,19 @@
+@import "mixins";
+
 ::ng-deep .image-drop-area {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  @include flexbox();
+  @include justify-content(center);
+  @include align-content(center);
   border-radius: 6px;
   height: 10rem;
   min-width: 250px;
 }
 
 .image-drop-area-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center);
   height: 100%;
   width: 100%;
   color: #9f9f9f;

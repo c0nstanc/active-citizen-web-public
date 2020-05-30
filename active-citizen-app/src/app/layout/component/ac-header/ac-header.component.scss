@@ -2,22 +2,22 @@
 @import "variables";
 
 .header {
-  display: flex;
-  align-items: center;
+  @include flexbox();
+  @include align-items(center);
   height: $app-header-height-sm;
   @include media-breakpoint-up(sm) {
     height: $app-header-height;
   }
 }
 .flex-spacer {
-  flex-grow: 1;
+  @include flex-grow(1);
 }
 
 mat-icon.theme-icon {
   font-size: $app-header-icon-size;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
 }
 
 .mat-toolbar-row {

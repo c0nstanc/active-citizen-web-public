@@ -1,17 +1,19 @@
+@import "mixins";
+
 .options {
   // background-color: #f4f5f7; // TODO theme
   .user {
     padding: 3rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
     font-size: 1.5rem;
     font-weight: 500;
 
     .default-user-avatar {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
+      @include inline-flex();
+      @include justify-content(center);
+      @include align-items(center);
       font-size: 1.5rem;
       font-weight: 700;
       // background-color: #dfe1e6;  // TODO theme
@@ -57,6 +59,6 @@
 }
 
 ::ng-deep .mat-tab-links {
-  justify-content: center;
+  @include justify-content(center);
   // border-bottom: 1px solid black // TODO theme
 }

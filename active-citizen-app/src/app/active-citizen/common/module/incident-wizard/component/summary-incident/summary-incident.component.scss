@@ -10,12 +10,12 @@
 }
 
 .flex {
-  display: flex;
-  flex-flow: column-reverse;
+  @include flexbox();
+  @include flex-flow(column-reverse);
   @include media-breakpoint-up(md) {
-    flex-flow: row;
+    @include flex-flow(row);
   }
-  justify-content: space-evenly;
+  @include justify-content(space-evenly);
   app-card {
     width: 100%;
   }

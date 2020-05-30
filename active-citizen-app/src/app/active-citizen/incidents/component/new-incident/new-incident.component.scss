@@ -2,8 +2,8 @@
 @import "mixins";
 
 .new-incident-container {
-  display: flex;
-  justify-content: center;
+  @include flexbox();
+  @include justify-content(center);
   min-width: 305px;
   @include media-breakpoint-up(sm) {
     min-width: unset;

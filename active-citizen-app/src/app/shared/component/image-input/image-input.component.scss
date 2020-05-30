@@ -2,9 +2,9 @@
 @import "mixins";
 
 .image-input-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  @include flexbox();
+  @include align-items(center);
+  @include flex-direction(column);
   margin-top: 3rem;
   margin-bottom: 1rem;
   @include media-breakpoint-up(md) {
@@ -14,9 +14,9 @@
 
 .image-capture-container {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
   @include media-breakpoint-up(md) {
     display: none;
   }

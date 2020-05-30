@@ -1,6 +1,8 @@
+@import "mixins";
+
 .image-container {
-  display: flex;
-  align-items: baseline;
+  @include flexbox();
+  @include align-items(baseline);
   img {
     width: auto;
     max-width: 65vw;
@@ -10,9 +12,9 @@
 
 .image-name {
   margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
 }
 
 ::ng-deep .modal-header.image-viewer-modal {

@@ -1,6 +1,8 @@
+@import "mixins";
+
 .center {
-  display: flex;
-  justify-content: center;
+  @include flexbox();
+  @include justify-content(center);
 }
 
 .personal-info {

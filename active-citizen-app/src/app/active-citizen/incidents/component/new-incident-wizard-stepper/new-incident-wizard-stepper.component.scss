@@ -17,9 +17,9 @@
 }
 
 .wizard-btn-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
   padding-bottom: 1rem;
   padding-top: 1rem;
 }
