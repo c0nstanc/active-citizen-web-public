@@ -1,5 +1,5 @@
-@import "variables";
-@import "mixins";
+@import "variables/main";
+@import "mixins/main";
 
 .new-incident-container {
   @include flexbox();

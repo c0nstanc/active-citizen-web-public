@@ -1,7 +1,7 @@
-@import "reset";
-@import "variables";
-@import "mixins";
+@import "./reset/main";
+@import "./variables/main";
+@import "./mixins/main";
 @import "./device/main";
-@import "material/main";
+@import "./material/main";
 @import '~material-design-icons/iconfont/material-icons.css';
 

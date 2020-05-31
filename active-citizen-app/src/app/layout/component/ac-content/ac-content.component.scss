@@ -1,5 +1,5 @@
-@import "mixins";
-@import "variables";
+@import "mixins/main";
+@import "variables/main";
 
 #content {
   margin-top: $app-content-margin-top;
