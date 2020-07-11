@@ -1,4 +1,5 @@
-@import "mixins/main";
+@import "mixins/flex";
+@import "mixins/media";
 
 .take-picture {
   @include flexbox();

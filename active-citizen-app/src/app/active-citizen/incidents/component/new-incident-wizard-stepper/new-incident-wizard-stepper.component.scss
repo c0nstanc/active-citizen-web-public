@@ -1,5 +1,6 @@
-@import "mixins/main";
 @import "variables/main";
+@import "mixins/media";
+@import "mixins/flex";
 
 .new-incident-wizard-stepper-container {
   padding: 0.5rem 0;

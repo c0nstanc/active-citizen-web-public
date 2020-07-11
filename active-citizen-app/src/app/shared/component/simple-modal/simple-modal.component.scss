@@ -1,5 +1,7 @@
 @import "variables/main";
-@import "mixins/main";
+@import "mixins/flex";
+@import "mixins/media";
+
 
 .modal-dialog-centered {
   margin-top: 0;

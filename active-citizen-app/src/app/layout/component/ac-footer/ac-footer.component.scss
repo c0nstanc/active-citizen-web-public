@@ -1,5 +1,6 @@
-@import "mixins/main";
 @import "variables/main";
+@import "mixins/flex";
+@import "mixins/media";
 
 .footer {
   height: $app-footer-height;

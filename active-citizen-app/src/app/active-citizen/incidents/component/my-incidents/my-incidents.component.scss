@@ -1,5 +1,6 @@
 @import "variables/main";
-@import "mixins/main";
+@import "mixins/media";
+@import "mixins/flex";
 
 .my-incidents-container {
   display: grid;

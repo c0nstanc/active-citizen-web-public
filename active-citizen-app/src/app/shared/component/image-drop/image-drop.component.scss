@@ -1,4 +1,4 @@
-@import "mixins/main";
+@import "mixins/flex";
 
 ::ng-deep .image-drop-area {
   @include flexbox();
