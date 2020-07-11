@@ -88,10 +88,10 @@ export class AcHeaderComponent implements OnInit, OnDestroy {
     ]);
   }
 
-  private initializeLinksGroups() {
-    this.linksGroup = [...this.linksGroup, this.getLinksGroup1()]
-    this.linksGroup = [...this.linksGroup, this.getLinksGroup2()]
-    this.linksGroup = [...this.linksGroup, this.getLinksGroup3()]
+  private initializeLinksGroups(): void {
+    this.linksGroup = [...this.linksGroup, this.getLinksGroup1()];
+    this.linksGroup = [...this.linksGroup, this.getLinksGroup2()];
+    this.linksGroup = [...this.linksGroup, this.getLinksGroup3()];
   }
 
 }
