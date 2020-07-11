@@ -1,5 +1,5 @@
 <div class="form-group" [formGroup]="formGroup">
-  <mat-form-field appearance="outline">
+  <mat-form-field class="w-100" appearance="outline">
     <mat-label>{{ label | translate}}</mat-label>
     <textarea #textArea (blur)="onTouched()" (input)="onChange($event.target.value)" matInput [placeholder]="placeholder | translate" formControlName="textArea" autocomplete="off"
       ></textarea>

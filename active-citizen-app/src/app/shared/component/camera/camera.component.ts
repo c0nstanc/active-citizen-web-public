@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy, Input, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
 import { CamUtil } from './util/cam.util';
 import { CamInitError } from './model/cam-init-error.model';
@@ -39,7 +39,7 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
   private switchCameraSubscription: Subscription;
   private mediaStream: MediaStream = null;
   @ViewChild('video', { static: true })
-  private video: any;
+  private video: ElementRef;
   @ViewChild('canvas', { static: true })
   private canvas: any;
 
@@ -151,7 +151,7 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
 
 
   public takeSnapshot(): void {
-    const video = this.nativeVideoElement;
+    const video = this.video.nativeElement;
     const dimensions = { width: this.width, height: this.height };
     if (video.videoWidth) {
       dimensions.width = video.videoWidth;
@@ -181,7 +181,7 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
     this.imageCapture.next(new CamImage(dataUrl, mimeType, imageData).camImageToFile());
   }
 
-  public rotateVideoInput(forward: boolean) {
+  public rotateVideoInput(forward: boolean): void {
     if (this.availableVideoInputs && this.availableVideoInputs.length > 1) {
       const increment: number = forward ? 1 : (this.availableVideoInputs.length - 1);
       const nextInputIndex = (this.activeVideoInputIndex + increment) % this.availableVideoInputs.length;
@@ -202,18 +202,18 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
     // here to trigger Angular change detection
   }
 
-  public get videoWidth() {
+  public get videoWidth(): number {
     const videoRatio = this.getVideoAspectRatio();
     return Math.min(this.width, this.height * videoRatio);
   }
 
-  public get videoHeight() {
+  public get videoHeight(): number {
     const videoRatio = this.getVideoAspectRatio();
     return Math.min(this.height, this.width / videoRatio);
   }
 
-  public get videoStyleClasses() {
-    let classes = 'video';
+  public get videoStyleClasses(): string {
+    let classes = 'w-100 h-100';
 
     if (this.isMirrorImage()) {
       classes += ' mirrored ';
@@ -222,14 +222,10 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
     return classes.trim();
   }
 
-  public get nativeVideoElement() {
-    return this.video.nativeElement;
-  }
-
 
   private getVideoAspectRatio(): number {
     // calculate ratio from video element dimensions if present
-    const videoElement = this.nativeVideoElement;
+    const videoElement = this.video.nativeElement;
     if (videoElement.videoWidth && videoElement.videoWidth > 0 &&
       videoElement.videoHeight && videoElement.videoHeight > 0) {
 
@@ -241,8 +237,8 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
   }
 
 
-  private initCam(deviceId: string, userVideoTrackConstraints: MediaTrackConstraints) {
-    const video = this.nativeVideoElement;
+  private initCam(deviceId: string, userVideoTrackConstraints: MediaTrackConstraints): void {
+    const video = this.video.nativeElement;
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
       // merge deviceId -> userVideoTrackConstraints
@@ -320,7 +316,7 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
    * This prevents the camera from being indicated as active,
    * even if it is no longer used by this component.
    */
-  private stopMediaTracks() {
+  private stopMediaTracks(): void {
     if (this.mediaStream && this.mediaStream.getTracks) {
       // getTracks() returns all media tracks (video+audio)
       this.mediaStream.getTracks()
@@ -329,7 +325,7 @@ export class CameraComponent implements AfterViewInit, OnDestroy {
   }
 
 
-  private unsubscribeFromSubscriptions() {
+  private unsubscribeFromSubscriptions(): void {
     if (this.imageCaptureSubscription) {
       this.imageCaptureSubscription.unsubscribe();
     }

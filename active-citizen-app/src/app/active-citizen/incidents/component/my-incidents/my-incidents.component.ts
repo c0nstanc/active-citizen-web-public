@@ -46,7 +46,7 @@ export class MyIncidentsComponent implements OnInit {
     this.incidentsMap.stopBounceMarker(incident.locationDetails.latLng);
   }
 
-  private navigateToIncident(incident: Incident) {
+  private navigateToIncident(incident: Incident): void {
     this.router.navigate(['incidents/' + incident.id]);
   }
 

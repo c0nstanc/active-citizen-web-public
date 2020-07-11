@@ -10,14 +10,11 @@
   }
 }
 
-.flex {
+.card-container {
   @include flexbox();
   @include flex-flow(column-reverse);
   @include media-breakpoint-up(md) {
     @include flex-flow(row);
   }
   @include justify-content(space-evenly);
-  app-card {
-    width: 100%;
-  }
 }

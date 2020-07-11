@@ -25,13 +25,7 @@ mat-icon {
   width: 100%;
 }
 
-app-modal-header,
-app-modal-footer {
-  width: 100%;
-}
-
 .camera-btn {
-  width: 100%;
   margin-bottom: 0.5rem;
   @include media-breakpoint-up(sm) {
     margin-bottom: unset;

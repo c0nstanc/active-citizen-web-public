@@ -1,5 +1,5 @@
 <div class="form-group" [formGroup]="formGroup">
-  <mat-form-field appearance="outline">
+  <mat-form-field class="w-100" appearance="outline">
     <mat-label>{{label | translate}}</mat-label>
     <input #input type="text" matInput formControlName="autocompleteSelect" [matAutocomplete]="auto">
     <mat-autocomplete [displayWith]="displayInput" autoActiveFirstOption
