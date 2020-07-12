@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SubmittableWizardStep } from 'src/app/active-citizen/common/model/wizard/wizard.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ClonerService } from 'src/app/core/services/cloner.service';
 import { LocationDetails } from 'src/app/active-citizen/common/model/location/location-details.model';
 import { Incident } from 'src/app/active-citizen/common/model/incident/incident.model';
 import { SubSink } from 'subsink';
 import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
-import { LoggingService } from 'src/app/core/services/logging.service';
+import { LoggingService } from 'src/app/core/services/logging/logging.service';
 import { LatLng } from 'src/app/active-citizen/common/model/location/lat-lng.model';
+import { ClonerUtils } from 'src/app/core/util/clone/cloner-utils.model';
 
 interface IncidentLocation {
   latLng: LatLng;
@@ -26,7 +26,6 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep, On
 
   constructor(
     private formBuilder: FormBuilder,
-    private clonerService: ClonerService,
     private newIncidentWizardService: NewIncidentWizardService,
     private loggingService: LoggingService
   ) { }
@@ -36,7 +35,7 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep, On
     this.subs.sink = this.newIncidentWizardService.newIncidentUpdated.subscribe((updatedIncident: Incident) => {
       if (updatedIncident.locationDetails) {
         this.onMarkerUpdated(updatedIncident.locationDetails.latLng);
-        this.onAddressUpdated(updatedIncident.locationDetails.address)
+        this.onAddressUpdated(updatedIncident.locationDetails.address);
       }
     });
 
@@ -52,7 +51,7 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep, On
     this.saveData();
   }
 
-  private saveData() {
+  private saveData(): void {
     this.newIncidentWizardService.setIncidentLocationDetails(
       new LocationDetails(
         (this.newIncidentForm.value as IncidentLocation).latLng,
@@ -77,7 +76,7 @@ export class EnterLocationComponent implements OnInit, SubmittableWizardStep, On
 
   public getFormGroup(): FormGroup {
     if (this.newIncidentForm) {
-      return this.clonerService.cloneFormGroup(this.newIncidentForm) as FormGroup;
+      return ClonerUtils.cloneFormGroup(this.newIncidentForm) as FormGroup;
     }
   }
 

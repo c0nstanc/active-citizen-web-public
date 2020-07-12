@@ -1,32 +1,29 @@
 import { Injectable } from '@angular/core';
 import * as clone from 'clone';
 import { List, fromJS } from 'immutable';
-import { AbstractControl, FormGroup, FormArray, FormControl } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, FormArray } from '@angular/forms';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClonerService {
+export class ClonerUtils {
 
-  public deepClone<T>(value: any): T {
+  public  static deepClone<T>(value: any): T {
     return clone<T>(value);
   }
 
-
-  public cloneArray<T>(values: any[]): any {
+  public static cloneArray<T>(values: any): Array<T> {
     return List<T>(values).toArray();
   }
 
-
-  public cloneObject<T>(object: any): any {
+  public static cloneObject<T>(object: any): T {
     return fromJS(object).toJS() as T;
   }
 
-  public cloneFormGroup(object: any) {
+  public static cloneFormGroup<T>(object: any): T {
     return cloneAbstractControl(object);
   }
-
 }
 
 function cloneAbstractControl<T extends AbstractControl>(control: T): T {
@@ -44,13 +41,17 @@ function cloneAbstractControl<T extends AbstractControl>(control: T): T {
   } else if (control instanceof FormArray) {
     const formArray = new FormArray([], control.validator, control.asyncValidator);
 
-    control.controls.forEach(formControl => formArray.push(cloneAbstractControl(formControl)))
+    control.controls.forEach(
+      formControl => {
+        formArray.push(cloneAbstractControl(formControl));
+      }
+    );
 
     newControl = formArray as any;
   } else if (control instanceof FormControl) {
     newControl = new FormControl(control.value, control.validator, control.asyncValidator) as any;
   } else {
-    throw new Error('Error: unexpected control value');
+    throw new Error('Error: Unexpected control value');
   }
 
   if (control.disabled) {
@@ -58,4 +59,5 @@ function cloneAbstractControl<T extends AbstractControl>(control: T): T {
   }
 
   return newControl;
+
 }

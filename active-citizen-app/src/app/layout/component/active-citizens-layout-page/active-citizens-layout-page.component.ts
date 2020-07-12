@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from 'src/app/core/services/theme.service';
+import { ThemeService } from 'src/app/core/services/theme/theme.service';
 import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({

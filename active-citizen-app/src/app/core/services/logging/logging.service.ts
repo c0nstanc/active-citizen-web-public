@@ -36,5 +36,4 @@ export class LoggingService {
   public fatal(message: string): void {
     this.logger.fatal(message);
   }
-
 }

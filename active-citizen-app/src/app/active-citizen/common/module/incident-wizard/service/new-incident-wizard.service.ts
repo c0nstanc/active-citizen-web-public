@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { Incident } from 'src/app/active-citizen/common/model/incident/incident.model';
 import { BehaviorSubject } from 'rxjs';
 import { IncidentStatus } from 'src/app/active-citizen/common/model/incident/incident-status.model';
-import { ClonerService } from 'src/app/core/services/cloner.service';
 import { LocationDetails } from 'src/app/active-citizen/common/model/location/location-details.model';
 import { IncidentService } from '../../../service/incident.service';
+import { ClonerUtils } from 'src/app/core/util/clone/cloner-utils.model';
+
 
 @Injectable()
 export class NewIncidentWizardService {
 
   private newIncident: Incident;
-  private newIncidentFiles: File[]
+  private newIncidentFiles: File[];
 
   newIncidentUpdated: BehaviorSubject<Incident>;
   newIncidentFilesUpdated: BehaviorSubject<File[]>;
@@ -18,7 +19,6 @@ export class NewIncidentWizardService {
 
   constructor(
     private incidentService: IncidentService,
-    private clonerService: ClonerService
   ) {
     this.initializeIncident();
   }
@@ -46,14 +46,14 @@ export class NewIncidentWizardService {
     this.covertFilesToImageUrls();
   }
 
-  public submitIncident() {
+  public submitIncident(): void {
     this.newIncident.status = IncidentStatus.SUBMITTED;
     this.newIncident.created = new Date();
-    this.incidentService.addNewIncident(this.clonerService.deepClone(this.newIncident));
+    this.incidentService.addNewIncident(ClonerUtils.deepClone(this.newIncident));
     this.initializeIncident();
   }
 
-  private initializeIncident() {
+  private initializeIncident(): void {
     this.newIncident = new Incident();
     this.newIncidentFiles = [];
     this.newIncident.status = IncidentStatus.CREATED;
@@ -61,11 +61,11 @@ export class NewIncidentWizardService {
     this.newIncidentFilesUpdated = new BehaviorSubject([]);
   }
 
-  onIncidentUpdated(incident: Incident) {
+  onIncidentUpdated(incident: Incident): void {
     this.newIncidentUpdated.next(incident);
   }
 
-  private covertFilesToImageUrls() {
+  private covertFilesToImageUrls(): void {
     this.newIncident.imageUrls = [];
     this.newIncidentFiles.forEach(file => {
       if (file.type.match(/image\/*/) != null) {

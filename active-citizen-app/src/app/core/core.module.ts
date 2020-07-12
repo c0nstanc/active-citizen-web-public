@@ -4,7 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AuthGuard } from './guard/auth.guard';
 import { NoAuthGuard } from './guard/no-auth.guard';
-import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
+import { HttpErrorInterceptor } from './interceptors/error-handling/http-error.interceptor';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,7 +16,7 @@ import { MockModule } from '../mock/mock.module';
 
 
 // AoT requires an exported function for factories
-export function ModuleHttpLoaderFactory(http: HttpClient) {
+export function ModuleHttpLoaderFactory(http: HttpClient): ModuleTranslateLoader {
   const baseTranslateUrl = './assets/i18n';
 
   const options: IModuleTranslationOptions = {

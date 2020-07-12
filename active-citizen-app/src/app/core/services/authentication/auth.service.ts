@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { of, Observable, throwError } from 'rxjs';
-import { User } from 'src/app/core/common/model/user/user.model';
+import { User } from 'src/app/core/model/user/user.model';
 
 
 interface LoginContextInterface {

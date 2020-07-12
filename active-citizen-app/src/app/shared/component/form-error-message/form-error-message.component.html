@@ -1,3 +1,11 @@
-<small *ngIf="errorMessage !== undefined" class="errorMessage" class="text-danger">
-  {{ errorMessage }}
-</small>
+<div [id]="id" *ngIf="errorMessage !== undefined" class="formErrorMessage">
+
+  <div *ngIf="errorVariable !== undefined; else novariable">
+    {{errorMessage | translate:errorVariable  }}
+
+  </div>
+  <ng-template #novariable>
+    {{errorMessage | translate}}
+  </ng-template>
+
+</div>

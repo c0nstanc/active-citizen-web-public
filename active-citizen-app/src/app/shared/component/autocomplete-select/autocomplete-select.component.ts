@@ -1,9 +1,9 @@
 import { Component, OnInit, Renderer2, ElementRef, Input, Self, ViewChild, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { SelectControlValueAccessor, NgControl, FormGroup, FormBuilder } from '@angular/forms';
-import { DropDownItem } from 'src/app/core/common/model/menu/drop-down-item.model';
+import { DropDownItem } from 'src/app/core/model/menu/drop-down-item.model';
 import { startWith, map } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
-import { DefaultFormValidatorsTextConfig } from 'src/app/core/common/model/form-validation/default-form-validators-text-config.model';
+import { DefaultFormValidatorsConfig } from 'src/app/core/model/form-validation/default-form-validators-config.model';
 import { SubSink } from 'subsink';
 
 @Component({
@@ -11,7 +11,7 @@ import { SubSink } from 'subsink';
   templateUrl: './autocomplete-select.component.html',
   styleUrls: ['./autocomplete-select.component.scss']
 })
-export class AutocompleteSelectComponent<T extends DefaultFormValidatorsTextConfig>
+export class AutocompleteSelectComponent<T extends DefaultFormValidatorsConfig>
   extends SelectControlValueAccessor implements OnInit, OnDestroy {
 
   @Input()
@@ -21,7 +21,7 @@ export class AutocompleteSelectComponent<T extends DefaultFormValidatorsTextConf
   errorConfig: T;
 
   @Input()
-  dropDownItems: DropDownItem[]
+  dropDownItems: DropDownItem[];
 
   @Output()
   optionSelected = new EventEmitter<DropDownItem>();
@@ -30,15 +30,15 @@ export class AutocompleteSelectComponent<T extends DefaultFormValidatorsTextConf
   input: ElementRef;
 
   formGroup: FormGroup;
-  filteredDropDownItems: Observable<DropDownItem[]>
+  filteredDropDownItems: Observable<DropDownItem[]>;
   subs: SubSink = new SubSink();
 
   constructor(
     @Self() public controlDir: NgControl,
     private formBuilder: FormBuilder,
     renderer: Renderer2,
-    _elementRef: ElementRef) {
-    super(renderer, _elementRef);
+    elementRef: ElementRef) {
+    super(renderer, elementRef);
     controlDir.valueAccessor = this;
   }
 
@@ -52,8 +52,8 @@ export class AutocompleteSelectComponent<T extends DefaultFormValidatorsTextConf
     }
   }
 
-  onOptionSelected(selectedDropDownItem: DropDownItem) {
-    this.optionSelected.emit(selectedDropDownItem)
+  onOptionSelected(selectedDropDownItem: DropDownItem): void {
+    this.optionSelected.emit(selectedDropDownItem);
   }
 
   registerOnChange(fn: (value: any) => any): void {
@@ -78,7 +78,7 @@ export class AutocompleteSelectComponent<T extends DefaultFormValidatorsTextConf
       startWith(''),
       map(value => {
         if (value instanceof DropDownItem) {
-          return value.translatedName
+          return value.translatedName;
         } else {
           return value;
         }

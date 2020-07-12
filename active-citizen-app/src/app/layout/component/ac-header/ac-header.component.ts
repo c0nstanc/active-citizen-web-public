@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { ThemeService } from 'src/app/core/services/theme.service';
+import { ThemeService } from 'src/app/core/services/theme/theme.service';
 import { ModalService } from 'src/app/shared/component/simple-modal/service/modal.service';
 import { SubSink } from 'subsink';
 import { OptionGroup } from 'src/app/shared/component/menu/model/option-group.model';
-import { NavLink } from 'src/app/core/common/model/nav/nav-link.model';
-import { LinksGroup } from 'src/app/core/common/model/nav/links-group.model';
-import { NavItem } from 'src/app/core/common/model/nav/nav-item.model';
+import { NavLink } from 'src/app/core/model/nav/nav-link.model';
+import { LinksGroup } from 'src/app/core/model/nav/links-group.model';
+import { NavItem } from 'src/app/core/model/nav/nav-item.model';
 
 @Component({
   selector: 'app-ac-header',

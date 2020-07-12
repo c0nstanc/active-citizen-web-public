@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { SubmittableWizardStep } from 'src/app/active-citizen/common/model/wizard/wizard.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { ClonerService } from 'src/app/core/services/cloner.service';
 import { Router } from '@angular/router';
 import { Incident } from 'src/app/active-citizen/common/model/incident/incident.model';
 import { SubSink } from 'subsink';
 import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
 import { IncidentMapComponent } from '../../../incident-maps/component/incident-map/incident-map.component';
 import { ImageSlide } from 'src/app/active-citizen/common/model/carousel/image-slide.model';
+import { ClonerUtils } from 'src/app/core/util/clone/cloner-utils.model';
 
 @Component({
   selector: 'ac-summary-incident',
@@ -26,7 +26,6 @@ export class SummaryIncidentComponent implements OnInit, SubmittableWizardStep, 
 
   constructor(
     private formBuilder: FormBuilder,
-    private clonerService: ClonerService,
     private newIncidentWizardService: NewIncidentWizardService,
     private router: Router,
     private changeDetectorRef: ChangeDetectorRef
@@ -49,7 +48,7 @@ export class SummaryIncidentComponent implements OnInit, SubmittableWizardStep, 
   }
 
   getFormGroup(): FormGroup {
-    return this.clonerService.cloneFormGroup(this.buildForm()) as FormGroup;
+    return ClonerUtils.cloneFormGroup(this.buildForm()) as FormGroup;
   }
 
   onSubmit(): void {

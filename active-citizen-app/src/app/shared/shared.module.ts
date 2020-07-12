@@ -93,11 +93,13 @@ import { FileListComponent } from './component/file-list/file-list.component';
 import { ImageDropComponent } from './component/image-drop/image-drop.component';
 import { TimelineComponent } from './component/timeline/timeline.component';
 import { DateAgoPipe } from './pipe/date-ago.pipe';
+import { JsonToArrayPipe } from './pipe/json-to-array.pipe';
 import { CarouselComponent } from './component/carousel/carousel.component';
 import { ProgressIndigatorComponent } from './component/progress-indigator/progress-indigator.component';
 import { CardComponent } from './component/card/card.component';
 import { AutocompleteSelectComponent } from './component/autocomplete-select/autocomplete-select.component';
 import { TextAreaComponent } from './component/text-area/text-area.component';
+import { WindowBeforeunloadComponent } from './component/window-beforeunload/window-beforeunload.component';
 
 @NgModule({
   imports: [
@@ -138,9 +140,11 @@ import { TextAreaComponent } from './component/text-area/text-area.component';
     CardComponent,
     AutocompleteSelectComponent,
     TextAreaComponent,
+    WindowBeforeunloadComponent,
 
     // Pipes
     DateAgoPipe,
+    JsonToArrayPipe,
 
   ],
   exports: [
@@ -169,9 +173,12 @@ import { TextAreaComponent } from './component/text-area/text-area.component';
     CardComponent,
     AutocompleteSelectComponent,
     TextAreaComponent,
+    WindowBeforeunloadComponent,
+
 
     // Pipes
     DateAgoPipe,
+    JsonToArrayPipe,
 
   ]
 })

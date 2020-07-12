@@ -1,15 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DropDownItem } from 'src/app/core/common/model/menu/drop-down-item.model';
+import { DropDownItem } from 'src/app/core/model/menu/drop-down-item.model';
 import { Incident } from 'src/app/active-citizen/common/model/incident/incident.model';
 import { SubmittableWizardStep } from 'src/app/active-citizen/common/model/wizard/wizard.model';
-import { ClonerService } from 'src/app/core/services/cloner.service';
 import { Observable } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import { NewIncidentWizardService } from '../../service/new-incident-wizard.service';
-import { LoggingService } from 'src/app/core/services/logging.service';
+import { LoggingService } from 'src/app/core/services/logging/logging.service';
 import { IncidentCategories } from 'src/app/active-citizen/common/model/incident/incident-category.enum';
+import { ClonerUtils } from 'src/app/core/util/clone/cloner-utils.model';
 
 interface IncidentDetails {
   incidentCategory: DropDownItem;
@@ -36,7 +36,6 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
   constructor(
     private formBuilder: FormBuilder,
     private newIncidentWizardService: NewIncidentWizardService,
-    private clonerService: ClonerService,
     private translateService: TranslateService,
     private loggingService: LoggingService) {
   }
@@ -55,7 +54,7 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
   }
 
   onCategoryChanged(input: string): void {
-    this.setFormIncidentCategory(this.getDropDownItemByInput(input, this.dropDownIncidentCategories))
+    this.setFormIncidentCategory(this.getDropDownItemByInput(input, this.dropDownIncidentCategories));
   }
 
   onSubcategoryChanged(input: string): void {
@@ -68,7 +67,7 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
 
   public getFormGroup(): FormGroup {
     if (this.newIncidentForm) {
-      return this.clonerService.cloneFormGroup(this.newIncidentForm) as FormGroup;
+      return ClonerUtils.cloneFormGroup(this.newIncidentForm) as FormGroup;
     }
   }
 
@@ -122,7 +121,7 @@ export class EnterIncidentDetailsComponent implements OnInit, SubmittableWizardS
   }
 
   private getFormIncidentDescription(): string {
-    return (this.newIncidentForm.value as IncidentDetails).incidentDesc
+    return (this.newIncidentForm.value as IncidentDetails).incidentDesc;
   }
 
   private setFormIncidentCategory(dropDownItem: DropDownItem): void {
