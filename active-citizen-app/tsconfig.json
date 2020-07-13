@@ -4,11 +4,28 @@
 
   To learn more about this file see: https://angular.io/config/solution-tsconfig.
 */
+// Disabled since for now its not working -- check again if works in future vs code versions.
+// It seems the issue is with tsConfig.app.json
+// {
+//   "files": [],
+//   "references": [
+//     {
+//       "path": "./tsconfig.app.json"
+//     },
+//     {
+//       "path": "./tsconfig.spec.json"
+//     },
+//     {
+//       "path": "./e2e/tsconfig.json"
+//     }
+// ]
+// }
+
 {
   "files": [],
   "references": [
     {
-      "path": "./tsconfig.app.json"
+      "path": "./tsconfig.base.json"
     },
     {
       "path": "./tsconfig.spec.json"
@@ -16,5 +33,5 @@
     {
       "path": "./e2e/tsconfig.json"
     }
-]
+  ]
 }

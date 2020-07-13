@@ -1,19 +1,17 @@
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable, EMPTY, of } from 'rxjs';
+import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Observable, EMPTY } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { LoggingService } from 'src/app/core/service/logging/logging.service';
-import { HdSpinnerService } from '@hd/hd-angular-components';
-import { Spinner } from 'src/app/motorcycle/common/model/spinner/spinner.enum';
 import { TranslateService } from '@ngx-translate/core';
-import { QuoteService } from 'src/app/motorcycle/common/service/quote/quote.service';
-import { BusinessErrorHandlingService } from 'src/app/motorcycle/common/service/error-message/business-error-handling.service';
+import { LoggingService } from '../../services/logging/logging.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { BusinessErrorHandlingService } from 'src/app/active-citizen/common/service/error-message/business-error-handling.service';
 
 export abstract class BaseResolver<T> implements Resolve<T>{
 
   constructor(
     protected loggingService: LoggingService,
     protected businessErrorHandlingService: BusinessErrorHandlingService,
-    protected hdSpinnerService: HdSpinnerService,
+    protected spinnerService: NgxSpinnerService,
   ) { }
 
   abstract resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<T> | Promise<T> | any;
@@ -21,7 +19,7 @@ export abstract class BaseResolver<T> implements Resolve<T>{
   handleError(error: HttpErrorResponse): Observable<T> {
 
     this.loggingService.error(`${error}`);
-    this.hdSpinnerService.hide(Spinner.FULL_PAGE);
+    this.spinnerService.hide();
     this.businessErrorHandlingService.showAppropriateErrorMessage(error);
     return EMPTY;
   }
@@ -36,18 +34,11 @@ export abstract class BaseResolver<T> implements Resolve<T>{
 
     if (((language === 'en_GB' || language === 'en')) && (translateService.currentLang !== 'en')) {
       translateService.use('en');
-      translateService.currentLang = 'en';
+      translateService.currentLang = 'en'; // TODO - See how to get rid of these
     } else if ((language === 'el_GR' || language === 'el') && (translateService.currentLang !== 'el')) {
       translateService.use('el');
-      translateService.currentLang = 'el';
+      translateService.currentLang = 'el'; // TODO - See how to get rid of these
     }
     return initializationDone;
-  }
-
-  initializeQuoteReference(route: ActivatedRouteSnapshot, quoteService: QuoteService): void {
-    const existingQuoteReference = route.queryParamMap.get('quoteReference');
-    if (existingQuoteReference) {
-      quoteService.setQuoteReference(existingQuoteReference);
-    }
   }
 }
