@@ -3,24 +3,24 @@
 .options {
   // background-color: #f4f5f7; // TODO theme
   .user {
-    padding: 3rem 0;
+    padding: 4.8rem 0;
     @include flexbox();
     @include align-items(center);
     @include justify-content(center);
-    font-size: 1.5rem;
+    font-size: 2.4rem;
     font-weight: 500;
 
     .default-user-avatar {
       @include inline-flex();
       @include justify-content(center);
       @include align-items(center);
-      font-size: 1.5rem;
+      font-size: 2.4rem;
       font-weight: 700;
       // background-color: #dfe1e6;  // TODO theme
       border-radius: 100%;
-      height: 3rem;
-      width: 3rem;
-      margin-right: 1rem;
+      height: 4.8rem;
+      width: 4.8rem;
+      margin-right: 1.6rem;
     }
   }
 
@@ -29,12 +29,12 @@
     // border-top: 1px solid black;// TODO theme
     // border-left: 1px solid black;// TODO theme
     // border-right: 1px solid black;// TODO theme
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
     border-radius: 3px 3px 0 0;
-    font-size: 1rem;
+    font-size: 1.6rem;
     text-decoration: none;
     margin-bottom: -1px;
   }

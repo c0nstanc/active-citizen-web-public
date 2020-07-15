@@ -1,4 +1,4 @@
-@import "variables/main";
+@import "variables/content";
 @import "mixins/media";
 @import "mixins/flex";
 
@@ -36,8 +36,8 @@
 
 .create-new-incident-btn-container {
   position: absolute;
-  padding-left: 0.5rem;
-  padding-top: 0.5rem;
+  padding-left: 0.8rem;
+  padding-top: 0.8rem;
   width: 100%;
   @include flexbox();
   @include justify-content(flex-start);
@@ -50,8 +50,8 @@
   .incident-list {
     grid-area: incidents-list;
 
-    margin-top: 1rem;
-    padding-bottom: 1rem;
+    margin-top: 1.6rem;
+    padding-bottom: 1.6rem;
     @include media-breakpoint-up(lg) {
       margin-top: 0;
     }
@@ -68,7 +68,7 @@
       "page-title"
       "incidents-list";
     max-height: $app-content-min-height-lg;
-    padding-right: 0.5rem;
+    padding-right: 0.8rem;
   }
 
   // .page-title {
@@ -95,7 +95,7 @@
     width: 100%;
     height: 100%;
     @include media-breakpoint-up(md) {
-      padding: 1rem 0 1rem 1rem;
+      padding: 1.6rem 0 1.6rem 1.6rem;
 
       @include flexbox();
       @include align-items(center);

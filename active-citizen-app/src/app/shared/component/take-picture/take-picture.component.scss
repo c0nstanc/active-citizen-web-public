@@ -6,14 +6,14 @@
   @include flex-direction(column);
   @include align-items(center);
   @include justify-content(center);
-  height: 7rem;
-  width: 7rem;
+  height: 11.2rem;
+  width: 11.2rem;
   border-radius: 50%;
 }
 
 mat-icon {
-  font-size: 3rem;
-  width: 3rem;
+  font-size: 48rem;
+  width: 48rem;
   height: auto;
 }
 
@@ -26,7 +26,7 @@ mat-icon {
 }
 
 .camera-btn {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
   @include media-breakpoint-up(sm) {
     margin-bottom: unset;
   }

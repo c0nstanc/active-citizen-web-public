@@ -1,4 +1,4 @@
-@import "variables/main";
+@import "variables/base";
 @import "mixins/flex";
 @import "mixins/media";
 
@@ -36,11 +36,11 @@
   width: 100%;
 
   mat-icon {
-    line-height: $body-line-height;
+    line-height: $base-line-height;
     vertical-align: middle;
-    font-size: 1rem;
-    width: 1rem;
-    margin-right: 0.25rem;
+    font-size: 1.6rem;
+    width: 1.6rem;
+    margin-right: 0.4rem;
   }
 
   .title-area {
@@ -49,13 +49,13 @@
     @include flexbox();
     @include align-items(center);
     @include justify-content(space-between);
-    padding: 0.5rem;
+    padding: 0.8rem;
     .incident-item-title {
       @include flexbox();
       @include align-items(flex-start);
     }
     .incident-item-id {
-      font-size: 0.875rem;
+      font-size: 1.4rem;
       @include flexbox();
       @include align-items(flex-start);
       justify-self: flex-end;
@@ -95,7 +95,7 @@
   }
   .incident-item-details-area {
     grid-area: details;
-    padding: 0 0.5rem;
+    padding: 0 0.8rem;
 
     .incident-item-description {
       display: none;
@@ -108,7 +108,7 @@
 
 .incident-footer {
   grid-area: footer;
-  padding: 0.5rem;
+  padding: 0.8rem;
 
   display: grid;
   grid-template-areas: "icons icons status";
@@ -117,6 +117,7 @@
     grid-template-columns: 2fr 4fr 1fr;
   }
   .status {
+    font-size: 1.2rem;
     grid-area: status;
     @include flexbox();
     @include align-items(flex-end);
@@ -128,12 +129,12 @@
 
   .created-votes-and-comments {
     grid-area: icons;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
     .created {
-      margin-right: 1rem;
+      margin-right: 1.6rem;
     }
     .votes {
-      margin-right: 1rem;
+      margin-right: 1.6rem;
     }
   }
 

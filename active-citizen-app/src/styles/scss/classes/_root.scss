@@ -1,0 +1,26 @@
+:root {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+* {
+  // Natural box layout model to all elements.
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  // Prevent text resize on different devices
+  -webkit-text-size-adjust: none;
+}
+
+html,
+body {
+  font-family: $app-font-family;
+  height: 100%;
+}
+
+p, .p {
+  font-size: 1.4rem;
+}

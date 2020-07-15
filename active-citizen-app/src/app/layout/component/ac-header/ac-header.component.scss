@@ -1,4 +1,4 @@
-@import "variables/main";
+@import "variables/header";
 @import "mixins/media";
 @import "mixins/flex";
 
@@ -22,7 +22,7 @@ mat-icon.theme-icon {
 }
 
 .mat-toolbar-row {
-  padding: 0 1rem 0 0;
+  padding: 0 1.6rem 0 0;
 }
 
 .hamburger {

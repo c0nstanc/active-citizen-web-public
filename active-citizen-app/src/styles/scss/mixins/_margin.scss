@@ -1,0 +1,465 @@
+/**
+    XXL
+   **/
+
+@mixin margin-bottom-2xl {
+  // extra small
+  margin-bottom: 40px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-bottom: 56px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin-bottom: 72px;
+  }
+}
+
+@mixin margin-top-2xl {
+  // extra small
+  margin-top: 40px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-top: 56px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin-top: 72px;
+  }
+}
+
+@mixin margin-left-2xl {
+  // extra small
+  margin-left: 40px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-left: 56px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin-left: 72px;
+  }
+}
+
+@mixin margin-right-2xl {
+  // extra small
+  margin-right: 40px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-right: 56px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin-right: 72px;
+  }
+}
+
+@mixin margin-2xl {
+  // extra small
+  margin: 40px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin: 56px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin: 72px;
+  }
+}
+
+/**
+    XL
+   **/
+
+@mixin margin-bottom-xl {
+  // extra small
+  margin-bottom: 32px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-bottom: 40px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin-bottom: 56px;
+  }
+}
+
+@mixin margin-top-xl {
+  // extra small
+  margin-top: 32px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-top: 40px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin-top: 56px;
+  }
+}
+
+@mixin margin-left-xl {
+  // extra small
+  margin-left: 32px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-left: 40px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin-left: 56px;
+  }
+}
+
+@mixin margin-right-xl {
+  // extra small
+  margin-right: 32px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-right: 40px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin-right: 56px;
+  }
+}
+
+@mixin margin-xl {
+  // extra small
+  margin: 32px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin: 40px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin: 56px;
+  }
+}
+
+/**
+    LG
+   **/
+
+@mixin margin-bottom-lg {
+  // extra small
+  margin-bottom: 24px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-bottom: 32px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin-bottom: 40px;
+  }
+}
+
+@mixin margin-top-lg {
+  // extra small
+  margin-top: 24px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-top: 32px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin-top: 40px;
+  }
+}
+
+@mixin margin-left-lg {
+  // extra small
+  margin-left: 24px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-left: 32px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin-left: 40px;
+  }
+}
+
+@mixin margin-right-lg {
+  // extra small
+  margin-right: 24px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-right: 32px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin-right: 40px;
+  }
+}
+
+@mixin margin-lg {
+  // extra small
+  margin: 24px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin: 32px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    margin: 40px;
+  }
+}
+
+/**
+    MD
+   **/
+
+@mixin margin-bottom-md {
+  // extra small, small, medium
+  margin-bottom: 24px;
+
+  // large, extra large
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 32px;
+  }
+}
+
+@mixin margin-top-md {
+  // extra small, small, medium
+  margin-top: 24px;
+
+  // large, extra large
+  @include media-breakpoint-up(lg) {
+    margin-top: 32px;
+  }
+}
+
+@mixin margin-left-md {
+  // extra small, small, medium
+  margin-left: 24px;
+
+  // large, extra large
+  @include media-breakpoint-up(lg) {
+    margin-left: 32px;
+  }
+}
+
+@mixin margin-right-md {
+  // extra small, small, medium
+  margin-right: 24px;
+
+  // large, extra large
+  @include media-breakpoint-up(lg) {
+    margin-right: 32px;
+  }
+}
+
+@mixin margin-md {
+  // extra small, small, medium
+  margin: 24px;
+
+  // large, extra large
+  @include media-breakpoint-up(lg) {
+    margin: 32px;
+  }
+}
+
+/**
+   SM
+  **/
+
+@mixin margin-bottom-sm {
+  // extra small,
+  margin-bottom: 16px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-bottom: 20px;
+  }
+
+  // medium, large, extra large
+  @include media-breakpoint-up(md) {
+    margin-bottom: 24px;
+  }
+}
+
+@mixin margin-top-sm {
+  // extra small,
+  margin-top: 16px;
+
+  // small,
+  @include media-breakpoint-up(sm) {
+    margin-top: 20px;
+  }
+
+  // medium, large, extra large
+  @include media-breakpoint-up(md) {
+    margin-top: 24px;
+  }
+}
+
+@mixin margin-left-sm {
+  // extra small,
+  margin-left: 16px;
+
+  // small,
+  @include media-breakpoint-up(sm) {
+    margin-left: 20px;
+  }
+
+  // medium, large, extra large
+  @include media-breakpoint-up(md) {
+    margin-left: 24px;
+  }
+}
+
+@mixin margin-right-sm {
+  // extra small
+  margin-right: 16px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin-right: 20px;
+  }
+
+  // medium, large, extra large
+  @include media-breakpoint-up(md) {
+    margin-right: 24px;
+  }
+}
+
+@mixin margin-sm {
+  // extra small
+  margin: 16px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    margin: 20px;
+  }
+
+  // medium, large, extra large
+  @include media-breakpoint-up(md) {
+    margin: 24px;
+  }
+}
+
+/**
+   XS
+  **/
+
+@mixin margin-bottom-xs {
+  margin-bottom: 16px;
+}
+
+@mixin margin-top-xs {
+  margin-top: 16px;
+}
+
+@mixin margin-left-xs {
+  margin-left: 16px;
+}
+
+@mixin margin-right-xs {
+  margin-right: 16px;
+}
+
+@mixin margin-xs {
+  margin: 16px;
+}
+
+/**
+   2XS
+  **/
+
+@mixin margin-bottom-2xs {
+  margin-bottom: 12px;
+}
+
+@mixin margin-top-2xs {
+  margin-top: 12px;
+}
+
+@mixin margin-left-2xs {
+  margin-left: 12px;
+}
+
+@mixin margin-right-2xs {
+  margin-right: 12px;
+}
+
+@mixin margin-2xs {
+  margin: 12px;
+}
+
+/**
+   3XS
+  **/
+
+@mixin margin-bottom-3xs {
+  margin-bottom: 8px;
+}
+
+@mixin margin-top-3xs {
+  margin-top: 8px;
+}
+
+@mixin margin-left-3xs {
+  margin-left: 8px;
+}
+
+@mixin margin-right-3xs {
+  margin-right: 8px;
+}
+
+@mixin margin-3xs {
+  margin: 8px;
+}
+
+/**
+   4XS
+  **/
+
+@mixin margin-bottom-4xs {
+  margin-bottom: 4px;
+}
+
+@mixin margin-top-4xs {
+  margin-top: 4px;
+}
+
+@mixin margin-left-4xs {
+  margin-left: 4px;
+}
+
+@mixin margin-right-4xs {
+  margin-right: 4px;
+}
+
+@mixin margin-4xs {
+  margin: 4px;
+}

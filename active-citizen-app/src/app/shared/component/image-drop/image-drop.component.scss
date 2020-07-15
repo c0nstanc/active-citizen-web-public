@@ -5,7 +5,7 @@
   @include justify-content(center);
   @include align-content(center);
   border-radius: 6px;
-  height: 10rem;
+  height: 16rem;
   min-width: 250px;
 }
 
@@ -19,10 +19,10 @@
   color: #9f9f9f;
 
   .add-image-icon {
-    font-size: 4rem;
+    font-size: 4.8rem;
     height: unset;
     width: unset;
-    margin-bottom: 1rem;
+    margin-bottom: 1.6rem;
     color: #9f9f9f;
   }
 }

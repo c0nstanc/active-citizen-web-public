@@ -1,17 +1,16 @@
 @import "mixins/media";
-@import "variables/main";
 
 .title {
-  padding-top: 2rem;
+  padding-top: 3.2rem;
 }
 
 .row.container-row {
-  margin: 0 -1rem;
-  padding-bottom: 1rem;
+  margin: 0 -1.6rem;
+  padding-bottom: 1.6rem;
 }
 
 .incident-progress-section {
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   display: none;
   @include media-breakpoint-up(md) {
     display: block;

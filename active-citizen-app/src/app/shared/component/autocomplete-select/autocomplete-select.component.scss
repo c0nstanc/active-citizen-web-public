@@ -4,15 +4,15 @@
   margin-bottom: 0rem;
   margin-top: 0;
   @include media-breakpoint-up(sm) {
-    margin-top: 2rem;
+    margin-top: 3.2rem;
   }
 
   ::ng-deep .mat-form-field-wrapper {
     padding-bottom: 1rem;
-    margin: 0.25rem;
+    margin: 0.4rem;
   }
 }
 
 ::ng-deep .mat-option-text {
-  font-size: 1rem;
+  font-size: 1.6rem;
 }

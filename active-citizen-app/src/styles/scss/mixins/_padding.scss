@@ -1,0 +1,386 @@
+/**
+    XL
+   **/
+
+@mixin padding-bottom-xl {
+  // extra small
+  padding-bottom: 32px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 40px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    padding-bottom: 56px;
+  }
+}
+
+@mixin padding-top-xl {
+  // extra small
+  padding-top: 32px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding-top: 40px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    padding-top: 56px;
+  }
+}
+
+@mixin padding-left-xl {
+  // extra small
+  padding-left: 32px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding-left: 40px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    padding-left: 56px;
+  }
+}
+
+@mixin padding-right-xl {
+  // extra small
+  padding-right: 32px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding-right: 40px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    padding-right: 56px;
+  }
+}
+
+@mixin padding-xl {
+  // extra small
+  padding: 32px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding: 40px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    padding: 56px;
+  }
+}
+
+/**
+  LG
+ **/
+
+@mixin padding-bottom-lg {
+  // extra small
+  padding-bottom: 24px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 32px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    padding-bottom: 40px;
+  }
+}
+
+@mixin padding-top-lg {
+  // extra small
+  padding-top: 24px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding-top: 32px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    padding-top: 40px;
+  }
+}
+
+@mixin padding-left-lg {
+  // extra small
+  padding-left: 24px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding-left: 32px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    padding-left: 40px;
+  }
+}
+
+@mixin padding-right-lg {
+  // extra small
+  padding-right: 24px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding-right: 32px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    padding-right: 40px;
+  }
+}
+
+@mixin padding-lg {
+  // extra small
+  padding: 24px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding: 32px;
+  }
+
+  // medium, large and xlarge
+  @include media-breakpoint-up(md) {
+    padding: 40px;
+  }
+}
+
+/**
+  MD
+ **/
+
+@mixin padding-bottom-md {
+  // extra small, small, medium
+  padding-bottom: 24px;
+
+  // large, extra large
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 32px;
+  }
+}
+
+@mixin padding-top-md {
+  // extra small, small, medium
+  padding-top: 24px;
+
+  // large, extra large
+  @include media-breakpoint-up(lg) {
+    padding-top: 32px;
+  }
+}
+
+@mixin padding-left-md {
+  // extra small, small, medium
+  padding-left: 24px;
+
+  // large, extra large
+  @include media-breakpoint-up(lg) {
+    padding-left: 32px;
+  }
+}
+
+@mixin padding-right-md {
+  // extra small, small, medium
+  padding-right: 24px;
+
+  // large, extra large
+  @include media-breakpoint-up(lg) {
+    padding-right: 32px;
+  }
+}
+
+@mixin padding-md {
+  // extra small, small, medium
+  padding: 24px;
+
+  // large, extra large
+  @include media-breakpoint-up(lg) {
+    padding: 32px;
+  }
+}
+
+/**
+ SM
+**/
+
+@mixin padding-bottom-sm {
+  // extra small
+  padding-bottom: 16px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 20px;
+  }
+
+  // large, extra large
+  @include media-breakpoint-up(md) {
+    padding-bottom: 24px;
+  }
+}
+
+@mixin padding-top-sm {
+  // extra small
+  padding-top: 16px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding-top: 20px;
+  }
+
+  // large, extra large
+  @include media-breakpoint-up(md) {
+    padding-top: 24px;
+  }
+}
+
+@mixin padding-left-sm {
+  // extra small
+  padding-left: 16px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding-left: 20px;
+  }
+
+  // large, extra large
+  @include media-breakpoint-up(md) {
+    padding-left: 24px;
+  }
+}
+
+@mixin padding-right-sm {
+  // extra small
+  padding-right: 16px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding-right: 20px;
+  }
+
+  // large, extra large
+  @include media-breakpoint-up(md) {
+    padding-right: 24px;
+  }
+}
+
+@mixin padding-sm {
+  // extra small
+  padding: 16px;
+
+  // small
+  @include media-breakpoint-up(sm) {
+    padding: 20px;
+  }
+
+  // large, extra large
+  @include media-breakpoint-up(md) {
+    padding: 24px;
+  }
+}
+
+/**
+ XS
+**/
+
+@mixin padding-bottom-xs {
+  padding-bottom: 16px;
+}
+
+@mixin padding-top-xs {
+  padding-top: 16px;
+}
+
+@mixin padding-left-xs {
+  padding-left: 16px;
+}
+
+@mixin padding-right-xs {
+  padding-right: 16px;
+}
+
+@mixin padding-xs {
+  padding: 16px;
+}
+
+/**
+ 2XS
+**/
+
+@mixin padding-bottom-2xs {
+  padding-bottom: 12px;
+}
+
+@mixin padding-top-2xs {
+  padding-top: 12px;
+}
+
+@mixin padding-left-2xs {
+  padding-left: 12px;
+}
+
+@mixin padding-right-2xs {
+  padding-right: 12px;
+}
+
+@mixin padding-2xs {
+  padding: 12px;
+}
+
+/**
+ 3XS
+**/
+
+@mixin padding-bottom-3xs {
+  padding-bottom: 8px;
+}
+
+@mixin padding-top-3xs {
+  padding-top: 8px;
+}
+
+@mixin padding-left-3xs {
+  padding-left: 8px;
+}
+
+@mixin padding-right-3xs {
+  padding-right: 8px;
+}
+
+@mixin padding-3xs {
+  padding: 8px;
+}
+
+/**
+ 4XS
+**/
+
+@mixin padding-bottom-4xs {
+  padding-bottom: 4px;
+}
+
+@mixin padding-top-4xs {
+  padding-top: 4px;
+}
+
+@mixin padding-left-4xs {
+  padding-left: 4px;
+}
+
+@mixin padding-right-4xs {
+  padding-right: 4px;
+}
+
+@mixin padding-4xs {
+  padding: 4px;
+}

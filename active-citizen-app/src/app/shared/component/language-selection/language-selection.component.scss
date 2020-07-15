@@ -1,5 +1,5 @@
 .language {
-  margin-left: 1rem;
+  margin-left: 1.6rem;
   &:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -7,4 +7,8 @@
   &:active {
     text-decoration: underline;
   }
+}
+
+.language-selection-container {
+  font-size: 1.4rem;
 }

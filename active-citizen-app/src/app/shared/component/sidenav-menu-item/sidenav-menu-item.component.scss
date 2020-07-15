@@ -1,13 +1,14 @@
-@import "variables/main";
+@import "variables/base";
+@import "variables/sidenav";
 @import "mixins/flex";
 
 .nav-item-no-children {
-  height: 2.5rem;
+  height: 4rem;
   min-width: $app-sidenav-min-width;
   button {
-    padding: 0 1.5rem;
+    padding: 0 2.4rem;
     @include flexbox();
-    font-size: calc(#{$body-font-size} - 1px);
+    font-size: 1.5rem;
     min-width: $app-sidenav-min-width;
   }
 }

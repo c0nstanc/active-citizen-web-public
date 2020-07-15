@@ -1,20 +1,20 @@
 @import "mixins/media";
 
 .form-container {
-  padding: 0rem 1rem 0rem 1rem;
+  padding: 0rem 1.6rem 0rem 1.6rem;
   @include media-breakpoint-up(sm) {
-    padding: 0rem 1rem 6rem 1rem;
+    padding: 0rem 1.6rem 9.6rem 1.6rem;
   }
   border-radius: 6px;
 }
 
 .enter-incident-photo-description {
-  margin: 1rem 0 1rem 0;
+  margin: 1.6rem 0 1.6rem 0;
 }
 
 .file-drop-container {
   margin: 0;
   @include media-breakpoint-up(sm) {
-    margin: 2rem 0 0rem 0rem;
+    margin: 3.2rem 0 0rem 0rem;
   }
 }

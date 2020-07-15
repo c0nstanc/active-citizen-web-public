@@ -1,14 +1,14 @@
-@import "variables/main";
+@import "variables/base";
 
 ::ng-deep .mat-menu-content {
   min-width: 220px;
 }
 
 .mat-menu-item {
-  padding-left: 1.5rem;
-  font-size: 1rem;
-  line-height: $body-line-height;
-  height: 2.5rem;
+  padding-left: 2.4rem;
+  font-size: 1.6rem;
+  line-height: $base-line-height;
+  height: 4rem;
   font-weight: 400;
 }
 

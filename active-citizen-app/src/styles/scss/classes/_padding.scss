@@ -1,0 +1,159 @@
+.padding-bottom-xl {
+  @include padding-bottom-xl;
+}
+.padding-bottom-lg {
+  @include padding-bottom-lg;
+}
+.padding-bottom-md {
+  @include padding-bottom-md;
+}
+.padding-bottom-sm {
+  @include padding-bottom-sm;
+}
+.padding-bottom-xs {
+  @include padding-bottom-xs;
+}
+.padding-bottom-2xs {
+  @include padding-bottom-2xs;
+}
+.padding-bottom-3xs {
+  @include padding-bottom-3xs;
+}
+.padding-bottom-4xs {
+  @include padding-bottom-4xs;
+}
+
+.padding-top-xl {
+  @include padding-top-xl;
+}
+.padding-top-lg {
+  @include padding-top-lg;
+}
+.padding-top-md {
+  @include padding-top-md;
+}
+.padding-top-sm {
+  @include padding-top-sm;
+}
+.padding-top-xs {
+  @include padding-top-xs;
+}
+.padding-top-2xs {
+  @include padding-top-2xs;
+}
+.padding-top-3xs {
+  @include padding-top-3xs;
+}
+.padding-top-4xs {
+  @include padding-top-4xs;
+}
+
+.padding-left-xl {
+  @include padding-left-xl;
+}
+.padding-left-lg {
+  @include padding-left-lg;
+}
+.padding-left-md {
+  @include padding-left-md;
+}
+.padding-left-sm {
+  @include padding-left-sm;
+}
+.padding-left-xs {
+  @include padding-left-xs;
+}
+.padding-left-2xs {
+  @include padding-left-2xs;
+}
+.padding-left-3xs {
+  @include padding-left-3xs;
+}
+.padding-left-4xs {
+  @include padding-left-4xs;
+}
+
+.padding-right-xl,
+.pr-xl {
+  @include padding-right-xl;
+}
+.padding-right-lg,
+.pr-lg {
+  @include padding-right-lg;
+}
+.padding-right-md,
+.pr-md {
+  @include padding-right-md;
+}
+.padding-right-sm,
+.pr-sm {
+  @include padding-right-sm;
+}
+.padding-right-xs,
+.pr-xs {
+  @include padding-right-xs;
+}
+.padding-right-2xs,
+.pr-2xs {
+  @include padding-right-2xs;
+}
+.padding-right-3xs,
+.pr-3xs {
+  @include padding-right-3xs;
+}
+.padding-right-4xs,
+.pr-4xs {
+  @include padding-right-4xs;
+}
+
+.padding-xl,
+.p-xl {
+  @include padding-xl;
+}
+.padding-lg,
+.p-lg {
+  @include padding-lg;
+}
+.padding-md,
+.p-md {
+  @include padding-md;
+}
+.padding-sm,
+.p-sm {
+  @include padding-sm;
+}
+.padding-xs,
+.p-xs {
+  @include padding-xs;
+}
+.padding-2xs,
+.p-2xs {
+  @include padding-2xs;
+}
+.padding-3xs,
+.p-3xs {
+  @include padding-3xs;
+}
+.padding-3xs,
+.p-3xs {
+  @include padding-4xs;
+}
+
+.padding-top-0 {
+  padding-top: 0px;
+}
+.padding-bottom-0 {
+  padding-bottom: 0px;
+}
+
+.padding-right-0 {
+  padding-right: 0px;
+}
+
+.padding-left-0 {
+  padding-left: 0px;
+}
+
+.padding-0 {
+  padding: 0;
+}

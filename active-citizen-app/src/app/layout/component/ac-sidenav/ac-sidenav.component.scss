@@ -1,4 +1,5 @@
-@import "variables/main";
+@import "variables/sidenav";
+@import "variables/header";
 @import "mixins/media";
 
 mat-sidenav-container {
@@ -25,5 +26,5 @@ mat-expansion-panel {
 }
 
 .nav-item {
-  font-size: 0.875rem !important;
+  font-size: 1.4rem !important;
 }

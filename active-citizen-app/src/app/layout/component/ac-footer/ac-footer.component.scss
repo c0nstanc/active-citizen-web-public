@@ -1,4 +1,4 @@
-@import "variables/main";
+@import "variables/footer";
 @import "mixins/flex";
 @import "mixins/media";
 
@@ -8,7 +8,7 @@
   @include flex-direction(row);
   @include align-items(center);
   @include justify-content(center);
-  padding: 1rem;
+  padding: 1.6rem;
 
   @include media-breakpoint-up(sm) {
     @include justify-content(space-between);
@@ -27,7 +27,7 @@
     @include align-items(center);
 
     .footer-content-item {
-      margin-top: 0.25rem;
+      margin-top: 0.4rem;
     }
   }
 }

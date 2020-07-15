@@ -1,4 +1,4 @@
-@import "variables/main";
+@import "variables/content";
 @import "mixins/media";
 
 #content {
@@ -18,11 +18,11 @@
   margin-left: 0;
   margin-right: 0;
   margin-top: 0 !important;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
   @include media-breakpoint-up(sm) {
-    margin-top: 2rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin-top: 3.2rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
   }
 }

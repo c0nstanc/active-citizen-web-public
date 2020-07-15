@@ -1,0 +1,19 @@
+@import "footer";
+@import "header";
+
+// Content
+$app-content-margin-top: 3.2rem;
+$app-content-padding-bottom: 4.8rem;
+$app-content-min-height-sm: calc(
+  100vh -
+    calc(
+      #{$app-header-height-sm} + #{$app-footer-height} + 1.6rem
+    )
+);
+$app-content-min-height-md: calc(
+  100vh - calc(#{$app-header-height} + #{$app-footer-height})
+);
+
+$app-content-min-height-lg: calc(
+  100vh - calc(#{$app-header-height} + #{$app-footer-height})
+);
