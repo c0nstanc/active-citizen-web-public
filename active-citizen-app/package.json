@@ -12,7 +12,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "analyze": "webpack-bundle-analyzer dist/wizard-motorcycle/stats-es2015.json -p 14200"
-
   },
   "private": true,
   "dependencies": {
@@ -42,6 +41,7 @@
     "immutable": "^4.0.0-rc.12",
     "jquery": "^3.5.1",
     "material-design-icons": "^3.0.1",
+    "moment-timezone": "^0.5.31",
     "ngx-logger": "^4.1.9",
     "ngx-spinner": "^9.0.2",
     "popper.js": "^1.16.1",

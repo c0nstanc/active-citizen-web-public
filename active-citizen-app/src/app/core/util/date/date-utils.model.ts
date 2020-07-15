@@ -1,5 +1,4 @@
-import * as moment from 'moment';
-import { error } from 'protractor';
+import * as moment from 'moment-timezone';
 export class DateUtils {
 
   // https://hclleapwiki.atlassian.net/wiki/spaces/HL/pages/33025/JavaScript+Functions+for+Date+Fields
@@ -18,8 +17,12 @@ export class DateUtils {
     }
   }
 
+  static calculateEndDateInclusive(startDate: Date, duration: number): Date {
+    return this.calculateEndDate(startDate, duration - 1);
+  }
+
   static calculateEndDate(startDate: Date, duration: number): Date {
-    return moment(startDate).add(duration - 1, 'days').toDate();
+    return moment(startDate).add(duration, 'days').toDate();
   }
 
   static toMoment(date: Date): moment.Moment {
@@ -39,7 +42,6 @@ export class DateUtils {
   }
 
   private static calculateDurationInDays(startDate: Date, endDate: Date): number {
-    const diff = Math.abs(startDate.getTime() - endDate.getTime());
-    return Math.ceil(diff / (1000 * 3600 * 24));
+    return moment(this.toEETString(endDate), 'YYYY-MM-DD').diff(moment(this.toEETString(startDate), 'YYYY-MM-DD'), 'days');
   }
 }

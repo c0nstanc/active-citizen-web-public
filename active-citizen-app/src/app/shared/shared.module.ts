@@ -100,6 +100,7 @@ import { CardComponent } from './component/card/card.component';
 import { AutocompleteSelectComponent } from './component/autocomplete-select/autocomplete-select.component';
 import { TextAreaComponent } from './component/text-area/text-area.component';
 import { WindowBeforeunloadComponent } from './component/window-beforeunload/window-beforeunload.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -157,6 +158,7 @@ import { WindowBeforeunloadComponent } from './component/window-beforeunload/win
     MaterialModule,
     NgbModule,
     FontAwesomeModule,
+    NgxSpinnerModule,
 
     // Components
     FormErrorMessageComponent,
